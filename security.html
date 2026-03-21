@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.pages.dev/security.html" />
+  <meta property="og:title" content="セキュリティへの取り組み — PromnyAI" />
+  <meta property="og:description" content="Google Cloud基盤、Stripe決済、通信暗号化、AI処理のプライバシー保護。法人利用に必要なセキュリティ対策を実施。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://promnyai.pages.dev/security.html" />
+  <meta property="og:image" content="https://promnyai.pages.dev/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>セキュリティへの取り組み — PromnyAI</title>
+  <meta name="description" content="PromnyAIのセキュリティへの取り組み。Google Cloud基盤、PCI DSS Level 1認定のStripe決済、通信暗号化、AI処理のプライバシー保護など、法人利用に必要なセキュリティ対策を実施しています。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+
+  <!-- ========== ヘッダー ========== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-7" />
+          <span class="text-[8px] sm:text-[10px] text-gray-400 pl-1 sm:pl-2 ml-0.5 sm:ml-1">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="/#pricing" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/">ログイン</a>
+          <a href="/#pricing" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== メインコンテンツ ========== -->
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+      <!-- イントロ -->
+      <div class="fade-in text-center mb-16">
+        <span class="section-label">Security</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">セキュリティへの取り組み</h1>
+        <p class="mt-4 text-sm text-gray-500 max-w-lg mx-auto leading-relaxed">
+          お客様の大切なデータを安全に保管・処理するために、<br class="hidden sm:block" />
+          複数のセキュリティ対策を実施しています。<br />
+          法人としても安心してチーム全体でご利用いただける環境です。
+        </p>
+      </div>
+
+      <!-- ========== セキュリティ対策 6項目 ========== -->
+      <div class="grid sm:grid-cols-2 gap-6 mb-20">
+
+        <!-- 1. 通信の暗号化 -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">lock</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">通信の暗号化</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">すべての通信はTLS 1.2以上により暗号化されています。ブラウザ・サーバー間、サーバー・データベース間のデータ転送は第三者に傍受されることなく安全に行われます。古いTLSバージョンのリクエストは自動的にブロックされます。</p>
+        </div>
+
+        <!-- 2. データ保管 -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">dns</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">データ保管</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">データはGoogle Cloud 東京リージョン（asia-northeast1）に保管されます。保存データはAES-256で暗号化され、転送時もTLSで保護。Google Cloudの多層暗号化アーキテクチャにより、高いセキュリティ基準で管理されています。</p>
+        </div>
+
+        <!-- 3. テナント分離 -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">shield</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">テナント分離</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">企業ごとにデータは完全に分離されています。他企業のチャット履歴や生成データへのアクセスは、システム設計上不可能です。すべてのクエリにテナントIDフィルタを適用しています。</p>
+        </div>
+
+        <!-- 4. AI処理のプライバシー -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">visibility_off</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">AI処理のプライバシー</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">お客様のデータはAIモデルの学習用に利用されることはありません。AIへの送信は応答生成の目的のみに限定されており、処理後のデータはモデル側に保持されません。</p>
+        </div>
+
+        <!-- 5. データ削除 -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">delete_sweep</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">データ削除</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">アカウント削除時には、チャット履歴・生成データ・ファイルなどすべてのデータを完全に削除します。バックアップデータも所定期間内に消去されます。</p>
+        </div>
+
+        <!-- 6. 認証・アクセス制御 -->
+        <div class="fade-in card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+            <span class="material-icons-outlined text-emerald-500">admin_panel_settings</span>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">認証・アクセス制御</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">パスワードはハッシュ化して保管。管理画面へのアクセスはメール認証により保護されています。管理者とユーザーの権限を分離し、適切なアクセス制御を実現しています。</p>
+        </div>
+
+      </div>
+
+      <!-- ========== 利用インフラの安全性 ========== -->
+      <div class="fade-in mb-20">
+        <div class="text-center mb-10">
+          <span class="section-label">Infrastructure</span>
+          <h2 class="mt-4 text-2xl sm:text-3xl font-bold text-gray-900">利用インフラの安全性</h2>
+          <p class="mt-3 text-sm text-gray-400">PromnyAIが利用する外部サービスは、いずれも国際的なセキュリティ基準を満たしています。</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+
+          <!-- Google Cloud -->
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
+                <span class="text-sm font-bold text-blue-600">G</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-sm">Google Cloud</h3>
+                <p class="text-[10px] text-gray-400">サーバーインフラ</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                SOC 1 / SOC 2 Type II / SOC 3 認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                ISO/IEC 27001 / 27017 / 27018 / 27701 認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                東京リージョン（asia-northeast1）でデータ保管
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                保存時AES-256暗号化・転送時TLS暗号化がデフォルト適用
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dify -->
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
+                <span class="text-sm font-bold text-indigo-600">D</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-sm">Dify</h3>
+                <p class="text-[10px] text-gray-400">AIアプリケーション基盤</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                SOC 2 Type I / Type II 認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                ISO 27001:2022 認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                GDPR準拠・ロールベースのアクセス制御
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                全アクセス履歴のログ記録・自動バックアップ
+              </li>
+            </ul>
+          </div>
+
+          <!-- Stripe -->
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
+                <span class="text-sm font-bold text-purple-600">S</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-sm">Stripe</h3>
+                <p class="text-[10px] text-gray-400">決済システム</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                PCI DSS Level 1認定（決済業界最高レベル）
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                SOC 1 / SOC 2 Type II 認証取得、ISO 27001認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                カード情報の非保持化（Stripe Elementsによるトークナイゼーション）
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                カード番号はAES-256で暗号化、復号鍵は隔離された専用サーバーで管理
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                3Dセキュア 2.0対応（日本の規制要件に準拠）
+              </li>
+            </ul>
+          </div>
+
+          <!-- LLMプロバイダー -->
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-gray-200 shadow-sm">
+                <span class="material-icons-outlined text-emerald-500 text-[20px]">smart_toy</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-sm">LLMプロバイダー</h3>
+                <p class="text-[10px] text-gray-400">OpenAI / Anthropic / Google</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                全プロバイダーがSOC 2 Type II認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                API経由のデータはモデル学習に不使用
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                OpenAI・Anthropic：ISO 27001認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                処理後のデータはプロバイダー側に保持されません
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="mt-6 bg-gray-50 rounded-xl p-4 border border-gray-100">
+          <p class="text-[11px] text-gray-400 text-center leading-relaxed">
+            <span class="font-medium text-gray-500">ご注意：</span>本ページに記載のセキュリティ認証（SOC 2、ISO 27001、PCI DSS等）は、各サービスプロバイダーが取得・準拠しているものであり、PromnyAIが直接取得したものではありません。PromnyAIはこれらの認証を取得したインフラ上で運用されることで、高いセキュリティ水準を実現しています。各認証の詳細は、各サービスの公式セキュリティページをご確認ください。
+          </p>
+        </div>
+      </div>
+
+      <!-- ========== お問い合わせ ========== -->
+      <div class="fade-in text-center">
+        <div class="bg-[#e8f1fc] rounded-2xl p-8 sm:p-10 border border-emerald-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-2">セキュリティに関するお問い合わせ</h2>
+          <p class="text-sm text-gray-500 mb-6">セキュリティに関するご質問やご要望がございましたら、<br class="hidden sm:block" />お気軽にお問い合わせください。</p>
+          <p class="text-sm text-gray-700 font-medium mb-4">株式会社i-Style</p>
+          <a href="mailto:support@i-styleinc.com" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
+            お問い合わせ
+            <span class="material-icons-outlined ml-2 text-[18px]">mail</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========== フッター ========== -->
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/" class="hover:text-emerald-600 transition-colors">トップページ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
