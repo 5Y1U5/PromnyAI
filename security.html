@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="canonical" href="https://promnyai.pages.dev/security.html" />
+  <link rel="canonical" href="https://promnyai.i-styleinc.com/security.html" />
   <meta property="og:title" content="セキュリティへの取り組み — PromnyAI" />
   <meta property="og:description" content="Google Cloud基盤、Stripe決済、通信暗号化、AI処理のプライバシー保護。法人利用に必要なセキュリティ対策を実施。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://promnyai.pages.dev/security.html" />
-  <meta property="og:image" content="https://promnyai.pages.dev/promnyai-logo.png" />
+  <meta property="og:url" content="https://promnyai.i-styleinc.com/security.html" />
+  <meta property="og:image" content="https://promnyai.i-styleinc.com/promnyai-logo.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@promnyai" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,9 +26,9 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="/" class="flex items-center gap-2">
-          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-7" />
-          <span class="text-[8px] sm:text-[10px] text-gray-400 pl-1 sm:pl-2 ml-0.5 sm:ml-1">プロムニーエーアイ</span>
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
         </a>
         <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
           <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
@@ -47,14 +47,14 @@
           <span class="material-icons-outlined text-[28px]">menu</span>
         </button>
       </div>
-      <div id="mobile-menu" class="mobile-menu lg:hidden">
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
         <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
           <a href="/#features">機能紹介</a>
           <a href="/#services">サービス</a>
           <a href="/#pricing">料金プラン</a>
           <a href="/contact.html">お問い合わせ</a>
           <hr class="border-gray-100" />
-          <a href="https://promnyai.jp/">ログイン</a>
+          <a href="https://promnyai.jp/" class="text-center">ログイン</a>
           <a href="/#pricing" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
         </nav>
       </div>
@@ -85,7 +85,7 @@
             <span class="material-icons-outlined text-emerald-500">lock</span>
           </div>
           <h3 class="font-bold text-gray-900 mb-2">通信の暗号化</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">すべての通信はTLS 1.2以上により暗号化されています。ブラウザ・サーバー間、サーバー・データベース間のデータ転送は第三者に傍受されることなく安全に行われます。古いTLSバージョンのリクエストは自動的にブロックされます。</p>
+          <p class="text-sm text-gray-500 leading-relaxed">すべての通信はTLS（SSL）により暗号化されています。ブラウザ・サーバー間、サーバー・データベース間のデータ転送は第三者に傍受されることなく安全に行われます。</p>
         </div>
 
         <!-- 2. データ保管 -->
@@ -288,9 +288,9 @@
           <h2 class="text-xl font-bold text-gray-900 mb-2">セキュリティに関するお問い合わせ</h2>
           <p class="text-sm text-gray-500 mb-6">セキュリティに関するご質問やご要望がございましたら、<br class="hidden sm:block" />お気軽にお問い合わせください。</p>
           <p class="text-sm text-gray-700 font-medium mb-4">株式会社i-Style</p>
-          <a href="mailto:support@i-styleinc.com" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
-            お問い合わせ
-            <span class="material-icons-outlined ml-2 text-[18px]">mail</span>
+          <a href="/contact.html" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
+            お問い合わせフォーム
+            <span class="material-icons-outlined ml-2 text-[18px]">open_in_new</span>
           </a>
         </div>
       </div>
@@ -308,11 +308,23 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
         </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
       </div>
       <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
         <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
         <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
-        <a href="/" class="hover:text-emerald-600 transition-colors">トップページ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="https://promnyai.pages.dev/contact" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
       </nav>
       <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
     </div>
