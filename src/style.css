@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@theme {
+  /* ベースカラー: #097ADB */
+  --color-emerald-50: #e8f1fc;
+  --color-emerald-100: #c8dff8;
+  --color-emerald-200: #93bff1;
+  --color-emerald-300: #5a9de8;
+  --color-emerald-400: #2e8ae1;
+  --color-emerald-500: #097adb;
+  --color-emerald-600: #0766b8;
+  --color-emerald-700: #065395;
+  --color-emerald-800: #043f72;
+  --color-emerald-900: #032c50;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* ========================================
+   スクロールアニメーション
+   ======================================== */
+
+/* フェードイン（上方向） */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* スケールアップ（見出し用） */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 左からスライドイン */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 右からスライドイン */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* スタガー（順番に出現） */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+.stagger-7 { transition-delay: 0.7s; }
+.stagger-8 { transition-delay: 0.8s; }
+.stagger-9 { transition-delay: 0.9s; }
+
+/* プログレスバーアニメーション */
+.progress-bar {
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.progress-bar.visible {
+  /* JSでdata-widthの値をwidthに設定 */
+}
+
+/* CTAパルスアニメーション */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(9, 122, 219, 0.4); }
+  50% { box-shadow: 0 0 20px 8px rgba(9, 122, 219, 0.15); }
+}
+.cta-pulse {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* カウントアップ用（JSで制御） */
+.count-up {
+  display: inline-block;
+}
+
+/* ========================================
+   カードホバー
+   ======================================== */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(9, 122, 219, 0.15);
+}
+
+/* ========================================
+   モバイルメニュー
+   ======================================== */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.mobile-menu.open {
+  max-height: 600px;
+}
+
+/* モバイルメニュー開閉時のヘッダー背景 */
+@media (max-width: 639px) {
+  header:has(.mobile-menu.open) {
+    background: white !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* ========================================
+   FAQ アコーディオン
+   ======================================== */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
+
+/* ========================================
+   セクションタイトル装飾
+   ======================================== */
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0766b8;
+  border: 1px solid #93bff1;
+  border-radius: 9999px;
+  padding: 0.25rem 1rem;
+  background: #e8f1fc;
+}
+
+/* ========================================
+   プランカード人気バッジ
+   ======================================== */
+.plan-popular {
+  position: relative;
+}
+.plan-popular::before {
+  content: "人気";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #0766b8, #097adb);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 1.25rem;
+  border-radius: 9999px;
+}
+
+/* ========================================
+   ステップ番号
+   ======================================== */
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.125rem;
+  background: linear-gradient(135deg, #0766b8, #097adb);
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ヒーロー背景オーブ: 常時ゆらゆら + マウス反応 */
+@keyframes orb-float-1 {
+  0% { top: -5%; left: 60%; }
+  25% { top: 15%; left: 75%; }
+  50% { top: -10%; left: 40%; }
+  75% { top: 20%; left: 65%; }
+  100% { top: -5%; left: 60%; }
+}
+@keyframes orb-float-2 {
+  0% { top: 50%; left: 5%; }
+  25% { top: 30%; left: -10%; }
+  50% { top: 60%; left: 20%; }
+  75% { top: 35%; left: 0%; }
+  100% { top: 50%; left: 5%; }
+}
+@keyframes orb-float-3 {
+  0% { top: 20%; left: 30%; }
+  33% { top: 5%; left: 55%; }
+  66% { top: 35%; left: 15%; }
+  100% { top: 20%; left: 30%; }
+}
+
+#hero-glow-1 {
+  background: radial-gradient(circle, rgba(9,122,219,0.4) 0%, transparent 70%);
+  top: -5%; left: 60%;
+  animation: orb-float-1 6s ease-in-out infinite;
+}
+#hero-glow-2 {
+  background: radial-gradient(circle, rgba(93,191,241,0.35) 0%, transparent 70%);
+  top: 50%; left: 5%;
+  animation: orb-float-2 8s ease-in-out infinite;
+}
+#hero-glow-3 {
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 60%);
+  top: 20%; left: 30%;
+  animation: orb-float-3 10s ease-in-out infinite;
+}
+
+.hero-orb {
+  will-change: top, left;
+  transition: left 1.2s ease-out, top 1.2s ease-out;
+}
+
+/* マウス/タッチ追従時はCSSアニメを止めてJSで制御 */
+.hero-orb.js-active {
+  animation: none !important;
+}
+
+/* ========================================
+   ヘッダー背景ブラー
+   ======================================== */
+header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}

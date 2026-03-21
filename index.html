@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.i-styleinc.com/" />
+  <meta property="og:title" content="PromnyAI — チーム全員がAIを使いこなせるプラットフォーム" />
+  <meta property="og:description" content="主要LLM＋業界特化プロンプトが1箇所に。ブログも、口コミ返信も、SNSも。AIで、日常業務を半分にする。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://promnyai.i-styleinc.com/" />
+  <meta property="og:image" content="https://promnyai.i-styleinc.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromnyAI — チーム全員がAIを使いこなせるプラットフォーム</title>
+  <meta name="description" content="主要LLM＋業界特化プロンプトが1箇所に。チーム全員が、誰でも簡単にAIを活用。法人導入に最適なAIプラットフォーム。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+
+  <!-- ========== ヘッダー ========== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-7" />
+          <span class="text-[8px] sm:text-[10px] text-gray-400 pl-1 sm:pl-2 ml-0.5 sm:ml-1">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="#pricing" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="#features">機能紹介</a>
+          <a href="#services">サービス</a>
+          <a href="#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" class="text-center">ログイン</a>
+          <a href="#pricing" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ============================================================ -->
+  <!-- 1. ヒーロー                                                    -->
+  <!-- ============================================================ -->
+  <section id="hero" class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 overflow-hidden">
+    <div class="absolute inset-0 -z-10 hero-bg">
+      <div id="hero-glow-1" class="hero-orb absolute w-[500px] h-[500px] rounded-full"></div>
+      <div id="hero-glow-2" class="hero-orb absolute w-[400px] h-[400px] rounded-full"></div>
+      <div id="hero-glow-3" class="hero-orb absolute w-[350px] h-[350px] rounded-full"></div>
+    </div>
+    <div class="max-w-5xl mx-auto px-2 sm:px-6 text-center">
+      <div class="fade-in">
+        <span class="section-label text-[10px] sm:text-xs">あらゆるビジネスのためのAIプラットフォーム</span>
+      </div>
+      <h1 class="fade-in mt-6 sm:mt-8 text-[24px] sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.4] sm:leading-tight tracking-tight px-1 sm:px-0">
+        ブログも、口コミ返信も、SNSも。<br />
+        <span class="text-emerald-600">AIで、日常業務を半分にする。</span>
+      </h1>
+      <p class="fade-in mt-5 sm:mt-6 text-base sm:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+        人手が足りない日も、忙しい日も。<br />
+        チーム全員がAIを使いこなせば、<br class="sm:hidden" /><span class="font-bold text-gray-700">接客に集中できる時間</span>が生まれます。
+      </p>
+      <div class="fade-in mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#pricing" class="cta-pulse inline-flex items-center px-8 py-3.5 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 hover:shadow-xl hover:shadow-emerald-200">
+          まずはチームで試してみる
+          <span class="material-icons-outlined ml-2 text-[20px]">arrow_forward</span>
+        </a>
+        <a href="#cost" class="inline-flex items-center text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors">
+          どれくらいお得？
+          <span class="material-icons-outlined ml-1 text-[18px]">expand_more</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2. 信頼バー                                                    -->
+  <!-- ============================================================ -->
+  <section class="py-10 sm:py-14 border-y border-gray-100 bg-gray-50/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="text-center">
+          <p class="text-5xl sm:text-6xl font-extrabold text-emerald-600"><span class="count-up" data-count="30">0</span><span class="text-lg font-bold text-gray-400 ml-1">秒</span></p>
+          <p class="text-xs text-gray-500 mt-2">3,000字のブログ記事を生成</p>
+        </div>
+        <div class="text-center">
+          <p class="text-5xl sm:text-6xl font-extrabold text-emerald-600"><span class="count-up" data-count="22">0</span><span class="text-lg font-bold text-gray-400 ml-1">種類</span></p>
+          <p class="text-xs text-gray-500 mt-2">主要LLM + 業界特化AI</p>
+          <p class="text-[9px] text-gray-300 mt-1">※2026年3月時点</p>
+        </div>
+        <div class="text-center">
+          <p class="text-5xl sm:text-6xl font-extrabold text-emerald-600"><span class="count-up" data-count="5">0</span><span class="text-lg font-bold text-gray-400 ml-1">名〜</span></p>
+          <p class="text-xs text-gray-500 mt-2">チーム全員が同じ環境で</p>
+        </div>
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-2">
+            <span class="text-sm font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">SOC 2</span>
+            <span class="text-sm font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-lg">ISO 27001</span>
+          </div>
+          <p class="text-xs text-gray-500 mt-3">利用基盤準拠のセキュリティ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2.5 PromnyAIでできること — ビフォーアフター                        -->
+  <!-- ============================================================ -->
+  <section id="features" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="section-label">What You Can Do</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">毎日の「時間がかかる仕事」、<br class="sm:hidden" />AIが一瞬で。</h2>
+        <p class="fade-in mt-3 text-sm text-gray-500">空いた時間を、もっと大切なことに。</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- ブログ記事作成 -->
+        <div class="fade-in stagger-1 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">edit_note</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">ブログ記事作成</h3>
+        <p class="text-[10px] text-gray-400 mt-0.5">自社ブログ・WordPress・SNS</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">2〜3時間</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">30秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 口コミ返信 -->
+        <div class="fade-in stagger-2 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">reviews</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">口コミ返信</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">専用プロンプト・多言語対応</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">10分</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">10秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- スタイル記事 -->
+        <div class="fade-in stagger-3 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">auto_fix_high</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">スタイル記事</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">写真からブログ・SNS記事を自動生成</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">30分</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">30秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINE配信文 -->
+        <div class="fade-in stagger-4 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">chat</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">LINE配信文</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">キャンペーン・リマインド配信</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">15分</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">15秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- メール返信（スマホ非表示） -->
+        <div class="hidden sm:block fade-in stagger-5 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">mail</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">メール返信</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">取引先・お客様対応をプロ品質で</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">10分</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">15秒</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- チラシ・POP作成（スマホ非表示） -->
+        <div class="hidden sm:block fade-in stagger-6 card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">palette</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">チラシ・POP作成</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">画像生成AIでビジュアル素材を作成</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">外注</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-xl sm:text-xl font-extrabold text-emerald-600 whitespace-nowrap">自分で即</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 情報収集（スマホ非表示） -->
+        <div class="hidden sm:block fade-in card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">search</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">情報収集</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">Perplexityでトレンド・競合リサーチ</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">30分</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-2xl sm:text-xl font-extrabold text-emerald-600">1分</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- なんでも相談（スマホ非表示） -->
+        <div class="hidden sm:block fade-in card-hover bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 sm:text-center">
+          <div class="flex items-center gap-4 sm:block">
+            <div class="flex items-center gap-3 sm:justify-center sm:flex-col shrink-0">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 rounded-xl flex items-center justify-center sm:mx-auto sm:mb-2">
+                <span class="material-icons-outlined text-emerald-500 text-[20px] sm:text-[24px]">hub</span>
+              </div>
+              <div class="sm:text-center">
+                <h3 class="font-bold text-gray-900 text-sm">なんでもAIに相談</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">ChatGPT・Claude・Geminiで対応</p>
+              </div>
+            </div>
+            <div class="ml-auto sm:ml-0 sm:mt-3 flex items-center gap-2 sm:justify-center">
+              <span class="text-sm sm:text-base font-bold text-gray-400 line-through">悩む時間</span>
+              <span class="material-icons-outlined text-emerald-400 text-[14px] sm:text-[16px]">arrow_forward</span>
+              <span class="text-xl sm:text-xl font-extrabold text-emerald-600 whitespace-nowrap">即解決</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- まとめメッセージ -->
+      <div class="fade-in mt-10 text-center">
+        <p class="text-sm text-gray-500">これらすべてが、<span class="font-bold text-emerald-600">1つのプラットフォーム</span>で。<br class="sm:hidden" /><span class="font-bold text-emerald-600">チーム全員</span>が使えます。</p>
+        <a href="#pricing" class="inline-flex items-center mt-6 px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
+          料金プランを見る
+          <span class="material-icons-outlined ml-2 text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2.7 プロンプトライブラリ                                         -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <!-- イラスト -->
+        <div class="hidden md:flex w-full md:w-1/2 justify-center">
+          <div class="relative w-[280px] sm:w-[320px]">
+            <!-- チャット画面風のイラスト -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-lg p-4 sm:p-5">
+              <!-- ヘッダー -->
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-300"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-300"></div>
+                <div class="w-3 h-3 rounded-full bg-green-300"></div>
+                <span class="text-[9px] text-gray-400 ml-2">プロンプトライブラリ</span>
+              </div>
+              <!-- チャット欄 -->
+              <div class="space-y-2 mb-4">
+                <div class="bg-gray-50 rounded-lg p-2"><p class="text-[10px] text-gray-400">新メニューのキャッチコピーを考えて...</p></div>
+                <div class="bg-emerald-50 rounded-lg p-2"><p class="text-[10px] text-emerald-700">承知しました！以下のご提案です...</p></div>
+              </div>
+              <!-- 入力欄（実際のUIに近い形） -->
+              <div class="relative">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl px-3 pt-2 pb-8">
+                  <p class="text-[10px] text-gray-300">メッセージを入力...</p>
+                </div>
+                <!-- 左下：ライブラリアイコン -->
+                <div class="absolute bottom-2 left-3 flex items-center gap-1.5">
+                  <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center animate-pulse cursor-pointer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 9h-2v2H9v-2H7v-2h2V7h2v2h2v2zm0-6V3.5L18.5 9H13z"/></svg>
+                  </div>
+                  <span class="text-[8px] text-emerald-600 font-bold">ライブラリ</span>
+                </div>
+                <!-- 右下：送信ボタン等 -->
+                <div class="absolute bottom-2 right-3 flex items-center gap-1.5">
+                  <div class="w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center"><svg width="10" height="10" viewBox="0 0 24 24" fill="#9ca3af"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg></div>
+                  <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="#097adb"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg></div>
+                </div>
+              </div>
+              <!-- 吹き出し（左下のアイコンから展開） -->
+              <div class="absolute bottom-20 left-4 w-[150px] bg-white border border-emerald-200 rounded-xl p-2.5 shadow-lg">
+                <p class="text-[8px] text-gray-400 mb-1.5 font-medium">よく使うテンプレート</p>
+                <div class="space-y-1">
+                  <div class="bg-emerald-50 rounded-lg px-2 py-1.5 text-[9px] text-emerald-700 font-medium">📝 SEOブログ記事</div>
+                  <div class="bg-emerald-50 rounded-lg px-2 py-1.5 text-[9px] text-emerald-700 font-medium">💬 口コミ返信テンプレ</div>
+                  <div class="bg-emerald-50 rounded-lg px-2 py-1.5 text-[9px] text-emerald-700 font-medium">📣 LINE配信文</div>
+                  <div class="bg-gray-50 rounded-lg px-2 py-1.5 text-[9px] text-gray-500">🌐 コミュニティから探す</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- テキスト -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <span class="section-label">Prompt Library</span>
+          <h2 class="scale-in mt-4 text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
+            プロンプトライブラリ機能
+          </h2>
+          <p class="fade-in mt-2 text-base sm:text-lg font-bold text-emerald-600">「AIへの指示」を考えなくていい。<br class="sm:hidden" />選ぶだけで、すぐ使える。</p>
+          <p class="fade-in mt-4 text-sm text-gray-500 leading-relaxed">
+            チャット入力欄のすぐ横にある「ライブラリ」ボタンを押すだけ。<br class="hidden sm:block" />
+            あらかじめ用意された指示テンプレートを選ぶだけで、すぐにAIが動き出します。
+          </p>
+          <!-- プロンプトの補足 -->
+          <div class="fade-in mt-3 bg-gray-100 rounded-xl px-4 py-2.5 text-left inline-block">
+            <p class="text-[11px] text-gray-500"><span class="font-bold text-gray-700">💡 プロンプトとは？</span> — AIに出す「指示文」のこと。<br class="sm:hidden" />例：「新メニューのキャッチコピーを考えて」のような文章です。</p>
+          </div>
+          <div class="fade-in mt-6 space-y-4">
+            <div class="flex items-start gap-3 text-left">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">bookmark</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">保存してチーム全員で共有</p>
+                <p class="text-xs text-gray-400">よく使う指示テンプレートを保存すれば、チーム全員がワンタップで同じ品質の出力を得られます。</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 text-left">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">public</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">みんなが使っている人気テンプレート</p>
+                <p class="text-xs text-gray-400">PromnyAIユーザー全体で共有されている便利なテンプレートも豊富。選ぶだけですぐに使えます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2.8 画像生成スタジオ                                             -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <!-- テキスト（PCでは左） -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <span class="section-label">Image Studio</span>
+          <h2 class="scale-in mt-4 text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
+            画像生成スタジオ
+          </h2>
+          <p class="fade-in mt-2 text-base sm:text-lg font-bold text-emerald-600">お客様の「なりたい姿」を<br class="sm:hidden" />その場でシミュレーション。</p>
+          <p class="fade-in mt-4 text-sm text-gray-500 leading-relaxed">
+            お客様の写真をアップロードして、髪型や髪色の変更をAIがシミュレーション。<br class="hidden sm:block" />
+            顔はそのまま、「なりたいスタイル」をその場で可視化できます。
+          </p>
+          <div class="fade-in mt-6 space-y-3 text-left">
+            <div class="flex items-start gap-3">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">auto_fix_high</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">カウンセリングが盛り上がる</p>
+                <p class="text-xs text-gray-400">「金髪にしたい」「ボブにしたい」— お客様と一緒にスタイルを試せるから、会話もイメージも広がります。</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">checkroom</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">衣装や背景も自由自在</p>
+                <p class="text-xs text-gray-400">「浴衣を着せて祭りの背景に」といった演出も可能。SNS用のビジュアル素材としても活用できます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Before→After 実例写真（PCでは右） -->
+        <div class="w-full md:w-1/2">
+          <div class="space-y-4">
+            <!-- Before（1枚） -->
+            <div class="text-center">
+              <div class="relative inline-block">
+                <img src="/studio-before.png" alt="Before" class="w-44 sm:w-52 rounded-2xl shadow-lg mx-auto" />
+                <span class="absolute inset-0 flex items-end justify-center pb-3">
+                  <span class="text-sm font-extrabold text-white bg-gray-900/70 px-4 py-1.5 rounded-full tracking-wide">BEFORE</span>
+                </span>
+              </div>
+            </div>
+            <!-- 矢印 -->
+            <div class="text-center">
+              <span class="material-icons-outlined text-emerald-500 text-[56px] font-black">arrow_downward</span>
+            </div>
+            <!-- After 2枚並べ -->
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg border-2 border-emerald-400">
+                  <img src="/studio-after1.png" alt="After: 金髪に変更" class="w-full block" />
+                  <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-extrabold text-white bg-emerald-500/90 px-3 py-1 rounded-full">AFTER ✨</span>
+                </div>
+                <p class="text-center text-[11px] text-gray-500 font-medium mt-2">💇 「金髪にしたい」</p>
+              </div>
+              <div>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg border-2 border-emerald-400">
+                  <img src="/studio-after2.png" alt="After: 浴衣+祭り背景" class="w-full block" />
+                  <span class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-extrabold text-white bg-emerald-500/90 px-3 py-1 rounded-full">AFTER ✨</span>
+                </div>
+                <p class="text-center text-[11px] text-gray-500 font-medium mt-2">👘 「浴衣で祭りへ」</p>
+              </div>
+            </div>
+            <p class="text-center text-[9px] text-gray-300">※画像はAIによる生成イメージです</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2.9 カウンセリングAI                                             -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-24 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <!-- イラスト（PCでは左） -->
+        <div class="hidden md:flex w-full md:w-1/2 justify-center">
+          <div class="relative w-[280px] sm:w-[320px]">
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-lg p-5">
+              <!-- ヘッダー -->
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-300"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-300"></div>
+                <div class="w-3 h-3 rounded-full bg-green-300"></div>
+                <span class="text-[9px] text-gray-400 ml-2">カウンセリングAI</span>
+              </div>
+              <!-- チャットのやり取り -->
+              <div class="space-y-3">
+                <div class="flex items-start gap-2">
+                  <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-500 text-[14px]">smart_toy</span></div>
+                  <div class="bg-emerald-50 rounded-xl rounded-tl-none px-3 py-2"><p class="text-[10px] text-emerald-700">本日のご来店ありがとうございます。どのようなスタイルをお考えですか？</p></div>
+                </div>
+                <div class="flex items-start gap-2 justify-end">
+                  <div class="bg-gray-100 rounded-xl rounded-tr-none px-3 py-2"><p class="text-[10px] text-gray-600">髪色を少し明るくしたいのと、毛先のパサつきが気になっています</p></div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-500 text-[14px]">smart_toy</span></div>
+                  <div class="bg-emerald-50 rounded-xl rounded-tl-none px-3 py-2"><p class="text-[10px] text-emerald-700">承知しました！カラーとトリートメントの組み合わせをご提案しますね ✨</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- テキスト（PCでは右） -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <span class="section-label">Counseling AI</span>
+          <h2 class="scale-in mt-4 text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
+            カウンセリングAI
+          </h2>
+          <p class="fade-in mt-2 text-base sm:text-lg font-bold text-emerald-600">来店前にお客様の要望を<br class="sm:hidden" />AIがヒアリング。</p>
+          <p class="fade-in mt-4 text-sm text-gray-500 leading-relaxed">
+            お客様がオンラインで事前にカウンセリングを受けられるAI機能。来店時にはすでに要望が整理されているので、スムーズに施術に入れます。
+          </p>
+          <div class="fade-in mt-6 space-y-3 text-left">
+            <div class="flex items-start gap-3">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">schedule</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">人手不足をカバー</p>
+                <p class="text-xs text-gray-400">忙しい時間帯でもAIが事前ヒアリングを代行。スタッフの負担を軽減します。</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">favorite</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">お客様の要望を的確に把握</p>
+                <p class="text-xs text-gray-400">事前にヒアリングした内容をもとに施術できるので、満足度もアップ。</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-icons-outlined text-emerald-500 text-[20px] mt-0.5 shrink-0">translate</span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">多言語対応でインバウンドにも</p>
+                <p class="text-xs text-gray-400">英語・中国語・韓国語にも対応。外国人のお客様の要望も事前にしっかり聞き取れるので、インバウンド集客にも活用いただけます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 3. お悩み（経営者の本音）                                        -->
+  <!-- ============================================================ -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Pain Points</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">こんな風に思っていませんか？</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="fade-in stagger-1 card-hover bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm">
+          <!-- 1人だけがAIを使っている人々のイラスト -->
+          <svg class="mx-auto mb-4" width="120" height="56" viewBox="0 0 120 56" fill="none">
+            <circle cx="24" cy="20" r="10" fill="#097adb" opacity="0.9"/><circle cx="24" cy="12" r="6" fill="#097adb" opacity="0.9"/>
+            <circle cx="48" cy="20" r="10" fill="#e5e7eb" opacity="0.5"/><circle cx="48" cy="12" r="6" fill="#e5e7eb" opacity="0.5"/>
+            <circle cx="72" cy="20" r="10" fill="#e5e7eb" opacity="0.5"/><circle cx="72" cy="12" r="6" fill="#e5e7eb" opacity="0.5"/>
+            <circle cx="96" cy="20" r="10" fill="#e5e7eb" opacity="0.5"/><circle cx="96" cy="12" r="6" fill="#e5e7eb" opacity="0.5"/>
+            <text x="24" y="46" text-anchor="middle" fill="#097adb" font-size="8" font-weight="bold">AI</text>
+            <text x="48" y="46" text-anchor="middle" fill="#d1d5db" font-size="8">?</text>
+            <text x="72" y="46" text-anchor="middle" fill="#d1d5db" font-size="8">?</text>
+            <text x="96" y="46" text-anchor="middle" fill="#d1d5db" font-size="8">?</text>
+          </svg>
+          <p class="text-xl sm:text-lg font-extrabold text-gray-900 leading-snug">「AIって結局、<br class="sm:hidden" />使いこなせる人だけの<br class="sm:hidden" />ものでしょ？」</p>
+          <p class="text-sm sm:text-xs text-gray-400 mt-3 leading-relaxed">スタッフ全員に浸透させるのは無理だと思っている。詳しい人が1人いても、チーム全体の生産性は変わらない。</p>
+          <div class="mt-4 flex items-start gap-2 bg-emerald-50 rounded-xl p-3">
+            <span class="material-icons-outlined text-emerald-500 text-[18px] mt-0.5 shrink-0">arrow_forward</span>
+            <span class="text-sm sm:text-xs text-emerald-700 font-medium leading-relaxed">PromnyAIなら、選んで入力するだけ。全員が初日から使えます。</span>
+          </div>
+        </div>
+        <div class="fade-in stagger-2 card-hover bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm">
+          <!-- コストが積み上がるイラスト -->
+          <svg class="mx-auto mb-4" width="120" height="56" viewBox="0 0 120 56" fill="none">
+            <rect x="10" y="36" width="20" height="16" rx="2" fill="#93bff1"/>
+            <rect x="35" y="26" width="20" height="26" rx="2" fill="#5a9de8"/>
+            <rect x="60" y="16" width="20" height="36" rx="2" fill="#097adb"/>
+            <rect x="85" y="6" width="20" height="46" rx="2" fill="#0766b8"/>
+            <text x="95" y="30" text-anchor="middle" fill="white" font-size="9" font-weight="bold">¥</text>
+            <path d="M15 34l25-10 25-10 25-10" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3" opacity="0.5"/>
+          </svg>
+          <p class="text-xl sm:text-lg font-extrabold text-gray-900 leading-snug">「毎月のAI契約、<br class="sm:hidden" />高くない？」</p>
+          <p class="text-sm sm:text-xs text-gray-400 mt-3 leading-relaxed">ChatGPTもClaudeもGeminiも必要。でも全員分を個別に契約したら、月額がどんどん膨らんでいく。</p>
+          <div class="mt-4 flex items-start gap-2 bg-emerald-50 rounded-xl p-3">
+            <span class="material-icons-outlined text-emerald-500 text-[18px] mt-0.5 shrink-0">arrow_forward</span>
+            <span class="text-sm sm:text-xs text-emerald-700 font-medium leading-relaxed">全LLMが1契約に。個別契約比で約80%のコスト削減。</span>
+          </div>
+        </div>
+        <div class="fade-in stagger-3 card-hover bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm">
+          <!-- サロンとAIが噛み合わないイラスト -->
+          <svg class="mx-auto mb-4" width="120" height="56" viewBox="0 0 120 56" fill="none">
+            <rect x="8" y="10" width="40" height="36" rx="6" fill="#e8f1fc" stroke="#93bff1" stroke-width="1.5"/>
+            <text x="28" y="32" text-anchor="middle" fill="#097adb" font-size="10" font-weight="bold">AI</text>
+            <path d="M52 28h16" stroke="#d1d5db" stroke-width="2" stroke-dasharray="3 3"/>
+            <text x="60" y="24" text-anchor="middle" fill="#d1d5db" font-size="14">?</text>
+            <rect x="72" y="10" width="40" height="36" rx="6" fill="#e8f1fc" stroke="#93bff1" stroke-width="1.5"/>
+            <path d="M82 22h20M82 28h14M82 34h18" stroke="#93bff1" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="92" y="18" text-anchor="middle" fill="#097adb" font-size="7">業務</text>
+          </svg>
+          <p class="text-xl sm:text-lg font-extrabold text-gray-900 leading-snug">「うちの業務に<br class="sm:hidden" />本当に使えるの？」</p>
+          <p class="text-sm sm:text-xs text-gray-400 mt-3 leading-relaxed">汎用的なAIでは、ブログも口コミ返信もうまくいかなかった。自社の業務にフィットするか疑問。</p>
+          <div class="mt-4 flex items-start gap-2 bg-emerald-50 rounded-xl p-3">
+            <span class="material-icons-outlined text-emerald-500 text-[18px] mt-0.5 shrink-0">arrow_forward</span>
+            <span class="text-sm sm:text-xs text-emerald-700 font-medium leading-relaxed">業界特化のプロンプトが組み込まれたAI。日常業務に直結します。</span>
+          </div>
+        </div>
+        <div class="fade-in stagger-4 card-hover bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm">
+          <!-- ツールが放置されているイラスト -->
+          <svg class="mx-auto mb-4" width="120" height="56" viewBox="0 0 120 56" fill="none">
+            <rect x="20" y="8" width="80" height="40" rx="6" fill="#e8f1fc" stroke="#93bff1" stroke-width="1.5"/>
+            <rect x="30" y="16" width="24" height="6" rx="2" fill="#93bff1"/>
+            <rect x="30" y="26" width="16" height="6" rx="2" fill="#c8dff8"/>
+            <rect x="30" y="36" width="20" height="6" rx="2" fill="#c8dff8"/>
+            <path d="M75 20l8 8M83 20l-8 8" stroke="#ef4444" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+            <text x="78" y="44" text-anchor="middle" fill="#d1d5db" font-size="7">未使用</text>
+          </svg>
+          <p class="text-xl sm:text-lg font-extrabold text-gray-900 leading-snug">「導入しても使われなかったら<br class="sm:hidden" />意味ないし…」</p>
+          <p class="text-sm sm:text-xs text-gray-400 mt-3 leading-relaxed">過去にツールを導入したけど、結局現場で定着しなかった。また同じことになるのでは。</p>
+          <div class="mt-4 flex items-start gap-2 bg-emerald-50 rounded-xl p-3">
+            <span class="material-icons-outlined text-emerald-500 text-[18px] mt-0.5 shrink-0">arrow_forward</span>
+            <span class="text-sm sm:text-xs text-emerald-700 font-medium leading-relaxed">プロンプト不要で迷わない設計。管理画面で利用状況も把握できます。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4.（削除済み） -->
+
+
+  <!-- ============================================================ -->
+  <!-- 5. なぜチーム導入が必要なのか                                    -->
+  <!-- ============================================================ -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Why Team</span>
+        <h2 class="scale-in mt-4 text-xl sm:text-3xl font-bold text-gray-900">世界は「AI First」へ。<br />1人の活用では、<br class="sm:hidden" />もう間に合わない。</h2>
+      </div>
+
+      <!-- 時代の潮流 -->
+      <div class="fade-in bg-white rounded-2xl border border-gray-100 shadow-sm p-3 sm:p-8 mb-10">
+        <p class="text-xs font-bold text-gray-400 mb-5 text-center tracking-widest">いま、企業で起きていること</p>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div class="bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">ソフトバンク</p>
+            <p class="text-[10px] text-gray-400 mb-2">日本</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">2万人<span class="text-xs font-normal text-gray-500 ml-1">全員にAI義務化</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">90万個のAIエージェントが誕生</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: 日本経済新聞 2025年7月</p>
+          </div>
+          <div class="hidden sm:block bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">Shopify</p>
+            <p class="text-[10px] text-gray-400 mb-2">カナダ</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">全社員<span class="text-xs font-normal text-gray-500 ml-1">にAI使用義務化</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">人事評価にもAI活用度を反映</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: TechCrunch 2025年4月</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">パナソニック</p>
+            <p class="text-[10px] text-gray-400 mb-2">日本</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">44.8万h<span class="text-xs font-normal text-gray-500 ml-1">の業務削減</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">全社員11,600人にAI展開</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: Panasonic Newsroom 2025年7月</p>
+          </div>
+          <div class="hidden sm:block bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">Duolingo</p>
+            <p class="text-[10px] text-gray-400 mb-2">アメリカ</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">AI First<span class="text-xs font-normal text-gray-500 ml-1">宣言</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">全タスクをAIから始めることを義務化</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: AI Magazine 2025年4月</p>
+          </div>
+          <div class="hidden sm:block bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">JPMorgan</p>
+            <p class="text-[10px] text-gray-400 mb-2">アメリカ</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">25万人<span class="text-xs font-normal text-gray-500 ml-1">に自社AI展開</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">450以上のAIユースケースを運用</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: CNBC 2025年9月</p>
+          </div>
+          <div class="hidden sm:block bg-gray-50 rounded-xl p-3 sm:p-4">
+            <p class="text-sm sm:text-xs font-extrabold text-gray-900">トヨタ</p>
+            <p class="text-[10px] text-gray-400 mb-2">日本</p>
+            <p class="text-emerald-600 font-extrabold text-lg sm:text-sm mb-1">5社合同<span class="text-xs font-normal text-gray-500 ml-1">でAI人材育成</span></p>
+            <p class="text-[10px] sm:text-xs text-gray-500 leading-relaxed">ソフトウェアアカデミーを共同発足</p>
+            <p class="text-[8px] sm:text-[9px] text-gray-300 mt-2">出典: トヨタ自動車公式 2025年5月</p>
+          </div>
+        </div>
+        <p class="text-[10px] text-gray-400 text-center mt-5">業種・規模を問わず、「全員がAIを使う」が世界の新常識になりつつあります。</p>
+      </div>
+
+      <!-- サロンの現実 vs あるべき姿 -->
+      <div class="fade-in grid md:grid-cols-2 gap-8 mb-12">
+        <!-- 現実 -->
+        <div class="slide-in-left bg-white rounded-2xl border border-gray-200 p-8 relative">
+          <span class="absolute -top-3 left-6 text-xs font-bold text-gray-400 bg-white px-3 py-1 border border-gray-200 rounded-full">多くの企業の現実</span>
+          <div class="text-center mt-4">
+            <div class="flex items-center justify-center gap-3 mb-6">
+              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[20px]">person</span></div>
+              <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center opacity-40"><span class="material-icons-outlined text-gray-400 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center opacity-40"><span class="material-icons-outlined text-gray-400 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center opacity-40"><span class="material-icons-outlined text-gray-400 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center opacity-40"><span class="material-icons-outlined text-gray-400 text-[18px]">person</span></div>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">オーナーだけがChatGPTを契約</h3>
+            <p class="text-xs text-gray-400 mb-4">5人中1人 = チームの生産性はほぼ変わらない</p>
+            <div class="bg-gray-100 rounded-full h-4 overflow-hidden"><div class="h-full bg-gray-300 rounded-full progress-bar" data-width="20%" style="width:0%"></div></div>
+            <p class="text-right text-xs text-gray-400 mt-1">チーム全体の効率化 <span class="font-bold text-gray-600">20%</span></p>
+          </div>
+        </div>
+        <!-- 矢印（スマホのみ表示） -->
+        <div class="md:hidden flex flex-col items-center -my-4 relative z-10">
+          <span class="material-icons-outlined text-emerald-500 text-[56px] font-black">arrow_downward</span>
+        </div>
+        <!-- あるべき姿 -->
+        <div class="slide-in-right bg-white rounded-2xl border-2 border-emerald-400 p-8 relative shadow-lg shadow-emerald-50">
+          <span class="absolute -top-3 left-6 text-xs font-bold text-white bg-emerald-500 px-3 py-1 rounded-full">PromnyAIで実現する姿</span>
+          <div class="text-center mt-4">
+            <div class="flex items-center justify-center gap-3 mb-6">
+              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[20px]">person</span></div>
+              <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[18px]">person</span></div>
+              <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center border-2 border-emerald-400"><span class="material-icons-outlined text-emerald-600 text-[18px]">person</span></div>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">チーム全員がAIをフル活用</h3>
+            <p class="text-xs text-gray-400 mb-4">5人全員 = チーム全体の生産性が飛躍的に向上</p>
+            <div class="bg-gray-100 rounded-full h-4 overflow-hidden"><div class="h-full bg-emerald-400 rounded-full progress-bar" data-width="100%" style="width:0%"></div></div>
+            <p class="text-right text-xs text-gray-400 mt-1">チーム全体の効率化 <span class="font-bold text-emerald-600">100%</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- チーム導入の効果 -->
+      <div class="fade-in text-center mb-8 mt-4">
+        <p class="text-lg sm:text-base font-bold text-gray-900">チーム全員で使うと、<span class="text-emerald-600">こう変わる。</span></p>
+      </div>
+      <div class="fade-in grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
+          <span class="material-icons-outlined text-emerald-500 text-[28px]">edit_note</span>
+          <p class="text-emerald-600 font-extrabold text-lg mt-2">更新頻度UP</p>
+          <p class="text-[10px] text-gray-400 mt-1">ブログ・SNSの<br />投稿が増える</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
+          <span class="material-icons-outlined text-emerald-500 text-[28px]">thumb_up</span>
+          <p class="text-emerald-600 font-extrabold text-lg mt-2">満足度UP</p>
+          <p class="text-[10px] text-gray-400 mt-1">口コミ返信が速くなり<br />リピート率が向上</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
+          <span class="material-icons-outlined text-emerald-500 text-[28px]">schedule</span>
+          <p class="text-emerald-600 font-extrabold text-lg mt-2">時間を創出</p>
+          <p class="text-[10px] text-gray-400 mt-1">事務作業が減り<br />接客に集中できる</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
+          <span class="material-icons-outlined text-emerald-500 text-[28px]">storefront</span>
+          <p class="text-emerald-600 font-extrabold text-lg mt-2">経営が回る</p>
+          <p class="text-[10px] text-gray-400 mt-1">人手不足でも<br />情報発信を止めない</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 6. コスト比較                                                   -->
+  <!-- ============================================================ -->
+  <section id="cost" class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Cost Comparison</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">バラバラに契約するより、圧倒的にお得。</h2>
+        <p class="fade-in mt-3 text-sm text-gray-400">5名のチームで比較した場合</p>
+      </div>
+
+      <div class="fade-in grid md:grid-cols-2 gap-8 items-stretch">
+        <!-- 個別契約 -->
+        <div class="slide-in-left bg-white rounded-2xl border border-gray-200 p-8 relative">
+          <span class="absolute -top-3 left-6 text-xs font-bold text-gray-400 bg-white px-3 py-1 border border-gray-200 rounded-full">個別に契約した場合</span>
+          <div class="mt-4 space-y-4">
+            <div class="hidden sm:flex items-center justify-between py-3 border-b border-gray-100">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-100 rounded flex items-center justify-center"><span class="text-[10px] font-bold text-emerald-700">G</span></div>
+                <span class="text-sm text-gray-700">ChatGPT Business × 5名</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">≈ ¥18,750<span class="text-xs font-normal text-gray-400">/月</span></span>
+            </div>
+            <div class="hidden sm:flex items-center justify-between py-3 border-b border-gray-100">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-purple-100 rounded flex items-center justify-center"><span class="text-[10px] font-bold text-purple-700">C</span></div>
+                <span class="text-sm text-gray-700">Claude Team × 5名</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">≈ ¥18,750<span class="text-xs font-normal text-gray-400">/月</span></span>
+            </div>
+            <div class="hidden sm:flex items-center justify-between py-3 border-b border-gray-100">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-blue-100 rounded flex items-center justify-center"><span class="text-[10px] font-bold text-blue-700">G</span></div>
+                <span class="text-sm text-gray-700">Google Workspace × 5名</span>
+              </div>
+              <span class="text-sm font-bold text-gray-900">≈ ¥10,500<span class="text-xs font-normal text-gray-400">/月</span></span>
+            </div>
+            <div class="sm:hidden text-center mb-4"><p class="text-xs text-gray-400">ChatGPT + Claude + Gemini を<br />5名分個別に契約すると…</p></div>
+            <div class="pt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-bold text-gray-900">合計（3サービスのみ）</span>
+                <span class="text-xl font-extrabold text-gray-900">≈ ¥48,000<span class="text-sm font-normal text-gray-400">/月</span></span>
+              </div>
+              <p class="text-[10px] text-gray-400 mt-2">※業界特化AIは含まれず、別途プロンプト設計が必要</p>
+              <p class="text-[10px] text-gray-300 mt-1">ChatGPT Business $25・Claude Team $25・Workspace $14（各/人/月・年払い）、$1=150円換算</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矢印（スマホのみ表示） -->
+        <div class="md:hidden flex flex-col items-center -my-4 relative z-10">
+          <span class="material-icons-outlined text-emerald-500 text-[56px] font-black">arrow_downward</span>
+        </div>
+        <!-- PromnyAI -->
+        <div class="slide-in-right bg-white rounded-2xl border-2 border-emerald-400 p-8 relative shadow-lg shadow-emerald-50">
+          <span class="absolute -top-3 left-6 text-xs font-bold text-white bg-emerald-500 px-3 py-1 rounded-full">PromnyAI のスタンダードプランなら</span>
+          <div class="mt-4 text-center">
+            <p class="text-5xl font-extrabold text-gray-900 mt-4">¥9,800<span class="text-lg font-normal text-gray-400">/月（税別）</span></p>
+            <p class="text-xs text-gray-400 mt-1">5名まで利用可能</p>
+
+            <div class="mt-8 space-y-3 text-left">
+              <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>ChatGPT・Claude・Gemini <span class="font-bold">すべて</span>利用可能</div>
+              <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>Perplexity・画像生成AIも込み</div>
+              <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>業界特化AIチャットボット <span class="font-bold">8種</span>が追加で使える</div>
+              <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>チーム管理・セキュリティ機能付き</div>
+            </div>
+
+            <div class="mt-8 bg-emerald-50 rounded-xl p-4">
+              <p class="text-xs text-gray-500">個別契約と比較して</p>
+              <p class="text-2xl font-extrabold text-emerald-600 mt-1">約 <span class="text-3xl">80</span>%<span class="text-sm font-normal"> コスト削減</span></p>
+            </div>
+            <p class="text-[9px] text-gray-300 mt-3 text-right">※2026年3月時点</p>
+          </div>
+        </div>
+      </div>
+      <p class="fade-in text-[10px] text-gray-400 text-center mt-4">※各サービスの料金は2026年3月時点の公開情報に基づく概算です。為替レートや料金改定により変動する場合があります。</p>
+      <div class="fade-in text-center mt-8">
+        <a href="#pricing" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
+          料金プランを見る
+          <span class="material-icons-outlined ml-2 text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 7. サービス — LLM + 業界特化                                    -->
+  <!-- ============================================================ -->
+  <section id="services" class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Services</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">全22種類のAI、すべて使える。</h2>
+      </div>
+
+      <!-- LLM一覧（スマホでは簡易表示） -->
+      <div class="fade-in mb-10 sm:hidden">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+          <span class="material-icons-outlined text-emerald-500 text-[28px]">hub</span>
+          <p class="font-bold text-gray-900 mt-2">ChatGPT・Claude・Gemini</p>
+          <p class="text-sm text-gray-500 mt-1">Perplexity・Grok・画像生成AI 他、<span class="font-bold text-emerald-600">全22種類</span>が利用可能</p>
+        </div>
+      </div>
+      <!-- LLM一覧（PC表示） -->
+      <div class="fade-in mb-10 hidden sm:block">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center"><span class="material-icons-outlined text-emerald-500 text-[20px]">hub</span></div>
+            <div>
+              <h3 class="font-bold text-gray-900">主要LLM・画像生成AI</h3>
+              <p class="text-xs text-gray-400">個別契約不要。1アカウントですべてアクセス。</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-emerald-700">G</span></div><div><p class="text-xs font-medium text-gray-900">ChatGPT 5.4</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-emerald-700">G</span></div><div><p class="text-xs font-medium text-gray-900">ChatGPT 5.3</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-emerald-700">G</span></div><div><p class="text-xs font-medium text-gray-900">ChatGPT 5 mini</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-purple-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-purple-700">C</span></div><div><p class="text-xs font-medium text-gray-900">Claude Opus 4.6</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-purple-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-purple-700">C</span></div><div><p class="text-xs font-medium text-gray-900">Claude sonnet 4.6</p></div></div>
+            <div id="llm-more" class="hidden sm:contents">
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-purple-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-purple-700">C</span></div><div><p class="text-xs font-medium text-gray-900">Claude 4.5 Haiku</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-blue-700">G</span></div><div><p class="text-xs font-medium text-gray-900">Gemini 3.1 Pro Preview</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-blue-700">G</span></div><div><p class="text-xs font-medium text-gray-900">Gemini 3 Flash Preview</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-blue-700">G</span></div><div><p class="text-xs font-medium text-gray-900">Gemini 2.5 Pro</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-gray-800 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-white">X</span></div><div><p class="text-xs font-medium text-gray-900">Grok 4</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-orange-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-orange-700">P</span></div><div><p class="text-xs font-medium text-gray-900">Perplexity</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-yellow-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-yellow-700">N</span></div><div><p class="text-xs font-medium text-gray-900">Nano Banana Pro</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-emerald-700">D</span></div><div><p class="text-xs font-medium text-gray-900">画像生成AI_DALL-3</p></div></div>
+            <div class="flex items-center gap-2 bg-gray-50 rounded-xl px-3 py-2.5"><div class="w-7 h-7 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-emerald-700">I</span></div><div><p class="text-xs font-medium text-gray-900">画像生成AI_gpt-image-1</p></div></div>
+            </div>
+          </div>
+          <button id="llm-toggle" class="sm:hidden mt-3 w-full py-2 text-sm text-emerald-600 font-medium border border-emerald-200 rounded-xl hover:bg-emerald-50 transition-colors" onclick="document.getElementById('llm-more').classList.toggle('hidden');this.textContent=this.textContent==='他9種類も見る'?'閉じる':'他9種類も見る'">他9種類も見る
+        </div>
+      </div>
+      </div>
+
+      <!-- 使い分けガイド -->
+      <div class="fade-in mt-10 mb-12">
+        <div class="text-center mb-6">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900">迷ったらこれ！<span class="text-emerald-600">やりたいこと別</span>ガイド</h3>
+          <p class="text-xs text-gray-400 mt-2">どのAIを使えばいいか迷ったら、やりたいことから選べます。</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- 文章を書く -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-purple-50 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="4" width="18" height="20" rx="2" stroke="#7c3aed" stroke-width="1.5"/><path d="M9 9h10M9 13h8M9 17h6" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><path d="M18 15l2 2-2 2" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">文章を書きたい</p>
+            <p class="text-xs text-purple-600 font-medium mb-2">→ Claude がおすすめ</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">日本語が自然で文章作成に強い。ブログ、メール返信、キャッチコピーに最適。</p>
+          </div>
+          <!-- 調べる・リサーチ -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-orange-50 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="13" cy="13" r="7" stroke="#ea580c" stroke-width="1.5"/><path d="M18 18l4 4" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/><path d="M11 11h4M13 9v4" stroke="#fdba74" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">調べものをしたい</p>
+            <p class="text-xs text-orange-600 font-medium mb-2">→ Perplexity がおすすめ</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">最新情報をネットから検索。トレンド調査や競合リサーチに便利。</p>
+          </div>
+          <!-- 画像・PDFを読み取る -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-blue-50 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="2" stroke="#2563eb" stroke-width="1.5"/><path d="M4 18l5-4 3 2 5-5 7 5" stroke="#93c5fd" stroke-width="1.2" stroke-linejoin="round"/><circle cx="10" cy="12" r="2" stroke="#2563eb" stroke-width="1.2"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">画像やPDFを分析したい</p>
+            <p class="text-xs text-blue-600 font-medium mb-2">→ Gemini がおすすめ</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">PDF読み込みや画像の分析が得意。資料の要約や情報抽出に。</p>
+          </div>
+          <!-- なんでも万能 -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-emerald-50 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="#059669" stroke-width="1.5"/><path d="M10 14l3 3 5-6" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">とりあえず相談したい</p>
+            <p class="text-xs text-emerald-600 font-medium mb-2">→ ChatGPT がおすすめ</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">何でもバランスよくこなせる万能タイプ。迷ったらまずこれ。</p>
+          </div>
+          <!-- 画像を作る（スマホ非表示） -->
+          <div class="hidden sm:block bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-pink-50 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="3" stroke="#db2777" stroke-width="1.5"/><circle cx="10" cy="10" r="2" fill="#fbcfe8"/><path d="M4 20l6-6 4 4 4-5 6 7" stroke="#db2777" stroke-width="1.2" stroke-linejoin="round"/><path d="M20 8l2 0M21 7l0 2" stroke="#f9a8d4" stroke-width="1" stroke-linecap="round"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">画像を作りたい</p>
+            <p class="text-xs text-pink-600 font-medium mb-2">→ 画像生成AI を使用</p>
+            <p class="text-[11px] text-gray-400 leading-relaxed">チラシやPOP用の画像を生成。専用モデルに切り替えて使います。</p>
+          </div>
+          <!-- 業務を効率化したい（スマホ非表示） -->
+          <div class="hidden sm:block bg-emerald-50 rounded-2xl border border-emerald-200 p-5 text-center">
+            <div class="w-14 h-14 mx-auto mb-3 bg-emerald-200 rounded-2xl flex items-center justify-center">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="6" width="18" height="16" rx="3" stroke="#047857" stroke-width="1.5"/><path d="M9 12h10M9 16h6" stroke="#047857" stroke-width="1.5" stroke-linecap="round"/><circle cx="21" cy="8" r="4" fill="#a7f3d0" stroke="#047857" stroke-width="1.2"/><path d="M19.5 8l1 1 2-2" stroke="#047857" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-900 mb-1">業務を効率化したい</p>
+            <p class="text-xs text-emerald-600 font-medium mb-2">→ 業界特化AIがおすすめ</p>
+            <p class="text-[11px] text-gray-500 leading-relaxed">ブログ、口コミ返信、LINE配信文、経営相談など。選ぶだけで完了。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 業界特化AIチャットボット -->
+      <div class="fade-in text-center mb-6">
+        <div class="inline-flex flex-col items-center"><span class="material-icons-outlined text-emerald-300 text-[28px]">add</span><p class="text-xs font-bold text-emerald-600 mt-1">さらに業務に特化したAIチャットボット</p></div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="fade-in stagger-1 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">reviews</span></div><h3 class="font-bold text-gray-900 text-xs">レビュージェネレーター</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">口コミの返信文を深く分析し、適切な返信文を生成</p>
+        </div>
+        <div class="fade-in stagger-2 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">article</span></div><h3 class="font-bold text-gray-900 text-xs">BlogBot_改 Vr.04</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">キーワードや参考テキストからSEO最適化ブログ記事を即出力</p>
+        </div>
+        <div class="fade-in stagger-3 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">article</span></div><h3 class="font-bold text-gray-900 text-xs">BlogBot_HPB Vr.02</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">ホットペッパービューティーに最適な形式でブログ記事を出力</p>
+        </div>
+        <div class="fade-in stagger-4 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">photo_library</span></div><h3 class="font-bold text-gray-900 text-xs">BlogInstaCraft</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">ブログ記事とInstagramキャプションを同時に出力するハイブリッド型</p>
+        </div>
+        <div class="fade-in stagger-5 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">chat</span></div><h3 class="font-bold text-gray-900 text-xs">LINE配信文生成</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">魅力的なLINE配信文を生成するお手伝いをします</p>
+        </div>
+        <div class="fade-in stagger-6 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">mail</span></div><h3 class="font-bold text-gray-900 text-xs">ビジネスメール返信文生成</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">相手から届いたメールを送信するだけで最適な返信文を生成</p>
+        </div>
+        <div class="fade-in stagger-7 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">psychology</span></div><h3 class="font-bold text-gray-900 text-xs">CriticalCatalyst</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">世界的成功企業のCEOの考え方を学習したAI。事業の相談に。</p>
+        </div>
+        <div class="fade-in stagger-8 card-hover bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-3"><div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0"><span class="material-icons-outlined text-emerald-600 text-[18px]">restaurant</span></div><h3 class="font-bold text-gray-900 text-xs">カロリー・推定量算出AI</h3></div>
+          <p class="text-[11px] text-gray-400 leading-relaxed">写真を分析し推定量・カロリー・アドバイスを出力。日々の健康管理に。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 8. お申し込みからご利用開始まで                                   -->
+  <!-- ============================================================ -->
+  <section id="flow" class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-20">
+        <span class="section-label">Flow</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">お申し込みから利用開始まで</h2>
+        <p class="fade-in mt-3 text-sm text-gray-400">まずは無料のお試しトークンで、実際の使い心地を体験してください。</p>
+      </div>
+      <div class="timeline-zigzag relative">
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-emerald-200 -translate-x-1/2"></div>
+
+        <!-- STEP 1: お申し込み -->
+        <div class="fade-in timeline-row relative md:grid md:grid-cols-2 md:gap-12 mb-20 md:mb-28">
+          <div class="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-[3px] border-emerald-400 rounded-full z-10"></div>
+          <div class="md:text-right md:pr-8 mb-6 md:mb-0">
+            <span class="inline-block text-xs font-bold tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 mb-4">STEP 1</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">お申し込み</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">申し込みフォームから必要な情報を入力するだけ。送信後、すぐにアカウントが発行されます。</p>
+          </div>
+          <div class="md:pl-8 hidden md:block">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center">
+              <svg class="mx-auto mb-4" width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="12" y="8" width="24" height="32" rx="4" stroke="#097adb" stroke-width="2.5"/><circle cx="24" cy="20" r="5" stroke="#93bff1" stroke-width="2"/><path d="M16 34c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#93bff1" stroke-width="2" stroke-linecap="round"/></svg>
+              <div class="flex items-center justify-center gap-3">
+                <span class="text-xs bg-emerald-50 text-emerald-600 border border-emerald-200 px-3 py-1 rounded-full">情報入力</span>
+                <span class="material-icons-outlined text-emerald-300 text-[14px]">arrow_forward</span>
+                <span class="text-xs bg-emerald-50 text-emerald-600 border border-emerald-200 px-3 py-1 rounded-full">アカウント発行</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: ログイン・お試し -->
+        <div class="fade-in timeline-row relative md:grid md:grid-cols-2 md:gap-12 mb-20 md:mb-28">
+          <div class="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-[3px] border-emerald-400 rounded-full z-10"></div>
+          <div class="md:pr-8 order-2 md:order-1 mt-6 md:mt-0 hidden md:block">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center">
+                  <span class="material-icons-outlined text-emerald-500 text-[20px]">redeem</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-900">お試しトークンパック</p>
+                  <p class="text-xs text-gray-400">1万トークン分を無料で付与</p>
+                </div>
+              </div>
+              <div class="bg-emerald-50 rounded-xl p-3 text-center">
+                <p class="text-xs text-emerald-700 font-medium">すべてのAIを実際に試せます</p>
+              </div>
+            </div>
+          </div>
+          <div class="md:pl-8 order-1 md:order-2 mb-6 md:mb-0">
+            <span class="inline-block text-xs font-bold tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 mb-4">STEP 2</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">ログインして、まずはお試し。</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">ログイン後、すぐにご利用いただけます。最初にお試しトークンパック（1万トークン分）が付与されるので、実際の動作感をじっくりご確認ください。</p>
+          </div>
+        </div>
+
+        <!-- STEP 3: 本利用 -->
+        <div class="fade-in timeline-row relative md:grid md:grid-cols-2 md:gap-12">
+          <div class="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-[3px] border-emerald-400 rounded-full z-10"></div>
+          <div class="md:text-right md:pr-8 mb-6 md:mb-0">
+            <span class="inline-block text-xs font-bold tracking-widest text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 mb-4">STEP 3</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">気に入ったら、本利用へ。</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">メニューからプランを選択。<br />チームの規模に合わせて契約したら、<br class="hidden sm:block" />あとはAIを選んで使うだけです。</p>
+          </div>
+          <div class="md:pl-8 hidden md:block">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+              <p class="text-xs font-bold text-gray-400 mb-3 text-center">選べる3つのプラン</p>
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2.5">
+                  <span class="material-icons-outlined text-emerald-400 text-[18px]">person</span>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">ライトプラン</p>
+                    <p class="text-[10px] text-gray-400">1名・個人利用に</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-emerald-50 rounded-xl px-4 py-2.5 border border-emerald-200">
+                  <span class="material-icons-outlined text-emerald-500 text-[18px]">groups</span>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">スタンダードプラン<span class="text-[10px] text-emerald-600 ml-1">人気</span></p>
+                    <p class="text-[10px] text-gray-400">5名・小規模チームに最適</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2.5">
+                  <span class="material-icons-outlined text-emerald-400 text-[18px]">corporate_fare</span>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">プロフェッショナルプラン</p>
+                    <p class="text-[10px] text-gray-400">10名・中規模チームに</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-2.5">
+                  <span class="material-icons-outlined text-emerald-400 text-[18px]">apartment</span>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">エンタープライズプラン</p>
+                    <p class="text-[10px] text-gray-400">大規模・複数店舗向け・別途お見積もり</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- マニュアルへの導線 -->
+      <div class="fade-in mt-12 text-center">
+        <p class="text-sm text-gray-500">詳しい使い方はマニュアルをご覧ください →
+          <a href="/docs/" class="inline-flex items-center text-emerald-600 font-medium hover:underline">マニュアルを見る<span class="material-icons-outlined ml-1 text-[16px]">arrow_forward</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 9. 選ばれる理由（削除：全項目が他セクションで語り済みのため） -->
+
+
+  <!-- ============================================================ -->
+  <!-- 10. お客様の声                                                  -->
+  <!-- ============================================================ -->
+  <section id="testimonials" class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Voice</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">こんな声をいただいています</h2>
+      </div>
+
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「ブログの更新頻度が<span class="text-emerald-600">3倍</span>になりました」</p>
+          <p class="text-xs text-gray-400 mt-2">2〜3時間かけていた記事作成が30秒に。毎日更新できるようになって、問い合わせが目に見えて増えました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">整骨院 院長</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「口コミ返信が<span class="text-emerald-600">苦じゃなくなった</span>」</p>
+          <p class="text-xs text-gray-400 mt-2">以前は後回しにしがちだった口コミ返信が、AIのおかげでその場でサッと対応。お客様からの評価も上がりました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">カフェオーナー</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「スタッフ全員が<span class="text-emerald-600">自分でSNS投稿</span>できるようになった」</p>
+          <p class="text-xs text-gray-400 mt-2">今までは私だけがやっていた投稿作業を、スタッフ全員が自分で回せるように。チームの戦力が一気に上がりました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">旅館 マネージャー</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「<span class="text-emerald-600">本業に集中できる時間</span>が格段に増えた」</p>
+          <p class="text-xs text-gray-400 mt-2">事務作業に追われていた時間が浮いて、お客様一人ひとりにもっと丁寧に向き合えるようになりました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">デザインスタジオ 代表</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「ChatGPTもClaudeも<span class="text-emerald-600">1つで全部使える</span>のが最高」</p>
+          <p class="text-xs text-gray-400 mt-2">バラバラに契約していた頃と比べてコストも下がったし、管理も楽。スタッフも「これ便利」と自発的に使い始めました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">小規模事業者</p>
+        </div>
+
+        <div id="voice-more" class="hidden sm:contents">
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「<span class="text-emerald-600">LINE配信の文面作り</span>が一瞬で終わる」</p>
+          <p class="text-xs text-gray-400 mt-2">キャンペーンのたびに頭を悩ませていたLINE配信文。AIに任せたら、あっという間にプロっぽい文面が完成。</p>
+          <p class="text-[10px] text-gray-300 mt-3">クリニック スタッフ</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「人手が足りなくても<span class="text-emerald-600">情報発信を止めなくなった</span>」</p>
+          <p class="text-xs text-gray-400 mt-2">少人数で回しているので発信が後回しになりがちでしたが、PromnyAIのおかげでブログもSNSも継続できています。</p>
+          <p class="text-[10px] text-gray-300 mt-3">飲食店オーナー</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「<span class="text-emerald-600">取引先へのメール返信</span>もAIにお任せ」</p>
+          <p class="text-xs text-gray-400 mt-2">取引先への返信やリクルート対応など、文章を考える時間が大幅に減りました。すごく助かっています。</p>
+          <p class="text-[10px] text-gray-300 mt-3">店舗マネージャー</p>
+        </div>
+
+        <div class="fade-in break-inside-avoid bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <div class="flex items-center gap-0.5 mb-3"><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span><span class="material-icons-outlined text-amber-400 text-[14px]">star</span></div>
+          <p class="text-sm text-gray-700 leading-relaxed font-medium">「<span class="text-emerald-600">AIの知識ゼロ</span>のスタッフでもすぐ使えた」</p>
+          <p class="text-xs text-gray-400 mt-2">プロンプトとか全然わからない子でも、選んで入力するだけだから問題なし。導入初日から全員使っていました。</p>
+          <p class="text-[10px] text-gray-300 mt-3">小規模事業者</p>
+        </div>
+        </div>
+      </div>
+      <button class="sm:hidden mt-4 w-full py-2.5 text-sm text-emerald-600 font-medium border border-emerald-200 rounded-xl hover:bg-emerald-50 transition-colors" onclick="var el=document.getElementById('voice-more');el.classList.toggle('hidden');this.textContent=this.textContent==='もっと見る'?'閉じる':'もっと見る'">もっと見る</button>
+      <div class="fade-in text-center mt-10">
+        <a href="#pricing" class="inline-flex items-center px-6 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">
+          料金プランを見る
+          <span class="material-icons-outlined ml-2 text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 10.5 サポートキャラ紹介（PromnyAI用キャラ決定後に有効化） -->
+  <!--
+  <section class="py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      ...サポートキャラセクション...
+    </div>
+  </section>
+  -->
+
+
+  <!-- ============================================================ -->
+  <!-- 11. 料金プラン                                                  -->
+  <!-- ============================================================ -->
+  <section id="pricing" class="py-20 sm:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Pricing</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">料金プラン</h2>
+        <p class="fade-in mt-3 text-sm text-gray-400">すべてのプランで全22種類のAIが利用可能</p>
+      </div>
+
+      <!-- お試しトークン案内 -->
+      <div class="fade-in max-w-2xl mx-auto mb-12 bg-white rounded-2xl border-2 border-emerald-400 shadow-lg shadow-emerald-50 overflow-hidden">
+        <div class="bg-emerald-500 py-3 px-6 text-center">
+          <p class="text-white font-bold text-base tracking-wide">まずは無料でお試しください</p>
+        </div>
+        <div class="p-6 sm:p-8 text-center">
+          <p class="text-4xl font-extrabold text-emerald-600">¥0<span class="text-base font-normal text-gray-400 ml-2">で始められます</span></p>
+          <div class="mt-4 inline-flex items-center gap-2 bg-emerald-50 rounded-full px-5 py-2">
+            <span class="material-icons-outlined text-emerald-500 text-[20px]">redeem</span>
+            <p class="text-sm font-bold text-emerald-700">1万トークン分のお試しパックを全員にプレゼント</p>
+          </div>
+          <p class="text-xs text-gray-500 mt-4 leading-relaxed">Lite・Standard・Professionalのどのプランからお申し込みいただいても、<br class="hidden sm:block" />すぐに課金されることはありません。実際の使い心地を確認してから、本格導入をご検討ください。</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <div class="fade-in stagger-1 card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+          <h3 class="font-bold text-gray-900 mb-1">Lite</h3>
+          <p class="text-xs text-gray-400 mb-4">個人・お試しに</p>
+          <p class="text-3xl font-extrabold text-gray-900">¥4,500<span class="text-sm font-normal text-gray-400">/月</span></p>
+          <p class="text-xs text-gray-400 mb-6">¥4,950（税込）</p>
+          <div class="space-y-2 text-left mb-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>800,000トークン</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>全AI利用可能</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>画像生成 20枚/月</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>ユーザー数 1</div>
+          </div>
+          <a href="https://promnyai.jp/apply" class="block w-full py-2.5 border-2 border-emerald-500 text-emerald-600 text-sm font-semibold rounded-full hover:bg-emerald-500 hover:text-white transition-colors">申し込む</a>
+        </div>
+        <div class="fade-in stagger-2 plan-popular card-hover bg-white rounded-2xl p-6 border-2 border-emerald-500 shadow-lg shadow-emerald-100 text-center">
+          <h3 class="font-bold text-gray-900 mb-1">Standard</h3>
+          <p class="text-xs text-emerald-600 font-medium mb-4">小規模チームに最適</p>
+          <p class="text-3xl font-extrabold text-gray-900">¥9,800<span class="text-sm font-normal text-gray-400">/月</span></p>
+          <p class="text-xs text-gray-400 mb-6">¥10,780（税込）</p>
+          <div class="space-y-2 text-left mb-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>2,550,000トークン</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>全AI利用可能</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>画像生成 80枚/月</div>
+            <div class="flex items-center gap-2 text-sm font-medium text-gray-900"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>ユーザー数 5</div>
+          </div>
+          <a href="https://promnyai.jp/apply" class="block w-full py-2.5 bg-emerald-500 text-white text-sm font-semibold rounded-full hover:bg-emerald-600 transition-colors">申し込む</a>
+        </div>
+        <div class="fade-in stagger-3 card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+          <h3 class="font-bold text-gray-900 mb-1">Professional</h3>
+          <p class="text-xs text-gray-400 mb-4">中規模チームに</p>
+          <p class="text-3xl font-extrabold text-gray-900">¥19,800<span class="text-sm font-normal text-gray-400">/月</span></p>
+          <p class="text-xs text-gray-400 mb-6">¥21,780（税込）</p>
+          <div class="space-y-2 text-left mb-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>6,200,000トークン</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>全AI利用可能</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>画像生成 200枚/月</div>
+            <div class="flex items-center gap-2 text-sm font-medium text-gray-900"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>ユーザー数 10</div>
+          </div>
+          <a href="https://promnyai.jp/apply" class="block w-full py-2.5 border-2 border-emerald-500 text-emerald-600 text-sm font-semibold rounded-full hover:bg-emerald-500 hover:text-white transition-colors">申し込む</a>
+        </div>
+        <div class="fade-in stagger-4 card-hover bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+          <h3 class="font-bold text-gray-900 mb-1">Enterprise</h3>
+          <p class="text-xs text-gray-400 mb-4">大規模・複数店舗</p>
+          <p class="text-3xl font-extrabold text-gray-900">お見積もり</p>
+          <p class="text-xs text-gray-400 mb-6">&nbsp;</p>
+          <div class="space-y-2 text-left mb-6">
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>トークン応相談</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>全AI利用可能</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>画像生成 応相談</div>
+            <div class="flex items-center gap-2 text-sm text-gray-600"><span class="material-icons-outlined text-emerald-500 text-[16px]">check</span>ユーザー数ご相談</div>
+          </div>
+          <a href="https://promnyai.jp/apply" class="block w-full py-2.5 border-2 border-emerald-500 text-emerald-600 text-sm font-semibold rounded-full hover:bg-emerald-500 hover:text-white transition-colors">お問い合わせ</a>
+        </div>
+      </div>
+
+      <!-- 補足情報 -->
+      <div class="max-w-2xl mx-auto space-y-4">
+        <div class="fade-in bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
+          <p class="text-sm text-gray-700 text-center"><span class="font-bold text-emerald-700">ユーザー追加：</span>¥3,000/月（¥3,300税込）/ 500,000トークン付与</p>
+        </div>
+        <div class="fade-in bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+          <h4 class="font-bold text-gray-900 text-sm mb-3 text-center">利用目安</h4>
+          <div class="space-y-3">
+            <div class="flex items-center gap-4"><span class="text-xs text-gray-500 w-24 shrink-0 text-right">口コミ返信1回</span><div class="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden"><div class="h-full bg-emerald-200 rounded-full flex items-center pl-3" style="width:35%"><span class="text-[10px] font-bold text-emerald-800">≒ 350</span></div></div><span class="text-[10px] text-gray-400 w-14">トークン</span></div>
+            <div class="flex items-center gap-4"><span class="text-xs text-gray-500 w-24 shrink-0 text-right">ブログ3,000字</span><div class="flex-1 bg-gray-100 rounded-full h-5 overflow-hidden"><div class="h-full bg-emerald-300 rounded-full flex items-center pl-3" style="width:45%"><span class="text-[10px] font-bold text-emerald-800">≒ 450</span></div></div><span class="text-[10px] text-gray-400 w-14">トークン</span></div>
+          </div>
+        </div>
+        <div class="fade-in text-xs text-gray-400 leading-relaxed text-center">
+          <p>ユーザー数は管理者1名を含めた総ユーザー数です。管理者はアカウント全体を管理でき、ユーザーは各種ボット機能をご利用いただけます。</p>
+        </div>
+
+        <!-- 追加トークンパック -->
+        <div class="pt-8">
+          <h4 class="fade-in text-center text-sm font-bold text-gray-900 mb-2">追加トークンパック</h4>
+          <p class="fade-in text-center text-xs text-gray-400 mb-6 max-w-md mx-auto">月のトークンが足りなくなっても大丈夫。<br />PromnyAIにログイン後、メニューの「トークン管理」から<br class="hidden sm:block" />いつでも追加購入できます。</p>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="fade-in card-hover bg-white rounded-xl p-4 border border-gray-100 shadow-sm text-center">
+              <p class="font-bold text-emerald-600 text-xs">Small</p>
+              <p class="text-lg font-extrabold text-gray-900 mt-1">¥3,000</p>
+              <p class="text-[10px] text-gray-400">720,000トークン</p>
+            </div>
+            <div class="fade-in card-hover bg-white rounded-xl p-4 border border-gray-100 shadow-sm text-center">
+              <p class="font-bold text-emerald-600 text-xs">Medium</p>
+              <p class="text-lg font-extrabold text-gray-900 mt-1">¥5,500</p>
+              <p class="text-[10px] text-gray-400">1,400,000トークン</p>
+            </div>
+            <div class="fade-in card-hover bg-white rounded-xl p-4 border border-gray-100 shadow-sm text-center">
+              <p class="font-bold text-emerald-600 text-xs">Large</p>
+              <p class="text-lg font-extrabold text-gray-900 mt-1">¥8,000</p>
+              <p class="text-[10px] text-gray-400">2,200,000トークン</p>
+            </div>
+          </div>
+          <p class="text-[10px] text-gray-400 text-center mt-3">税別価格。購入トークンは6ヶ月間有効。</p>
+        </div>
+      </div>
+
+      <!-- 社内検討用資料の導線 -->
+      <div class="fade-in mt-10 text-center">
+        <a href="/download.html" class="inline-flex items-center text-sm text-emerald-600 font-medium hover:text-emerald-700 transition-colors">
+          <span class="material-icons-outlined mr-1 text-[16px]">description</span>
+          社内検討用のサービス資料はこちら（PDF）
+          <span class="material-icons-outlined ml-1 text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 12. FAQ                                                        -->
+  <!-- ============================================================ -->
+  <section id="faq" class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <span class="section-label">Q&A</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-bold text-gray-900">よくあるご質問</h2>
+      </div>
+      <div class="space-y-3">
+        <!-- サービス概要 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">PromnyAIとは何ですか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">ChatGPT・Claude・Geminiなどの主要LLMと、業界特化のAIプロンプトが1つのプラットフォームに集約されたサービスです。ブログ記事作成、口コミ返信、LINE配信文、チラシ作成など、日常業務の効率化に対応しています。チーム全員が同じ環境で使え、管理者がアカウントやコストを一括管理できます。</p></div></div>
+
+        <!-- 申し込み・課金 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">申し込んだらすぐに課金されますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">いいえ。どのプラン（Lite・Standard・Professional）からお申し込みいただいても、まず1万トークン分のお試しパックが無料で付与されます。実際の使い心地を確認してから、有料プランへの本格導入をご検討いただけます。</p></div></div>
+
+        <!-- トークンとは -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">トークンとは何ですか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">トークンはAIの利用量を表す単位です。送信するプロンプトの内容やAIの回答の長さによって消費量は変動しますが、目安として口コミ返信1回で約350トークン、ブログ記事（3,000字）1回で約450トークン程度です。月のトークンが足りなくなった場合は、ログイン後のメニュー「トークン管理」から追加トークンパックをいつでも購入できます。</p></div></div>
+
+        <!-- チーム利用 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">チーム全員で使えますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">はい。Standardプラン（5名）、Professionalプラン（10名）でチーム利用が可能です。管理者がスタッフのアカウントを発行し、全員が同じAIツールを使えます。さらに1名あたり¥3,000/月でユーザー追加も可能です。</p></div></div>
+
+        <!-- AIスキル不要 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">AIの知識がないスタッフでも使えますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">はい。業界特化のプロンプトが組み込まれているため、AIの知識やプロンプト設計のスキルは不要です。使いたいAIを選んで入力するだけで、誰でもプロ品質の出力が得られるため、チームでの生産性向上が目指せます。</p></div></div>
+
+        <div id="faq-more" class="hidden sm:block space-y-3">
+        <!-- 個別契約との違い -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">ChatGPTやClaudeを個別に契約するのと何が違いますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">PromnyAIなら、ChatGPT・Claude・Gemini・Perplexity・画像生成AIなど全22種類のAIが1つの契約で利用可能。個別に契約するよりも約80%のコスト削減になります。さらに業界特化AIチャットボット（ブログ生成・口コミ返信・メール返信など）が追加で使え、チーム管理機能やセキュリティも備わっています。</p></div></div>
+
+        <!-- 利用可能AI -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">どのAIが使えますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">ChatGPT 5.4 / 5.3 / 5 mini、Claude Opus 4.6 / sonnet 4.6 / 4.5 Haiku、Gemini 3.1 Pro Preview / 3 Flash Preview / 2.5 Pro、Grok 4、Perplexity、Nano Banana Proなどの主要LLMに加え、レビュージェネレーター・BlogBot_改 Vr.04・BlogBot_HPB Vr.02・BlogInstaCraft・LINE配信文生成・ビジネスメール返信文生成・CriticalCatalyst・カロリー推定量算出AI・画像生成AI（DALL-3 / gpt-image-1）など業界特化AIも含め、全22種類をご利用いただけます（2026年3月時点）。新しいモデルも順次追加しています。</p></div></div>
+
+        <!-- 口コミ返信にAIを使うこと -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">口コミ返信にAIを使うと、真心がこもっていないと思われませんか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>AIの役割は「返信の下書きを素早く用意すること」です。<span class="font-bold text-gray-700">最終的にスタッフの目で確認し、お客様一人ひとりに合わせた言葉を添えて仕上げる</span>ことで、むしろ丁寧で心のこもった返信になります。</p><p class="mt-3">大切なのは「AIを使うかどうか」ではなく、「お客様の声にどれだけ早く、丁寧に応えられるか」です。忙しくて後回しにしてしまう返信よりも、AIの力を借りて<span class="font-bold text-gray-700">その日のうちに温かい返信を届ける</span>ほうが、お客様にとっては嬉しいはずです。</p></div></div></div>
+
+        <!-- 口コミ返信が同じ内容にならないか -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">口コミ返信がみんな同じ内容になりませんか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>PromnyAIのレビュージェネレーターは、お客様の口コミ内容を読み取った上で返信を生成するため、<span class="font-bold text-gray-700">一件ごとに異なる文面</span>が出力されます。定型文のコピペとは根本的に仕組みが異なります。</p><p class="mt-3">さらに、生成された下書きにスタッフが一言添える — 「先日はありがとうございました」のような具体的なひと言 — だけで、<span class="font-bold text-gray-700">お客様にもそのやり取りを見ている第三者にも「ここは丁寧だな」と伝わる返信</span>になります。こうした丁寧な口コミ対応は、新規のお客様が利用を検討する際の決め手にもなり、リピート率の向上にもつながります。</p></div></div></div>
+
+        <!-- SEO対策 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">PromnyAIで生成された記事は、SEO対策ができますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>PromnyAIのブログボットは、<span class="font-bold text-gray-700">SEOを意識した記事構成の下書きを自動生成</span>します。具体的には、見出し構造（H2/H3）の適切な分割、キーワードを自然に含んだ文章、読者の検索意図に沿った情報の網羅、FAQの自動生成などに対応しています。</p><p class="mt-3">ただし、検索順位は記事の質だけで決まるものではありません。ドメインの権威性・内部リンク・更新頻度・被リンクなど複合的な要因が影響します。AIが生成した下書きに、自社独自の情報や体験談を加えて仕上げることで、初めてSEOの効果が最大化されます。これはChatGPTでもPromnyAIでも、どのAIツールでも同じです。</p><p class="mt-3">PromnyAIの本質的な価値は、業界特化のプロンプト設計により専門性の高い記事が出ること、そして誰でも手軽に運用できる仕組みによって、<span class="font-bold text-gray-700">ブログを継続的に出し続けられる体制</span>を作れることにあります。</p></div></div></div>
+
+        <!-- AIコンテンツとGoogleペナルティ -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">AIで作った記事は、Googleからペナルティを受けませんか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>Googleは「AIで作成されたこと」自体をペナルティの対象にはしていません。Googleが重視しているのは<span class="font-bold text-gray-700">コンテンツの品質と有用性</span>です。つまり、AIで生成したかどうかではなく「読者にとって価値のある内容か」が判断基準です。</p><p class="mt-3">ただし、AIの出力をそのままコピー＆ペーストしただけの低品質な記事を大量に公開すれば、評価が下がる可能性はあります。PromnyAIで生成した下書きに、<span class="font-bold text-gray-700">自社独自のエピソードやスタッフの体験談を加えて仕上げる</span>ことで、Googleが重視するE-E-A-T（経験・専門性・権威性・信頼性）を満たした高品質な記事になります。</p></div></div></div>
+
+        <!-- ブログを続ける意味 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">ブログを更新し続ける意味はまだありますか？SNSだけではダメですか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p><span class="font-bold text-gray-700">SNSとブログは役割が異なります。</span>SNSは「今この瞬間」のリーチに強い一方、投稿は数日で流れてしまいます。ブログ記事は一度公開すれば、検索エンジンやAI検索を通じて<span class="font-bold text-gray-700">何ヶ月・何年もお客様を集め続ける「資産」</span>になります。</p><p class="mt-3">さらに、Google AI Overviews（AI概要）やChatGPTなどの生成AIは、回答を作る際にブログなどのWebコンテンツを情報源として参照します。つまり、良質なブログ記事を継続的に発信しておくことが、<span class="font-bold text-gray-700">これからの「AIに見つけてもらう」時代の基盤</span>になります。PromnyAIなら、SNS投稿文もブログ記事も同じプラットフォームで効率よく作成できます。</p></div></div></div>
+
+        <!-- AI記事の独自性 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">AIで作った記事は、他の会社と同じ内容になりませんか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>PromnyAIのブログボットは、入力されたキーワードや自社の情報をもとに記事を生成するため、<span class="font-bold text-gray-700">入力内容が異なれば出力も異なります。</span>同じキーワードでも、生成のたびに文章の構成や表現が変わります。</p><p class="mt-3">それでも、AIだけで完全な独自性を出すには限界があります。だからこそ重要なのが、<span class="font-bold text-gray-700">自社ならではの一次情報</span>を加えることです。「実際のお客様の反応」「スタッフが現場で感じたこと」「自社のこだわり」など、AIには書けないリアルな情報を加えることで、他のどの企業とも差別化された記事になります。PromnyAIはその下書きを高速で用意する役割を担います。</p></div></div></div>
+
+        <!-- AI検索時代の対策 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">Google AI検索やChatGPTで、自分の会社を見つけてもらうにはどうすればいいですか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><div class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><p>検索の世界は「10件のリンクを並べる」時代から、<span class="font-bold text-gray-700">AIが直接答えを返す時代</span>へ変わりつつあります。Google AI Overviews（AI概要）やChatGPTに自社の情報を参照してもらうためには、従来のSEOに加えて、いくつかの新しい視点が必要です。</p><p class="mt-3">まず、記事の冒頭で<span class="font-bold text-gray-700">結論を簡潔に書く</span>こと。AIは要約しやすい情報を優先的に引用します。次に、FAQ形式で「質問と回答」を明確にペアにすること。そして、お店の実績・体験談・具体的な数値など<span class="font-bold text-gray-700">独自の一次情報</span>を発信し続けることで、AIに「信頼できる情報源」として認識されやすくなります。</p><p class="mt-3">難しく聞こえますが、本質は<span class="font-bold text-gray-700">「お客様の疑問に、分かりやすく正確に答えるコンテンツを継続的に発信する」</span>ことです。PromnyAIでその発信を効率化しつつ、自社のリアルな声を加えていくことが、AI時代に見つけてもらうための最善策です。</p></div></div></div>
+
+        <!-- セキュリティ -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">セキュリティ面は大丈夫ですか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">Google Cloud（SOC 2 / ISO 27001準拠）上で運用し、通信暗号化・テナント分離・データ暗号化を実施。決済はPCI DSS準拠のUnivaPayを採用し、カード情報はPromnyAI側に保存されません。お客様のデータがAIの学習に使用されることもありません。詳しくは<a href="/security.html" class="text-emerald-600 underline">セキュリティページ</a>をご覧ください。</p></div></div>
+
+        <!-- 利用環境 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">どのような環境で利用できますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">PC・タブレット・スマートフォンのブラウザからアクセス可能です。インターネット接続があれば店舗でも出先でもお使いいただけます。また、ブラウザのホーム画面に追加することで、アプリのように利用できるPWA（Progressive Web App）形式にも対応しています。</p></div></div>
+
+        <!-- プラン変更・解約 -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">プランの変更や解約はできますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed">はい。プランのアップグレード・ダウングレードはログイン後のメニューから変更可能です。解約をご希望の場合は<a href="/cancel.html" class="text-emerald-600 underline">解約フォーム</a>からお申し込みください。代理店経由でご契約の場合は、直接担当の代理店様にご連絡ください。</p></div></div>
+
+        <!-- サポート -->
+        <div class="fade-in faq-item bg-white border border-gray-100 rounded-xl overflow-hidden"><button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors" aria-expanded="false"><span class="text-sm font-semibold text-gray-900">サポートは受けられますか？</span><span class="material-icons-outlined text-gray-400 transition-transform duration-300 faq-icon">expand_more</span></button><div class="faq-answer"><p class="px-5 pb-5 text-sm text-gray-500 leading-relaxed"><a href="/docs/" class="text-emerald-600 underline">マニュアル</a>のほか、FAQ・チュートリアル動画をご用意しています。個別のお問い合わせは<a href="/contact.html" class="text-emerald-600 underline">お問い合わせページ</a>から承っております。</p></div></div>
+        </div>
+        <button id="faq-toggle" class="sm:hidden mt-4 w-full py-2.5 text-sm text-emerald-600 font-medium border border-emerald-200 rounded-xl hover:bg-emerald-50 transition-colors" onclick="document.getElementById('faq-more').classList.toggle('hidden');this.textContent=this.textContent==='もっと見る'?'閉じる':'もっと見る'">もっと見る</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 12.5 アップデート予定                                            -->
+  <!-- ============================================================ -->
+  <section class="py-16 sm:py-24 relative overflow-hidden">
+    <!-- 背景装飾 -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-emerald-50/30 to-white"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="section-label">Coming Soon</span>
+        <h2 class="scale-in mt-4 text-2xl sm:text-3xl font-extrabold text-gray-900">
+          止まらない進化。<br class="sm:hidden" /><span class="text-emerald-600">次のアップデート、予告。</span>
+        </h2>
+        <p class="fade-in mt-3 text-sm text-gray-400">PromnyAIはこれからも新機能を続々リリースしていきます。</p>
+      </div>
+
+      <div class="fade-in grid sm:grid-cols-3 gap-5">
+        <!-- 1. 自社情報の事前学習 -->
+        <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-200 group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons-outlined text-white text-[30px]">school</span>
+          </div>
+          <span class="text-[9px] font-bold text-white bg-emerald-500 px-3 py-1 rounded-full">Coming Soon</span>
+          <h3 class="text-base font-extrabold text-gray-900 mt-3 mb-2">自社情報の事前学習</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">サービス・料金・コンセプトをAIに覚えさせて、<span class="text-emerald-600 font-bold">「自社を理解した上で」</span>ブログやSNS投稿を作成。</p>
+        </div>
+
+        <!-- 2. ハブ機能 -->
+        <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-200 group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons-outlined text-white text-[30px]">hub</span>
+          </div>
+          <span class="text-[9px] font-bold text-white bg-emerald-500 px-3 py-1 rounded-full">Coming Soon</span>
+          <h3 class="text-base font-extrabold text-gray-900 mt-3 mb-2">ハブ機能</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">PDFやテキスト資料を読み込ませた<span class="text-emerald-600 font-bold">専用スレッド</span>を作成。その資料だけに基づいた回答を生成。会議資料の分析や契約書のチェックに。</p>
+        </div>
+
+        <!-- 3. カウンセリングボット -->
+        <div class="group bg-white rounded-2xl border border-gray-100 shadow-sm p-6 text-center hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50 transition-all duration-300">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-200 group-hover:scale-110 transition-transform duration-300">
+            <span class="material-icons-outlined text-white text-[30px]">smart_toy</span>
+          </div>
+          <span class="text-[9px] font-bold text-white bg-emerald-500 px-3 py-1 rounded-full">Coming Soon</span>
+          <h3 class="text-base font-extrabold text-gray-900 mt-3 mb-2">カスタムチャットボット</h3>
+          <p class="text-xs text-gray-400 leading-relaxed mb-3">お客様向けボットを<span class="text-emerald-600 font-bold">自動発行</span>。問い合わせ対応やFAQをAIに任せられます。</p>
+          <div class="flex flex-wrap justify-center gap-1.5">
+            <span class="text-[9px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">Webサイトに設置</span>
+            <span class="text-[9px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">SNSで紹介</span>
+            <span class="text-[9px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full font-medium">メールに貼付</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in text-center mt-10">
+        <p class="text-base sm:text-lg font-bold text-gray-900">今始めれば、これらの新機能も<span class="text-emerald-600">追加料金なし</span>で。</p>
+        <p class="text-xs text-gray-400 mt-2">PromnyAIは契約中のすべてのユーザーに、最新機能を無料で提供します。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 13. CTA                                                        -->
+  <!-- ============================================================ -->
+  <section class="py-20 sm:py-28 bg-[#e8f1fc]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="fade-in text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
+        チーム全員のAI活用、<br />ここから始めませんか？
+      </h2>
+      <p class="fade-in mt-4 text-sm text-gray-500">1人だけの効率化から、チーム全体の生産性向上へ。</p>
+      <div class="fade-in mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#pricing" class="cta-pulse inline-flex items-center px-10 py-4 bg-emerald-500 text-white font-bold rounded-full hover:bg-emerald-600 transition-colors shadow-lg text-base">
+          まずはチームで試してみる
+          <span class="material-icons-outlined ml-2">arrow_forward</span>
+        </a>
+        <a href="/contact.html" class="inline-flex items-center px-8 py-4 bg-white text-emerald-600 font-bold rounded-full border-2 border-emerald-500 hover:bg-emerald-50 transition-colors text-sm">
+          導入相談はこちら
+          <span class="material-icons-outlined ml-2 text-[18px]">mail_outline</span>
+        </a>
+      </div>
+      <div class="fade-in mt-6">
+        <a href="/download.html" class="inline-flex items-center text-sm text-emerald-700 font-medium hover:text-emerald-800 transition-colors">
+          <span class="material-icons-outlined mr-1 text-[16px]">download</span>
+          サービス資料をダウンロード（PDF）
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== フッター ========== -->
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <!-- マニュアル & サービス資料（目立つボタン） -->
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <!-- ナビリンク -->
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+<!-- チャットボット（PromnyAI用のAPI Keyが決まったら設定）
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="YOUR_API_KEY"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="PromnyAI サポート"
+  async
+></script>
+-->
+</body>
+</html>
