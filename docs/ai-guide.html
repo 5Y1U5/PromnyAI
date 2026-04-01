@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.i-styleinc.com/docs/ai-guide.html" />
+  <meta property="og:title" content="AI選び方ガイド — マニュアル — PromnyAI" />
+  <meta property="og:description" content="ChatGPT・Claude・Gemini・Perplexityの使い分けをやりたいこと別にわかりやすく解説します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://promnyai.i-styleinc.com/docs/ai-guide.html" />
+  <meta property="og:image" content="https://promnyai.i-styleinc.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI選び方ガイド — マニュアル — PromnyAI</title>
+  <meta name="description" content="ChatGPT・Claude・Gemini・Perplexityの使い分けをやりたいこと別にわかりやすく解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">AI Guide</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">AI選び方ガイド</h1>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">やりたいこと別ガイド</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">どのAIを使えばいいか迷ったら、やりたいことから選べます。PromnyAIでは全22種類のモデルをすぐに切り替えて使えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">文章を書きたい → Claude</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">日本語が自然で文章作成に強いAIです。ブログ記事、メール返信、キャッチコピーなど、質の高い文章が必要なときに最適です。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Claude Opus 4.6</strong> — 最高性能。複雑な文章や長文コンテンツに</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Claude Sonnet 4.6</strong> — バランス型。日常的な文章作成に</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Claude Haiku 4.5</strong> — 高速・軽量。短文やシンプルな返信に</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">調べものをしたい → Perplexity</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">最新情報をネットから検索し、出典付きで回答してくれる検索特化AIです。トレンド調査や競合リサーチに便利で、信頼性の高い情報を素早く収集できます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>リアルタイムのネット検索に対応</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>出典（URL）付きで回答するため信頼性が高い</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>業界トレンドや競合情報の収集に最適</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">画像やPDFを分析したい → Gemini</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">PDF読み込みや画像の分析が得意なAIです。資料の要約や情報抽出、図解の読み取りなどに活用できます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Gemini 3.1 Pro Preview</strong> — 最新モデル。高精度な分析に</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Gemini 3 Flash Preview</strong> — 高速処理。素早い要約に</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>Gemini 2.5 Pro</strong> — 安定した定番モデル</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">とりあえず相談したい → ChatGPT</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">何でもバランスよくこなせる万能タイプです。「何から始めればいいかわからない」という場合はまずChatGPTを試してみてください。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>ChatGPT 5.4</strong> — 最新・最高性能モデル</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>ChatGPT 5.3</strong> — 安定した高性能モデル</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>ChatGPT 5 mini</strong> — 軽量・高速。シンプルな作業に</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">画像を作りたい → 画像生成AI</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">チラシやSNS投稿用のPOP画像、バナーなどをテキスト指示から生成できます。外注不要で、自分で即作成できます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>DALL-3</strong> — OpenAIの定番画像生成モデル</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">smart_toy</span><span><strong>gpt-image-1</strong> — 高品質・高精度な最新画像生成モデル</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">業務を効率化したい → 業界特化AI</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">PromnyAIに組み込まれた業界特化AIチャットボットを使えば、プロンプトを考える手間なく即座に業務直結の出力が得られます。選ぶだけで完了です。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>ブログ記事の自動作成 → <a href="/docs/blog-writing.html" class="text-emerald-600 hover:text-emerald-700 underline">BlogBot_改</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>口コミ返信文の自動生成 → <a href="/docs/review-reply.html" class="text-emerald-600 hover:text-emerald-700 underline">レビュージェネレーター</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>LINE配信文の自動作成 → <a href="/docs/line-message.html" class="text-emerald-600 hover:text-emerald-700 underline">LINE配信文生成</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>メール返信文の自動作成 → <a href="/docs/email-reply.html" class="text-emerald-600 hover:text-emerald-700 underline">ビジネスメール返信文生成</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>経営・ビジネス相談 → CriticalCatalyst</span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

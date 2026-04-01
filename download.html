@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>PromnyAI サービス資料ダウンロード</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --emerald-50: #e8f1fc;
+      --emerald-100: #c8dff8;
+      --emerald-200: #93bff1;
+      --emerald-300: #5a9de8;
+      --emerald-400: #2e8ae1;
+      --emerald-500: #097adb;
+      --emerald-600: #0766b8;
+      --emerald-700: #065395;
+      --emerald-800: #043f72;
+      --emerald-900: #032c50;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+    }
+
+    /* ===== Download Bar ===== */
+    .download-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 56px;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      gap: 16px;
+    }
+
+    .download-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--emerald-600);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      color: var(--emerald-700);
+    }
+
+    .bar-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--emerald-500);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover:not(:disabled) {
+      background: var(--emerald-600);
+    }
+
+    .download-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== Slides Wrapper ===== */
+    .slides-wrapper {
+      margin-top: 80px;
+      padding-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* ===== Slide Base ===== */
+    .slide {
+      width: 960px;
+      height: 540px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 40px 48px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* ===== Slide Footer ===== */
+    .slide-footer {
+      position: absolute;
+      bottom: 18px;
+      left: 48px;
+      right: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slide-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-footer-logo {
+      height: 20px;
+      width: auto;
+    }
+
+    .slide-footer-url {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .page-num {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    /* ===== Label ===== */
+    .slide-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--emerald-500);
+      text-transform: uppercase;
+      background: var(--emerald-50);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Common Title ===== */
+    .slide-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .slide-title .accent {
+      color: var(--emerald-500);
+    }
+
+    .slide-subtitle {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* ===== Grid ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .grid-4-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* ===== Stat Card ===== */
+    .stat-card {
+      background: var(--emerald-50);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-card .icon-row {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    .stat-card .stat-value {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--emerald-600);
+      line-height: 1;
+    }
+
+    .stat-card .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .stat-card .stat-desc {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    .stat-card .badge-row {
+      display: flex;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--emerald-200);
+      color: var(--emerald-800);
+    }
+
+    /* ===== Mini card (できること) ===== */
+    .mini-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .mini-card .mc-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .mini-card .mc-arrow {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .mc-before {
+      color: #94a3b8;
+      font-size: 11px;
+    }
+
+    .mc-sep {
+      color: var(--emerald-400);
+      font-weight: 700;
+    }
+
+    .mc-after {
+      color: var(--emerald-600);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* ===== AI Guide card ===== */
+    .guide-card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .guide-card.highlight {
+      border-color: var(--emerald-400);
+      background: var(--emerald-50);
+    }
+
+    .guide-card .gc-task {
+      font-size: 12px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .guide-card .gc-arrow {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .guide-card .gc-ai {
+      font-size: 16px;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+
+    .gc-purple { color: #7c3aed; }
+    .gc-orange { color: #ea580c; }
+    .gc-blue { color: #1d4ed8; }
+    .gc-emerald { color: var(--emerald-500); }
+    .gc-pink { color: #db2777; }
+
+    /* ===== Specialized AI card ===== */
+    .spec-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 11px 12px;
+    }
+
+    .spec-card .sc-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--emerald-600);
+      margin-bottom: 3px;
+    }
+
+    .spec-card .sc-desc {
+      font-size: 10px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* ===== Pain card ===== */
+    .pain-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pain-card .pc-q {
+      font-size: 13px;
+      font-weight: 700;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .pain-card .pc-divider {
+      width: 24px;
+      height: 2px;
+      background: var(--emerald-400);
+      border-radius: 2px;
+    }
+
+    .pain-card .pc-a {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* ===== Why Team slide ===== */
+    .why-team-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .before-after-box {
+      background: #f8fafc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .ba-header {
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ba-before .ba-header { background: #fee2e2; color: #b91c1c; }
+    .ba-after .ba-header { background: #dcfce7; color: #15803d; }
+
+    .ba-list {
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ba-item {
+      font-size: 11px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .ba-dot-red { width: 6px; height: 6px; border-radius: 50%; background: #f87171; flex-shrink: 0; }
+    .ba-dot-green { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; flex-shrink: 0; }
+
+    .effect-card {
+      background: var(--emerald-50);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .effect-card .ec-icon {
+      color: var(--emerald-500);
+      font-size: 20px;
+    }
+
+    .effect-card .ec-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--emerald-800);
+    }
+
+    /* ===== Cost Comparison ===== */
+    .cost-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .cost-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .cost-individual {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .cost-promny {
+      background: var(--emerald-500);
+      color: #fff;
+    }
+
+    .cost-box .cb-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cost-individual .cb-title { color: #374151; }
+    .cost-promny .cb-title { color: rgba(255,255,255,0.85); }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 12px;
+    }
+
+    .cost-promny .cost-row {
+      border-bottom-color: rgba(255,255,255,0.15);
+    }
+
+    .cost-row:last-of-type { border-bottom: none; }
+
+    .cost-row .cr-service { color: #475569; }
+    .cost-promny .cost-row .cr-service { color: rgba(255,255,255,0.8); }
+
+    .cost-row .cr-price { font-weight: 700; color: #1e293b; }
+    .cost-promny .cost-row .cr-price { color: #fff; }
+
+    .cost-total {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 2px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cost-promny .cost-total { border-top-color: rgba(255,255,255,0.3); }
+
+    .cost-total .ct-label { font-size: 11px; font-weight: 600; color: #64748b; }
+    .cost-promny .cost-total .ct-label { color: rgba(255,255,255,0.7); }
+
+    .cost-total .ct-price { font-size: 20px; font-weight: 900; color: #1e293b; }
+    .cost-promny .cost-total .ct-price { color: #fff; }
+
+    .cost-promny-sub { font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+    .cost-feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .cost-feature-item {
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cost-saving-bar {
+      margin-top: 14px;
+      background: var(--emerald-600);
+      border-radius: 8px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .cost-saving-bar .csb-text {
+      font-size: 15px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    /* ===== Services ===== */
+    .services-outer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .svc-group {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    .svc-group-name {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--emerald-600);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .svc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .svc-tag {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .svc-groups-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* ===== Flow & Security ===== */
+    .flow-security-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .step-card {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .step-card:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--emerald-500);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .step-content .sc-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .step-content .sc-desc {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .security-box {
+      background: var(--emerald-50);
+      border-radius: 10px;
+      padding: 14px 16px;
+      height: 100%;
+    }
+
+    .security-box .sb-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--emerald-700);
+      margin-bottom: 10px;
+    }
+
+    .sec-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--emerald-100);
+    }
+
+    .sec-item:last-child { border-bottom: none; }
+
+    .sec-icon { color: var(--emerald-500); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    .sec-item .si-text {
+      font-size: 11px;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .sec-item .si-text strong { color: var(--emerald-700); }
+
+    /* ===== Pricing ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .plan-card {
+      border-radius: 10px;
+      border: 1.5px solid #e2e8f0;
+      padding: 14px 14px 12px;
+      position: relative;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .plan-card.popular {
+      border-color: var(--emerald-500);
+      background: var(--emerald-50);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--emerald-500);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    .plan-price {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--emerald-600);
+      line-height: 1;
+    }
+
+    .plan-price span {
+      font-size: 12px;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .plan-price.enterprise {
+      font-size: 15px;
+    }
+
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .plan-feature {
+      font-size: 10px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .plan-feature .material-icons-outlined {
+      font-size: 12px;
+      color: var(--emerald-500);
+    }
+
+    .pricing-options {
+      margin-top: 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 8px 14px;
+    }
+
+    .pricing-options .po-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .po-items {
+      display: flex;
+      gap: 16px;
+    }
+
+    .po-item {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    /* ===== Enterprise ===== */
+    .enterprise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .ent-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ent-card .ec-icon-wrap {
+      width: 32px;
+      height: 32px;
+      background: var(--emerald-100);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ent-card .ec-icon-wrap .material-icons-outlined {
+      font-size: 18px;
+      color: var(--emerald-600);
+    }
+
+    .ent-card .ec-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .ent-card .ec-desc {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* ===== CTA Slide ===== */
+    .slide-cta {
+      background: var(--emerald-50) !important;
+    }
+
+    .cta-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .cta-title .accent {
+      color: var(--emerald-500);
+    }
+
+    .cta-subtitle {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .cta-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .cta-info-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cta-info-card .cic-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--emerald-600);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .cta-info-card .cic-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .cta-info-card .cic-sub {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .cta-btn-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--emerald-500);
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--emerald-600);
+      border: 1.5px solid var(--emerald-300);
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ===== Cover Slide ===== */
+    .cover-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, var(--emerald-800) 0%, var(--emerald-500) 100%);
+      z-index: 0;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8px;
+    }
+
+    .cover-logo {
+      height: 36px;
+      width: auto;
+      margin-bottom: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cover-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 4px;
+      padding: 3px 10px;
+      margin-bottom: 18px;
+      width: fit-content;
+    }
+
+    .cover-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .cover-title .accent {
+      color: #93c5fd;
+    }
+
+    .cover-subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* Cover footer special */
+    .slide-footer-cover {
+      position: absolute;
+      bottom: 18px;
+      left: 48px;
+      right: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+    }
+
+    .slide-footer-cover .sfc-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-footer-cover .sfc-logo {
+      height: 18px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .slide-footer-cover .sfc-url {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .slide-footer-cover .sfc-num {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+    }
+
+    /* ===== Why Team before/after ===== */
+    .before-after-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .effect-cards-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* ===== Cover deco dots ===== */
+    .cover-deco {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 380px;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .cover-deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .cover-deco-circle.c1 { width: 300px; height: 300px; top: -80px; right: -60px; }
+    .cover-deco-circle.c2 { width: 200px; height: 200px; top: 160px; right: 80px; }
+    .cover-deco-circle.c3 { width: 150px; height: 150px; bottom: -40px; right: 20px; }
+  </style>
+</head>
+<body>
+
+<!-- Download Bar -->
+<div class="download-bar">
+  <div class="download-bar-left">
+    <a href="index.html" class="back-link">
+      <span class="material-icons-outlined" style="font-size:18px">arrow_back</span>
+      LPに戻る
+    </a>
+    <span style="color:#cbd5e1">|</span>
+    <span class="bar-title">PromnyAI サービス資料</span>
+  </div>
+  <button class="download-btn" id="download-btn" onclick="generatePDF()">
+    <span class="material-icons-outlined" style="font-size:18px">download</span>
+    PDFダウンロード
+  </button>
+</div>
+
+<!-- Slides Wrapper -->
+<div class="slides-wrapper" id="slides">
+
+  <!-- ===== Slide 1: 表紙 ===== -->
+  <div class="slide" style="padding:0;overflow:hidden;">
+    <div class="cover-bg"></div>
+    <div class="cover-deco">
+      <div class="cover-deco-circle c1"></div>
+      <div class="cover-deco-circle c2"></div>
+      <div class="cover-deco-circle c3"></div>
+    </div>
+    <div class="cover-content" style="padding: 40px 48px 60px;">
+      <img src="/promnyai-logo.png" alt="PromnyAI" class="cover-logo" />
+      <div class="cover-label">サービス紹介資料</div>
+      <div class="cover-title">
+        メールも、資料作成も、リサーチも。<br>
+        <span class="accent">AIで、日常業務を半分にする。</span>
+      </div>
+      <div class="cover-subtitle">チーム全員がAIを使いこなせるプラットフォーム</div>
+    </div>
+    <div class="slide-footer-cover">
+      <div class="sfc-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="sfc-logo" />
+        <span class="sfc-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="sfc-num">1 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 2: PromnyAIとは ===== -->
+  <div class="slide">
+    <div class="slide-label">Overview</div>
+    <div class="slide-title">PromnyAI とは</div>
+    <div class="slide-subtitle" style="margin-bottom:16px;">
+      主要LLM（ChatGPT・Claude・Gemini）+ 業界特化AIが<strong style="color:var(--emerald-600)">1つのプラットフォーム</strong>に。<br>
+      個別契約不要で、<strong style="color:var(--emerald-600)">チーム全員</strong>が同じ環境でAIを活用できます。
+    </div>
+    <div class="grid-4">
+      <div class="stat-card">
+        <div class="icon-row">⚡</div>
+        <div class="stat-value">30秒</div>
+        <div class="stat-label">ブログ記事を生成</div>
+        <div class="stat-desc">3,000字の記事がワンクリックで</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-row">🔗</div>
+        <div class="stat-value">22種類</div>
+        <div class="stat-label">のAIが使える</div>
+        <div class="stat-desc">主要LLM + 業界特化AI</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-row">👥</div>
+        <div class="stat-value">5名〜</div>
+        <div class="stat-label">チーム全員で利用</div>
+        <div class="stat-desc">同じ環境・同じ品質で</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon-row">🔒</div>
+        <div class="badge-row">
+          <span class="badge">SOC 2</span>
+          <span class="badge">ISO 27001</span>
+        </div>
+        <div class="stat-label" style="margin-top:4px;">セキュリティ準拠</div>
+        <div class="stat-desc">利用基盤準拠の安心設計</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">2 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 3: できること ===== -->
+  <div class="slide">
+    <div class="slide-label">What You Can Do</div>
+    <div class="slide-title">毎日の「時間がかかる仕事」、<span class="accent">AIが一瞬で。</span></div>
+    <div class="grid-4-2" style="margin-top:14px;margin-bottom:10px;">
+      <div class="mini-card">
+        <div class="mc-title">メール返信</div>
+        <div class="mc-arrow">
+          <span class="mc-before">10分</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">15秒</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">ブログ記事作成</div>
+        <div class="mc-arrow">
+          <span class="mc-before">2〜3時間</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">30秒</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">情報収集</div>
+        <div class="mc-arrow">
+          <span class="mc-before">30分</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">1分</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">企画書・提案書</div>
+        <div class="mc-arrow">
+          <span class="mc-before">1時間</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">1分</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">口コミ返信</div>
+        <div class="mc-arrow">
+          <span class="mc-before">10分</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">10秒</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">LINE・SNS配信文</div>
+        <div class="mc-arrow">
+          <span class="mc-before">15分</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">15秒</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">画像・バナー作成</div>
+        <div class="mc-arrow">
+          <span class="mc-before">外注</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">自分で即</span>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title">なんでもAIに相談</div>
+        <div class="mc-arrow">
+          <span class="mc-before">悩む時間</span>
+          <span class="mc-sep">→</span>
+          <span class="mc-after">即解決</span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#475569;text-align:center;padding-bottom:30px;">
+      これらすべてが、<strong style="color:var(--emerald-600)">1つのプラットフォーム</strong>で。<strong style="color:var(--emerald-600)">チーム全員</strong>が使えます。
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">3 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 4: AI選び方ガイド ===== -->
+  <div class="slide">
+    <div class="slide-label">AI Guide</div>
+    <div class="slide-title">迷ったらこれ！<span class="accent">やりたいこと別</span>ガイド</div>
+    <div class="grid-3" style="margin-top:14px;">
+      <div class="guide-card">
+        <div class="gc-task">文章を書きたい</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-purple">Claude</div>
+        <div style="font-size:10px;color:#7c3aed;margin-top:2px;">高精度な日本語ライティング</div>
+      </div>
+      <div class="guide-card">
+        <div class="gc-task">調べものをしたい</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-orange">Perplexity</div>
+        <div style="font-size:10px;color:#ea580c;margin-top:2px;">リアルタイム情報検索</div>
+      </div>
+      <div class="guide-card">
+        <div class="gc-task">画像やPDFを分析</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-blue">Gemini</div>
+        <div style="font-size:10px;color:#1d4ed8;margin-top:2px;">マルチモーダル高精度解析</div>
+      </div>
+      <div class="guide-card">
+        <div class="gc-task">とりあえず相談</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-emerald">ChatGPT</div>
+        <div style="font-size:10px;color:var(--emerald-600);margin-top:2px;">万能AIアシスタント</div>
+      </div>
+      <div class="guide-card">
+        <div class="gc-task">画像を作りたい</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-pink">画像生成AI</div>
+        <div style="font-size:10px;color:#db2777;margin-top:2px;">DALL-3 / gpt-image-1</div>
+      </div>
+      <div class="guide-card highlight">
+        <div class="gc-task">業務を効率化</div>
+        <div class="gc-arrow">→ おすすめは</div>
+        <div class="gc-ai gc-emerald">業界特化AI</div>
+        <div style="font-size:10px;color:var(--emerald-600);margin-top:2px;">PromnyAI 独自ボット搭載</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">4 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 5: 業界特化AI ===== -->
+  <div class="slide">
+    <div class="slide-label">Specialized AI</div>
+    <div class="slide-title">業務に特化した<span class="accent">AIチャットボット</span></div>
+    <div class="grid-4-2" style="margin-top:14px;">
+      <div class="spec-card">
+        <div class="sc-title">レビュージェネレーター</div>
+        <div class="sc-desc">口コミの返信文を深く分析し適切な返信文を生成</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">BlogBot_改 Vr.04</div>
+        <div class="sc-desc">SEO最適化ブログ記事を即出力</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">BlogBot_HPB Vr.02</div>
+        <div class="sc-desc">ホットペッパービューティー形式でブログ出力</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">BlogInstaCraft</div>
+        <div class="sc-desc">ブログ+Instagramキャプション同時出力</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">LINE配信文生成</div>
+        <div class="sc-desc">魅力的なLINE配信文を生成</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">ビジネスメール返信文生成</div>
+        <div class="sc-desc">受信メールから最適な返信文を生成</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">CriticalCatalyst</div>
+        <div class="sc-desc">世界的成功企業のCEOの考え方で事業相談</div>
+      </div>
+      <div class="spec-card">
+        <div class="sc-title">カロリー・推定量算出AI</div>
+        <div class="sc-desc">写真から推定量・カロリー・アドバイス出力</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">5 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 6: お悩み ===== -->
+  <div class="slide">
+    <div class="slide-label">Pain Points</div>
+    <div class="slide-title">こんな風に思っていませんか？</div>
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="pain-card">
+        <div class="pc-q">「AIに興味はあるけど、何から始めれば...」</div>
+        <div class="pc-divider"></div>
+        <div class="pc-a">選ぶだけで使えるプロンプトライブラリ搭載。AI知識ゼロでもすぐ活用。</div>
+      </div>
+      <div class="pain-card">
+        <div class="pc-q">「ChatGPTやClaudeを全員分契約すると高い...」</div>
+        <div class="pc-divider"></div>
+        <div class="pc-a">1アカウントで22種類のAI。個別契約より約80%コスト削減。</div>
+      </div>
+      <div class="pain-card">
+        <div class="pc-q">「社員によってAIスキルにバラつきがある...」</div>
+        <div class="pc-divider"></div>
+        <div class="pc-a">業界特化プロンプトで誰でも同じ品質。チーム全員が即戦力。</div>
+      </div>
+      <div class="pain-card">
+        <div class="pc-q">「セキュリティが不安で導入に踏み切れない...」</div>
+        <div class="pc-divider"></div>
+        <div class="pc-a">SOC 2・ISO 27001準拠基盤。データはAI学習に不使用。</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">6 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 7: なぜチーム導入か ===== -->
+  <div class="slide">
+    <div class="slide-label">Why Team</div>
+    <div class="slide-title">1人の活用では、<span class="accent">もう間に合わない。</span></div>
+    <div class="why-team-layout" style="margin-top:14px;">
+      <div class="before-after-wrap">
+        <div class="before-after-box ba-before">
+          <div class="ba-header">Before — 個人利用</div>
+          <div class="ba-list">
+            <div class="ba-item"><div class="ba-dot-red"></div>バラバラのツール・サービス</div>
+            <div class="ba-item"><div class="ba-dot-red"></div>属人化・スキル格差が拡大</div>
+            <div class="ba-item"><div class="ba-dot-red"></div>契約乱立でコスト増大</div>
+            <div class="ba-item"><div class="ba-dot-red"></div>セキュリティ管理が困難</div>
+          </div>
+        </div>
+        <div class="before-after-box ba-after">
+          <div class="ba-header">After — チーム導入</div>
+          <div class="ba-list">
+            <div class="ba-item"><div class="ba-dot-green"></div>統一プラットフォームで管理</div>
+            <div class="ba-item"><div class="ba-dot-green"></div>全員が同じ品質でAI活用</div>
+            <div class="ba-item"><div class="ba-dot-green"></div>コスト最適化・一元管理</div>
+            <div class="ba-item"><div class="ba-dot-green"></div>管理者機能で安心運用</div>
+          </div>
+        </div>
+      </div>
+      <div class="effect-cards-wrap">
+        <div class="effect-card">
+          <span class="material-icons-outlined ec-icon">schedule</span>
+          <div>
+            <div class="ec-text">業務時間の削減</div>
+            <div style="font-size:10px;color:var(--emerald-600);">ルーティン作業を大幅短縮</div>
+          </div>
+        </div>
+        <div class="effect-card">
+          <span class="material-icons-outlined ec-icon">savings</span>
+          <div>
+            <div class="ec-text">コスト最適化</div>
+            <div style="font-size:10px;color:var(--emerald-600);">個別契約比 約80%削減</div>
+          </div>
+        </div>
+        <div class="effect-card">
+          <span class="material-icons-outlined ec-icon">equalizer</span>
+          <div>
+            <div class="ec-text">品質の均一化</div>
+            <div style="font-size:10px;color:var(--emerald-600);">スキル差なく全員が即戦力</div>
+          </div>
+        </div>
+        <div class="effect-card">
+          <span class="material-icons-outlined ec-icon">security</span>
+          <div>
+            <div class="ec-text">セキュリティの担保</div>
+            <div style="font-size:10px;color:var(--emerald-600);">SOC 2 / ISO 27001準拠</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">7 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 8: コスト比較 ===== -->
+  <div class="slide">
+    <div class="slide-label">Cost Comparison</div>
+    <div class="slide-title">バラバラに契約するより、<span class="accent">圧倒的にお得。</span></div>
+    <div class="cost-layout">
+      <div class="cost-box cost-individual">
+        <div class="cb-title">個別契約の場合（1人あたり）</div>
+        <div class="cost-row"><span class="cr-service">ChatGPT Plus</span><span class="cr-price">¥3,000/月</span></div>
+        <div class="cost-row"><span class="cr-service">Claude Pro</span><span class="cr-price">¥3,000/月</span></div>
+        <div class="cost-row"><span class="cr-service">Gemini Advanced</span><span class="cr-price">¥2,900/月</span></div>
+        <div class="cost-row"><span class="cr-service">Perplexity Pro</span><span class="cr-price">¥3,000/月</span></div>
+        <div class="cost-total">
+          <span class="ct-label">合計（1名）</span>
+          <span class="ct-price" style="color:#dc2626;">¥11,900〜/月</span>
+        </div>
+      </div>
+      <div class="cost-box cost-promny">
+        <div class="cb-title">PromnyAIなら</div>
+        <div class="cost-feature-list">
+          <div class="cost-feature-item">
+            <span class="material-icons-outlined" style="font-size:14px;color:rgba(255,255,255,0.7);">check_circle</span>
+            全22種類のAI利用可能
+          </div>
+          <div class="cost-feature-item">
+            <span class="material-icons-outlined" style="font-size:14px;color:rgba(255,255,255,0.7);">check_circle</span>
+            チーム5名まで対応
+          </div>
+          <div class="cost-feature-item">
+            <span class="material-icons-outlined" style="font-size:14px;color:rgba(255,255,255,0.7);">check_circle</span>
+            業界特化プロンプト付き
+          </div>
+          <div class="cost-feature-item">
+            <span class="material-icons-outlined" style="font-size:14px;color:rgba(255,255,255,0.7);">check_circle</span>
+            セキュリティ・管理機能込み
+          </div>
+        </div>
+        <div class="cost-total">
+          <span class="ct-label">Standard プラン</span>
+          <div>
+            <div class="ct-price">¥9,800/月</div>
+            <div class="cost-promny-sub">1人あたり 約¥1,960</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cost-saving-bar">
+      <span class="material-icons-outlined" style="font-size:20px;color:#fbbf24;">bolt</span>
+      <span class="csb-text">個別契約と比べて、約80%のコスト削減</span>
+      <span class="material-icons-outlined" style="font-size:20px;color:#fbbf24;">bolt</span>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">8 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 9: サービス一覧 ===== -->
+  <div class="slide">
+    <div class="slide-label">Services</div>
+    <div class="slide-title">全22種類のAI、<span class="accent">すべて使える。</span></div>
+    <div class="svc-groups-grid" style="margin-top:14px;">
+      <div class="svc-group">
+        <div class="svc-group-name">ChatGPT</div>
+        <div class="svc-tags">
+          <span class="svc-tag">GPT-5.4</span>
+          <span class="svc-tag">GPT-5.3</span>
+          <span class="svc-tag">GPT-5 mini</span>
+        </div>
+      </div>
+      <div class="svc-group">
+        <div class="svc-group-name">Claude</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Opus 4.6</span>
+          <span class="svc-tag">Sonnet 4.6</span>
+          <span class="svc-tag">Haiku 4.5</span>
+        </div>
+      </div>
+      <div class="svc-group">
+        <div class="svc-group-name">Gemini</div>
+        <div class="svc-tags">
+          <span class="svc-tag">3.1 Pro</span>
+          <span class="svc-tag">3 Flash</span>
+          <span class="svc-tag">2.5 Pro</span>
+        </div>
+      </div>
+      <div class="svc-group">
+        <div class="svc-group-name">その他主要AI</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Grok 4</span>
+          <span class="svc-tag">Perplexity</span>
+          <span class="svc-tag">Nano Banana Pro</span>
+        </div>
+      </div>
+      <div class="svc-group">
+        <div class="svc-group-name">画像生成AI</div>
+        <div class="svc-tags">
+          <span class="svc-tag">DALL-3</span>
+          <span class="svc-tag">gpt-image-1</span>
+        </div>
+      </div>
+      <div class="svc-group" style="background:var(--emerald-50);border-color:var(--emerald-200);">
+        <div class="svc-group-name">業界特化AI（独自ボット）</div>
+        <div class="svc-tags">
+          <span class="svc-tag" style="border-color:var(--emerald-300);color:var(--emerald-700);">レビュージェネレーター</span>
+          <span class="svc-tag" style="border-color:var(--emerald-300);color:var(--emerald-700);">BlogBot</span>
+          <span class="svc-tag" style="border-color:var(--emerald-300);color:var(--emerald-700);">LINE配信文</span>
+          <span class="svc-tag" style="border-color:var(--emerald-300);color:var(--emerald-700);">メール返信</span>
+          <span class="svc-tag" style="border-color:var(--emerald-300);color:var(--emerald-700);">他多数</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">9 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 10: ご利用の流れ & セキュリティ ===== -->
+  <div class="slide">
+    <div class="slide-label">Flow &amp; Security</div>
+    <div class="slide-title">導入はかんたん<span class="accent">3ステップ</span></div>
+    <div class="flow-security-layout">
+      <div>
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="sc-title">お申し込み</div>
+            <div class="sc-desc">フォームから情報を入力するだけ。即アカウントを発行いたします。</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="sc-title">ログイン・お試し</div>
+            <div class="sc-desc">1万トークンのお試しパック付き。実際に試してから判断できます。</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="sc-title">本格導入</div>
+            <div class="sc-desc">プランを選択し、チームメンバーを招待。すぐに全員で使い始められます。</div>
+          </div>
+        </div>
+      </div>
+      <div class="security-box">
+        <div class="sb-title">セキュリティ・安心の仕組み</div>
+        <div class="sec-item">
+          <span class="material-icons-outlined sec-icon">verified_user</span>
+          <div class="si-text"><strong>SOC 2 / ISO 27001</strong> 利用基盤準拠</div>
+        </div>
+        <div class="sec-item">
+          <span class="material-icons-outlined sec-icon">privacy_tip</span>
+          <div class="si-text"><strong>データはAI学習に不使用</strong>。プライバシーを守ります。</div>
+        </div>
+        <div class="sec-item">
+          <span class="material-icons-outlined sec-icon">credit_card</span>
+          <div class="si-text"><strong>PCI DSS Level 1準拠</strong>の決済（Stripe）</div>
+        </div>
+        <div class="sec-item">
+          <span class="material-icons-outlined sec-icon">devices</span>
+          <div class="si-text"><strong>マルチデバイス対応</strong>（PC・タブレット・スマホ、PWA）</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">10 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 11: 料金プラン ===== -->
+  <div class="slide">
+    <div class="slide-label">Pricing</div>
+    <div class="slide-title">シンプルな料金プラン</div>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Lite</div>
+        <div class="plan-price">¥4,500<span>/月</span></div>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>80万トークン</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>1名利用</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>画像20枚/月</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>全AI利用可</div>
+        </div>
+      </div>
+      <div class="plan-card popular">
+        <div class="popular-badge">人気 / Popular</div>
+        <div class="plan-name" style="color:var(--emerald-700);">Standard</div>
+        <div class="plan-price">¥9,800<span>/月</span></div>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>255万トークン</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>5名利用</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>画像80枚/月</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>全AI + 業界特化AI</div>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">¥19,800<span>/月</span></div>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>620万トークン</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>10名利用</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>画像200枚/月</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>全機能 + 優先サポート</div>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price enterprise">お問い合わせ</div>
+        <div class="plan-features">
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>カスタムトークン</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>人数カスタム</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>専用サポート</div>
+          <div class="plan-feature"><span class="material-icons-outlined">check</span>SLA対応</div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-options">
+      <div class="po-title">追加オプション</div>
+      <div class="po-items">
+        <div class="po-item">ユーザー追加 <strong>¥3,000/月</strong>（50万トークン付）</div>
+        <div class="po-item">トークン追加パック <strong>¥3,000</strong> / <strong>¥5,500</strong> / <strong>¥8,000</strong></div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">11 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 12: エンタープライズ機能 ===== -->
+  <div class="slide">
+    <div class="slide-label">Enterprise</div>
+    <div class="slide-title">法人導入に必要な機能を<span class="accent">すべて標準搭載</span></div>
+    <div class="enterprise-grid">
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">verified_user</span>
+        </div>
+        <div class="ec-title">エンタープライズ級セキュリティ</div>
+        <div class="ec-desc">SOC 2、ISO 27001準拠の基盤を利用。法人利用に必要な安全性を確保。</div>
+      </div>
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">privacy_tip</span>
+        </div>
+        <div class="ec-title">AI学習にデータ不使用</div>
+        <div class="ec-desc">入力データはAIの学習に一切使用されません。プライバシーを完全保護。</div>
+      </div>
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">manage_accounts</span>
+        </div>
+        <div class="ec-title">ユーザー管理・権限設定</div>
+        <div class="ec-desc">管理者機能でメンバーの追加・削除・権限管理を一元化。</div>
+      </div>
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">bar_chart</span>
+        </div>
+        <div class="ec-title">利用ログ・コスト可視化</div>
+        <div class="ec-desc">リアルタイムダッシュボードで利用状況・コストを常に把握可能。</div>
+      </div>
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">credit_card</span>
+        </div>
+        <div class="ec-title">PCI DSS Level 1決済</div>
+        <div class="ec-desc">Stripe採用。AES-256暗号化で決済情報を厳重に保護。</div>
+      </div>
+      <div class="ent-card">
+        <div class="ec-icon-wrap">
+          <span class="material-icons-outlined">devices</span>
+        </div>
+        <div class="ec-title">マルチデバイス対応</div>
+        <div class="ec-desc">PWAサポートでPC・タブレット・スマートフォンすべてで利用可能。</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">12 / 13</span>
+    </div>
+  </div>
+
+  <!-- ===== Slide 13: CTA ===== -->
+  <div class="slide slide-cta">
+    <div class="slide-title cta-title" style="font-size:24px;margin-bottom:6px;">
+      まずは<span class="accent">無料のお試しトークン</span>で体験してください。
+    </div>
+    <div class="cta-subtitle">すぐに課金されることはありません。</div>
+    <div class="cta-btn-row">
+      <a href="https://promnyai.jp/apply" class="cta-btn-primary">
+        <span class="material-icons-outlined" style="font-size:18px;">rocket_launch</span>
+        無料でお申し込み
+      </a>
+      <a href="https://promnyai.jp/" class="cta-btn-secondary">
+        <span class="material-icons-outlined" style="font-size:18px;">login</span>
+        ログイン
+      </a>
+    </div>
+    <div class="cta-info-grid">
+      <div class="cta-info-card">
+        <div class="cic-label">お申し込み</div>
+        <div class="cic-value">promnyai.jp/apply</div>
+        <div class="cic-sub">フォーム入力のみ・即アカウント発行</div>
+      </div>
+      <div class="cta-info-card">
+        <div class="cic-label">お問い合わせ</div>
+        <div class="cic-value">support@promnyai.jp</div>
+        <div class="cic-sub">ご不明な点はお気軽にご連絡ください</div>
+      </div>
+      <div class="cta-info-card">
+        <div class="cic-label">運営会社</div>
+        <div class="cic-value">株式会社i-Style</div>
+        <div class="cic-sub">i-styleinc.com</div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="slide-footer-left">
+        <img src="/promnyai-logo.png" alt="PromnyAI" class="slide-footer-logo" />
+        <span class="slide-footer-url">promnyai.i-styleinc.com</span>
+      </div>
+      <span class="page-num">13 / 13</span>
+    </div>
+  </div>
+
+</div><!-- /slides-wrapper -->
+
+<script>
+async function generatePDF() {
+  const btn = document.getElementById('download-btn');
+  btn.disabled = true;
+  const slides = document.querySelectorAll('#slides .slide');
+  const totalSlides = slides.length;
+  const SLIDE_W = 960;
+  const SLIDE_H = 540;
+  const PAGE_W_MM = 338.67;
+  const PAGE_H_MM = 190.5;
+  try {
+    const jsPDFClass = (window.jspdf && window.jspdf.jsPDF) || window.jsPDF;
+    if (!jsPDFClass) throw new Error('jsPDF が読み込まれていません。');
+    const pdf = new jsPDFClass({ orientation: 'landscape', unit: 'mm', format: [PAGE_H_MM, PAGE_W_MM] });
+    for (let i = 0; i < totalSlides; i++) {
+      btn.innerHTML = `<span class="material-icons-outlined" style="font-size:18px;animation:spin 1s linear infinite">autorenew</span> ${i + 1} / ${totalSlides} 生成中...`;
+      if (i > 0) pdf.addPage([PAGE_H_MM, PAGE_W_MM], 'landscape');
+      const canvas = await html2canvas(slides[i], {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: SLIDE_W,
+        height: SLIDE_H,
+        windowWidth: SLIDE_W,
+        windowHeight: SLIDE_H
+      });
+      const imgData = canvas.toDataURL('image/jpeg', 0.92);
+      pdf.addImage(imgData, 'JPEG', 0, 0, PAGE_W_MM, PAGE_H_MM);
+    }
+    pdf.save('PromnyAI_サービス資料.pdf');
+  } catch (e) {
+    console.error(e);
+    alert('PDF生成中にエラーが発生しました。');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<span class="material-icons-outlined" style="font-size:18px">download</span> PDFダウンロード';
+  }
+}
+</script>
+
+</body>
+</html>
