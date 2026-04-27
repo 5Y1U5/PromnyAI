@@ -2,3 +2,7 @@ node_modules/
 dist/
 .DS_Store
 *.local
+
+# ローカル作業ディレクトリ（共有不要）
+tasks/
+.omc/
