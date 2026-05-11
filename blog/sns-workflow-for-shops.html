@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/sns-workflow-for-shops.html" />
+  <meta property="og:title" content="SNS運用が続かない店舗オーナーへ — 作成時間を1/3にするAIワークフロー — PromnyAI" />
+  <meta property="og:description" content="店舗SNSが続かない理由と、AIを使って投稿作成を半自動化する具体的なワークフローを解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/sns-workflow-for-shops.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS運用が続かない店舗オーナーへ — 作成時間を1/3にするAIワークフロー — PromnyAI</title>
+  <meta name="description" content="店舗SNSが続かない理由と、AIを使って投稿作成を半自動化する具体的なワークフローを解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / SNS運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">SNS運用が続かない店舗オーナーへ<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 作成時間を1/3にするAIワークフロー</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-12 公開</p>
+      </div>
+      <article class="fade-in text-sm text-gray-600 leading-relaxed">
+
+        <p class="mb-6">「最初は意気込んで毎日投稿していたのに、気づけば1週間以上空いている」「ネタが思いつかず、結局あたりさわりのない投稿になる」「他の店のSNSが羨ましいけど、うちはそこまで手が回らない」——店舗オーナーから一番よく聞く悩みです。</p>
+
+        <p class="mb-6">SNSが続かない理由は、根性や時間管理ではなく、もっとシンプルなところにあります。本記事では、続かない原因を分解し、AIを使って投稿作成を半自動化する具体的な手順を解説します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">SNS運用が続かない3つの原因</h2>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">① 「何を書くか」を毎回考えている</h3>
+        <p class="mb-4">投稿しようとPCを開いた瞬間、ネタを考え始める。これだけで20〜30分かかります。続かない最大の理由はここにあります。週5本投稿するなら、ネタ出しだけで毎週2〜3時間消費していることになります。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">② 文章を一から書いている</h3>
+        <p class="mb-4">テーマが決まっても、書き出し・本文・締めをゼロから書くと、1投稿に30分〜1時間かかります。これが毎日となると、本業の合間にこなすのは現実的に難しいです。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">③ 媒体ごとに書き直している</h3>
+        <p class="mb-4">同じ告知をInstagramとX、Facebookで使い分けるために、毎回手動でリライトしている方も多いはずです。同じ内容を3回書き直す手間は、想像以上に効きます。</p>
+
+        <p class="mb-6">この3つを、AIで一気に短縮するのが今回のワークフローです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AI半自動化ワークフローの全体像</h2>
+        <p class="mb-4">PromnyAIを使う場合の流れはこうなります。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span><strong class="font-semibold text-gray-900">最初に1回だけ：自社情報をAIに教える（30分）</strong></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span><strong class="font-semibold text-gray-900">月初に1回：投稿カレンダーをAIと作る（30分）</strong></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span><strong class="font-semibold text-gray-900">投稿の日：テーマを入れるだけで本文を自動生成（5分／投稿）</strong></span></li>
+        </ul>
+        <p class="mb-6">月20本投稿するなら、従来は20本 × 1時間で約20時間。新しいワークフローでは月初30分＋投稿20本 × 5分で、合計約2時間。所要時間は1/10、これまで使っていた時間の1/3でも十分回せる計算になります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ1：自社情報をAIに教える（最初の1回）</h2>
+        <p class="mb-4">PromnyAIの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ管理</a>に、次の情報を登録します。</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>店舗の概要（業態、立地、客層、強み）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>主力メニュー／商品（価格・特徴・対象顧客）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>ブランドのトーン（「親しみやすく」「絵文字は控えめ」など）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>過去の人気投稿（反応がよかったものを5本程度）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>スタッフ紹介（投稿で「誰が書いているか」が伝わる用）</span></li>
+        </ul>
+        <p class="mb-6">この登録は一度きりです。料金やキャンペーンが変わったとき以外、ほぼ触りません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ2：投稿カレンダーをAIと作る（月初）</h2>
+        <p class="mb-4">月初に、その月の投稿テーマを20〜30個まとめて決めます。これをAIと一緒にやると、ネタ切れが起きません。</p>
+        <p class="mb-4">PromnyAIの<a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブ</a>に「SNS運用ハブ」を1つ作り、こう聞きます。</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-xs text-gray-700 font-mono">「来月のInstagram投稿テーマを20個提案してください。曜日のリズム（月：新着情報、水：スタッフ紹介、金：お客様の声、土：来週の予告）に沿って、季節感も取り入れてください。」</div>
+        <p class="mb-6">学習データに登録した「店舗の概要」「メニュー」が反映されるため、自店に合ったテーマが返ってきます。気に入らないものは差し替え、最終的に20本のリストを完成させます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ3：当日、テーマを入れて本文生成（5分）</h2>
+        <p class="mb-4">投稿当日は、PromnyAIの<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>を開いて、月初に決めたテーマをそのまま貼り付けます。</p>
+        <ul class="space-y-2 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span>テーマを入力</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span>「SNS投稿」を選び、媒体（Instagram など）を選択</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span>「ビジネス情報を使う」をONにして生成</span></li>
+        </ul>
+        <p class="mb-4">出てきた文章は、自社情報・トーン・過去投稿が反映されているため「ほぼそのまま使える」レベルになります。微調整して投稿します。</p>
+        <p class="mb-6">媒体を変えるときは、媒体だけ切り替えてもう一度生成するだけ。XやFacebook向けの文面が、別途数十秒で出てきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">運用のコツと注意点</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">月初の30分を必ず確保する</strong>：投稿当日にネタ出しを始めると、結局元の状態に戻ります。月初の30分が肝。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">価格と日程は必ず確認する</strong>：AIは事実を間違えることがあります。具体的な数字は人の目で確認してから投稿してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">反応のよかった投稿は学習データに追加する</strong>：いい投稿が出たら、それも学習データに登録すると、次の生成精度が上がります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">写真は別途撮る</strong>：文章は半自動化できますが、視覚的な訴求は写真の質に依存します。撮影の習慣は別途必要です。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>SNSが続かない原因は「毎回ネタ出しから始める」「一から書く」「媒体ごとに書き直す」の3つ。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>最初に自社情報を1回登録、月初に投稿テーマを20個作成、当日は5分で本文生成。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>従来比で作成時間は1/3以下になり、続けやすくなる。</span></li>
+        </ul>
+
+        <p class="mb-8">「続けるための仕組み」を作るのは、根性ではなく設計です。一度時間を投資すれば、その後の負担は劇的に軽くなります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">店舗SNS運用の負担を減らしたい方は、PromnyAIの無料トライアルで実際のワークフローを体験できます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/workflow.html" class="text-emerald-600 hover:text-emerald-700 underline">3機能をつなぐPromnyAI運用法</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

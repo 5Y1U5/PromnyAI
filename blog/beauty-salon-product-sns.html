@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/beauty-salon-product-sns.html" />
+  <meta property="og:title" content="美容サロン編：店販商品の紹介投稿をAIで安定運用する — PromnyAI" />
+  <meta property="og:description" content="美容サロンの店販商品紹介をAIで安定運用するための、学習データ準備と投稿テンプレートの作り方を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/beauty-salon-product-sns.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美容サロン編：店販商品の紹介投稿をAIで安定運用する — PromnyAI</title>
+  <meta name="description" content="美容サロンの店販商品紹介をAIで安定運用するための、学習データ準備と投稿テンプレートの作り方を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 業種別活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">美容サロン編<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 店販商品の紹介投稿をAIで安定運用する</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-12 公開</p>
+      </div>
+      <article class="fade-in text-sm text-gray-600 leading-relaxed">
+
+        <p class="mb-6">美容サロンの売上構造で、店販は地味だけれど確実に効くピースです。一方で店販紹介の発信は後回しになりがちで、「気になっていた商品が売り切れていた」「そもそも置いてあることに気づかれていない」という機会損失が起きやすい領域でもあります。</p>
+
+        <p class="mb-6">店販投稿が続かない理由はひとつ。<strong class="text-gray-900">投稿に必要な情報を「商品ごとに毎回まとめている」から</strong>です。AIに自社情報を最初に教えておけば、この負担はほぼ消えます。本記事では、美容サロンが店販投稿を安定運用するための具体的な手順を解説します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">店販投稿が続かない3つの典型パターン</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span><strong class="font-semibold text-gray-900">商品の特徴を毎回調べ直す</strong>：メーカー資料、過去の説明文、口コミを行き来する</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span><strong class="font-semibold text-gray-900">「売り込みっぽさ」のさじ加減に迷う</strong>：押しすぎると引かれ、控えめだと売上に届かない</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span><strong class="font-semibold text-gray-900">スタッフ別のトーンが揃わない</strong>：個性は大事だが、サロン全体としての印象がバラつく</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">解決策：商品情報を「学習データ」に1回入れる</h2>
+        <p class="mb-4">PromnyAIの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ管理</a>に、店販商品の情報を商品ごとに1件で登録します。これさえやれば、その後のSNS投稿は「商品名を指定するだけ」で安定したトーンの紹介文が出てきます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">商品ごとに登録する5項目</h3>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>商品名・容量・価格（税込）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>どんな悩みに効くか（パサつき／うねり／カラー後の補修 など）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>主要成分と、その成分が「なぜ良いか」</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>こんなお客様におすすめ（年代・髪質・ライフスタイル）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>サロンスタッフの実体験コメント（1〜2文）</span></li>
+        </ul>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">サロン全体のトーンを別途登録</h3>
+        <p class="mb-4">「コンセプト」カテゴリに次のような情報を1件登録します。</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>サロンの世界観（落ち着いた／親しみやすい／高級感 など）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>売り込みすぎないルール（「お試しください」よりは「気になる方はお声がけください」など）</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>絵文字・ハッシュタグの使い方（控えめ／たくさん使う／指定）</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">投稿テンプレートの例</h2>
+        <p class="mb-4">PromnyAIの<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>で、こうしたテーマを入れると安定して使えます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">パターン1：新商品入荷のお知らせ</h3>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-xs text-gray-700 font-mono">テーマ：「【商品名】が新しく入荷したことを、30〜40代女性向けにInstagramで紹介。悩み解決から入る構成で、最後に来店時にお声がけくださいと自然に締める。」</div>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">パターン2：スタッフのおすすめ</h3>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-xs text-gray-700 font-mono">テーマ：「スタッフ◯◯のおすすめとして【商品名】を紹介。なぜ気に入っているか、どんな髪質の人に合うかを、本人が話している口調で。」</div>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">パターン3：お客様の声紹介</h3>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-xs text-gray-700 font-mono">テーマ：「【商品名】を実際に使ったお客様（40代・カラー毛のパサつきが悩み）の感想として、3週間使った変化を紹介。具体的な髪の状態の変化に触れる。」</div>
+
+        <p class="mb-6">テーマを変えるだけで、まったく違う角度の紹介投稿が出てきます。1商品で10種類以上の角度を作れるため、ネタ切れの心配が消えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">運用に乗せるためのチェックリスト</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_box</span><span>店販商品をすべて学習データに登録した</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_box</span><span>サロンのトーン・売り込みルールをコンセプトに登録した</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_box</span><span>スタッフごとのプロフィールをメンバーに登録した</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_box</span><span>月初に「今月推したい商品3つ」を決め、テーマ案をハブで作成した</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_box</span><span>テーマからコンテンツ生成で投稿文を作る運用に切り替えた</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">よくあるつまずきポイント</h2>
+        <ul class="space-y-4 mb-6">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">商品情報を細かく書きすぎてしまう</p>
+            <p>メーカーの能書きをそのまま入れると、AIが「広告っぽい」文章を作りがちです。「悩みに対する効能」と「実体験コメント」を必ず混ぜてください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">価格を入れるかどうかで迷う</p>
+            <p>SNS投稿に価格を直接出すのが難しいサロンも多いですが、学習データには登録しておくことをおすすめします。価格抜きで投稿させる指示は、コンテンツ生成側の追加指示で対応できます。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">スタッフ別の口調がうまく出ない</p>
+            <p>メンバー情報に「実際にスタッフが話している口調」をそのまま記載すると、AIが真似ます。インタビュー形式の文章を入れるのが効果的です。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>店販投稿が続かない原因は、毎回情報を集め直していること。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>商品情報を学習データに1回登録すれば、テーマを変えるだけで何パターンも投稿が作れる。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>サロンのトーンとスタッフ情報も合わせて登録することで、印象がブレない。</span></li>
+        </ul>
+
+        <p class="mb-8">店販紹介は、サロンの印象を語る大事な発信です。AIを使えば手間を減らしつつ、毎回ブレない品質で出し続けられます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">美容サロン向けの活用は、PromnyAIの無料トライアルで実際に体験できます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連記事</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/sns-workflow-for-shops.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS運用が続かない店舗オーナーへ — 作成時間を1/3にするAIワークフロー</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/why-ai-content-feels-generic.html" class="text-emerald-600 hover:text-emerald-700 underline">なぜAI文章は「他人事」に聞こえるのか</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">学習データの上手な分け方</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
