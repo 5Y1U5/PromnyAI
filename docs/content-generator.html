@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/content-generator.html" />
+  <meta property="og:title" content="コンテンツ生成の使い方 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIの「コンテンツ生成」は、テーマを入力するだけでブログ・SNS・LINE配信の文章を作れる機能です。基本フローと、品質を上げる詳細設定の使い方を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/content-generator.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>コンテンツ生成の使い方 — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIの「コンテンツ生成」は、テーマを入力するだけでブログ・SNS・LINE配信の文章を作れる機能です。基本フローと、品質を上げる詳細設定の使い方を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Content Generator</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">コンテンツ生成の使い方</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">テーマを入れるだけで、ブログ・SNS・LINE配信の文章を作る</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">コンテンツ生成とは？</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">コンテンツ生成は、テーマと媒体を指定するだけで、ブログ記事・SNS投稿・LINE配信文を自動で作る機能です。AIプロンプトの知識は不要で、フォームに沿って入力するだけで使えます。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">事前に<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>を登録しておけば、自社の文脈に合わせた文章が出力されます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">対応している媒体</h2>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">article</span><span><strong class="font-semibold text-gray-900">ブログ記事</strong>：見出しと本文を含む長文を作成します</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">share</span><span><strong class="font-semibold text-gray-900">SNS投稿</strong>：Instagram／X／Facebookから媒体を選べます</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">chat</span><span><strong class="font-semibold text-gray-900">LINE配信</strong>：告知・キャンペーン・リマインド用の短文を作成します</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">基本フロー</h2>
+        <ol class="space-y-3 text-sm text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>サイドバーから「コンテンツ生成」を開く</li>
+          <li>テーマを入力する（例：「新商品○○のキャンペーン告知」）</li>
+          <li>コンテンツタイプを選ぶ（ブログ／SNS／LINE）</li>
+          <li>SNSの場合は媒体を選ぶ（Instagram／X／Facebook）</li>
+          <li>「ビジネス情報を使う」スイッチをONにする（推奨）</li>
+          <li>「AIに文章を作ってもらう」を押す</li>
+          <li>生成された文章を確認し、コピーする</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">良いテーマの書き方</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">テーマの書き方ひとつで、出力の質が大きく変わります。次の3点を意識してください。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">「何を」「誰に」「何のために」を入れる</strong>：「新商品の紹介」よりも「新商品Aを、30代女性に、購入を促すために」と書くほうが、的を射た文章が返ってきます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">伝えたい1つの軸を明確にする</strong>：「価格の安さ」なのか「品質」なのか「ストーリー」なのか、軸を決めると説得力が増します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">具体的な数字・名前を入れる</strong>：「30%オフ」「期間限定3日間」「先着20名」など、具体性があると説得力が出ます。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">「ビジネス情報を使う」スイッチ</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">このスイッチをONにすると、登録済みの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>が文章生成に反映されます。サービス情報、ブランドのトーン、過去のブログ記事などが参照され、「自社らしい」文章が出力されるため、基本的にはONのまま使うのがおすすめです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">詳細設定の使いどころ</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">画面下部の「詳細設定」を開くと、より細かい指定ができます。慣れてきたら活用してみてください。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">subject</span><span><strong class="font-semibold text-gray-900">参考テキスト</strong>：参考にしたい他社の文章や、過去の自社投稿を貼り付けると、トーンを揃えやすくなります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">tune</span><span><strong class="font-semibold text-gray-900">追加指示</strong>：「絵文字を控えめにして」「ハッシュタグは5個まで」「フランクなトーンで」など、追加で守ってほしい条件を書きます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">build</span><span><strong class="font-semibold text-gray-900">システムプロンプト</strong>：媒体ごとのデフォルト指示が入っています。普段は触らなくて構いません。上級者向け設定です。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">生成後の編集</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">出力された文章は、そのままコピーできるほか、AIに再編集を頼むこともできます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit</span><span><strong class="font-semibold text-gray-900">AIに編集してもらう</strong>：「もっと短く」「もう少し堅めに」など、編集指示を入れて再生成します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">replay</span><span><strong class="font-semibold text-gray-900">再生成</strong>：別のパターンが見たいときに、同じ条件でもう一度生成します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">content_copy</span><span><strong class="font-semibold text-gray-900">コピー</strong>：そのままSNSやメールに貼り付けて使えます。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">生成履歴の活用</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">過去に生成した文章は自動で履歴に保存されます。サイドバーまたは画面上部から「履歴」を開くと、いつでも見返して再利用できます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">history</span><span><strong class="font-semibold text-gray-900">過去文章の再利用</strong>：似たテーマの投稿を作るときに、過去の文章をベースにすると安定します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">filter_list</span><span><strong class="font-semibold text-gray-900">カテゴリフィルタ</strong>：ブログ／SNS／LINEで絞り込めるので、目的の文章を素早く見つけられます。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">用途別の活用例</h2>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">store</span><span><strong class="font-semibold text-gray-900">店舗SNS運用</strong>：同じテーマで Instagram／X／Facebook 向けに作り分ける</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">draft</span><span><strong class="font-semibold text-gray-900">ブログ下書き</strong>：参考記事を貼り、構成と本文の下書きをAIに作らせる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">campaign</span><span><strong class="font-semibold text-gray-900">キャンペーン告知</strong>：LINEで短文＋SNSでビジュアル付き、と分けて作成する</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">よくある質問</h2>
+        <ul class="space-y-4 text-sm text-gray-600 mb-4">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 出力された文章はそのまま使ってよいですか？</p>
+            <p>A. 重要な告知や金額、固有名詞は必ずご自身で確認してから公開してください。AIは事実を間違えることがあります。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. ハッシュタグの数や文字数を指定できますか？</p>
+            <p>A. 詳細設定の「追加指示」に「ハッシュタグは5個まで」「200文字以内で」と書けば反映されます。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 思った通りの文章が出ない場合は？</p>
+            <p>A. テーマをより具体的に書き直すか、「追加指示」で守ってほしい条件を明示してください。それでも合わない場合は、AIに編集してもらう機能で調整できます。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方 — 自社情報をAIに教える</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方 — 資料をまとめてAIに質問する</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

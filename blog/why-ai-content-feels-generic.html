@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/why-ai-content-feels-generic.html" />
+  <meta property="og:title" content="なぜAI文章は「他人事」に聞こえるのか — 学習データが9割という話 — PromnyAI" />
+  <meta property="og:description" content="AIで書いた文章がどこか自社っぽくないと感じたことはありませんか？原因と、解決のためにAIへ教えるべき「自社情報」の整理術を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/why-ai-content-feels-generic.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>なぜAI文章は「他人事」に聞こえるのか — 学習データが9割という話 — PromnyAI</title>
+  <meta name="description" content="AIで書いた文章がどこか自社っぽくないと感じたことはありませんか？原因と、解決のためにAIへ教えるべき「自社情報」の整理術を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 生成AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">なぜAI文章は「他人事」に聞こえるのか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 学習データが9割という話</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-11 公開</p>
+      </div>
+      <article class="fade-in text-sm text-gray-600 leading-relaxed">
+
+        <p class="mb-6">「AIで書いてみたけど、なんかうちっぽくないんだよね」「文章としては合っているんだけど、温度がない」「読み手に響いている気がしない」——AIで文章を作ってみた経営者やマーケ担当の方から、こうした声をよく聞きます。</p>
+
+        <p class="mb-6">そのまま投稿してもなんとなく成果が出ない。けれど、毎回手直しするなら時短にならない。「結局AIって使えないのか」と諦めてしまう人も少なくありません。</p>
+
+        <p class="mb-6">実は、その違和感の正体ははっきりしています。本記事では、AI文章が「他人事」に聞こえる原因と、その解決方法を解説します。結論を先に言うと、<strong class="text-gray-900">問題はAIの性能ではなく、AIに何を教えているかにあります</strong>。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「AIが書いた文章」だと一発で分かる5つの兆候</h2>
+        <p class="mb-4">読み手は、文章を読むときに無意識のうちにこんな違和感を拾っています。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span><strong class="font-semibold text-gray-900">一般論ばかり</strong>：「お客様の声を大切にしています」「品質にこだわっています」など、どこの会社でも書ける表現が並ぶ。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span><strong class="font-semibold text-gray-900">数字や固有名詞がない</strong>：「人気のメニュー」とは書いてあるが、商品名も価格も具体例もない。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span><strong class="font-semibold text-gray-900">トーンが浮く</strong>：いつもの自分の言葉づかいではなく、教科書のようなきれいな日本語になっている。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_4</span><span><strong class="font-semibold text-gray-900">「言い換え」に見える</strong>：すでにある情報の語尾を変えただけで、新しい情報が増えていない。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_5</span><span><strong class="font-semibold text-gray-900">結論が無難すぎる</strong>：「ぜひお試しください」のような、判断を読み手に丸投げする結びになっている。</span></li>
+        </ul>
+
+        <p class="mb-6">ひとつでも当てはまっているなら、その文章は「他人事」と読まれている可能性が高いです。読み手は数行で見抜きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">原因は「素のAI」を使っているから</h2>
+        <p class="mb-4">なぜこうなるのか。理由はとてもシンプルで、<strong class="text-gray-900">AIがあなたの会社を知らないから</strong>です。</p>
+
+        <p class="mb-4">ChatGPTやClaudeのような生成AIは、世の中の膨大な情報を学んでいます。しかしその学習データの中に、あなたの会社のサービス内容、価格、お客様像、お店のこだわりは含まれていません。だから、AIに「キャンペーン告知文を作って」と頼んでも、世の中に存在する「平均的なキャンペーン告知文」しか出てこないのです。</p>
+
+        <p class="mb-4">これは性能の問題ではなく、設計の問題です。AIは「平均的に間違いの少ない文章」を作るように作られています。だから、固有の名前や数字を勝手に作ることはしません。代わりに、誰にでも当てはまる無難な言葉を選びます。それが「他人事」に聞こえる正体です。</p>
+
+        <p class="mb-6">「じゃあ、毎回プロンプトに自社情報を貼り付ければいいのか？」と思うかもしれません。理屈はその通りなのですが、現実には続きません。投稿のたびに数千文字の自社情報をコピペするのは現実的ではないからです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">解決策は「学習データを先に登録する」</h2>
+        <p class="mb-4">この問題には、ひとつの定石があります。<strong class="text-gray-900">使うたびに教えるのではなく、最初に自社情報をまとめてAIに登録しておく</strong>。これだけです。</p>
+
+        <p class="mb-4">PromnyAIでは、これを<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ管理</a>という機能で行います。サービス内容、コンセプト、過去のブログ、スタッフ紹介などをカテゴリ別に登録しておくと、その後のすべての文章生成で自動的に参照されます。</p>
+
+        <p class="mb-6">一度登録してしまえば、ブログ、SNS、LINE、メール返信、どの場面で生成しても自社の文脈を踏まえた文章が出てきます。「うちの言葉になっているか？」を毎回確認する手間が、目に見えて減ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">何を登録すべきか — 最初に入れたい5カテゴリ</h2>
+        <p class="mb-4">「自社情報といっても何から入れたらいいか」と止まる方が多いので、最初に登録する優先順位の高い5カテゴリを挙げておきます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">1. 事業概要</h3>
+        <p class="mb-4">「何屋さんで、誰の、どんな課題を、どうやって解決しているか」を3〜5行でまとめます。会社案内の冒頭にあるような内容です。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">2. 主力サービス</h3>
+        <p class="mb-4">価格、対象、特徴、こだわりポイントを1サービスごとに1件で登録します。複数あれば全部入れてかまいません。むしろ、入れた分だけAIが正確になります。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">3. ブランドのコンセプト・トーン</h3>
+        <p class="mb-4">「親しみやすい言葉で話す」「専門用語は避ける」「絵文字は控えめ」など、自社が大切にしている文章ルールを書きます。文章の手触りを揃えるための一番効く情報です。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">4. 代表・スタッフのプロフィール</h3>
+        <p class="mb-4">紹介投稿やプロフィール文を作るときに役立ちます。経歴・得意分野・お客様への思いを、本人が話しているような口調でまとめておくと、AIはそのトーンを真似ます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">5. よくある質問と回答</h3>
+        <p class="mb-6">お客様から実際に聞かれる質問と、自社の答え方を3〜5件入れておきます。これがあるとAIの回答が一気に具体的になり、サポート対応の下書きにも使えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">始める前に知っておきたい3つのコツ</h2>
+        <ul class="space-y-4 mb-6">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">①「まず10件」を目標にする</p>
+            <p>完璧を目指すと止まります。まず10件入れて、生成してみて、足りないと感じたものを追加する流れが現実的です。10件あればコンテンツ生成の結果は明らかに変わります。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">② 文章として書く（箇条書きだけにしない）</p>
+            <p>AIが学ぶのは「中身」だけでなく「言い回し」も含みます。箇条書きだけだと無機質な文章しか作れません。実際にお客様に話す口調で、文として書いてください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">③ 古くなった情報は入れ直す</p>
+            <p>料金やキャンペーン、人員が変わったら、対応する学習データを更新します。古い情報が残ったままだとAIが古い情報で答え続けてしまいます。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIなら「登録 → 相談 → 発信」が一本でつながる</h2>
+        <p class="mb-4">PromnyAIは、自社情報を活かすための仕組みが3つの機能でつながっています。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">school</span><span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ管理</a>で、自社情報を登録する</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">forum</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブ</a>で、テーマごとに資料を入れてAIに相談する</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit_note</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>で、ブログ・SNS・LINEの文章を作る</span></li>
+        </ul>
+        <p class="mb-6">最初の「登録」さえやってしまえば、その後の「相談」「発信」では自社の文脈が自動で反映されます。「他人事」のAI文章から卒業するための最短ルートです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>AI文章が「他人事」に聞こえる原因は、AIが自社を知らないこと。性能ではなく情報の問題。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>毎回プロンプトに貼るより、最初にまとめて登録しておく方が現実的に続く。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>最初に入れるのは「事業概要・主力サービス・コンセプト・プロフィール・FAQ」の5カテゴリ。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>完璧を待たず、まず10件で始めるのが結果につながる近道。</span></li>
+        </ul>
+
+        <p class="mb-8">AIに「自社らしさ」を出させたいなら、まずAIに「自社」を教えるところから始めてみてください。一度の準備で、その後のすべてのコンテンツ作成が変わります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">AI学習データ管理を含む全機能を、無料トライアルで試せます。「自社らしいAI活用」を始めたい方は、まずはお気軽にお申し込みください。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

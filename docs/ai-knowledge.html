@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/ai-knowledge.html" />
+  <meta property="og:title" content="AI学習データの使い方 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIに自社情報を登録すると、AIの回答が「自社らしい」内容に変わります。AI学習データ管理の使い方と、登録すべき情報をわかりやすく解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/ai-knowledge.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI学習データの使い方 — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIに自社情報を登録すると、AIの回答が「自社らしい」内容に変わります。AI学習データ管理の使い方と、登録すべき情報をわかりやすく解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / AI Knowledge</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">AI学習データの使い方</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">自社情報をAIに教えて、回答を「自社らしい」内容にする</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">なぜ学習データが必要なのか</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">PromnyAIで使えるAI（ChatGPT、Claude、Geminiなど）は、世の中の膨大な情報を学習していますが、あなたの会社の情報までは知りません。そのため、何も登録せずに「ブログ記事を書いて」と頼むと、どこかで聞いたような一般論の文章が返ってきます。</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">「AI学習データ管理」は、自社のサービス内容、ブログ、コンセプト、スタッフ情報などを事前に登録しておく機能です。一度登録すれば、ハブやコンテンツ生成のたびに自動で参照され、自社の文脈に沿った回答が得られるようになります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">登録できる情報の種類</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">登録方法は2種類あります。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit_note</span><span><strong class="font-semibold text-gray-900">テキスト</strong>：画面に直接貼り付けます。最大10MBまで対応。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">upload_file</span><span><strong class="font-semibold text-gray-900">ファイル</strong>：PDF・TXT・Markdown・HTML・Word（.doc／.docx）に対応。最大32MBまで。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">5つのカテゴリ</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">登録するときは、内容に合わせて次の5カテゴリから選びます。あとから一覧をフィルタしやすくなるので、整理しながら入れていきましょう。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sell</span><span><strong class="font-semibold text-gray-900">サービス</strong>：料金、メニュー、対応エリア、強み、対象顧客など</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">article</span><span><strong class="font-semibold text-gray-900">ブログ</strong>：過去に書いた記事や定型コンテンツ。文体・専門性の学習に役立ちます</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">lightbulb</span><span><strong class="font-semibold text-gray-900">コンセプト</strong>：ブランドの考え方、ミッション、こだわり、世界観</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">groups</span><span><strong class="font-semibold text-gray-900">メンバー</strong>：スタッフのプロフィール、経歴、得意分野</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">more_horiz</span><span><strong class="font-semibold text-gray-900">その他</strong>：上記に当てはまらない情報、よくある質問など</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">登録フロー</h2>
+        <ol class="space-y-3 text-sm text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>サイドバーから「AI学習データ管理」を開く</li>
+          <li>カテゴリを選ぶ（サービス／ブログ／コンセプト／メンバー／その他）</li>
+          <li>「テキスト」または「ファイル」を選ぶ</li>
+          <li>タイトルと本文を入力する（またはファイルをアップロード）</li>
+          <li>「AIに情報を教える」を押す</li>
+          <li>一覧で「学習中」から「学習完了」に変わるのを待つ</li>
+        </ol>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">学習完了後は、ハブやコンテンツ生成で「ビジネス情報を使う」のスイッチをONにするだけで、自動で参照されます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">最初に登録すべき5つの情報</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">「何から登録すれば良いかわからない」という方は、まず次の5件を入れてみてください。これだけでも、生成される文章の印象が大きく変わります。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span><strong class="font-semibold text-gray-900">事業概要</strong>：何屋さんで、誰の、どんな課題を解決しているか</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span><strong class="font-semibold text-gray-900">主力サービス</strong>：料金・対象・特徴を1サービスごとに1件</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span><strong class="font-semibold text-gray-900">自社のコンセプト・トーン</strong>：「親しみやすく」「専門用語は避ける」など</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_4</span><span><strong class="font-semibold text-gray-900">代表のプロフィール</strong>：肩書き・経歴・得意分野</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_5</span><span><strong class="font-semibold text-gray-900">よくある質問と回答</strong>：お客様から聞かれる定番の質問を3〜5件</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">良い学習データの書き方</h2>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">具体的に書く</strong>：「お得です」より「初回限定30%オフ」のように、数字や固有名詞を入れます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">文脈を含める</strong>：「強み」だけでなく「なぜ他社と違うのか」も合わせて書きます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">トーンが伝わる文章にする</strong>：箇条書きだけでなく、実際にお客様に話している言い回しもそのまま入れます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">古くなった情報は更新する</strong>：料金やキャンペーンを変更したら、対応する学習データも入れ直します。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">登録した情報の管理</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">登録した情報は一覧画面で確認できます。各項目をクリックすると詳細が展開され、本文の全文を確認できます。不要になった情報は削除できます。</p>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">filter_list</span><span><strong class="font-semibold text-gray-900">カテゴリフィルタ</strong>：一覧上部のタブで、カテゴリごとに絞り込み表示できます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">analytics</span><span><strong class="font-semibold text-gray-900">学習状態の確認</strong>：画面上部に「登録件数」「学習済み件数」「処理中件数」が表示されます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">delete</span><span><strong class="font-semibold text-gray-900">削除</strong>：詳細を展開すると削除ボタンが表示されます。削除後は元に戻せません。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">よくある質問</h2>
+        <ul class="space-y-4 text-sm text-gray-600 mb-4">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. どれくらいの量を登録すれば効果がありますか？</p>
+            <p>A. まず10件を目安に登録してみてください。サービス情報・コンセプト・FAQが入れば、生成されるコンテンツの「自社らしさ」が明らかに変わります。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 長い文章を1件にまとめて入れたほうが良いですか？</p>
+            <p>A. テーマごとに分けて登録するほうが、AIが必要な情報を取り出しやすくなります。1件は数千〜数万文字を目安に、長すぎる場合は分割してください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 競合の情報は入れても良いですか？</p>
+            <p>A. 入れることは可能ですが、自社情報と区別がつくよう「競合A社」などタイトルを明確にしておくことをおすすめします。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方 — 資料をまとめてAIに質問する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方 — テーマを入れるだけで文章を作る</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

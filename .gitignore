@@ -6,3 +6,5 @@ dist/
 # ローカル作業ディレクトリ（共有不要）
 tasks/
 .omc/
+report/
+screenshots/
