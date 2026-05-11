@@ -25,6 +25,7 @@ export default defineConfig({
         'docs-hub': resolve(__dirname, 'docs/hub.html'),
         'docs-ai-knowledge': resolve(__dirname, 'docs/ai-knowledge.html'),
         'docs-content-generator': resolve(__dirname, 'docs/content-generator.html'),
+        'blog-index': resolve(__dirname, 'blog/index.html'),
         'blog-why-ai-content-feels-generic': resolve(__dirname, 'blog/why-ai-content-feels-generic.html'),
       },
     },
