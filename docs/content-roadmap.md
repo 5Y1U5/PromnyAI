@@ -115,6 +115,7 @@ Phase 2 の4本（E-1／B-2／Blog A-2／Blog C-1）は2026-05-12に公開。詳
 3. 各記事公開時に `vite.config.js` の `rollupOptions.input` に登録（登録忘れ防止）。
 4. ブログは末尾CTAを案件に応じて切り替える（美容サロンは GlamAI、それ以外は PromnyAI など）。
 5. `docs/index.html`・`blog/index.html` の一覧カードも公開のたびに更新。
+6. **ブログ記事は必ず `docs/blog-writing-style.md` を通してから公開する**（冒頭3行ルール／小見出しは問い形／具体名・数字・セリフ3か所／禁則ワード／人の手で1文追加）。マニュアルには適用しない。
 
 ### Phase 3 完了時の状態
 
