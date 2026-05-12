@@ -1,7 +1,7 @@
 # PromnyAI 記事制作ロードマップ
 
-最終更新: 2026-05-12
-ステータス: Phase 1・2 完了 / Phase 3 未着手
+最終更新: 2026-05-13
+ステータス: Phase 1・2 完了 / Phase 3 進行中（Day 1 完了 / 残り Day 2〜8）
 
 このファイルは、新3機能（ハブ／コンテンツ生成／AI学習データ管理）リリースに合わせたマニュアル・ブログ記事の制作計画と進捗を記録したもの。新しいセッションで再開する際の参照ドキュメントとして使う。
 
@@ -26,6 +26,7 @@
 | A-3 | コンテンツ生成の使い方 | `/docs/content-generator.html` | 約 4,200 |
 | E-1 | 3機能をつなぐPromnyAI運用法 | `/docs/workflow.html` | 約 3,500 |
 | B-2 | 学習データの上手な分け方 | `/docs/ai-knowledge-categories.html` | 約 3,800 |
+| C-2 | ブログ記事の下書きを作る | `/docs/blog-content-generation.html` | 約 2,400 |
 
 ### ブログ
 
@@ -34,6 +35,7 @@
 | Blog A-1 | なぜAI文章は「他人事」に聞こえるのか — 学習データが9割という話 | `/blog/why-ai-content-feels-generic.html` | 約 5,100 |
 | Blog A-2 | SNS運用が続かない店舗オーナーへ — 作成時間を1/3にするAIワークフロー | `/blog/sns-workflow-for-shops.html` | 約 4,500 |
 | Blog C-1 | 美容サロン編：店販商品の紹介投稿をAIで安定運用する | `/blog/beauty-salon-product-sns.html` | 約 4,600 |
+| Blog B-1 | AI生成記事を「自社の声」に近づける3ステップ | `/blog/ai-content-3-steps-to-authenticity.html` | 約 3,800 |
 
 ### 周辺整備
 
@@ -50,12 +52,12 @@ Phase 2 の4本（E-1／B-2／Blog A-2／Blog C-1）は2026-05-12に公開。詳
 
 残り 16 本（マニュアル 8 ＋ ブログ 8）を「マニュアル ＋ ブログ」のセットで1日2本ずつ8日に分割。再開時は次の未着手日から進める。
 
-### Day 1：自社の声を作るペア
+### Day 1：自社の声を作るペア（完了 2026-05-13）
 
-- [ ] **マニュアル C-2** ブログ記事の下書き作成（コンテンツ生成のブログ用途を掘り下げ）
-  パス候補：`/docs/blog-content-generation.html`
-- [ ] **ブログ B-1** AI生成記事を「自社の声」に近づける3ステップ
-  パス候補：`/blog/ai-content-3-steps-to-authenticity.html`
+- [x] **マニュアル C-2** ブログ記事の下書き作成（コンテンツ生成のブログ用途を掘り下げ）
+  公開：`/docs/blog-content-generation.html`
+- [x] **ブログ B-1** AI生成記事を「自社の声」に近づける3ステップ
+  公開：`/blog/ai-content-3-steps-to-authenticity.html`
 
 ### Day 2：媒体別ペア
 
