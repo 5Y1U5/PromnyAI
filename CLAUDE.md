@@ -22,6 +22,7 @@ PromnyAI/
 │   ├── *.html              # 各機能マニュアル（hub / ai-knowledge / content-generator 等）
 │   ├── architecture.md     # 内部ドキュメント（ADR等）
 │   ├── content-roadmap.md  # 記事制作ロードマップ（次のセッションで参照）
+│   ├── blog-writing-style.md # ブログ執筆スタイルガイド（/blog/ のみ適用）
 │   ├── decisions/          # ADR
 │   └── runbooks/           # 運用手順
 ├── blog/                   # ブログ記事（公開HTML）
@@ -41,6 +42,23 @@ PromnyAI/
 ## ページ追加時の注意
 
 新しいHTMLページを追加する際は **必ず `vite.config.js` の `rollupOptions.input` に登録すること**。登録しないと `dist/` に出力されず、Cloudflare Pages にデプロイされない。
+
+## ブログ執筆ルール
+
+`/blog/` 配下の新規記事および既存記事の改修時は **必ず `docs/blog-writing-style.md` を通すこと**。
+冒頭3行ルール、小見出しは問い形、具体名・数字・セリフ最低3か所、AI禁則ワード集、人の手で「現場」の1文追加、まとめは5点以内、などの共通ルール。
+マニュアル `/docs/` には適用しない（手順書のため淡々とした書き方を維持）。
+
+## 本文タイポグラフィ
+
+ブログ・マニュアルの本文 `<p>` `<ul>` `<ol>` は以下で統一:
+- font-size: `text-base` (16px)
+- line-height: `leading-[1.8]` (Yahoo!ニュース基準)
+- color: `text-gray-600`
+- font-family: `Noto Sans JP`（Tailwind デフォルト経由）
+
+UI要素（ボタン・ナビ・カード説明・CTA box・索引メタ）は `text-sm` で意図的に小さくしている。
+本文サイズを変えるときは `blog/*.html` と `docs/*.html` の両方を一括で揃えること（PR #15 参照）。
 
 ## 開発コマンド
 ```bash

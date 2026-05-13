@@ -8,3 +8,6 @@ tasks/
 .omc/
 report/
 screenshots/
+
+# Playwright MCP のデバッグログ・スナップショット
+.playwright-mcp/
