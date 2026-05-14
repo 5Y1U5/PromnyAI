@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/blog-sns-line-from-one-theme.html" />
+  <meta property="og:title" content="同じ告知を3回書き直していないか — ブログ・SNS・LINEを1テーマから作るレシピ — PromnyAI" />
+  <meta property="og:description" content="同じネタを媒体ごとに書き直すのに疲れた方へ。1つのテーマからブログ・SNS・LINE向けの文章を最小手数で作る考え方と実装手順を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/blog-sns-line-from-one-theme.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>同じ告知を3回書き直していないか — ブログ・SNS・LINEを1テーマから作るレシピ — PromnyAI</title>
+  <meta name="description" content="同じネタを媒体ごとに書き直すのに疲れた方へ。1つのテーマからブログ・SNS・LINE向けの文章を最小手数で作る考え方と実装手順を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 生成AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">同じ告知を3回書き直していないか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— ブログ・SNS・LINEを1テーマから作るレシピ</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-14 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「ブログに書いた告知を、Instagram用にも書き直して、LINE用にも短くまとめて、Xにも投げる」——3媒体で発信している店舗オーナーから、月に何度も聞く話です。同じネタを4回書き直すのに、平気で半日かかります。</p>
+
+        <p class="mb-6">困るのは時間だけではありません。書き直しているうちに媒体ごとの言葉が揃わなくなり、ブログでは熱量高めだったのにLINEでは事務的になっている、ということが起きます。読み手は同じ店から来た情報なのに、温度差で混乱します。</p>
+
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">どうすれば「1テーマ」から「3媒体ぶん」の文章を、軸を揃えたまま最小手数で出せるか</strong>。考え方と実装手順を、店舗運営の現場で使える形で書きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">3媒体に「同じものを貼る」が一番ダメな理由</h2>
+        <p class="mb-4">最初に避けたいのは、ブログ本文をそのままSNSにコピペし、LINEにも同じ文章を投げる運用です。文字数も読まれ方も違うので、どれかが必ず噛み合いません。</p>
+
+        <p class="mb-4">具体的にどう噛み合わないか。たとえば「来週から新メニュー◯◯を始めます」という告知を、3媒体で考えると役割が変わります。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">menu_book</span><span><strong class="font-semibold text-gray-900">ブログ</strong>：「なぜこのメニューを作ったのか」の背景まで含めて、検索流入で読まれる前提で長めに書く。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">share</span><span><strong class="font-semibold text-gray-900">SNS（Instagram／X）</strong>：「来週から新メニュー」を3秒で伝える。詳細は気になった人がプロフィールから飛ぶ。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">chat</span><span><strong class="font-semibold text-gray-900">LINE</strong>：すでに来店経験のあるお客様への報告。「いつもありがとうございます。先日お話しした新メニュー、来週から始まります」のような関係性前提の連絡。</span></li>
+        </ul>
+
+        <p class="mb-6">伝える事実は同じでも、媒体ごとに「読まれる場所」「想定する関係性」「読み終わったあとの行動」が違います。同じ文章でこれら3軸を全部満たすのは無理です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「軸」を1本決めるのが先</h2>
+        <p class="mb-4">手数を減らすコツは、3媒体ぶんを別々に考えないことです。先に「テーマの軸」を1本だけ決めて、それを3媒体に翻訳します。軸は次の3点を1行ずつ書くだけで決まります。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">person_pin</span><span><strong class="font-semibold text-gray-900">読者像</strong>：「30代後半の女性、月1回来店する常連」「来店未経験で検索流入してきた人」など、具体的に書く。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">flag</span><span><strong class="font-semibold text-gray-900">伝えたいこと</strong>：1つに絞る。「来週から新メニュー」「初回30%オフ」「営業時間変更」など。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><strong class="font-semibold text-gray-900">読み終わったあとに取ってほしい行動</strong>：「予約する」「来店時にメニュー名で注文する」「友達に話す」など。</span></li>
+        </ul>
+
+        <p class="mb-6">この3行を最初に書いておけば、媒体が3つに分かれても言葉の軸はぶれません。逆に、この3行が決まらないまま媒体ごとに書き始めると、それぞれの「ノリ」で違うことを言い始めて統一感が消えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">レシピ：1テーマ × 3媒体を15分で出す手順</h2>
+        <p class="mb-4">軸さえ決まれば、AIに任せられる作業は3媒体分まとめて15分で終わります。<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>を開いた状態で、次の順に進めます。</p>
+
+        <p class="mb-4"><strong class="text-gray-900">ステップ1：テーマ欄に軸の3行を貼る</strong>（所要1分）</p>
+        <p class="mb-4">先ほどの「読者像／伝えたいこと／読後の行動」をそのまま貼ります。たとえば次のような文面です。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm text-gray-700 font-mono">読者：来店経験ありの30代女性、月1回程度の常連<br>伝えたいこと：来週月曜から新作カラー「ベリーショコラ」を導入<br>読み終わったあと：次回予約のタイミングで指名してもらう</div>
+
+        <p class="mb-4"><strong class="text-gray-900">ステップ2：コンテンツタイプ「ブログ記事」で生成</strong>（所要5分）</p>
+        <p class="mb-4">先にブログを出します。一番情報量が多い媒体から作ったほうが、後のSNS・LINEに転用しやすいからです。出てきた本文を確認し、誤字や事実誤りだけ直してコピーします。</p>
+
+        <p class="mb-4"><strong class="text-gray-900">ステップ3：同じテーマでコンテンツタイプ「SNS投稿」に切り替え、媒体ごとに生成</strong>（所要5分）</p>
+        <p class="mb-4">テーマ欄は変えずに、コンテンツタイプを「SNS投稿」に。Instagram → 生成 → コピー、X → 生成 → コピー、Facebook → 生成 → コピー、と媒体を切り替えるだけです。3媒体それぞれの仕様（字数・ハッシュタグ数・トーン）に合わせた文面が個別に出てきます。詳しい設定は<a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方</a>を参照してください。</p>
+
+        <p class="mb-4"><strong class="text-gray-900">ステップ4：同じテーマでコンテンツタイプ「LINE配信」に切り替えて生成</strong>（所要3分）</p>
+        <p class="mb-4">最後にLINE用の短文を作ります。LINEは関係性が一番濃いので、追加指示で「既存顧客向けの報告体で。150字以内」と入れると、SNSとは別の温度の文面が出ます。</p>
+
+        <p class="mb-6">合計15分前後で、ブログ1本＋SNS3媒体ぶん＋LINE1通が揃います。書き直し3往復の半日が消えるので、月に20日運用なら、ざっくり40時間の差です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">媒体間で言葉を揃えるための仕掛け</h2>
+        <p class="mb-4">媒体は分けつつ、コア部分は揃えたい。これを実現するのが「学習データ」と「追加指示」の使い分けです。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">school</span><span><strong class="font-semibold text-gray-900">学習データ</strong>：自社の語彙・コンセプト・スタッフ情報。3媒体共通で参照されるので、ここを整えれば軸はぶれません。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">tune</span><span><strong class="font-semibold text-gray-900">追加指示</strong>：媒体ごとの個別ルール（「Instagramは絵文字なし」「LINEは150字以内」など）。媒体を切り替えるたびに追加指示も切り替えます。</span></li>
+        </ul>
+
+        <p class="mb-6">学習データを共通の「軸」、追加指示を媒体別の「ルール」と捉えると、運用が安定します。学習データの作り方は<a href="/docs/ai-knowledge-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">学習データの上手な分け方</a>にまとまっています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">現場で起きるつまずきと、その回避策</h2>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「SNSとLINEのトーンが似てしまう」</h3>
+        <p class="mb-4">LINE用に追加指示を入れていないとき、よく起きます。LINEは既存顧客向けなので「いつもありがとうございます」「先日お話しした」など、関係性を前提にした書き出しを追加指示で明示してください。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「ブログだけ長くなり、SNSが薄い」</h3>
+        <p class="mb-4">テーマ欄に「読み終わったあとの行動」を1行入れ忘れると、SNS側がふわっとした文面になりがちです。ゴールを明示すれば、SNSでも結論が立ちます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「Xの140字に毎回収まらない」</h3>
+        <p class="mb-4">追加指示で「140字以内」と書いても、AIは数文字オーバーすることがあります。生成後にテキストエディタで文字数カウントして、長ければ「もう少し短く」と再生成依頼してください。X特化のスレッド分割なら、追加指示に「3ツイートのスレッドで」と入れる方法もあります。</p>
+
+        <p class="mb-6">先月、当社が運用支援している地方の美容サロンで、この手順を導入したところ、SNS投稿の作成にかかる時間が月35時間から月12時間まで下がりました。担当のスタッフさんが「写真撮影に集中できる時間が増えた」と話していたのが印象的でした。手順自体は単純ですが、効果は積み上がります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>同じ文章を3媒体に貼っても噛み合わない。読まれる場所も関係性も違う。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>先に「読者像／伝えたいこと／読後の行動」の3行で軸を1本決める。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>ブログ → SNS3媒体 → LINE の順に、テーマ欄は固定で媒体だけ切り替えて生成する。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>学習データは「軸」、追加指示は「媒体ごとのルール」と切り分けて運用する。</span></li>
+        </ul>
+
+        <p class="mb-8">媒体ごとに3回書き直す運用は、書き手にも読み手にも消耗をもたらします。軸を先に1本決めてしまえば、AIの仕事は3媒体ぶんでも同じ1テーマぶんで済みます。今日の告知1本から、ぜひ試してみてください。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">1テーマから3媒体ぶんの文章を作る運用は、PromnyAIの無料トライアルで実際に体験できます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方 — Instagram／X／Facebookの違いと設定</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連記事</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/ai-content-3-steps-to-authenticity.html" class="text-emerald-600 hover:text-emerald-700 underline">AI生成記事を「自社の声」に近づける3ステップ</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/sns-workflow-for-shops.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS運用が続かない店舗オーナーへ</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

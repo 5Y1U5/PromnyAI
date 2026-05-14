@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/sns-content-generation.html" />
+  <meta property="og:title" content="SNS投稿の作り方 — Instagram／X／Facebookの違いと設定 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="コンテンツ生成のSNSモードを、Instagram／X／Facebookの3媒体ごとに使い分ける具体的な手順とトーン設計を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/sns-content-generation.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS投稿の作り方 — Instagram／X／Facebookの違いと設定 — マニュアル — PromnyAI</title>
+  <meta name="description" content="コンテンツ生成のSNSモードを、Instagram／X／Facebookの3媒体ごとに使い分ける具体的な手順とトーン設計を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Content Generator</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">SNS投稿の作り方</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">Instagram／X／Facebookの違いを踏まえて、媒体別に整った投稿を作る</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">この記事で分かること</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>コンテンツ生成のSNSモードを開く基本フロー</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>Instagram／X／Facebookの3媒体で変えるべき設定の違い</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>同じテーマから3媒体ぶんの文面を最短手順で作るコツ</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">SNSで使う機能はどれ？</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">SNS投稿の文面作成は、<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>のSNSモードを使います。コンテンツタイプで「SNS投稿」を選び、媒体（Instagram／X／Facebook）を切り替えるだけで、媒体に合わせた長さ・トーン・ハッシュタグ設計の文面が出力されます。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">事前に<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>と<a href="/docs/ai-knowledge-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">コンセプト情報</a>を登録しておくと、自社のトーンに合わせた文章が安定して出ます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">基本フロー</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>サイドバーから「コンテンツ生成」を開く</li>
+          <li>コンテンツタイプで「SNS投稿」を選ぶ</li>
+          <li>媒体（Instagram／X／Facebook）を選択する</li>
+          <li>テーマを入力する</li>
+          <li>「ビジネス情報を使う」スイッチをONにする</li>
+          <li>必要に応じて詳細設定で「追加指示」を入れる</li>
+          <li>「AIに文章を作ってもらう」を押す</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">3媒体の特性を1枚で</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">媒体ごとに「読まれる場所」「想定する関係性」「言葉の温度」が違います。次の早見表で大枠を押さえてください。</p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
+            <thead class="bg-emerald-50 text-gray-700">
+              <tr>
+                <th class="px-4 py-3 font-semibold">項目</th>
+                <th class="px-4 py-3 font-semibold">Instagram</th>
+                <th class="px-4 py-3 font-semibold">X（旧Twitter）</th>
+                <th class="px-4 py-3 font-semibold">Facebook</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">想定文字数</td>
+                <td class="px-4 py-3">400〜800字</td>
+                <td class="px-4 py-3">140字以内</td>
+                <td class="px-4 py-3">300〜600字</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">ハッシュタグ</td>
+                <td class="px-4 py-3">10〜20個</td>
+                <td class="px-4 py-3">1〜3個</td>
+                <td class="px-4 py-3">3〜5個</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">トーン</td>
+                <td class="px-4 py-3">ビジュアル前提のキャプション</td>
+                <td class="px-4 py-3">短く、口語、要点先出し</td>
+                <td class="px-4 py-3">やや丁寧、説明的でも可</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">読まれる関係性</td>
+                <td class="px-4 py-3">フォロワー（やや距離あり）</td>
+                <td class="px-4 py-3">フォロワー＋検索流入</td>
+                <td class="px-4 py-3">既存顧客・知人中心</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">主な狙い</td>
+                <td class="px-4 py-3">世界観・指名検索</td>
+                <td class="px-4 py-3">話題化・拡散</td>
+                <td class="px-4 py-3">既存関係の維持</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">Instagram の設定ポイント</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">写真ありきの媒体です。キャプションは「画像で伝わらない情報」を補う役割で書きます。読者は雑誌を眺めるように流し読みするため、冒頭1〜2行で続きを読む価値を伝える必要があります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">photo_camera</span><span><strong class="font-semibold text-gray-900">最初の1〜2行は「結論」</strong>：「来月から新メニュー追加」「今だけ初回30%オフ」など、最も伝えたいことを冒頭に置きます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">tag</span><span><strong class="font-semibold text-gray-900">ハッシュタグは末尾にまとめる</strong>：本文との間に1行空けて、10〜20個を貼ります。地域名・業種名・想定検索ワードを混ぜます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">format_quote</span><span><strong class="font-semibold text-gray-900">スタッフ視点の一文</strong>：「担当の◯◯です」「先週、お客様から教えていただいたのですが」など、書き手の顔が見える一文を入れると保存率が上がります。</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">追加指示の例：「冒頭2行で結論を伝え、本文は400〜600字。最後にハッシュタグを15個（地域名と業種名を含める）」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">X（旧Twitter）の設定ポイント</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">テキスト主役、短文勝負の媒体です。140字以内に収めることが前提で、3秒で意味が伝わる構成にします。Instagram用のキャプションをそのまま貼っても流れていきます。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">bolt</span><span><strong class="font-semibold text-gray-900">1ツイート1メッセージ</strong>：情報を2つ以上詰めない。複数あればスレッドに分けます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">tag</span><span><strong class="font-semibold text-gray-900">ハッシュタグは1〜3個</strong>：多すぎると読みづらく、本文の幅も食われます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">forum</span><span><strong class="font-semibold text-gray-900">問いかけ・呼びかけで終える</strong>：「あなたはどう思いますか？」「来てみたい方はリプください」など、リプライを誘発する締めにすると反応が増えます。</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">追加指示の例：「140字以内。1メッセージに絞り、最後はリプライを誘う一文で締める。ハッシュタグは2個まで」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">Facebook の設定ポイント</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">既存顧客と知人がメインの媒体です。Instagramより文章長めでも読まれます。年齢層がやや高く、敬語・丁寧さを残したほうが好まれる傾向があります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">handshake</span><span><strong class="font-semibold text-gray-900">既存顧客への報告体</strong>：「いつもありがとうございます」「先日来店いただいた皆様へ」など、関係性を前提にした書き出しが効きます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">subject</span><span><strong class="font-semibold text-gray-900">本文は300〜600字</strong>：3〜4段落で背景・本題・補足を伝える構成が読みやすいです。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">event</span><span><strong class="font-semibold text-gray-900">日時・場所は明確に</strong>：イベント告知の場合、開催日・時間・住所をテキストでしっかり書きます。Facebookで予定共有することを想定する読者が一定数います。</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">追加指示の例：「既存顧客への報告体で。500字前後、3段落構成。最後は次回来店を促す自然な一文で締める。ハッシュタグは3〜5個」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">同テーマで3媒体ぶんを作るコツ</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">1つのネタを3媒体に展開するときは、テーマ自体は使い回し、媒体だけ切り替えて再生成するのが最短です。手順は次のとおりです。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>テーマ欄に同じ文章（読者像・伝えたいこと・ゴール）を入れる</li>
+          <li>媒体だけ Instagram → 生成 → コピー</li>
+          <li>同じテーマで媒体を X に切り替えて生成 → コピー</li>
+          <li>同じテーマで媒体を Facebook に切り替えて生成 → コピー</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">テーマ欄を空にしないことがコツです。3媒体すべてに同じ「読者像」「ゴール」を渡しておくと、媒体ごとのトーンは違っても、軸はぶれません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">公開前に確認したい3項目</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">文字数・ハッシュタグ数</strong>：媒体の上限内に収まっているか確認します。Xの140字、Instagramの30個ハッシュタグ上限などは特に。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">価格・日付・固有名詞</strong>：AIは過去情報から推測することがあります。事実と一致しているか必ず人の目で確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">外部リンク・タグの綴り</strong>：ハッシュタグの綴りミス、アカウント名のタイポは反応に影響します。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">よくある質問</h2>
+        <ul class="space-y-4 text-base text-gray-600 mb-4">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 同じテーマで3媒体出すと、内容が似すぎませんか？</p>
+            <p>A. テーマは同じでも、媒体を切り替えると長さ・ハッシュタグ・トーンが変わります。冒頭の一文や締めの一文は媒体ごとに違って出るので、似すぎることはほぼ起きません。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. Instagramで30個ハッシュタグを使い切るのは効果がありますか？</p>
+            <p>A. 媒体側の仕様変更で年々効果が変動します。現状は10〜20個に絞り、地域名・業種名・指名タグを優先したほうが安定します。追加指示で「ハッシュタグは15個まで」のように上限を伝えると良いです。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 媒体ごとに別アカウントの担当者がいるとき、どう運用すれば？</p>
+            <p>A. テーマ欄に「担当者◯◯のアカウントで」と書くと、担当者プロフィールを学習データから引き当てて、口調を寄せた文章が出ます。<a href="/docs/ai-knowledge-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">メンバー情報の登録</a>を最初に済ませておくのが鍵です。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方 — 基本フローと全体像</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方 — 自社情報をAIに教える</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
