@@ -1,7 +1,7 @@
 # PromnyAI 記事制作ロードマップ
 
 最終更新: 2026-05-14
-ステータス: Phase 1・2 完了 / Phase 3 進行中（Day 1・2 完了 / 残り Day 3〜8）
+ステータス: Phase 1・2 完了 / Phase 3 進行中（Day 1・2・3 完了 / 残り Day 4〜8）
 
 このファイルは、新3機能（ハブ／コンテンツ生成／AI学習データ管理）リリースに合わせたマニュアル・ブログ記事の制作計画と進捗を記録したもの。新しいセッションで再開する際の参照ドキュメントとして使う。
 
@@ -28,6 +28,7 @@
 | B-2 | 学習データの上手な分け方 | `/docs/ai-knowledge-categories.html` | 約 3,800 |
 | C-2 | ブログ記事の下書きを作る | `/docs/blog-content-generation.html` | 約 2,400 |
 | C-1 | SNS投稿の作り方 — Instagram／X／Facebookの違いと設定 | `/docs/sns-content-generation.html` | 約 3,300 |
+| C-3 | LINE配信文の作り方 — 告知・リマインド・季節挨拶 | `/docs/line-content-generation.html` | 約 3,400 |
 
 ### ブログ
 
@@ -38,6 +39,7 @@
 | Blog C-1 | 美容サロン編：店販商品の紹介投稿をAIで安定運用する | `/blog/beauty-salon-product-sns.html` | 約 4,600 |
 | Blog B-1 | AI生成記事を「自社の声」に近づける3ステップ | `/blog/ai-content-3-steps-to-authenticity.html` | 約 3,800 |
 | Blog B-3 | 同じ告知を3回書き直していないか — ブログ・SNS・LINEを1テーマから作るレシピ | `/blog/blog-sns-line-from-one-theme.html` | 約 3,900 |
+| Blog C-2 | 毎朝「今日の一品」の投稿に1時間かけていないか — 飲食店の日替わり告知をテンプレ化する | `/blog/restaurant-daily-menu-ai.html` | 約 4,200 |
 
 ### 周辺整備
 
@@ -68,12 +70,12 @@ Phase 2 の4本（E-1／B-2／Blog A-2／Blog C-1）は2026-05-12に公開。詳
 - [x] **ブログ B-3** 同じ告知を3回書き直していないか — ブログ・SNS・LINEを1テーマから作るレシピ
   公開：`/blog/blog-sns-line-from-one-theme.html`
 
-### Day 3：LINE × 飲食店ペア
+### Day 3：LINE × 飲食店ペア（完了 2026-05-14）
 
-- [ ] **マニュアル C-3** LINE配信文の作成（告知・リマインド・キャンペーン）
-  パス候補：`/docs/line-content-generation.html`
-- [ ] **ブログ C-2** 飲食店編：日替わりメニュー告知のテンプレ化
-  パス候補：`/blog/restaurant-daily-menu-ai.html`
+- [x] **マニュアル C-3** LINE配信文の作り方 — 告知・リマインド・季節挨拶
+  公開：`/docs/line-content-generation.html`
+- [x] **ブログ C-2** 毎朝「今日の一品」の投稿に1時間かけていないか — 飲食店の日替わり告知をテンプレ化する
+  公開：`/blog/restaurant-daily-menu-ai.html`
 
 ### Day 4：ファイル取り込み × 整理術ペア
 

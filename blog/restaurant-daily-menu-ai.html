@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/restaurant-daily-menu-ai.html" />
+  <meta property="og:title" content="毎朝『今日の一品』の投稿に1時間かけていないか — 飲食店の日替わり告知をテンプレ化する — PromnyAI" />
+  <meta property="og:description" content="飲食店の日替わりメニュー告知を、撮影と仕込みの合間に5分で済ませるためのテンプレ化レシピを解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/restaurant-daily-menu-ai.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>毎朝『今日の一品』の投稿に1時間かけていないか — 飲食店の日替わり告知をテンプレ化する — PromnyAI</title>
+  <meta name="description" content="飲食店の日替わりメニュー告知を、撮影と仕込みの合間に5分で済ませるためのテンプレ化レシピを解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 業種別活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">毎朝「今日の一品」の投稿に1時間かけていないか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 飲食店の日替わり告知をテンプレ化する</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-14 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「日替わりランチを撮影して、文章を考えて、ハッシュタグを並べて、Instagramと食べログとLINEに流す」——個人経営の飲食店オーナーから何度も聞く、開店前の朝の風景です。気づけば1時間が消えて、肝心の仕込みが押す。</p>
+
+        <p class="mb-6">困るのは時間だけではありません。文章を毎朝ゼロから書くと、その日の体調や気分で温度がぶれます。ある日は熱量高めなのに、翌日は事務的な箇条書きだけ。続けるほどに「店の声」がバラついていきます。</p>
+
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">毎日違う日替わりメニューを、毎朝5分の運用で、店の声を保ったまま告知し続けるには、何をテンプレ化すればよいか</strong>。現場で使える3つの分解と、AIへの落とし込み方を書きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">毎日違うのに「型」は作れるのか</h2>
+        <p class="mb-4">日替わりメニューは「毎日違うから定型化できない」と思われがちです。けれど、よく観察すると違うのは「素材」と「価格」だけで、文章の構造そのものは毎日同じパターンを取っています。</p>
+
+        <p class="mb-4">たとえば長く続いている定食屋さんの日替わり投稿を10本並べると、ほぼ全部が次の順序で書かれています。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span><strong class="font-semibold text-gray-900">今日の主役</strong>：「自家製ハンバーグ定食」「冬野菜の煮込み」など、料理名を最初に出す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span><strong class="font-semibold text-gray-900">作り手の一言</strong>：「今朝、信州の◯◯さんから届いた春キャベツを使いました」のような、素材と背景の短い説明。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span><strong class="font-semibold text-gray-900">運用情報</strong>：「ランチ11:30〜14:00、本日20食限定」のような、来店判断に必要な実務情報。</span></li>
+        </ul>
+
+        <p class="mb-6">この3層の順番と分量が、毎日同じです。違うのは1層目の「料理名」、2層目の「素材エピソード」、3層目の「数字」だけ。だから「変わる部分」と「変わらない部分」を分けてしまえば、毎朝ゼロから書く必要は消えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">テンプレ化の3つの分解</h2>
+        <p class="mb-4">飲食店の日替わり告知をAIに任せるには、次の3つを分けて整理しておくのがコツです。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">① 店の「変わらない声」を学習データに入れる</h3>
+        <p class="mb-4">店主の挨拶の仕方、お客様の呼び方、好きな言葉、避ける言葉。これらは毎日変わりません。一度<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>に登録すれば、その後の投稿に自動で反映されます。</p>
+        <p class="mb-4">登録例：「『お客様』ではなく『常連さん』『はじめての方』と呼び分ける」「『絶品』『感動』は使わない、代わりに『今日はちょっとうまく揚がりました』のような実況調で書く」</p>
+        <p class="mb-4">店のSNSを過去20投稿ぶん読み直し、繰り返し出てくる表現をまとめると、自分でも気づかなかった「店の癖」が見えてきます。それをそのまま登録するのが一番早いです。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">② 毎日変わる「3つの素材」だけ朝メモする</h3>
+        <p class="mb-4">朝の運用負荷は、ここに集約します。スマホのメモアプリに、3行だけ書きます。</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm text-gray-700 font-mono">料理名：自家製ハンバーグ定食 980円<br>素材の一言：今朝、信州の小林さんから届いた春キャベツを添えた<br>運用情報：ランチ11:30〜14:00、本日20食限定</div>
+        <p class="mb-4">これを書くのに30秒もかかりません。仕入れの直後、調理に入る前のタイミングで終わらせます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">③ AIに「3素材＋媒体」だけ渡して生成</h3>
+        <p class="mb-4">あとは<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>に、朝メモの3行をテーマ欄に貼って、媒体を選んで生成するだけです。SNSは<a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">Instagram／X／Facebookの違い</a>を、LINEは<a href="/docs/line-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">LINE配信の用途別</a>を切り替えて、3媒体ぶんが3〜5分で揃います。</p>
+
+        <p class="mb-6">学習データに「店の声」が入っているので、出力はAI標準のテンプレ文ではなく、店主が普段話している語り口で出てきます。「他人事に聞こえる」感じが消えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">朝5分のワークフロー例</h2>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="text-gray-900">7:30 仕入れ確認時</strong>：今日の主役素材を決め、スマホのメモに3行書く（30秒）</li>
+          <li><strong class="text-gray-900">10:00 仕込みが落ち着いたタイミング</strong>：盛り付け1食ぶんを撮影（1〜2分）</li>
+          <li><strong class="text-gray-900">10:10</strong>：コンテンツ生成でInstagram投稿文を出す（1分）</li>
+          <li><strong class="text-gray-900">10:11</strong>：媒体をXに切り替え、再生成（1分）</li>
+          <li><strong class="text-gray-900">10:12</strong>：媒体をLINE配信に切り替え、再生成（1分）</li>
+          <li><strong class="text-gray-900">10:13</strong>：写真と組み合わせて各媒体に投稿（1〜2分）</li>
+        </ol>
+        <p class="mb-6">仕込み→撮影→投稿の流れで5〜7分程度。朝の1時間が10分前後まで縮みます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">テンプレ化のときに注意したい3つの落とし穴</h2>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「言い回しまで完全コピー」にしない</h3>
+        <p class="mb-4">学習データに過去投稿を100本入れると、AIは「全部同じ言い回し」を再生産しがちです。20〜30本を選び、その中でも反応のよかったもの・自分が読み返して気持ちのよいものに絞ったほうが、結果的にバリエーションが出ます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「素材の一言」をサボらない</h3>
+        <p class="mb-4">3行メモの2行目「素材の一言」を省略すると、出力は急に薄くなります。固有名（仕入先・産地・スタッフ名）と理由（なぜ今日それを使うか）を1文で書くのが最低ラインです。ここが書けない日は、出力もどうしても他店と似てきます。</p>
+
+        <h3 class="font-bold text-gray-900 mt-6 mb-2">「価格・限定数」は必ず人の目で確認</h3>
+        <p class="mb-4">AIは過去の数字を引っ張り出すことがあります。980円が1080円になっていたり、20食が30食と書かれていたり。投稿前に数字だけは目視で必ず確認してください。</p>
+
+        <p class="mb-6">先月、当社が運用支援している地方の定食屋さんで、朝の投稿時間を1時間から12分に短縮しました。店主の方が「仕込みに余裕ができて、新作のテスト試作にも時間を回せるようになった」と話してくれたのが嬉しい変化でした。テンプレ化は時間短縮の話に見えて、実は「本業に集中できる時間を取り戻す」話です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>日替わり投稿は「料理名／素材の一言／運用情報」の3層構造。変わるのは中身だけ。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>店の「変わらない声」は学習データに先に登録する。これで毎日の出力がブレない。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>朝は3行のメモだけ書く。AIに渡せば、3媒体ぶんが5分で揃う。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>「素材の一言」をサボらない・価格と限定数は必ず確認する。この2点だけ崩さない。</span></li>
+        </ul>
+
+        <p class="mb-8">毎朝の1時間を、仕込みと試作に戻す。AIを使うのは時短のためというより、店主の本業に時間を返すためです。明日の朝、まず3行メモから試してみてください。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">飲食店の日替わり告知運用は、PromnyAIの無料トライアルで実際に体験できます。学習データ登録から3媒体ぶんの生成まで、当日中に試せます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/line-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">LINE配信文の作り方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連記事</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/sns-workflow-for-shops.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS運用が続かない店舗オーナーへ</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/blog-sns-line-from-one-theme.html" class="text-emerald-600 hover:text-emerald-700 underline">同じ告知を3回書き直していないか — 3媒体を1テーマから作るレシピ</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

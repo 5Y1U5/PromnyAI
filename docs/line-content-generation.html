@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/line-content-generation.html" />
+  <meta property="og:title" content="LINE配信文の作り方 — 告知・リマインド・季節挨拶 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="コンテンツ生成のLINEモードで、既存顧客向けの配信文を用途別に整える具体的な手順を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/line-content-generation.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LINE配信文の作り方 — 告知・リマインド・季節挨拶 — マニュアル — PromnyAI</title>
+  <meta name="description" content="コンテンツ生成のLINEモードで、既存顧客向けの配信文を用途別に整える具体的な手順を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Content Generator</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">LINE配信文の作り方</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">既存のお客様に届ける、用途別の短文を整える</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">この記事で分かること</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>コンテンツ生成のLINEモードを開く基本フロー</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>「告知」「リマインド」「季節挨拶」の3用途別の書き分け</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>配信前に必ず確認したい3項目</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">LINEで使う機能はどれ？</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">LINE配信文の作成は、<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>でコンテンツタイプを「LINE配信」に切り替えて使います。<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>を登録しておけば、自社の語り口や常連の呼び方を反映した文面が出ます。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">PromnyAIには旧来の「<a href="/docs/line-message.html" class="text-emerald-600 hover:text-emerald-700 underline">LINE配信文生成</a>」も別途あります。学習データを使わずキーワードベースで素早く出したいときは旧バージョン、自社らしいトーンで丁寧に作りたいときは本記事のコンテンツ生成、と使い分けてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">LINEの特性 — SNSと何が違うか</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">LINEは既存顧客との「個人的な連絡」に近いチャネルです。SNSのように不特定多数に拡散する場ではありません。前提が違うため、文面の作り方も変わります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">person</span><span><strong class="font-semibold text-gray-900">読み手は既存顧客</strong>：すでに名前を知っている、来店経験がある関係。初対面向けの説明はいらない。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">notifications</span><span><strong class="font-semibold text-gray-900">プッシュ通知で読まれる</strong>：通知音とともに届く。読み手は数秒で要件を判断する。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">short_text</span><span><strong class="font-semibold text-gray-900">短文が前提</strong>：150〜250字程度に収める。長文は「セールス感」が増して逆効果。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">block</span><span><strong class="font-semibold text-gray-900">配信頻度が反応を左右</strong>：月3〜4回が目安。週1超は離脱されやすい。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">基本フロー</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>サイドバーから「コンテンツ生成」を開く</li>
+          <li>コンテンツタイプで「LINE配信」を選ぶ</li>
+          <li>テーマを入力する（用途別の例は後述）</li>
+          <li>「ビジネス情報を使う」スイッチをONにする</li>
+          <li>必要に応じて詳細設定で「追加指示」を入れる</li>
+          <li>「AIに文章を作ってもらう」を押す</li>
+          <li>出力を確認し、配信ツールに貼り付ける</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">用途1：告知（新商品・キャンペーン）</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">新商品や期間限定キャンペーンを伝えるパターンです。先に結論、次に1つだけ補足、最後に行動の選択肢、の3パートで構成します。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">テーマの書き方例</strong>：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm text-gray-700 font-mono">読者：来店経験ありの常連様<br>伝えたいこと：来週月曜から新メニュー「自家製ハンバーグ定食 980円」を導入<br>読み終わったあと：来週来店の予約を入れてもらう</div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">追加指示の例</strong>：「150字以内、既存顧客への報告体。最後は『来週月曜以降のご来店をお待ちしています』のような自然な呼びかけで締める」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">用途2：リマインド（予約前日・営業時間変更）</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">予約日の前日通知や、営業時間変更のお知らせなど、すでに知っている情報を改めて届ける用途です。煽らず、事務的すぎず、自然に思い出してもらう文面を狙います。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">テーマの書き方例</strong>：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm text-gray-700 font-mono">読者：明日18:00の予約を入れているお客様<br>伝えたいこと：明日のご予約を確認、雨予報のため傘の用意をお伝え<br>読み終わったあと：来店時に「LINE見ましたよ」と話してもらえる距離感</div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">追加指示の例</strong>：「100字以内、丁寧かつ事務的すぎない。気遣いを1文だけ入れる。スタンプは使わない」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">用途3：季節挨拶・近況報告</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">直接の販売目的がない、関係性維持のための配信です。これがあると「告知ばかりの店」という印象を防げます。月1回程度、季節の変わり目や閉店挨拶のタイミングで配信します。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">テーマの書き方例</strong>：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4 text-sm text-gray-700 font-mono">読者：登録から1年以上の常連様<br>伝えたいこと：暑さが落ち着き、秋の食材が入り始めた近況<br>読み終わったあと：「最近行ってないな」と思い出してもらう</div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4"><strong class="text-gray-900">追加指示の例</strong>：「200字以内、雑談調。販売文句は入れない。最後は『また涼しい日にお立ち寄りください』のような余白のある呼びかけで締める」</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">3用途の使い分け早見表</h2>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
+            <thead class="bg-emerald-50 text-gray-700">
+              <tr>
+                <th class="px-4 py-3 font-semibold">項目</th>
+                <th class="px-4 py-3 font-semibold">告知</th>
+                <th class="px-4 py-3 font-semibold">リマインド</th>
+                <th class="px-4 py-3 font-semibold">季節挨拶</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600">
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">文字数目安</td>
+                <td class="px-4 py-3">150字前後</td>
+                <td class="px-4 py-3">100字前後</td>
+                <td class="px-4 py-3">200字前後</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">温度</td>
+                <td class="px-4 py-3">フラット＋情報</td>
+                <td class="px-4 py-3">事務的＋気遣い1文</td>
+                <td class="px-4 py-3">雑談調</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">配信タイミング</td>
+                <td class="px-4 py-3">配信前日〜当日午前</td>
+                <td class="px-4 py-3">予約前日 17〜19時</td>
+                <td class="px-4 py-3">月初の平日午前</td>
+              </tr>
+              <tr class="border-t border-gray-200">
+                <td class="px-4 py-3 font-medium text-gray-900">月の頻度</td>
+                <td class="px-4 py-3">1〜2回</td>
+                <td class="px-4 py-3">必要時のみ</td>
+                <td class="px-4 py-3">1回</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">配信前に必ず確認したい3項目</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">日時・場所・価格の事実確認</strong>：AIは過去情報から推測することがあります。固有名詞は人の目で必ず確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">禁則表現の有無</strong>：医療・美容・士業は薬機法・景表法に注意。「絶対」「永久」などの断定表現が残っていないか確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">配信タイミング</strong>：早朝・深夜の配信は通知音で迷惑になりやすいです。8:00〜21:00の枠内で設定します。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">よくある質問</h2>
+        <ul class="space-y-4 text-base text-gray-600 mb-4">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. SNS用に作った文章をLINEにも流せませんか？</p>
+            <p>A. SNS文をLINEにそのまま流すと「広告っぽい」印象が増しがちです。文字数も関係性も違うので、媒体ごとに作り直したほうが反応が伸びます。同テーマで媒体だけ切り替える運用方法は<a href="/blog/blog-sns-line-from-one-theme.html" class="text-emerald-600 hover:text-emerald-700 underline">こちらの記事</a>を参照してください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 絵文字・スタンプは使ったほうがいいですか？</p>
+            <p>A. 業種と顧客層によります。美容・飲食・小売の女性向けは絵文字1〜2個が自然、士業・BtoBは絵文字なしの方が好まれます。追加指示で「絵文字は使わない／2個まで」のように明示してください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 一斉配信とセグメント配信、どちらに向いていますか？</p>
+            <p>A. 一斉配信向けの文面は「全員に当てはまる温度」で作ります。セグメント配信なら「最近来店していない方へ」のように対象を絞った文面のほうが反応します。テーマ欄で対象を明示すると、AIが温度を調整します。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方 — 基本フローと全体像</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方 — 媒体別の設定</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
