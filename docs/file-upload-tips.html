@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/file-upload-tips.html" />
+  <meta property="og:title" content="PDF・Word を AI 学習データに登録する前に — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PDFやWordファイルをPromnyAIのAI学習データに登録するときに、AIが情報を取り出しやすくなる準備のコツを解説します。向くファイル・向かないファイル・分割の目安をまとめました。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/file-upload-tips.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF・Word を AI 学習データに登録する前に — マニュアル — PromnyAI</title>
+  <meta name="description" content="PDFやWordファイルをPromnyAIのAI学習データに登録するときに、AIが情報を取り出しやすくなる準備のコツを解説します。向くファイル・向かないファイル・分割の目安をまとめました。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / AI Knowledge</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">PDF・Word を AI 学習データに登録する前に</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">ファイルをそのまま入れる前に、AIが情報を取り出しやすくなるよう少しだけ整える</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">「登録できた」と「使える状態」は別物</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">PromnyAIのAI学習データは、PDF・TXT・Markdown・HTML・Word（.doc／.docx）に対応しています。ファイルを選んでアップロードすれば、形式上は「登録完了」になります。ただし、AIが必要な箇所を取り出せる状態になっているかは、ファイルの作りに大きく左右されます。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">本記事では、登録前にやっておくと精度が上がる準備のコツをまとめました。すでに登録方法を知っている方が、次の一歩として読むことを想定しています。基本の操作は<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a>を参照してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">対応ファイルと容量</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">picture_as_pdf</span><span><strong class="font-semibold text-gray-900">PDF</strong>：テキストが埋め込まれているものに限り、内容を取り出せます。1ファイル最大32MB。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span><strong class="font-semibold text-gray-900">Word（.doc／.docx）</strong>：本文・見出し・箇条書きは取り出せます。複雑な図表は読み取れない場合があります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">code</span><span><strong class="font-semibold text-gray-900">TXT・Markdown・HTML</strong>：もっとも安定して読み取れます。整理済みの社内ドキュメントはこの形式で出力できると理想的です。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit_note</span><span><strong class="font-semibold text-gray-900">テキスト直接貼り付け</strong>：最大10MB。短いメモやFAQはファイルにせず、こちらが速い場合があります。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">向くファイル／向かないファイル</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">同じPDFでも、AIから見て扱いやすいかどうかは中身の作りで変わります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span><strong class="font-semibold text-gray-900">向く</strong>：WordやGoogleドキュメントからPDF出力したもの／プレーンテキストに近い構成／見出しが階層化されている資料</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span><strong class="font-semibold text-gray-900">注意が要る</strong>：紙をスキャンしただけのPDF（画像PDF）／パワーポイントを画像書き出ししたPDF／チラシ・パンフレットなど装飾の多いレイアウト</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">block</span><span><strong class="font-semibold text-gray-900">向かない</strong>：手書きのスキャン／表だけで構成された資料／パスワード保護されたファイル</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">「画像PDFかテキストPDFか」の見分け方は簡単です。PDFを開いて本文をマウスで選択できればテキストPDF、選択できなければ画像PDFです。画像PDFはAIから本文が見えないため、OCR（文字起こし）してテキスト化してから登録します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">登録前の準備（5分でできる範囲）</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-4 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>表紙・目次・奥付など本文と関係ないページを外す</li>
+          <li>過去のヘッダー／フッターに古い日付や旧社名が残っていないか確認する</li>
+          <li>「※詳細は別紙」「→図1参照」のような他資料への参照は、必要に応じてテキストを補う</li>
+          <li>機密情報・個人情報・他社の権利物は登録範囲から外す</li>
+          <li>ファイル名を「サービスA_料金表_2026春版.pdf」のように内容が分かる名前にする</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">完璧に整える必要はありません。「これがあるとAIが混乱しそう」と感じる部分だけ外せば十分です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">1ファイルの粒度の目安</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">1つの巨大なファイルにまとめるより、テーマごとに分割するほうがAIの取り出し精度は上がります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">unfold_less</span><span><strong class="font-semibold text-gray-900">分割すべき例</strong>：会社案内・サービス一覧・FAQが1冊にまとまった総合パンフレット → サービス単位／FAQ単位で別ファイルに</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">unfold_more</span><span><strong class="font-semibold text-gray-900">そのままで良い例</strong>：1サービスの詳細案内が10〜20ページ／創業ストーリーが連続した1本の文章</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">迷ったら「目次の章ごとに1ファイル」が分かりやすい区切りになります。分割した1件あたりは、数千文字〜数万文字を上限の目安にしてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">表・図・スクリーンショットの扱い</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">table_chart</span><span><strong class="font-semibold text-gray-900">表</strong>：単純な料金表や仕様表ならWord・PDFのままでも取り出せます。複雑な結合セルや多階層のヘッダーがある場合は、テキストで書き直すと安定します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">image</span><span><strong class="font-semibold text-gray-900">画像</strong>：図やスクリーンショットそのものは学習データに使えません。図中の文字情報は本文中に書き起こしておきます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">format_quote</span><span><strong class="font-semibold text-gray-900">キャプション・注釈</strong>：図の下の説明文は本文の流れに溶け込ませて書き直すと、引用元として参照されやすくなります。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">機密情報・社外秘の扱い</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">学習データに登録した情報は、PromnyAI内のAI生成で参照されます。社内資料をそのまま入れる前に、以下を確認してください。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">shield</span><span>個人情報・顧客名簿・契約書原本など、外部に出してはいけない情報は登録しない</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">shield</span><span>他社の権利物（提案資料・契約済み素材など）は、登録の可否を契約や利用規約で確認する</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">shield</span><span>社内向け資料は、社外公開してよい範囲だけを抽出して別ファイルにしてから登録する</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">登録後の確認</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">登録後は、一覧画面で「学習完了」になったことを確認してから使い始めます。学習に時間がかかる大きなファイルもあるので、すぐ反映されない場合は数分待ってください。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">うまく内容が取り出せているかは、<a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブ</a>で「このファイルに書いてあるサービスAの料金を要約して」のように質問すると確かめられます。期待した答えが返らない場合は、元のファイルが画像PDFになっていないか／関係ないページが混じっていないかを再点検します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">よくある質問</h2>
+        <ul class="space-y-4 text-base text-gray-600 mb-4">
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 画像PDFをそのまま登録するとどうなりますか？</p>
+            <p>A. 登録自体は完了しますが、本文を取り出せないため学習データとして役に立ちません。OCRソフトや「PDFをWordに変換」機能でテキスト化してから登録し直してください。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. 同じ内容のファイルを更新するときは？</p>
+            <p>A. 古いほうを削除してから新しいファイルを登録するのが安全です。両方残しておくと、AIがどちらの情報を参照するか判断しにくくなります。</p>
+          </li>
+          <li>
+            <p class="font-semibold text-gray-900 mb-1">Q. パワーポイント資料を登録したい場合は？</p>
+            <p>A. パワーポイントは直接アップロードできません。PDF出力する際に「テキストを保持してエクスポート」を選び、テキストPDFとして書き出してから登録してください。スライド1枚ごとに細かく区切るより、章単位でまとめたほうがAIが文脈を把握しやすくなります。</p>
+          </li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方 — 自社情報を登録する基本手順</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/ai-knowledge-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">学習データの上手な分け方 — 5カテゴリの使い分け</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方 — 登録した資料をまとめて質問する</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
