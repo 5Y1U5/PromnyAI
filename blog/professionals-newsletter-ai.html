@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/professionals-newsletter-ai.html" />
+  <meta property="og:title" content="士業・コンサル編：顧客向けニュースレターのAI下書き — 月1回の発信を止めない作り方 — PromnyAI" />
+  <meta property="og:description" content="税理士、社労士、行政書士、コンサルタント向けに、顧客向けニュースレターをAIで下書きする手順を解説します。専門知識をやさしく伝え、月1回の発信を続けるための運用設計です。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/professionals-newsletter-ai.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>士業・コンサル編：顧客向けニュースレターのAI下書き — 月1回の発信を止めない作り方 — PromnyAI</title>
+  <meta name="description" content="税理士、社労士、行政書士、コンサルタント向けに、顧客向けニュースレターをAIで下書きする手順を解説します。専門知識をやさしく伝え、月1回の発信を続けるための運用設計です。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 業種別活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">士業・コンサル編：顧客向けニュースレターのAI下書き<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 月1回の発信を止めない作り方</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-18 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「お客様に毎月ニュースレターを送りたい。でも、結局2か月目で止まる」——税理士、社労士、行政書士、コンサルタントの方と話すと、かなりの確率で出てくる悩みです。</p>
+
+        <p class="mb-6">困るのは、発信したい情報がないわけではないことです。法改正、補助金、助成金、採用、資金繰り。材料はあるのに、専門的すぎて「お客様向けの文章」に直すところで手が止まります。</p>
+
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">専門家が持っている知識を、顧客向けニュースレターの下書きに変えるには、AIへ何を渡せばよいのか</strong>。月1回の発信を止めないための作り方をまとめます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ専門家のニュースレターは止まりやすいのか</h2>
+        <p class="mb-4">理由はシンプルです。書く前に、頭の中で3つの変換が必要だからです。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync_alt</span><span><strong class="font-semibold text-gray-900">専門用語を生活語にする</strong>：「年収の壁」や「電子帳簿保存法」を、経営者がすぐ分かる言い方に直す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync_alt</span><span><strong class="font-semibold text-gray-900">制度の話を行動に変える</strong>：「制度が変わります」ではなく「今月確認する書類はこれです」にする。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync_alt</span><span><strong class="font-semibold text-gray-900">自分の言葉に整える</strong>：堅すぎず、軽すぎず、普段の面談に近い温度で伝える。</span></li>
+        </ul>
+
+        <p class="mb-6">この3つを毎月ゼロからやると重いです。だからAIには「文章を書かせる」のではなく、変換作業を手伝わせます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まず、何をAIに教えておくか</h2>
+        <p class="mb-4">顧客向けニュースレターで大事なのは、テーマより先に「誰に、どんな温度で話すか」です。PromnyAIでは、次の3種類をAI学習データやハブに入れておくと安定します。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">groups</span><span><strong class="font-semibold text-gray-900">顧客像</strong>：年商3,000万円〜2億円の中小企業、従業員10名以下の店舗、創業3年以内の個人事業主など。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">record_voice_over</span><span><strong class="font-semibold text-gray-900">普段の話し方</strong>：「まずは慌てなくて大丈夫です」「ここだけ確認してください」など、面談でよく使う言い回し。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">rule</span><span><strong class="font-semibold text-gray-900">避けたい表現</strong>：不安を煽る言葉、断定しすぎる表現、法律判断に見える言い切りなど。</span></li>
+        </ul>
+
+        <p class="mb-6">先日、士業の先生と一緒に文面を見ていたとき、「お客様には“期限が迫っています”より、“今月中にここだけ見てください”の方が伝わる」と話していました。こういう一言こそ、AIに先に渡す価値があります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ニュースレターは4ブロックに分ける</h2>
+        <p class="mb-4">月1回のニュースレターは、毎回構成を考えないほうが続きます。おすすめは4ブロックです。</p>
+
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">今月のひとこと</strong>：季節や現場感を1〜2文で入れる</li>
+          <li><strong class="font-semibold text-gray-900">今月のテーマ</strong>：制度変更、補助金、採用、資金繰りなど1テーマだけ扱う</li>
+          <li><strong class="font-semibold text-gray-900">お客様が確認すること</strong>：チェックリストを3つ以内に絞る</li>
+          <li><strong class="font-semibold text-gray-900">相談の目安</strong>：どんな状態なら専門家へ相談すべきかを書く</li>
+        </ol>
+
+        <p class="mb-6">この型を決めておくと、AIへの指示も短くなります。「4ブロック構成で、顧客向けに600〜900文字」と指定するだけで、下書きの形がそろいます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIに渡す材料はどこまででよいか</h2>
+        <p class="mb-4">テーマに関する資料を丸ごと渡すより、まずは要点を3つに絞ります。たとえば助成金なら、次の粒度です。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span>対象になる会社：従業員数、業種、雇用形態など</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span>確認してほしい期限：申請開始日、締切、社内準備の目安</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span>誤解されやすい点：全員が対象ではない、予算上限がある、事前申請が必要など</span></li>
+        </ul>
+
+        <p class="mb-6">ここまで絞ると、AIの下書きは読み手に近づきます。細かい条文や例外は、本文に全部入れず「詳しくは個別に確認」と逃がすほうが安全です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIで作るときの流れ</h2>
+        <p class="mb-4">PromnyAIでは、ハブとコンテンツ生成を組み合わせると運用しやすくなります。</p>
+
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><a href="/docs/hub-internal-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">社内ナレッジ用ハブ</a>に、制度資料・過去のニュースレター・よくある質問を入れる</li>
+          <li>ハブで「今月の顧客向けテーマ候補を5つ出して」と相談する</li>
+          <li>選んだテーマについて「顧客が確認すること」を3つに絞らせる</li>
+          <li><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>でニュースレター本文の下書きを作る</li>
+          <li>最後に専門家本人が、事実関係と表現の強さを確認する</li>
+        </ol>
+
+        <p class="mb-6">AIは制度の判断者ではありません。最初の下書き係です。専門家が最後に赤字を入れる前提にすると、品質とスピードの両方を取りやすくなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">そのまま使える指示文</h2>
+        <p class="mb-4">最初は、次のような指示で十分です。</p>
+
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">中小企業の経営者向けに、月1回のニュースレター下書きを作ってください。</p>
+          <p class="mb-3">テーマは「〇〇」です。専門用語は使いすぎず、4ブロック構成にしてください。</p>
+          <p class="mb-0">1. 今月のひとこと / 2. 今月のテーマ / 3. 確認すること3つ / 4. 相談の目安。全体は800文字前後。断定しすぎず、やさしい敬体でお願いします。</p>
+        </div>
+
+        <p class="mb-6">ここに顧客像と自分の話し方を足すだけで、初回の下書きとしては十分に使えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">仕上げで見るべき3点</h2>
+        <p class="mb-4">公開前、またはメール配信前に見るべき点は3つです。</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">期限</strong>：日付、申請期間、変更開始日が最新か。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">対象者</strong>：誰に当てはまる話か、広く言いすぎていないか。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">相談導線</strong>：「この場合は相談してください」が自然に入っているか。</span></li>
+        </ul>
+
+        <p class="mb-6">特に士業・コンサルの発信では、正しさより先に安心感が読まれます。読み手が「自分は今、何を確認すればいいか」まで持ち帰れるかを見てください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>ニュースレターが止まる原因は、専門知識を顧客向けの生活語に直す負担にある。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>AIには、テーマより先に顧客像・話し方・避けたい表現を教える。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>構成は「ひとこと／テーマ／確認すること／相談の目安」の4ブロックに固定する。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>PromnyAIでは、ハブで材料を整理し、コンテンツ生成で下書きを作る。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>最後は専門家本人が期限・対象者・相談導線を確認する。</span></li>
+        </ul>
+
+        <p class="mb-8">毎月の発信は、気合いで続けるものではありません。型を決め、材料を置き、AIに最初の一歩だけ任せる。その小さな仕組みが、顧客との接点を途切れさせません。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">PromnyAIでは、社内ナレッジ用ハブとコンテンツ生成を組み合わせて、顧客向けニュースレターの下書き作成を支援できます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/hub-internal-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブを社内ナレッジ化する</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連記事</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/blog-sns-line-from-one-theme.html" class="text-emerald-600 hover:text-emerald-700 underline">同じ告知を3回書き直していないか — ブログ・SNS・LINEを1テーマから作るレシピ</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/company-info-5-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">AIに教えるべき「自社情報」5カテゴリ整理術</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

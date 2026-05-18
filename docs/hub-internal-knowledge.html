@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/hub-internal-knowledge.html" />
+  <meta property="og:title" content="ハブを社内ナレッジ化する — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIのハブを社内ナレッジとして使うための設計、資料登録、質問例、更新ルールを解説します。FAQ、営業資料、議事録、マニュアルをまとめてAIに相談できる状態を作ります。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/hub-internal-knowledge.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ハブを社内ナレッジ化する — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIのハブを社内ナレッジとして使うための設計、資料登録、質問例、更新ルールを解説します。FAQ、営業資料、議事録、マニュアルをまとめてAIに相談できる状態を作ります。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Hub</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">ハブを社内ナレッジ化する</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">FAQ・営業資料・議事録をまとめ、AIに社内情報を確認できる状態を作る</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">このマニュアルでできること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">PromnyAIのハブは、資料をまとめてAIに質問できるワークスペースです。社内ナレッジ用に整えると、営業資料、FAQ、マニュアル、議事録、過去の提案内容などをもとに、必要な情報をすぐ確認できる場所になります。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ここでは、ハブを「社内の質問箱」として使うための作り方、登録する資料の選び方、質問例、更新ルールを説明します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">社内ナレッジ用ハブに向いている資料</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">まずは、日常的に何度も確認される資料から入れるのがおすすめです。最初からすべてを登録しようとせず、よく聞かれる内容に絞ると運用しやすくなります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">help</span><span><strong class="font-semibold text-gray-900">よくある質問</strong>：料金、納期、対応範囲、契約条件、サポート内容など</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span><strong class="font-semibold text-gray-900">営業資料</strong>：サービス説明、提案資料、比較表、導入事例など</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">menu_book</span><span><strong class="font-semibold text-gray-900">社内マニュアル</strong>：初期対応、作業手順、確認項目、社内ルールなど</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">forum</span><span><strong class="font-semibold text-gray-900">議事録・打ち合わせメモ</strong>：案件ごとの経緯、決定事項、次回対応など</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">作成前に決めること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ハブは、目的を絞るほど回答が安定します。社内ナレッジ用でも、1つのハブに何でも入れるより、用途別に分ける方が使いやすくなります。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">誰が使うか</strong>：営業担当、店舗スタッフ、制作担当、管理者など</li>
+          <li><strong class="font-semibold text-gray-900">何を聞く場所にするか</strong>：サービス説明、顧客対応、業務手順、案件情報など</li>
+          <li><strong class="font-semibold text-gray-900">どの資料を正とするか</strong>：古い資料と新しい資料が混ざらないようにする</li>
+          <li><strong class="font-semibold text-gray-900">誰が更新するか</strong>：月1回、またはサービス変更時に見直す担当を決める</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">社内ナレッジハブの作り方</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>サイドバーから「ハブ」を開く</li>
+          <li>右上の「新規作成」を押す</li>
+          <li>ハブ名に「社内FAQ」「営業ナレッジ」「制作マニュアル」など、用途が分かる名前を入れる</li>
+          <li>説明欄に「誰が・何を確認するためのハブか」を書く</li>
+          <li>カラーを選び、保存する</li>
+          <li>詳細画面で「ファイルを追加」を押し、資料を登録する</li>
+          <li>質問欄から、登録資料をもとに回答できるか確認する</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ハブ名は、あとから一覧で見たときに迷わない名前にします。「社内用」だけでは範囲が広すぎるため、「営業FAQ」「新人向け業務手順」「Aサービス提案資料」のように具体化してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">資料登録のコツ</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">1ファイル1テーマに分ける</strong>：料金、導入手順、FAQなどを分けると、あとで更新しやすくなります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">古い資料を混ぜない</strong>：料金や仕様が変わった資料は、最新版だけを登録します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">タイトルを分かりやすくする</strong>：「2026年5月_料金表」「営業FAQ_初回提案用」のように、内容と用途が分かる名前にします。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">長すぎる資料は分割する</strong>：1つのPDFに何十ページも入っている場合は、章ごと・用途ごとに分けると回答精度が安定します。</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">PDFやWordを登録する前の整理方法は、<a href="/docs/file-upload-tips.html" class="text-emerald-600 hover:text-emerald-700 underline">PDF・Wordを登録する前に</a>も参考にしてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">質問例</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">社内ナレッジハブでは、「資料を探す」よりも「AIに聞く」使い方をします。次のように、目的を添えて質問すると回答が使いやすくなります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">question_answer</span><span>新規のお客様に、サービス内容を200文字で説明してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">question_answer</span><span>料金について聞かれたときの返信文を、やわらかい表現で作ってください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">question_answer</span><span>新人スタッフ向けに、初回対応の流れをチェックリストにしてください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">question_answer</span><span>このお客様に提案する前に確認すべき注意点を3つ挙げてください。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">「ビジネス情報を活用」との使い分け</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ハブ内の資料だけでなく、PromnyAIに登録済みの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>も合わせて使いたい場合は、「ビジネス情報を活用」をONにします。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">たとえば、ハブには「営業FAQ」を入れ、AI学習データには「会社概要」「ブランドトーン」「サービスの強み」を登録しておくと、事実確認と自社らしい表現を両方反映しやすくなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">更新ルールを決める</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">社内ナレッジは、作って終わりではありません。古い情報が残ると、AIの回答も古くなります。次のルールを決めておくと安心です。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">event_repeat</span><span><strong class="font-semibold text-gray-900">月1回見直す</strong>：料金、キャンペーン、対応範囲に変更がないか確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync</span><span><strong class="font-semibold text-gray-900">変更時に差し替える</strong>：資料を更新したら、古いファイルを残さず最新版に差し替えます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">verified</span><span><strong class="font-semibold text-gray-900">公開前に人が確認する</strong>：価格、契約条件、固有名詞は必ず人の目で確認します。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">注意点</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>個人情報、機密情報、契約上扱いに注意が必要な情報は、社内ルールに沿って登録可否を判断してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>AIの回答は下書き・確認補助として使い、正式な回答や契約条件は必ず原本資料で確認してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>似た内容の資料を複数登録すると、古い情報と新しい情報が混ざることがあります。最新版を1つに絞る運用がおすすめです。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方 — 基本操作を確認する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方 — 自社情報をAIに教える</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/workflow.html" class="text-emerald-600 hover:text-emerald-700 underline">3機能をつなぐPromnyAI運用法</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/file-upload-tips.html" class="text-emerald-600 hover:text-emerald-700 underline">PDF・Wordを登録する前に</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
