@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/hub-team.html" />
+  <meta property="og:title" content="ハブをチームで使う — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIのハブをチームで使うための設計、メンバー招待、命名ルール、資料更新、確認フローを解説します。複数人で同じ情報を参照し、AI回答のばらつきを減らすための運用マニュアルです。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/hub-team.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ハブをチームで使う — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIのハブをチームで使うための設計、メンバー招待、命名ルール、資料更新、確認フローを解説します。複数人で同じ情報を参照し、AI回答のばらつきを減らすための運用マニュアルです。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Hub</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">ハブをチームで使う</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">複数人で同じ資料を参照し、回答品質と更新ルールをそろえる</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">このマニュアルでできること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">PromnyAIのハブは、資料をまとめてAIに質問できるワークスペースです。チームで使う場合は、資料を入れるだけでなく、誰が使うか、誰が更新するか、回答をどこまで業務に使うかを決めておく必要があります。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ここでは、チームメンバーの招待、ハブの分け方、命名ルール、資料更新、確認フローを整理します。営業、カスタマーサポート、店舗スタッフ、制作担当など、複数人で同じ情報を見ながら業務を進めたい場合に使ってください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">チーム利用で先に決めること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">チームで使うハブは、個人用よりもルールが重要です。最初に次の4点を決めておくと、あとから情報が散らかりにくくなります。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">利用者</strong>：誰が質問し、誰が回答を確認するか</li>
+          <li><strong class="font-semibold text-gray-900">用途</strong>：営業FAQ、社内手順、顧客対応、制作資料など</li>
+          <li><strong class="font-semibold text-gray-900">更新担当</strong>：資料の追加・差し替えを誰が行うか</li>
+          <li><strong class="font-semibold text-gray-900">確認範囲</strong>：AI回答をそのまま使うのか、必ず人が確認するのか</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">特に「更新担当」と「確認範囲」は曖昧にしないでください。古い資料を誰も消さないまま使うと、AIの回答にも古い情報が混ざります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">メンバーを招待する</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">チームで利用する場合は、管理画面からメンバーを追加します。ユーザー管理の基本操作は、次の流れです。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>管理画面の「ユーザー管理」を開く</li>
+          <li>「メンバーを追加」を押す</li>
+          <li>招待するメンバーのメールアドレスを入力する</li>
+          <li>必要に応じて権限を設定する</li>
+          <li>招待メールを送信し、メンバー側でアカウントを有効化する</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ログインや初期設定の詳しい手順は、<a href="/docs/login-setup.html" class="text-emerald-600 hover:text-emerald-700 underline">ログイン・初期設定ガイド</a>も確認してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">チーム用ハブの分け方</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">チーム用ハブは、部署や業務単位で分けると使いやすくなります。1つのハブに全資料を入れるより、質問する場面ごとに分ける方が回答が安定します。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">support_agent</span><span><strong class="font-semibold text-gray-900">営業FAQハブ</strong>：料金、導入手順、比較表、よくある質問を入れる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">handshake</span><span><strong class="font-semibold text-gray-900">顧客対応ハブ</strong>：問い合わせ返信例、注意事項、対応フローを入れる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">construction</span><span><strong class="font-semibold text-gray-900">制作・運用ハブ</strong>：作業手順、チェックリスト、納品ルールを入れる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">school</span><span><strong class="font-semibold text-gray-900">新人研修ハブ</strong>：社内ルール、用語集、よくあるつまずきを入れる</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">社内資料をまとめて質問できる状態にする考え方は、<a href="/docs/hub-internal-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブを社内ナレッジ化する</a>でも解説しています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">命名ルールをそろえる</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">複数人で使う場合、ハブ名と資料名が曖昧だと、探す時間が増えます。名前だけで用途が分かるようにしてください。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">label</span><span><strong class="font-semibold text-gray-900">ハブ名</strong>：「営業FAQ_初回提案用」「CS_問い合わせ返信」「新人研修_基本ルール」のように、部署と用途を入れる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">label</span><span><strong class="font-semibold text-gray-900">資料名</strong>：「2026年5月_料金表」「FAQ_契約前質問」「手順書_初回対応」のように、日付と内容を入れる</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">label</span><span><strong class="font-semibold text-gray-900">説明欄</strong>：「営業担当が初回提案前に確認するハブ」など、誰のための場所かを書く</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">資料更新の担当を決める</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">チーム用ハブでは、資料を追加できる人が増えるほど、重複や古い情報が起きやすくなります。次のように担当を分けると管理しやすくなります。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">person</span><span><strong class="font-semibold text-gray-900">管理者</strong>：ハブの作成、削除、利用ルールの決定を行う</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit_document</span><span><strong class="font-semibold text-gray-900">更新担当</strong>：資料の追加、差し替え、古い資料の削除を行う</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">verified</span><span><strong class="font-semibold text-gray-900">確認担当</strong>：AI回答を外部に出す前に、事実関係と表現を確認する</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">料金、契約条件、キャンペーン、対応範囲など、変更が起きやすい資料は月1回の見直し日を決めておくと安心です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">質問ルールを作る</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">同じハブを使っていても、質問の書き方がばらばらだと回答品質もばらつきます。チームでよく使う質問は、テンプレート化しておくと便利です。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">営業担当向けに、初回提案前の確認項目を5つに整理してください。</p>
+          <p class="mb-3">お客様から「料金が高い」と言われた場合の返信案を、やわらかい敬体で3案作ってください。</p>
+          <p class="mb-0">新人スタッフ向けに、この手順書の内容をチェックリストにしてください。専門用語には短い補足を入れてください。</p>
+        </div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">質問には「誰向けか」「何文字くらいか」「どの形式でほしいか」を入れると、チーム内で使いやすい回答になります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">回答を使う前の確認フロー</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">AIの回答は下書きや確認補助として使います。外部のお客様に送る文章、契約条件、金額、納期に関わる内容は、必ず人が確認してください。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>AI回答をコピーする前に、参照している資料が最新か確認する</li>
+          <li>数字、固有名詞、日付、契約条件を原本資料と照合する</li>
+          <li>お客様に送る文面は、担当者または管理者が読み直す</li>
+          <li>修正した文面を、必要に応じて学習データやハブ資料に反映する</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">運用例</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">営業チームで使う場合は、次の流れが基本になります。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>管理者が「営業FAQ_初回提案用」ハブを作成する</li>
+          <li>更新担当が料金表、サービス資料、導入事例、FAQを登録する</li>
+          <li>営業担当が商談前に「この業種向けの提案ポイントを3つ」と質問する</li>
+          <li>回答をもとに提案メモを作る</li>
+          <li>提案後に出た新しい質問をFAQ資料へ追記する</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">このサイクルを回すと、現場で出た質問がハブに戻り、次の担当者が同じ情報を使えるようになります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">注意点</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>個人情報、機密情報、契約上扱いに注意が必要な情報は、社内ルールに沿って登録可否を判断してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>不要になった資料は残さず削除してください。古い情報が残ると、回答にも混ざる可能性があります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>メンバーの退職や担当変更があった場合は、アカウントと権限を見直してください。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブの使い方 — 基本操作を確認する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/hub-internal-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブを社内ナレッジ化する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/login-setup.html" class="text-emerald-600 hover:text-emerald-700 underline">ログイン・初期設定ガイド</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/workflow.html" class="text-emerald-600 hover:text-emerald-700 underline">3機能をつなぐPromnyAI運用法</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
