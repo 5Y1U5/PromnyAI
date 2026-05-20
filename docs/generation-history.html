@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/generation-history.html" />
+  <meta property="og:title" content="生成履歴の活用 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIの生成履歴を使って、過去に作ったブログ・SNS・LINE配信文を見返し、次の発信に再利用する手順を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/generation-history.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生成履歴の活用 — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIの生成履歴を使って、過去に作ったブログ・SNS・LINE配信文を見返し、次の発信に再利用する手順を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Content Generator</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">生成履歴の活用</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">過去に作った文章を見返し、似たテーマの発信に再利用する</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">このマニュアルでできること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">生成履歴は、PromnyAIのコンテンツ生成で作ったブログ・SNS・LINE配信文をあとから見返すための場所です。過去の文章を探し、似たテーマの発信に再利用し、表現の揺れを減らせます。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ここでは、履歴の開き方、検索・絞り込み、再利用の判断、チームで使うときの注意点を整理します。コンテンツ生成の基本操作は、先に<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a>を確認してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">生成履歴を開く</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>PromnyAIにログインする</li>
+          <li>サイドバーから「コンテンツ生成」を開く</li>
+          <li>画面上部、またはサイドバー内の「履歴」を開く</li>
+          <li>過去に作成したコンテンツの一覧を確認する</li>
+        </ol>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">履歴には、作成した日時、コンテンツ種別、テーマ、本文が残ります。似た内容をもう一度作るときは、新しくゼロから入力する前に履歴を確認してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">履歴で確認する項目</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">schedule</span><span><strong class="font-semibold text-gray-900">作成日時</strong>：いつ作った文章かを確認します。キャンペーンや価格が変わる業務では特に重要です。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">category</span><span><strong class="font-semibold text-gray-900">コンテンツ種別</strong>：ブログ、Instagram、X、Facebook、LINEなど、媒体を確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">title</span><span><strong class="font-semibold text-gray-900">テーマ</strong>：何について生成した文章かを確認します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">article</span><span><strong class="font-semibold text-gray-900">本文</strong>：過去の表現、見出し、告知文の言い回しを確認します。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">過去文章を再利用する手順</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">過去文章は、そのままコピーするより「型」として使うと安定します。次の流れで再利用してください。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>履歴から似たテーマの文章を探す</li>
+          <li>残したい構成、見出し、言い回しを確認する</li>
+          <li>新しいテーマ、日付、商品名、金額を別メモに書き出す</li>
+          <li>コンテンツ生成の「参考テキスト」に過去文章を貼る</li>
+          <li>追加指示に「構成だけ参考にし、事実は新しい情報を使う」と書く</li>
+          <li>生成後、古い日付・価格・キャンペーン名が残っていないか確認する</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">再利用してよい文章、避けたい文章</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">履歴に残っている文章なら何でも再利用してよいわけではありません。次の基準で選んでください。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">再利用しやすい</strong>：反応が良かった投稿、社内で直しが少なかった文章、季節を問わない説明文。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">一部だけ使う</strong>：キャンペーン文、イベント告知、期間限定の案内。構成だけ参考にします。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span><strong class="font-semibold text-gray-900">避けたい</strong>：古い価格、終了済み特典、在庫状況、担当者名が入った文章。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">おすすめの追加指示</h2>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">以下の過去文章を参考に、新しい告知文を作ってください。</p>
+          <p class="mb-3">参考にするのは構成、文体、見出しの流れだけです。日付、価格、商品名、キャンペーン内容は今回の情報を優先してください。</p>
+          <p class="mb-0">古い情報が残りそうな箇所は、本文に入れず「確認が必要」と書いてください。</p>
+        </div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">この一文を入れるだけで、過去文章の丸写しを避けやすくなります。特にLINE配信やSNS投稿では、季節・在庫・価格の確認を必ず行ってください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">チームで履歴を使うときのルール</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">複数人で使う場合は、履歴を「過去の答え置き場」ではなく「表現の見本」として扱います。次の3つを決めておくと運用しやすくなります。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">採用基準</strong>：反応が良かった投稿、上長確認済みの文章だけを参考にする</li>
+          <li><strong class="font-semibold text-gray-900">確認担当</strong>：外部公開前に、数字・日付・名前・金額を確認する人を決める</li>
+          <li><strong class="font-semibold text-gray-900">更新日</strong>：月1回、古いキャンペーンや終了済み告知を確認する</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">注意点</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>履歴の文章は、生成当時の情報をもとにしています。公開前に必ず最新情報と照合してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>個人情報、顧客名、未公開情報が含まれる文章は、社内ルールに沿って扱ってください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>過去文章をそのまま繰り返すと、読者には機械的に見えることがあります。毎回、今回の出来事や日付を入れてください。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方 — 基本操作を確認する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

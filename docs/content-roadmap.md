@@ -1,7 +1,7 @@
 # PromnyAI 記事制作ロードマップ
 
-最終更新: 2026-05-19
-ステータス: Phase 1・2 完了 / Phase 3 進行中（Day 1・2・3・4・5・6 完了 / 残り Day 7〜8）
+最終更新: 2026-05-20
+ステータス: Phase 1・2 完了 / Phase 3 進行中（Day 1・2・3・4・5・6・7 完了 / 残り Day 8）
 
 このファイルは、新3機能（ハブ／コンテンツ生成／AI学習データ管理）リリースに合わせたマニュアル・ブログ記事の制作計画と進捗を記録したもの。新しいセッションで再開する際の参照ドキュメントとして使う。
 
@@ -32,6 +32,7 @@
 | D-1 | PDF・Word を AI 学習データに登録する前に | `/docs/file-upload-tips.html` | 約 2,400 |
 | D-2 | ハブを社内ナレッジ化する | `/docs/hub-internal-knowledge.html` | 約 3,700 |
 | B-1 | ハブをチームで使う | `/docs/hub-team.html` | 約 3,500 |
+| B-3 | 生成履歴の活用 | `/docs/generation-history.html` | 約 3,000 |
 
 ### ブログ
 
@@ -46,6 +47,7 @@
 | Blog B-2 | AIに教えるべき「自社情報」5カテゴリ整理術 — 棚を分ければ取り出せる | `/blog/company-info-5-categories.html` | 約 4,000 |
 | Blog C-3 | 士業・コンサル編：顧客向けニュースレターのAI下書き | `/blog/professionals-newsletter-ai.html` | 約 4,300 |
 | Blog C-4 | 個人事業主編：ひとり広報のAI活用ロードマップ | `/blog/solo-entrepreneur-ai-roadmap.html` | 約 4,100 |
+| Blog D-1 | 汎用AIと「自社専用AI」の違い | `/blog/general-vs-company-ai.html` | 約 3,800 |
 
 ### 周辺整備
 
@@ -72,6 +74,7 @@ Phase 2 の4本（E-1／B-2／Blog A-2／Blog C-1）は2026-05-12に公開。詳
 | 4 | 2026-05-15 | D-1 ファイル取り込み準備 | B-2 5カテゴリ整理術 |
 | 5 | 2026-05-18 | D-2 社内ナレッジ | C-3 士業ニュースレター |
 | 6 | 2026-05-19 | B-1 チーム利用 | C-4 個人事業主ロードマップ |
+| 7 | 2026-05-20 | B-3 生成履歴 | D-1 汎用AIと自社専用AI |
 
 ### Day 5：社内ナレッジ × 士業ペア（完了）
 
@@ -87,11 +90,11 @@ Phase 2 の4本（E-1／B-2／Blog A-2／Blog C-1）は2026-05-12に公開。詳
 - [x] **ブログ C-4** 個人事業主編：ひとり広報のAI活用ロードマップ
   パス候補：`/blog/solo-entrepreneur-ai-roadmap.html`
 
-### Day 7：履歴 × 思想ペア
+### Day 7：履歴 × 思想ペア（完了）
 
-- [ ] **マニュアル B-3** 生成履歴の活用（過去文章の再利用）
+- [x] **マニュアル B-3** 生成履歴の活用（過去文章の再利用）
   パス候補：`/docs/generation-history.html`
-- [ ] **ブログ D-1** 汎用AIと「自社専用AI」の違い
+- [x] **ブログ D-1** 汎用AIと「自社専用AI」の違い
   パス候補：`/blog/general-vs-company-ai.html`
 
 ### Day 8：テンプレ × 締めの思想ペア

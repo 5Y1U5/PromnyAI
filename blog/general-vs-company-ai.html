@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/general-vs-company-ai.html" />
+  <meta property="og:title" content="汎用AIと「自社専用AI」の違い — 毎回説明しない発信の作り方 — PromnyAI" />
+  <meta property="og:description" content="ChatGPTなどの汎用AIと、自社情報を登録して使う自社専用AIの違いを、ブログ・SNS・LINE配信の実務目線で整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/general-vs-company-ai.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>汎用AIと「自社専用AI」の違い — 毎回説明しない発信の作り方 — PromnyAI</title>
+  <meta name="description" content="ChatGPTなどの汎用AIと、自社情報を登録して使う自社専用AIの違いを、ブログ・SNS・LINE配信の実務目線で整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 生成AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">汎用AIと「自社専用AI」の違い — 毎回説明しない発信の作り方</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-20 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「ChatGPTに聞けばだいたい書ける。なら、自社専用AIって何が違うの？」——AIを使い始めた店舗オーナーやひとり社長から、よく聞く質問です。</p>
+        <p class="mb-6">困るのは、最初は便利でも、毎回同じ説明をAIに渡す手間が残ることです。会社名、サービス内容、料金、禁止したい表現。これを毎回入力していると、結局また手作業に戻ります。</p>
+        <p class="mb-6">本記事の問いは1つ。<strong class="text-gray-900">汎用AIと自社専用AIは、どこで使い分けると発信が楽になるのか</strong>。ブログ、SNS、LINE配信の現場に寄せて整理します。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">汎用AIは「優秀な初対面の人」に近い</h2>
+        <p class="mb-4">ChatGPT、Claude、Geminiのような汎用AIは、とても優秀です。文章のたたき台、アイデア出し、要約、言い換え。初回相談の相手としては十分すぎるほど働きます。</p>
+        <p class="mb-4">ただし、初対面です。あなたの会社の料金表も、先月出したLINE配信も、代表が避けたい言葉も、最初は知りません。毎回「うちは美容室で、客単価は8,000円で、30代女性が多くて」と説明する必要があります。</p>
+        <p class="mb-6">ここが積み重なると、AIを使っているのに疲れます。「また同じ説明からか」と感じる瞬間です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">自社専用AIは「前回の話を覚えている担当者」に近い</h2>
+        <p class="mb-4">自社専用AIは、あらかじめ会社の情報を登録しておく前提で使います。サービス説明、過去記事、メニュー、スタッフ紹介、よくある質問。これらをAIが参照できる状態にします。</p>
+        <p class="mb-4">たとえばPromnyAIでは、AI学習データに自社情報を登録し、コンテンツ生成でブログ・SNS・LINE配信文を作れます。毎回ゼロから会社説明をするのではなく、登録済みの情報を使って下書きします。</p>
+        <p class="mb-6">実際、当社で支援している小さな店舗でも、最初に料金表と過去投稿を整理しただけで「AIに毎回説明する時間」がかなり減りました。派手な話ではありません。でも、毎週の発信ではこの差が効きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">何が違うのか、4つに分ける</h2>
+        <p class="mb-4">違いは「賢さ」だけではありません。日々の発信で効くのは、記憶、文脈、再利用、確認のしやすさです。</p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm border border-gray-100 rounded-2xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-900"><tr><th class="text-left p-3">項目</th><th class="text-left p-3">汎用AI</th><th class="text-left p-3">自社専用AI</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="p-3 font-semibold text-gray-900">会社情報</td><td class="p-3">毎回入力する</td><td class="p-3">登録済み情報を参照する</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">文体</td><td class="p-3">その場の指示に左右される</td><td class="p-3">過去記事や禁止語に寄せやすい</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">再利用</td><td class="p-3">会話履歴を探す必要がある</td><td class="p-3">生成履歴やカテゴリで探しやすい</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">チーム利用</td><td class="p-3">人によって指示がばらつく</td><td class="p-3">同じ情報を参照して作りやすい</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">汎用AIが悪いわけではありません。むしろ最初の壁打ちには向いています。ただ、同じ会社の発信を何度も作るなら、自社情報を毎回説明しない仕組みが必要になります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ブログ、SNS、LINEではどう使い分けるか</h2>
+        <p class="mb-4">使い分けは、作るものの種類で考えると分かりやすいです。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit</span><span><strong class="font-semibold text-gray-900">アイデア出し</strong>：汎用AIで十分です。「6月の美容室SNSネタを20個」と聞けば、広く出してくれます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">article</span><span><strong class="font-semibold text-gray-900">自社ブログ</strong>：自社専用AIが向きます。過去記事、サービス説明、言葉の温度を参照したいからです。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">campaign</span><span><strong class="font-semibold text-gray-900">LINE配信</strong>：自社専用AIが向きます。お客様との距離感、絵文字の量、キャンペーン条件が重要です。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">search</span><span><strong class="font-semibold text-gray-900">調査・比較</strong>：汎用AIが向きます。まだ自社情報に閉じない広い情報を扱うからです。</span></li>
+        </ul>
+        <p class="mb-6">「新しい企画を広げるときは汎用AI」「自社の名前で外に出す文章は自社専用AI」。この分け方だけでも、かなり迷いが減ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">自社専用AIに何を覚えさせるか</h2>
+        <p class="mb-4">最初から全部入れる必要はありません。むしろ、最初は少ないほうが扱いやすいです。まずは次の5つで十分です。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_one</span><span>サービス名、料金、対象顧客</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_two</span><span>よくある質問とその回答</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_3</span><span>過去に反応が良かったブログやSNS投稿を3〜5本</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_4</span><span>使いたい言葉、使いたくない言葉</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">looks_5</span><span>お客様からよく聞くセリフ</span></li>
+        </ul>
+        <p class="mb-6">最後の「お客様のセリフ」が意外と効きます。「LINEを送るタイミングが分からない」「ブログって何を書けばいいんですか」。こういう生の言葉が1つ入るだけで、AIの文章は読者に近づきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">汎用AIだけで済ませると、どこでつまずくか</h2>
+        <p class="mb-4">一番多いのは、修正の方向が毎回ばらつくことです。今日は丁寧すぎる。次は軽すぎる。さらに次は別の会社のような文章になる。担当者が「うちっぽく直す」時間を毎回持つことになります。</p>
+        <p class="mb-4">もう1つは、古い情報の混入です。汎用AIに過去の文章を貼って使う場合、古いキャンペーン、終了したメニュー、去年の価格が残ることがあります。コピペ運用ほど事故が起きやすいです。</p>
+        <p class="mb-6">ここはツールの問題というより、情報管理の問題です。AIの前に、会社の情報を置く棚が必要になります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">では、最初の1週間で何をすればいいか</h2>
+        <p class="mb-4">いきなり全社導入にしなくて大丈夫です。まず1週間だけ、次の順番で試してください。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="text-gray-900">1日目</strong>：サービス情報を1ページにまとめる。料金、対象、強みだけでOKです。</li>
+          <li><strong class="text-gray-900">2日目</strong>：過去に反応が良かった投稿を3本選ぶ。</li>
+          <li><strong class="text-gray-900">3日目</strong>：使いたくない言葉を10個書く。「絶対」「最強」「誰でも」などです。</li>
+          <li><strong class="text-gray-900">4日目</strong>：PromnyAIのAI学習データに登録する。</li>
+          <li><strong class="text-gray-900">5日目</strong>：同じテーマで、汎用AIと自社専用AIの両方にSNS文を作らせて比べる。</li>
+        </ol>
+        <p class="mb-6">この比較をすると、違いが見えます。完璧な文章かどうかではなく、直す場所が減ったかどうか。そこを見てください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>汎用AIは、初対面の優秀な相談相手。広いアイデア出しや調査に向いている。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>自社専用AIは、前回の話を覚えている担当者。発信の継続や文体の安定に向いている。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>外に出す文章ほど、会社情報、過去投稿、禁止語を参照できる状態が効く。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>最初はサービス情報、反応が良かった投稿3本、使わない言葉10個から始めればよい。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span>見るべき指標は「直す場所が減ったか」。発信の継続では、ここが一番大きい。</span></li>
+        </ul>
+        <p class="mb-8">AIを変える前に、AIへ渡す自社情報を整える。そこから文章は、少しずつ「自分たちの言葉」に戻ってきます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">PromnyAIでは、AI学習データ、ハブ、コンテンツ生成を使って、自社情報を反映したブログ・SNS・LINE文を作れます。まずは1テーマから試せます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/generation-history.html" class="text-emerald-600 hover:text-emerald-700 underline">生成履歴の活用</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連記事</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/why-ai-content-feels-generic.html" class="text-emerald-600 hover:text-emerald-700 underline">なぜAI文章は「他人事」に聞こえるのか — 学習データが9割という話</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/blog/company-info-5-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">AIに教えるべき「自社情報」5カテゴリ整理術</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
