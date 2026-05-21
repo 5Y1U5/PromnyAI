@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/docs/generation-templates.html" />
+  <meta property="og:title" content="テンプレートの活用 — マニュアル — PromnyAI" />
+  <meta property="og:description" content="PromnyAIのコンテンツ生成で、ブログ・SNS・LINE配信を毎回ゼロから考えずに作るためのテンプレート活用手順を解説します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/docs/generation-templates.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>テンプレートの活用 — マニュアル — PromnyAI</title>
+  <meta name="description" content="PromnyAIのコンテンツ生成で、ブログ・SNS・LINE配信を毎回ゼロから考えずに作るためのテンプレート活用手順を解説します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Manual / Content Generator</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900">テンプレートの活用</h1>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">毎回ゼロから考えず、用途ごとの型で文章生成を安定させる</p>
+      </div>
+      <div class="fade-in">
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">このマニュアルでできること</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">テンプレートは、コンテンツ生成でよく使う条件や文章の型をあらかじめ決めておくための考え方です。毎回「何を書けばよいか」から考えるのではなく、ブログ、SNS、LINE配信ごとに入力項目を固定します。</p>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ここでは、テンプレートとして残す項目、媒体別の作り方、チームで使うときの命名ルール、更新のタイミングを整理します。基本操作は先に<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a>を確認してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">テンプレート化する項目</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">テンプレートは、文章そのものを固定するものではありません。毎回変わる情報と、毎回変えない条件を分けるために使います。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">topic</span><span><strong class="font-semibold text-gray-900">テーマ</strong>：何について書くか。商品名、サービス名、季節企画などを入れます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">person</span><span><strong class="font-semibold text-gray-900">読者</strong>：誰に向けるか。既存顧客、初回来店前の人、社内メンバーなどを指定します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">flag</span><span><strong class="font-semibold text-gray-900">目的</strong>：予約、問い合わせ、資料請求、再来店、社内共有など、読み終わった後の行動を決めます。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">tune</span><span><strong class="font-semibold text-gray-900">トーン</strong>：丁寧、親しみやすい、専門家らしい、短く端的になど、文章の温度を指定します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">rule</span><span><strong class="font-semibold text-gray-900">禁止事項</strong>：使わない言葉、断定しない表現、薬機法・景表法で注意する表現を入れます。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">まず作る3つのテンプレート</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">最初から細かく作りすぎる必要はありません。まずは発信頻度が高い3つを用意します。</p>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">ブログ用</strong>：悩みの導入、見出し構成、本文、まとめ、CTAまで作る長文テンプレート</li>
+          <li><strong class="font-semibold text-gray-900">SNS用</strong>：1投稿1テーマで、短い本文、ハッシュタグ、画像案を出すテンプレート</li>
+          <li><strong class="font-semibold text-gray-900">LINE用</strong>：冒頭あいさつ、要件、期限、行動案内を短くまとめるテンプレート</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">ブログ用テンプレートの例</h2>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">読者：[来店前のお客様／既存顧客／担当者名]</p>
+          <p class="mb-3">テーマ：[今回扱うサービス名・商品名・相談内容]</p>
+          <p class="mb-3">目的：[予約／問い合わせ／不安解消／資料請求]</p>
+          <p class="mb-3">構成：冒頭は読者の悩みから始める。見出しは3〜5個。最後に要点を5つ以内でまとめる。</p>
+          <p class="mb-0">注意：価格、日付、キャンペーン条件は学習データにないものを書かない。分からない箇所は「確認が必要」とする。</p>
+        </div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">ブログは長文になるため、テンプレートに「構成の型」まで入れておくと安定します。詳しい手順は<a href="/docs/blog-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">ブログ記事の下書きを作る</a>も参照してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">SNS用テンプレートの例</h2>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">媒体：[Instagram／X／Facebook]</p>
+          <p class="mb-3">テーマ：[紹介したい商品・告知・お知らせ]</p>
+          <p class="mb-3">読者：[既存顧客／近隣の新規客／採用候補者]</p>
+          <p class="mb-3">条件：本文は短め。Instagramはハッシュタグ5個、Xは120文字前後、Facebookは丁寧な説明を残す。</p>
+          <p class="mb-0">出力：本文、画像に入れる一言、ハッシュタグを分けて出す。</p>
+        </div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">SNSは媒体ごとに読み方が違います。同じテーマでも、媒体欄だけを変えて生成し直すと作り分けやすくなります。媒体別の考え方は<a href="/docs/sns-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">SNS投稿の作り方</a>で確認できます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">LINE用テンプレートの例</h2>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3">用途：[キャンペーン告知／予約リマインド／季節挨拶]</p>
+          <p class="mb-3">対象：[全員／既存顧客／予約済みの方]</p>
+          <p class="mb-3">必ず入れる情報：[期限／予約方法／対象メニュー／注意事項]</p>
+          <p class="mb-3">トーン：親しみやすく、売り込み感を抑える。長くしすぎない。</p>
+          <p class="mb-0">出力：短い本文、ボタン文言、送信前チェック項目を分けて出す。</p>
+        </div>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">LINEは距離が近い媒体です。テンプレートに期限や対象者を入れ忘れると、読者が次に何をすればよいか分からなくなります。告知の作り方は<a href="/docs/line-content-generation.html" class="text-emerald-600 hover:text-emerald-700 underline">LINE配信文の作り方</a>も参考にしてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">テンプレートを使う手順</h2>
+        <ol class="space-y-3 text-base text-gray-600 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>使う媒体を決める</li>
+          <li>該当するテンプレートを開く</li>
+          <li>角括弧の中だけを今回の情報に置き換える</li>
+          <li>コンテンツ生成のテーマ欄、参考テキスト、追加指示に分けて入力する</li>
+          <li>「ビジネス情報を使う」をONにして生成する</li>
+          <li>生成後、数字・日付・固有名詞・禁止表現を確認する</li>
+        </ol>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">チームで使うときの命名ルール</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">複数人でテンプレートを使う場合は、名前をそろえてください。探す時間が減り、古いテンプレートの誤用も防げます。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">label</span><span><strong class="font-semibold text-gray-900">媒体を先頭に入れる</strong>：「ブログ_新サービス紹介」「LINE_キャンペーン告知」のようにします。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">calendar_month</span><span><strong class="font-semibold text-gray-900">更新日を入れる</strong>：「SNS_商品紹介_2026-05更新」のように、古いものを見分けられる名前にします。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">person_check</span><span><strong class="font-semibold text-gray-900">確認担当を決める</strong>：料金、キャンペーン、法務表現を誰が確認するかを明確にします。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">更新するタイミング</h2>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">テンプレートは作って終わりではありません。実際に使った結果を見て、少しずつ直します。</p>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync</span><span>新しいサービス、価格、キャンペーン条件が出たとき</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync</span><span>毎回同じ修正をしていると気づいたとき</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync</span><span>媒体の運用方針や投稿頻度が変わったとき</span></li>
+        </ul>
+        <p class="text-base text-gray-600 leading-[1.8] mb-4">おすすめは月1回の見直しです。生成履歴を見ながら「よく使った型」「直しが多かった型」を確認すると、次のテンプレート改善が見つかります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">注意点</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>テンプレートは文章を固定するためではなく、確認漏れを減らすために使います。毎回、今回の情報を入れてください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>古い価格、終了したキャンペーン、使わなくなった表現が残っていないか確認してください。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">warning</span><span>医療、美容、士業など規制が関わる業種では、公開前に必ず人が表現を確認してください。</span></li>
+        </ul>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-10 mb-4">次に読む</h2>
+        <ul class="space-y-3 text-base text-gray-600 mb-4">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方 — 基本操作を確認する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/generation-history.html" class="text-emerald-600 hover:text-emerald-700 underline">生成履歴の活用 — 過去の型を再利用する</a></span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><span><a href="/docs/workflow.html" class="text-emerald-600 hover:text-emerald-700 underline">3機能をつなぐPromnyAI運用法</a></span></li>
+        </ul>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/docs/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            マニュアルトップに戻る
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
