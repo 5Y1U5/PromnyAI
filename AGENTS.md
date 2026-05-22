@@ -36,7 +36,7 @@ PromnyAI/
 │   ├── main.js             # アニメーション・FAQ・メニュー等のJS
 │   └── style.css           # Tailwind + カスタムCSS
 ├── vite.config.js          # Vite設定（HTMLは rollupOptions.input に登録必須）
-└── .Codex/skills/         # Codex 設定
+└── .claude/skills/        # Claude Code / Codex 共通設定
 ```
 
 ## ページ追加時の注意
