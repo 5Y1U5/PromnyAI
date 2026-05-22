@@ -47,6 +47,7 @@ export default defineConfig({
         'blog-solo-entrepreneur-ai-roadmap': resolve(__dirname, 'blog/solo-entrepreneur-ai-roadmap.html'),
         'blog-general-vs-company-ai': resolve(__dirname, 'blog/general-vs-company-ai.html'),
         'blog-what-to-delegate-to-ai-2026': resolve(__dirname, 'blog/what-to-delegate-to-ai-2026.html'),
+        'blog-ai-team-meeting-15min': resolve(__dirname, 'blog/ai-team-meeting-15min.html'),
       },
     },
   },

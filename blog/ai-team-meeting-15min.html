@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-team-meeting-15min.html" />
+  <meta property="og:title" content="AI担当を孤立させない小さな会社の運用会議 — 週1回15分で回す3つの確認 — PromnyAI" />
+  <meta property="og:description" content="AI活用を担当者任せで止めないために、小さな会社が週1回15分で確認したい3項目、役割分担、会議テンプレートを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-team-meeting-15min.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI担当を孤立させない小さな会社の運用会議 — 週1回15分で回す3つの確認 — PromnyAI</title>
+  <meta name="description" content="AI活用を担当者任せで止めないために、小さな会社が週1回15分で確認したい3項目、役割分担、会議テンプレートを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 経営ノウハウ</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AI担当を孤立させない小さな会社の運用会議<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 週1回15分で回す3つの確認</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-22 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「AIは詳しいスタッフに任せている」——小さな会社でAI活用を始めると、最初はこの形になりがちです。</p>
+        <p class="mb-6">困るのは、その人が忙しくなった瞬間に、下書きも確認も更新も止まることです。社長も店長も「今どうなってる？」と聞きにくくなります。</p>
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">AI担当を孤立させず、会社の運用として続けるには、週1回何を確認すればよいのか</strong>。15分で終わる会議テンプレートに落とします。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ「AI担当におまかせ」は止まりやすいのか</h2>
+        <p class="mb-4">AI活用は、パソコンが得意な人に寄りやすい仕事です。Instagramの文面を作る。LINE配信を短くする。営業FAQをAIに聞ける形にする。最初の数日は、詳しい人が進めた方が速い場面もあります。</p>
+        <p class="mb-4">ただ、AI担当だけが全体を知っている状態になると、判断までその人に集まります。「この文章、出していいですか」「料金表は古くないですか」「このお客様向けに言い切って大丈夫ですか」。作業ではなく、責任の確認まで背負う形です。</p>
+        <p class="mb-6">先日、知人の店舗で営業時間変更のLINE文を見せてもらったとき、最後に止まったのは文章ではなく「祝日も同じ時間で合ってる？」の確認でした。現場で詰まるのは、だいたいこういう小さな確認です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">週1回15分で見るのは何か</h2>
+        <p class="mb-4">長い会議はいりません。小さな会社なら、週1回15分で次の3つだけ見ます。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">確認すること</th><th class="p-3 font-semibold">見るもの</th><th class="p-3 font-semibold">決めること</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">1. 今週作ったもの</td><td class="p-3">ブログ案、SNS文、LINE文、FAQ案</td><td class="p-3">出す・直す・保留</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">2. 困った質問</td><td class="p-3">AIが答えにくかった質問、確認に迷った文面</td><td class="p-3">誰が判断するか</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">3. 更新する情報</td><td class="p-3">料金、営業時間、キャンペーン、在庫、担当者名</td><td class="p-3">どの資料を差し替えるか</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">ポイントは、AIの使い方を細かく議論しないことです。見るのは「会社として出してよいか」「情報が古くないか」「次に同じ迷いを減らせるか」です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">誰が出ると回りやすいか</h2>
+        <p class="mb-4">人数は2〜3人で十分です。毎回全員を集めると続きません。役割だけ決めます。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">edit</span><span><strong class="font-semibold text-gray-900">作る人</strong>：AIで下書きを作る人。SNS担当、事務担当、店長など。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">fact_check</span><span><strong class="font-semibold text-gray-900">確認する人</strong>：価格、日付、契約条件、言い切り表現を見る人。社長や責任者が向いています。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">sync</span><span><strong class="font-semibold text-gray-900">直す人</strong>：古い資料を差し替え、次回からAIが参照しやすい状態にする人。</span></li>
+        </ul>
+        <p class="mb-6">1人が3役を持ってもかまいません。ただし、会議では役割名で話します。「AI担当が悪い」ではなく、「確認担当が見る場所」「更新担当が直す資料」と分けるためです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">15分会議の進め方はどうするか</h2>
+        <p class="mb-4">会議は、だらだら話すより順番を固定します。次の台本をそのまま使えます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3"><strong class="text-gray-900">0〜5分：</strong>今週AIで作ったものを3つまで見る。「Instagram投稿案」「LINE配信文」「営業返信案」など、完成品ではなく候補として確認する。</p>
+          <p class="mb-3"><strong class="text-gray-900">5〜10分：</strong>迷った点を1つだけ選ぶ。「この価格表は最新版か」「この表現は強すぎるか」「お客様名を入れてよいか」を決める。</p>
+          <p class="mb-0"><strong class="text-gray-900">10〜15分：</strong>次回までに直す情報を決める。「営業FAQ_初回提案用」を更新する、終了したキャンペーンを消す、よくある質問を1つ足す。</p>
+        </div>
+        <p class="mb-6">ここで大事なのは、全部を直そうとしないことです。1回の会議で直す資料は1つ。判断する迷いも1つ。これくらいに絞ると、来週も開けます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AI担当が持ってくるメモは何で足りるか</h2>
+        <p class="mb-4">AI担当には、きれいな報告書を求めません。次の4行メモで足ります。</p>
+        <div class="my-6 p-5 bg-white border border-emerald-100 rounded-2xl text-sm text-gray-700 leading-[1.8] shadow-sm">
+          <p class="mb-2">今週作ったもの：LINE配信文を2案、Instagram投稿を3案</p>
+          <p class="mb-2">迷ったこと：5月末キャンペーンの終了日を本文に入れてよいか</p>
+          <p class="mb-2">確認してほしいこと：金額、対象者、リンク先</p>
+          <p class="mb-0">次に直したい資料：FAQ_キャンペーン条件</p>
+        </div>
+        <p class="mb-6">この4行があるだけで、会議はかなり短くなります。「何を作ったか」より「どこで迷ったか」を共有するのがコツです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">確認担当はどこだけ見ればよいか</h2>
+        <p class="mb-4">確認担当が全文を赤入れし始めると、AI担当は疲れます。見る場所を絞ります。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">数字</strong>：金額、日付、人数、期間、割引率。</li>
+          <li><strong class="font-semibold text-gray-900">固有名詞</strong>：サービス名、店舗名、担当者名、地名、リンク先。</li>
+          <li><strong class="font-semibold text-gray-900">約束</strong>：「必ず」「全員」「無料」「返金」など、会社として言い切る言葉。</li>
+          <li><strong class="font-semibold text-gray-900">温度</strong>：謝りすぎていないか、強く売りすぎていないか、常連さんに冷たくないか。</li>
+        </ol>
+        <p class="mb-6">PromnyAIの<a href="/docs/hub-team.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブをチームで使う</a>マニュアルでも、外部に出す前は数字、固有名詞、日付、契約条件を確認する流れを置いています。確認担当は、文章の好みより先にこの4点を見ます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">更新担当は何を残すと次が楽か</h2>
+        <p class="mb-4">AI活用を続ける会社は、うまくいった文章より「直した理由」を残しています。次に同じ迷いを減らせるからです。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">folder</span><span>最新版の料金表だけを残し、古いPDFを消す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">history</span><span>反応が良かったLINE文は、生成履歴から探せるようにテーマ名をメモする。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">note_alt</span><span>「この表現は使わない」「この言い方は店長確認」のような社内ルールを1行で足す。</span></li>
+        </ul>
+        <p class="mb-6"><a href="/docs/generation-history.html" class="text-emerald-600 hover:text-emerald-700 underline">生成履歴</a>は、過去文章の再利用に便利です。ただし、履歴は作った時点の情報です。日付、価格、キャンペーン名が古くないかは、毎回人が見ます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">来週から始めるなら何を用意するか</h2>
+        <p class="mb-4">最初の1週間は、仕組みを作り込みすぎない方が続きます。次の3つだけ用意してください。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>AIで作る対象を1つに絞る。例：LINE配信文だけ、Instagram投稿だけ。</li>
+          <li>確認担当を1人決める。例：店長、代表、事務リーダー。</li>
+          <li>毎週同じ時間に15分だけ見る。例：金曜16:30、月曜朝礼後、閉店後すぐ。</li>
+        </ol>
+        <p class="mb-6">1か月続いたら、月1回だけ資料の棚卸しをします。料金表、営業時間、キャンペーン、よくある質問。古い情報を消す日を決めると、AIの下書きも整いやすくなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：AI担当をひとりにしないための5点</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AI担当に作業だけでなく判断まで寄せると、運用が止まりやすい。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>週1回15分で「作ったもの」「困った質問」「更新する情報」を見る。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>作る人、確認する人、直す人を分けて話す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>確認担当は数字、固有名詞、約束、温度を見る。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>直した理由を残すと、次回のAI活用が少しずつ楽になる。</span></li>
+        </ul>
+        <p class="mb-10">AI活用は、詳しい人を増やすより先に、ひとりに背負わせない形を作る方が続きます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <h2 class="text-lg font-bold text-gray-900 mb-3">PromnyAIで、AI運用をチームの仕組みにする</h2>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">PromnyAIなら、自社情報をAI学習データに整理し、ハブで社内資料を共有し、コンテンツ生成と生成履歴で発信の流れを残せます。AI担当だけに任せず、確認・更新・再利用までチームで扱う運用を作れます。</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/docs/hub-team.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-50 transition-colors">チーム利用マニュアルを見る</a>
+            <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors">お申し込みはこちら</a>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            ブログ一覧に戻る
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
