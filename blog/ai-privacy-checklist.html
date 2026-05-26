@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-privacy-checklist.html" />
+  <meta property="og:title" content="AIに貼る前の個人情報チェックリスト — 顧客対応で事故を減らす5分ルール — PromnyAI" />
+  <meta property="og:description" content="メール返信やFAQ作成でAIを使う前に、顧客名、連絡先、相談内容をどう扱うか。小さな会社が今日から使える5分チェックリストを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-privacy-checklist.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIに貼る前の個人情報チェックリスト — 顧客対応で事故を減らす5分ルール — PromnyAI</title>
+  <meta name="description" content="メール返信やFAQ作成でAIを使う前に、顧客名、連絡先、相談内容をどう扱うか。小さな会社が今日から使える5分チェックリストを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIに貼る前の個人情報チェックリスト<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 顧客対応で事故を減らす5分ルール</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-26 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「この問い合わせ文、AIに貼って返信案を作ってもらっていいですか？」——メール対応やLINE返信を任された担当者から、よく出る一言です。</p>
+        <p class="mb-6">困るのは、急いでいるほど顧客名、電話番号、相談内容をそのまま貼り付けてしまうことです。便利さより先に、社内で扱う情報の線引きが必要になります。</p>
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">AIで顧客対応を楽にしながら、貼ってよい情報と止める情報をどう見分けるか</strong>。小さな会社向けに、5分で使えるチェックリストへ落とします。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ「そのまま貼る」が危ないのか</h2>
+        <p class="mb-4">AIは、メール返信、FAQ作成、クレーム文面の整理に向いています。長い問い合わせを短く要約する。言い方をやわらかくする。返信の順番を整える。こうした作業は、現場の時間をかなり減らします。</p>
+        <p class="mb-4">ただし、貼る文章にはお客様の情報が混ざります。氏名、電話番号、メールアドレス、予約日時、購入履歴、相談内容。個人情報保護委員会は、個人情報保護法やガイドラインを公開し、事業者が個人情報を適切に扱う前提を示しています。</p>
+        <p class="mb-6">先週、問い合わせフォームの文面を一緒に見ていたとき、担当者さんが「山田さんの名前だけ消せば大丈夫ですよね」と聞いてくれました。そこで止まれたのが良かったです。名前以外にも、予約日時や相談内容で本人が分かる場合があります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まず、AIに貼らない情報は何か</h2>
+        <p class="mb-4">最初に決めるのは、使い方ではなく「貼らないもの」です。次の5つは、社内ルールとして止める候補にしてください。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">貼らない情報</th><th class="p-3 font-semibold">例</th><th class="p-3 font-semibold">代わりの書き方</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">氏名・連絡先</td><td class="p-3">山田太郎、090、メールアドレス</td><td class="p-3">お客様A、連絡先は削除</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">住所・勤務先</td><td class="p-3">金沢市〇〇町、会社名、学校名</td><td class="p-3">市内、勤務先名は削除</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">予約・契約の番号</td><td class="p-3">予約ID、顧客番号、請求番号</td><td class="p-3">番号情報は削除</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">細かい相談内容</td><td class="p-3">家族構成、病歴、金銭事情</td><td class="p-3">必要な範囲だけ要約</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">社外秘の資料</td><td class="p-3">見積原価、未公開キャンペーン</td><td class="p-3">公開済み情報だけ使う</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">迷ったら「この文章を社外の協力会社にそのまま見せられるか」で見ます。見せにくいなら、AIにもそのまま貼らない。かなり単純ですが、現場では効きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">5分チェックリストはどう使うか</h2>
+        <p class="mb-4">AIに貼る前に、毎回長い確認はできません。そこで、次の5項目だけ見ます。メール返信、FAQ下書き、LINE文の作成前にそのまま使えます。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">名前を消したか</strong>：氏名、会社名、店舗名、学校名を「お客様A」に置き換える。</li>
+          <li><strong class="font-semibold text-gray-900">連絡先を消したか</strong>：電話番号、メール、住所、SNSアカウントを削除する。</li>
+          <li><strong class="font-semibold text-gray-900">番号を消したか</strong>：予約ID、請求番号、顧客番号、注文番号を削除する。</li>
+          <li><strong class="font-semibold text-gray-900">相談内容を丸ごと貼っていないか</strong>：必要な要点だけ3行にする。</li>
+          <li><strong class="font-semibold text-gray-900">公開前に人が見るか</strong>：AIの返信案をそのまま送らず、担当者が最後に確認する。</li>
+        </ol>
+        <p class="mb-6">この5つをチェックするだけなら、慣れると5分もかかりません。大事なのは、担当者の記憶に頼らず、チェック項目として画面横に置くことです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">貼る前の文章はどう直せばいいか</h2>
+        <p class="mb-4">実務では、完全に空っぽにするとAIが返信案を作れません。消す情報と残す情報を分けます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3"><strong class="text-gray-900">そのまま貼らない例：</strong>山田太郎様から、5月28日19:00の予約変更について電話がありました。電話番号は090-xxxx-xxxxです。子どもの体調が悪く、来週火曜に変更したいそうです。</p>
+          <p class="mb-0"><strong class="text-gray-900">AIに渡す例：</strong>お客様Aから、近日中の予約を来週に変更したいという連絡がありました。体調都合のため、やわらかい返信文を作ってください。電話番号や予約IDは入れません。</p>
+        </div>
+        <p class="mb-6">ポイントは、返信に必要な「状況」だけ残すことです。お客様を特定する情報、番号、細かすぎる事情は削ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIに何を頼むと安全に使いやすいか</h2>
+        <p class="mb-4">個人情報を消したあとは、AIへの頼み方も絞ります。おすすめは、完成返信ではなく「確認しやすい下書き」を作らせることです。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">要約</strong>：問い合わせ内容を3行で整理する。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">返信案</strong>：丁寧、短め、電話案内ありの3案を出す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">確認リスト</strong>：送信前に人が見る点を4つ出す。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span><span><strong class="font-semibold text-gray-900">FAQ化</strong>：同じ質問が来たときの社内回答メモにする。</span></li>
+        </ul>
+        <p class="mb-6">「そのまま送れる文を作って」より、「担当者が確認しやすい返信案を3つ作って」の方が扱いやすいです。最後に人が見る前提が残ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社内ルールはどこまで作れば足りるか</h2>
+        <p class="mb-4">最初から分厚い規程を作る必要はありません。中小企業なら、まず1枚のメモで十分です。IPAの中小企業向け情報セキュリティ対策ガイドラインも、組織としてルールを決め、従業員が守れる形にする重要性を示しています。</p>
+        <p class="mb-4">1枚メモに入れるのは、次の4つだけです。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span>AIに貼らない情報のリスト。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span>置き換え例。「山田太郎」→「お客様A」、「5月28日19:00」→「近日中の予約」。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span>公開前に見る担当者。例：店長、代表、事務リーダー。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">description</span><span>迷ったときの合言葉。「迷ったら貼らずに要約する」。</span></li>
+        </ul>
+        <p class="mb-6">このメモを作ったら、Slack、Chatwork、ハブ、Googleドキュメントなど、普段見る場所に置きます。ルールは作るより、見える場所に置くほうが大事です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">今日から始めるなら何をすればいいか</h2>
+        <p class="mb-4">まずは、よく使う顧客対応を1つだけ選びます。問い合わせ返信、予約変更、見積依頼、クレーム一次返信。全部ではなく1つです。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>過去の問い合わせ文を1件選ぶ。実名や番号は見ない状態で作業する。</li>
+          <li>個人情報を消した「AIに渡す例文」を作る。</li>
+          <li>AIに返信案を3つ出させる。</li>
+          <li>人が数字、約束、温度を確認する。</li>
+          <li>うまくいった置き換え例を社内メモに足す。</li>
+        </ol>
+        <p class="mb-6">1回で完璧なルールにしなくて大丈夫です。現場で「これは貼らない方がいいね」と気づいたものを、1行ずつ足していく方が続きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：AIに貼る前に見る5点</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AIで顧客対応を楽にする前に、貼らない情報を決める。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>氏名、連絡先、番号、細かい相談内容、社外秘資料はそのまま貼らない。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>お客様を特定する情報を消し、状況だけを3行に要約する。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AIには完成品ではなく、確認しやすい下書きや選択肢を作らせる。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>迷ったら貼らずに要約する。この合言葉を社内に置く。</span></li>
+        </ul>
+        <p class="mb-10">AI活用の安心感は、高度な設定だけで生まれるものではありません。送信前の5分と、見える場所に置いた1枚メモから始まります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">PromnyAIなら、AIに渡す自社情報をAI学習データで整理し、ハブに社内ルールを置き、コンテンツ生成で確認しやすい下書きを作れます。顧客情報をそのまま貼らない運用を、チームの習慣にできます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/hub-team.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブをチームで使う</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/email-reply.html" class="text-emerald-600 hover:text-emerald-700 underline">メール返信文の作り方</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <p class="text-sm font-bold text-gray-900 mb-3">参考にした公的情報</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">open_in_new</span><a href="https://www.ppc.go.jp/personalinfo/legal/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：法令・ガイドライン等</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">open_in_new</span><a href="https://www.ipa.go.jp/security/guide/sme/about.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：中小企業の情報セキュリティ対策ガイドライン</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            ブログ一覧に戻る
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
