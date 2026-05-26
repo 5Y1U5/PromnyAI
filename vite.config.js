@@ -48,6 +48,7 @@ export default defineConfig({
         'blog-general-vs-company-ai': resolve(__dirname, 'blog/general-vs-company-ai.html'),
         'blog-what-to-delegate-to-ai-2026': resolve(__dirname, 'blog/what-to-delegate-to-ai-2026.html'),
         'blog-ai-team-meeting-15min': resolve(__dirname, 'blog/ai-team-meeting-15min.html'),
+        'blog-ai-privacy-checklist': resolve(__dirname, 'blog/ai-privacy-checklist.html'),
       },
     },
   },
