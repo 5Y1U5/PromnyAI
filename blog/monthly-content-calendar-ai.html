@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/monthly-content-calendar-ai.html" />
+  <meta property="og:title" content="月末30分で翌月の発信カレンダーを作る — 小さな会社のAIネタ出し会議 — PromnyAI" />
+  <meta property="og:description" content="ブログ、SNS、LINEの発信ネタを月末に30分で整理する方法。小さな会社向けに、AIを使った翌月カレンダー作成の手順とテンプレートを紹介します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/monthly-content-calendar-ai.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>月末30分で翌月の発信カレンダーを作る — 小さな会社のAIネタ出し会議 — PromnyAI</title>
+  <meta name="description" content="ブログ、SNS、LINEの発信ネタを月末に30分で整理する方法。小さな会社向けに、AIを使った翌月カレンダー作成の手順とテンプレートを紹介します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 発信計画</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">月末30分で翌月の発信カレンダーを作る<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 小さな会社のAIネタ出し会議</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-05-29 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+
+        <p class="mb-6">「来月の投稿、またその週になってから考えます」——店舗や士業の発信相談で、よく出る言葉です。</p>
+        <p class="mb-6">困るのは、月初は忙しく、気づくとブログもInstagramもLINEも後回しになることです。ネタがないのではなく、考える時間を毎回ゼロから取られています。</p>
+        <p class="mb-6">本記事の問いは1つです。<strong class="text-gray-900">月末30分だけで、翌月の発信ネタをどう並べれば止まりにくいのか</strong>。AIを使った小さな会議の形に落とします。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ月初に考えると発信は止まりやすいのか</h2>
+        <p class="mb-4">発信が止まる会社は、文章力が足りないわけではありません。考えるタイミングが遅いだけのことが多いです。</p>
+        <p class="mb-4">月初は請求、予約、仕入れ、面談、スタッフ調整が重なります。そこで「今週の投稿どうしよう」と考え始めると、目の前の仕事に負けます。</p>
+        <p class="mb-6">先月、知人のサロンで6月のキャンペーン文を一緒に見ていたときも、詰まったのは文章ではなく「そもそも第2週に何を出すか」でした。ネタの場所が決まるだけで、本文作成はかなり軽くなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">30分で決めるのは何か</h2>
+        <p class="mb-4">月末会議で作るのは、きれいな編集カレンダーではありません。翌月に迷わないための、仮置き表です。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">決めること</th><th class="p-3 font-semibold">例</th><th class="p-3 font-semibold">AIに頼むこと</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">週ごとのテーマ</td><td class="p-3">第1週は梅雨対策、第2週は予約枠</td><td class="p-3">候補を10個出す</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">媒体の役割</td><td class="p-3">ブログで詳しく、SNSで短く、LINEで案内</td><td class="p-3">媒体別に言い換える</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">確認が要る情報</td><td class="p-3">価格、日付、空き枠、対象者</td><td class="p-3">チェックリスト化する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">大事なのは、完成文章まで作らないことです。30分で決めるのは「来月、何をどの順番で話すか」。本文は週ごとに作れば足ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ1：先に4つの材料を出す</h2>
+        <p class="mb-4">AIにいきなり「来月の投稿案を作って」と頼むと、どこかで見たような案が並びます。先に材料を4つ出します。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li><strong class="font-semibold text-gray-900">来月の予定</strong>：キャンペーン、休業日、イベント、締切。</li>
+          <li><strong class="font-semibold text-gray-900">お客様から聞かれたこと</strong>：料金、予約、準備、持ち物、失敗不安。</li>
+          <li><strong class="font-semibold text-gray-900">今月よく動いた商品やサービス</strong>：店販商品、初回相談、人気メニュー。</li>
+          <li><strong class="font-semibold text-gray-900">社内で伝えたいこと</strong>：新スタッフ、営業時間、よくある間違い。</li>
+        </ol>
+        <p class="mb-6">この4つがあると、AIのネタ出しが自社寄りになります。PromnyAIの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ</a>のように、サービス情報やよくある質問を整理しておくと、毎月の材料集めも短くなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ2：AIにはどう頼むか</h2>
+        <p class="mb-4">AIへの依頼文は、長くなくて大丈夫です。ただし、業種、媒体、件数、避けたいことを入れます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-sm text-gray-700 leading-[1.8]">
+          <p class="mb-3"><strong class="text-gray-900">そのまま使える依頼文：</strong></p>
+          <p class="mb-0">あなたは小さな美容サロンの広報担当です。6月の発信カレンダーを作ります。材料は「梅雨の髪悩み」「店販ヘアオイル」「第3週に予約枠あり」「新スタッフ紹介」です。ブログ2本、Instagram8投稿、LINE2通に分けて、週ごとのテーマ、タイトル案、確認が必要な情報を表で出してください。効果の断定や強い煽りは避けてください。</p>
+        </div>
+        <p class="mb-6">飲食店なら「ランチ」「雨の日」「テイクアウト」、士業なら「締切」「制度変更」「相談前の準備」に置き換えます。型は同じで、材料だけ差し替えます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ3：媒体ごとの役割はどう分けるか</h2>
+        <p class="mb-4">1つのネタを、全部の媒体で同じように出すと疲れます。役割を分けます。</p>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">article</span><span><strong class="font-semibold text-gray-900">ブログ</strong>：検索される悩みを深く扱う。例：「梅雨時期の髪の広がりを抑える朝の準備」。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">photo_camera</span><span><strong class="font-semibold text-gray-900">Instagram</strong>：写真と短いコツで見せる。例：「朝5分で使うヘアオイル量」。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">chat</span><span><strong class="font-semibold text-gray-900">LINE</strong>：予約、来店前準備、締切を短く伝える。例：「第3週の空き枠案内」。</span></li>
+        </ul>
+        <p class="mb-6">PromnyAIの<a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成</a>では、用途に合わせて文章を作る流れを取れます。月末にテーマだけ決めておくと、週中の作成がかなり楽になります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ4：カレンダーはどんな表にするか</h2>
+        <p class="mb-4">最初はGoogleスプレッドシート、Notion、紙のメモで十分です。列は6つだけにします。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">週</th><th class="p-3 font-semibold">媒体</th><th class="p-3 font-semibold">テーマ</th><th class="p-3 font-semibold">素材</th><th class="p-3 font-semibold">確認</th><th class="p-3 font-semibold">担当</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3">第1週</td><td class="p-3">ブログ</td><td class="p-3">梅雨の悩み</td><td class="p-3">写真2枚</td><td class="p-3">商品名</td><td class="p-3">店長</td></tr>
+              <tr><td class="p-3">第2週</td><td class="p-3">Instagram</td><td class="p-3">朝5分ケア</td><td class="p-3">店販商品</td><td class="p-3">価格</td><td class="p-3">スタッフA</td></tr>
+              <tr><td class="p-3">第3週</td><td class="p-3">LINE</td><td class="p-3">空き枠案内</td><td class="p-3">予約表</td><td class="p-3">日時</td><td class="p-3">受付</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">「素材」と「確認」を分けるのがコツです。写真がない、価格が未確認、担当がいない。この3つが見えると、投稿直前の詰まりを減らせます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ステップ5：毎週作るときは何を見るか</h2>
+        <p class="mb-4">月末に作ったカレンダーは、予定表であって命令ではありません。毎週の作成時に、次の3点だけ見直します。</p>
+        <ol class="space-y-3 mb-6 list-decimal pl-5 marker:text-emerald-500 marker:font-bold">
+          <li>日付、価格、予約枠、リンク先が変わっていないか。</li>
+          <li>今週のお客様の質問とずれていないか。</li>
+          <li>写真や事例を無理に出していないか。</li>
+        </ol>
+        <p class="mb-6">AIに作らせた表を守りすぎる必要はありません。現場は毎週動きます。予約が埋まったらLINEを見送り、よく聞かれた質問があればブログを差し替える。そのくらいの柔らかさで続けます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">テンプレート化するとどこが楽になるか</h2>
+        <p class="mb-4">月末会議が2回目になると、同じ頼み方が使えます。毎月ゼロから考えず、テンプレートを更新します。</p>
+        <p class="mb-4">たとえば「月初は悩み記事」「第2週は商品紹介」「第3週は予約案内」「月末はよくある質問」と置くだけでも、AIへの依頼が短くなります。</p>
+        <p class="mb-6">PromnyAIの<a href="/docs/generation-templates.html" class="text-emerald-600 hover:text-emerald-700 underline">テンプレートの活用</a>でも、同じ形式の文章を繰り返し作る考え方を案内しています。発信カレンダーも、毎月の型にしてしまうと続けやすくなります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：月末30分で見る5点</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>月初ではなく月末に、翌月の発信テーマだけ仮置きする。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>来月の予定、お客様の質問、動いた商品、社内連絡を材料にする。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>ブログ、Instagram、LINEは同じネタでも役割を分ける。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>カレンダーには素材、確認、担当を入れて直前の詰まりを減らす。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>毎週の現場に合わせて差し替え、テンプレートとして育てる。</span></li>
+        </ul>
+        <p class="mb-10">発信を続けるコツは、気合いで毎週考えることではありません。迷う場所を、月末に少しだけ先回りしておくことです。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">PromnyAIなら、翌月の予定やよくある質問をAI学習データに整理し、ハブで発信カレンダーを共有し、コンテンツ生成でブログ・SNS・LINEの下書きを作れます。月末30分のネタ出しを、チームで回せる仕組みにできます。</p>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">関連マニュアル</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/content-generator.html" class="text-emerald-600 hover:text-emerald-700 underline">コンテンツ生成の使い方</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/generation-templates.html" class="text-emerald-600 hover:text-emerald-700 underline">テンプレートの活用</a></li>
+            <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">arrow_forward</span><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データの使い方</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100">
+          <a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium">
+            <span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>
+            ブログ一覧に戻る
+          </a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
