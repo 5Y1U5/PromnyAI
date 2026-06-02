@@ -50,6 +50,7 @@ export default defineConfig({
         'blog-ai-team-meeting-15min': resolve(__dirname, 'blog/ai-team-meeting-15min.html'),
         'blog-ai-privacy-checklist': resolve(__dirname, 'blog/ai-privacy-checklist.html'),
         'blog-monthly-content-calendar-ai': resolve(__dirname, 'blog/monthly-content-calendar-ai.html'),
+        'blog-company-ai-usage-rules': resolve(__dirname, 'blog/company-ai-usage-rules.html'),
       },
     },
   },
