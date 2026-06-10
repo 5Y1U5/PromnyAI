@@ -52,6 +52,7 @@ export default defineConfig({
         'blog-monthly-content-calendar-ai': resolve(__dirname, 'blog/monthly-content-calendar-ai.html'),
         'blog-company-ai-usage-rules': resolve(__dirname, 'blog/company-ai-usage-rules.html'),
         'blog-company-info-ai-boundaries': resolve(__dirname, 'blog/company-info-ai-boundaries.html'),
+        'blog-ai-search-official-info': resolve(__dirname, 'blog/ai-search-official-info.html'),
       },
     },
   },
