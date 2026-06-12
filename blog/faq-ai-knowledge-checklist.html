@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/faq-ai-knowledge-checklist.html" />
+  <meta property="og:title" content="そのFAQ、AIに読ませても大丈夫？ — 小さな会社のFAQ棚卸しチェックリスト — PromnyAI" />
+  <meta property="og:description" content="FAQをAIに読ませる前に、小さな会社が確認したい質問文・回答・更新日・責任者・公開範囲の棚卸し方法を、Google公式情報や個人情報保護委員会の注意喚起をもとに整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/faq-ai-knowledge-checklist.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>そのFAQ、AIに読ませても大丈夫？ — 小さな会社のFAQ棚卸しチェックリスト — PromnyAI</title>
+  <meta name="description" content="FAQをAIに読ませる前に、小さな会社が確認したい質問文・回答・更新日・責任者・公開範囲の棚卸し方法を、Google公式情報や個人情報保護委員会の注意喚起をもとに整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 発信基盤</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">そのFAQ、AIに読ませても大丈夫？<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 小さな会社のFAQ棚卸しチェックリスト</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-06-12 公開</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「FAQはあるけれど、スタッフごとに答えが少し違う」——小さな会社のAI導入相談で、よく出てくる悩みです。</p>
+        <p class="mb-6">料金は新しいのに、FAQだけ去年のまま。LINEの返信テンプレには古い受付時間が残っている。AIにそのまま読ませると、古い答えまで混ざります。</p>
+        <p class="mb-6">では、AIに渡す前に、FAQのどこを見直せばよいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">FAQは「SEOの飾り」だけで終わっていませんか？</h2>
+        <p class="mb-4">FAQは、検索結果で目立つためだけの部品ではありません。Google Search CentralはFAQPageの構造化データ仕様を公開しています。一方で、FAQリッチリザルトの表示やサポートについては変更も案内されています。</p>
+        <p class="mb-4">つまり、FAQを「検索で目立つための装飾」とだけ見ると、運用が止まりやすくなります。今のFAQは、顧客対応、社内共有、AIに読ませる会社説明の土台として見直すほうが実務的です。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">用途</th><th class="p-3 font-semibold">見るべきこと</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3 font-semibold text-gray-900">検索向けFAQ</td><td class="p-3">質問と回答がページ上で読めるか</td></tr><tr><td class="p-3 font-semibold text-gray-900">顧客向けFAQ</td><td class="p-3">問い合わせ前の不安を減らせるか</td></tr><tr><td class="p-3 font-semibold text-gray-900">AI向けFAQ</td><td class="p-3">最新で、責任者が確認した情報か</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIに渡すFAQで、まず見るべき5項目は？</h2>
+        <p class="mb-4">棚卸しは難しくありません。まずは、よく聞かれる質問を10個だけ並べます。そのうえで、次の5項目を確認します。</p>
+        <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-700 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">checklist</span>FAQ棚卸しチェックリスト</p><ul class="space-y-2 text-sm text-gray-700 leading-relaxed"><li>1. 質問文は、お客様が実際に使う言葉になっているか</li><li>2. 回答に古い価格・営業時間・担当者名が残っていないか</li><li>3. 公開してよい情報と、社内専用情報を分けたか</li><li>4. 最終更新日と確認担当を入れたか</li><li>5. クレーム、口コミ、問い合わせ文をそのまま貼っていないか</li></ul></div>
+        <p class="mb-6">個人情報保護委員会は、生成AIサービスの利用に関する注意喚起を公開しています。FAQの例文を作るときも、顧客名、電話番号、具体的な相談内容をそのまま入れない運用が必要です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「正しいけど使えない回答」はどこで生まれますか？</h2>
+        <p class="mb-4">AIの回答がずれる原因は、プロンプトだけではありません。読ませる元情報が古い、曖昧、長すぎる。そこに原因があることも多いです。</p>
+        <p class="mb-4">たとえば「予約は必要ですか？」というFAQに、「お問い合わせください」とだけ書いてある。これは間違いではありません。でも、店舗の現場では使いにくい回答です。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">弱いFAQ</th><th class="p-3 font-semibold">AIに読ませやすいFAQ</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">Q. 予約は必要ですか？<br>A. お問い合わせください。</td><td class="p-3">Q. 初回相談は予約が必要ですか？<br>A. 事前予約をお願いしています。フォームまたはLINEから希望日時を送ってください。</td></tr><tr><td class="p-3">Q. 料金はいくらですか？<br>A. プランにより異なります。</td><td class="p-3">Q. 月額料金と初期費用はどこで確認できますか？<br>A. 最新の料金は公式サイトの料金ページで確認できます。見積もりが必要な場合は問い合わせフォームからご相談ください。</td></tr></tbody></table></div>
+        <p class="mb-6">先月も、料金表は新しいのに、FAQだけ旧プラン名のまま残っているサイトを見ました。AI活用の前に、まず人間が読んで迷わない状態に戻す。それが第一歩です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">外部入力をそのままAI用FAQにしていませんか？</h2>
+        <p class="mb-4">口コミ、問い合わせ文、社内チャットのメモは、FAQの材料になります。ただし、そのままAIに読ませる情報にするのは危険です。</p>
+        <p class="mb-4">OWASPのLLM Top 10では、Prompt InjectionやData and Model Poisoningなど、LLMアプリケーションのリスクが整理されています。小さな会社向けに言えば、「外から来た文章を、そのままAIの指示や社内ルールのように扱わない」ということです。</p>
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-red-700 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">warning</span>避けたい入れ方</p><ul class="space-y-2 text-sm text-gray-700 leading-relaxed"><li>・お客様の実名入り問い合わせをそのままFAQ化する。</li><li>・口コミの文章をそのまま「公式回答」として登録する。</li><li>・古い規約やキャンペーン条件を残したまま学習データに入れる。</li><li>・社内専用の値引き条件を公開FAQと同じ場所に置く。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIに入れるなら、どんな棚に分けますか？</h2>
+        <p class="mb-4">FAQをAIに読ませるなら、1つの長いメモにまとめるより、棚を分けたほうが扱いやすくなります。PromnyAIの<a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">AI学習データ管理</a>や<a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">ハブ</a>では、自社情報を登録し、発信や社内共有に使う流れを作れます。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">棚</th><th class="p-3 font-semibold">入れるFAQ</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3 font-semibold text-gray-900">基本情報</td><td class="p-3">営業時間、場所、対応エリア、問い合わせ方法</td></tr><tr><td class="p-3 font-semibold text-gray-900">料金・申込</td><td class="p-3">料金、支払い方法、解約、見積もり</td></tr><tr><td class="p-3 font-semibold text-gray-900">サービス内容</td><td class="p-3">できること、できないこと、対象者</td></tr><tr><td class="p-3 font-semibold text-gray-900">トラブル対応</td><td class="p-3">キャンセル、遅刻、返金、連絡不能時</td></tr><tr><td class="p-3 font-semibold text-gray-900">社内専用</td><td class="p-3">値引き判断、例外対応、担当者メモ</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">今日30分で、どこまで棚卸しできますか？</h2>
+        <p class="mb-4">全部を一気に整える必要はありません。最初の30分は、完璧なFAQを書く時間ではなく、危ない情報を見つける時間にします。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><ul class="space-y-2 text-sm text-gray-700 leading-relaxed"><li><strong>0〜10分：</strong>よく聞かれる質問を10個出す。</li><li><strong>10〜20分：</strong>古い価格、営業時間、担当者名を消す。</li><li><strong>20〜30分：</strong>更新日、確認担当、カテゴリを付ける。</li></ul></div>
+        <p class="mb-6">この時点で、文章がきれいである必要はありません。「この回答は古い」「これは社内専用」「これは公開してよい」と分けるだけで、AIに渡す前の事故は減らせます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：FAQは、AIに渡す前の会社の説明書です</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>FAQはSEO装飾だけでなく、顧客対応とAI用ナレッジの土台です。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>質問文、回答、更新日、責任者、公開範囲をそろえます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>個人情報や外部入力は、そのまま学習データにしません。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初は30分で、古い情報と危ない情報を見つければ十分です。</span></li></ul>
+        <p class="mb-10">AIに正しく答えてほしいなら、先に会社側の答えを整える。FAQ棚卸しは、そのためのいちばん小さな入口です。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">FAQ、サービス情報、プロフィールを整理したら、PromnyAIのAI学習データ管理とコンテンツ生成で、問い合わせ返信・ブログ・SNS・社内共有文に展開できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://developers.google.com/search/docs/appearance/structured-data/faqpage?hl=ja" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Google Search Central：FAQPage structured data</a></li><li><a href="https://developers.google.com/search/blog/2023/08/howto-faq-changes?hl=ja" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Google Search Central Blog：HowTo とよくある質問のリッチリザルトにおける変更</a></li><li><a href="https://support.google.com/business/answer/3039617?hl=ja" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Googleビジネスプロフィール ヘルプ：ビジネス プロフィールを編集する</a></li><li><a href="https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：生成AIサービスの利用に関する注意喚起等について</a></li><li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP Top 10 for Large Language Model Applications</a></li><li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：AI学習データの使い方</a></li><li><a href="/blog/company-info-5-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに教えるべき「自社情報」5カテゴリ整理術</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">menu_book</span>
+            マニュアル
+          </a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">article</span>
+            ブログ
+          </a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">
+            <span class="material-icons-outlined text-[16px]">download</span>
+            サービス資料
+          </a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
