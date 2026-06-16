@@ -54,6 +54,7 @@ export default defineConfig({
         'blog-company-info-ai-boundaries': resolve(__dirname, 'blog/company-info-ai-boundaries.html'),
         'blog-ai-search-official-info': resolve(__dirname, 'blog/ai-search-official-info.html'),
         'blog-faq-ai-knowledge-checklist': resolve(__dirname, 'blog/faq-ai-knowledge-checklist.html'),
+        'blog-chatbot-human-handoff-rules': resolve(__dirname, 'blog/chatbot-human-handoff-rules.html'),
       },
     },
   },

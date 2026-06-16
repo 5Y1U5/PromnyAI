@@ -62,6 +62,11 @@
 
 | 公開日 | タイトル | パス | テーマ |
 |---|---|---|---|
+| 2026-06-17 | 小さな会社のAIチャットボット運用 — 最初に決めたい「人に戻す」5つのルール | `/blog/chatbot-human-handoff-rules.html` | AI活用の注意点 / 有人切替 |
+| 2026-06-12 | そのFAQ、AIに読ませても大丈夫？ — 小さな会社のFAQ棚卸しチェックリスト | `/blog/faq-ai-knowledge-checklist.html` | 発信基盤 / FAQ棚卸し |
+| 2026-06-10 | AI検索時代に小さな会社が整えるべき公式情報 — サイト・FAQ・プロフィールを「見つけられる情報」にする | `/blog/ai-search-official-info.html` | 発信基盤 / 公式情報 |
+| 2026-06-05 | AIに会社情報を入れる前に決める3つの境界線 — 小さな会社の「使えるけど危なくない」AI運用 | `/blog/company-info-ai-boundaries.html` | AI活用の注意点 / 情報境界 |
+| 2026-06-02 | 小さな会社の生成AI利用ルール — 最初に決める5つの約束 | `/blog/company-ai-usage-rules.html` | AI活用の注意点 / 社内ルール |
 | 2026-05-29 | 月末30分で翌月の発信カレンダーを作る — 小さな会社のAIネタ出し会議 | `/blog/monthly-content-calendar-ai.html` | 発信計画 / 月末ネタ出し |
 | 2026-05-26 | AIに貼る前の個人情報チェックリスト — 顧客対応で事故を減らす5分ルール | `/blog/ai-privacy-checklist.html` | AI活用の失敗・注意点 / 個人情報 |
 | 2026-05-22 | AI担当を孤立させない小さな会社の運用会議 — 週1回15分で回す3つの確認 | `/blog/ai-team-meeting-15min.html` | 経営ノウハウ / チーム運用 |
