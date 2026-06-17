@@ -92,5 +92,10 @@ npm run preview
 - GlamAIサロン版（salon.glam-ai.net）をベースにしたデザイン
 
 ## 禁止事項
-- main ブランチへの直接コミット
+- main ブランチへの直接コミット（原則）。ただし、YukiがHermesに対して明示的に「公開して」「公開まで」「今後も止まらないよう同等権限で」等の本番公開許可を出したブログ/定期コンテンツ更新は、他ブログ運用と同様に `npm run build` と本番確認を実施したうえで main へ直接 push してよい。
 - .env ファイルのコミット
+
+## Hermesブログ公開権限
+- Hermes Agent は、Yukiの明示承認がある PromnyAI ブログ記事について、ブランチ/PRで停止せず、build成功後に main へ push して Cloudflare Pages 本番反映まで進めてよい。
+- 公開後は必ず記事URLと `/blog/` 一覧を HTTP 200 で確認し、タイトルまたは主要キーワードの反映を検証する。
+- 秘密情報・`.env`・無関係な生成物はコミットしない。
