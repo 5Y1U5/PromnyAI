@@ -55,6 +55,7 @@ export default defineConfig({
         'blog-ai-search-official-info': resolve(__dirname, 'blog/ai-search-official-info.html'),
         'blog-faq-ai-knowledge-checklist': resolve(__dirname, 'blog/faq-ai-knowledge-checklist.html'),
         'blog-chatbot-human-handoff-rules': resolve(__dirname, 'blog/chatbot-human-handoff-rules.html'),
+        'blog-chatbot-log-review-monthly': resolve(__dirname, 'blog/chatbot-log-review-monthly.html'),
       },
     },
   },
