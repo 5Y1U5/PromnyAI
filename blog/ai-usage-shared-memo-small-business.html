@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-usage-shared-memo-small-business.html" />
+  <meta property="og:title" content="AIを使える人だけが使っていないか — 小さな会社のAI活用メモ3点セット — PromnyAI" />
+  <meta property="og:description" content="AI活用が一部の人の個人技で止まらないように、小さな会社が残したい3つの共有メモを整理します。うまくいった使い方、直したプロンプト、人に戻した判断の記録です。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-usage-shared-memo-small-business.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIを使える人だけが使っていないか — 小さな会社のAI活用メモ3点セット — PromnyAI</title>
+  <meta name="description" content="AI活用が一部の人の個人技で止まらないように、小さな会社が残したい3つの共有メモを整理します。うまくいった使い方、直したプロンプト、人に戻した判断の記録です。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / 社内AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIを使える人だけが使っていないか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 小さな会社のAI活用メモ3点セット</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-06-26</p>
+      </div>
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「AIは便利そうだけど、結局あの人しか使えていない」——小さな会社でよく起きる止まり方です。</p>
+        <p class="mb-6">使える人は早くなる。でも、横の人には使い方が伝わらない。翌月には同じ質問、同じプロンプト修正、同じ判断ミスをもう一度やっています。</p>
+        <p class="mb-6">では、AI活用を一部の人の個人技で終わらせないために、何をメモとして残せばよいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ「使った人だけがわかる」で止まるのですか？</h2>
+        <p class="mb-4">総務省の令和7年版 情報通信白書では、日本企業で生成AIの活用方針を定めている割合が2024年度に49.7%へ増えたと示されています。一方で、日本の中小企業では、方針を明確に定めていない回答が約半数を占めるとも説明されています。</p>
+        <p class="mb-4">同じ白書では、日本企業の生成AI導入時の懸念として「効果的な活用方法がわからない」が最も多いとされています。つまり課題は、AIツールを契約するかどうかだけではありません。</p>
+        <p class="mb-6">使ってみてわかったことが、社内に残らない。ここで止まります。ある担当者がメール文をうまく直した。別の担当者が資料要約のコツを見つけた。でも、メモがなければ「田中さんに聞いて」で終わります。</p>
+
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">止まり方</th><th class="p-3 font-semibold">現場で起きること</th><th class="p-3 font-semibold">残したいメモ</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">個人技で止まる</td><td class="p-3">使える人だけが早い</td><td class="p-3">うまくいった使い方</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">修正が残らない</td><td class="p-3">毎回プロンプトを直す</td><td class="p-3">直したプロンプト</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">判断が曖昧</td><td class="p-3">AIに任せすぎる日がある</td><td class="p-3">人に戻した判断</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">メモ1：「うまくいった使い方」は何を残しますか？</h2>
+        <p class="mb-4">最初に残したいのは、成功談ではなく再現できる使い方です。「AIで資料を作った」では粗すぎます。次の人がまねできる粒度まで分けます。</p>
+        <p class="mb-4">たとえば、営業資料のたたき台なら、使った材料、AIへの依頼文、人が確認した点をセットで残します。メール、議事録、資料作成補助は、総務省の白書でも生成AIの利用例として挙げられている領域です。</p>
+        <p class="mb-6">現場で効くメモは、きれいな報告書ではありません。「この順番で入れるとズレにくかった」「最後に料金だけ人が見た」くらいの短さで十分です。</p>
+
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+          <p class="text-sm font-semibold text-gray-900 mb-3">うまくいった使い方メモ</p>
+          <div class="text-sm text-gray-700 leading-[1.8] space-y-3">
+            <p><strong class="text-gray-900">業務：</strong>問い合わせ返信のたたき台</p>
+            <p><strong class="text-gray-900">AIに渡した材料：</strong>問い合わせ要約、公開済みFAQ、返信の温度感</p>
+            <p><strong class="text-gray-900">人が見た点：</strong>金額、納期、断定表現、個人情報が残っていないか</p>
+          </div>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">メモ2：「直したプロンプト」はどう残しますか？</h2>
+        <p class="mb-4">AI活用でいちばん消えやすいのが、プロンプトの修正履歴です。1回目は長すぎた。2回目は硬すぎた。3回目で「お客様向けに、短く、断定しない」と入れたら使いやすくなった。</p>
+        <p class="mb-4">この直し方が残っていないと、別の人がまた1回目から始めます。IPAの「DX動向2025-AI時代のデジタル人材育成」でも、実践を通じて磨かれるスキルに触れています。AIの使い方も、実践の修正を残して初めて学びになります。</p>
+        <p class="mb-6">「完成したプロンプト」だけではなく、「なぜ直したか」を1行添えます。ここが次の担当者の近道になります。</p>
+
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">Before</th><th class="p-3 font-semibold">After</th><th class="p-3 font-semibold">直した理由</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3">返信文を作って</td><td class="p-3">お客様向けに、3行以内で、金額は断定せず返信案を作って</td><td class="p-3">長文と断定表現を避けるため</td></tr>
+              <tr><td class="p-3">議事録をまとめて</td><td class="p-3">決定事項、未決事項、次回までの確認に分けて</td><td class="p-3">あとでタスク化しやすくするため</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">メモ3：「人に戻した判断」はどこまで書きますか？</h2>
+        <p class="mb-4">AIを使うほど、任せる判断より戻す判断が大事になります。個人情報保護委員会は、生成AIサービス利用時に、利用目的の範囲や機械学習への利用有無、規約・プライバシーポリシーの確認に注意を促しています。</p>
+        <p class="mb-4">METIと総務省のAI事業者ガイドライン第1.1版でも、AIを利用する側を含めた考え方が示されています。小さな会社であれば、難しい規程から始めるより、まず「この判断は人に戻した」と残す方が続きます。</p>
+        <p class="mb-6">たとえば、返金、契約、採用、医療・健康、個人情報、クレーム。AIが下書きを出しても、会社としての判断は人に戻します。戻した理由まで残すと、次に同じ場面が来たときの迷いが減ります。</p>
+
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+          <p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rule</span>人に戻す判断メモ</p>
+          <ul class="space-y-2 text-sm text-gray-700 leading-[1.8]">
+            <li>・お客様の個人情報が含まれるため、AIに貼らず要約だけ使った。</li>
+            <li>・返金可否は社内ルール確認が必要なため、AIの文案は保留文だけ使った。</li>
+            <li>・契約条件の説明は責任者確認後に送るため、断定表現を削った。</li>
+          </ul>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">3つのメモはどこに置けば続きますか？</h2>
+        <p class="mb-4">共有メモは、立派な社内ポータルに置かなくても始められます。大事なのは、AIを使う画面から遠すぎないことです。チャットに流すだけだと、1週間後に見つかりません。</p>
+        <p class="mb-4">おすすめは、業務別に1ページずつ置く形です。「問い合わせ返信」「議事録」「SNS投稿」「FAQ更新」のように分けます。各ページに、うまくいった使い方、直したプロンプト、人に戻した判断を3つだけ置きます。</p>
+        <p class="mb-6">PromnyAIであれば、HubやAI学習データ、テンプレートの考え方と相性がよい領域です。AIに毎回ゼロから考えさせるのではなく、会社側が使い方の材料を持っておく。その材料を、次の担当者も読める場所に置きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：AI活用は「3つの短いメモ」で広がる</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AI活用が一部の人で止まる原因は、使ってわかったことが社内に残らないことです。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>うまくいった使い方は、業務、材料、人の確認点をセットで残します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>直したプロンプトは、Before / After と直した理由を1行で残します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>人に戻した判断は、次に同じ迷いを減らすための社内ルールの種になります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>PromnyAIを使うなら、HubやAI学習データに共有メモを置き、再利用できる形にします。</span></li>
+        </ul>
+        <p class="mb-10">AIを上手に使った人を増やすより、上手に使った跡を残す。小さな会社のAI活用は、そこから横に広がります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">AIの使い方、直したプロンプト、人に戻した判断を社内で共有したい方は、PromnyAIにご相談ください。自社情報やテンプレートを整理し、担当者だけで終わらないAI活用の土台づくりから始められます。</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a>
+            <a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">総務省：令和7年版 情報通信白書「企業におけるAI利用の現状」</a></li>
+            <li><a href="https://www.ipa.go.jp/digital/chousa/dx-trend/dx-trend-2025.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：DX動向2025</a></li>
+            <li><a href="https://www.ipa.go.jp/digital/chousa/discussion-paper/dx2025_digital_talent_ai_era.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：DX動向2025-AI時代のデジタル人材育成</a></li>
+            <li><a href="https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20240419_report.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">経済産業省：AI事業者ガイドライン</a></li>
+            <li><a href="https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：生成AIサービスの利用に関する注意喚起等について</a></li>
+            <li><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：Hubの使い方</a></li>
+            <li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：AI学習データの使い方</a></li>
+            <li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
