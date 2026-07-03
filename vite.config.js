@@ -59,6 +59,7 @@ export default defineConfig({
         'blog-ai-email-reply-template-checklist': resolve(__dirname, 'blog/ai-email-reply-template-checklist.html'),
         'blog-ai-usage-shared-memo-small-business': resolve(__dirname, 'blog/ai-usage-shared-memo-small-business.html'),
         'blog-chatbot-answer-ban-list': resolve(__dirname, 'blog/chatbot-answer-ban-list.html'),
+        'blog-chatbot-input-field-design': resolve(__dirname, 'blog/chatbot-input-field-design.html'),
       },
     },
   },

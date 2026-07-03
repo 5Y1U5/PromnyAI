@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/chatbot-input-field-design.html" />
+  <meta property="og:title" content="AIチャットボットの入力欄に何を書かせないか — 小さな会社の“相談前メモ”設計 — PromnyAI" />
+  <meta property="og:description" content="AIチャットボット導入前に、入力欄・注意書き・初期質問で何を書かせないかを決める方法を整理します。個人情報や機密情報を不用意に入れさせないための、小さな会社向けの相談前メモ設計です。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/chatbot-input-field-design.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIチャットボットの入力欄に何を書かせないか — 小さな会社の“相談前メモ”設計 — PromnyAI</title>
+  <meta name="description" content="AIチャットボット導入前に、入力欄・注意書き・初期質問で何を書かせないかを決める方法を整理します。個人情報や機密情報を不用意に入れさせないための、小さな会社向けの相談前メモ設計です。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / AIチャットボット運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIチャットボットの入力欄に何を書かせないか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 小さな会社の“相談前メモ”設計</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-07-03</p>
+      </div>
+
+      <article class="fade-in text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「サイトにAIチャットボットを置いたら、お客様が何を書き込むか分からない」——導入前によく出る不安です。</p>
+        <p class="mb-6">氏名、電話番号、契約内容、体調や家族の事情まで入ると、AIで答える前に扱い方で迷います。</p>
+        <p class="mb-6">では、チャットの最初の入力欄には、何を書いてよくて、何を書かせないべきなのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ「何でも聞いてください」から始めないのか</h2>
+        <p class="mb-4">チャットボットの入力欄に「何でもご相談ください」と置くと、質問の幅が一気に広がります。営業時間の確認も、契約の相談も、個人情報を含む問い合わせも、同じ箱に入ってきます。</p>
+        <p class="mb-4">総務省・経済産業省の「AI事業者ガイドライン 第1.0版」では、AIサービスに個人情報や機密情報等を不適切に入力しないよう注意する考え方が示されています。個人情報保護委員会も、生成AIサービスへ個人情報を含むプロンプトを入力する場合の注意を出しています。</p>
+        <p class="mb-6">小さな会社で最初にやることは、長い規程を書くことではありません。入力欄の前で、お客様に「ここには何を書かないでほしいか」を短く伝えることです。</p>
+
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">入力欄に入ってよい内容</th><th class="p-3 font-semibold">最初から避けたい内容</th></tr></thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3">営業時間、サービス範囲、資料請求、公開FAQへの質問</td><td class="p-3">氏名、電話番号、契約番号、未公開の社内情報</td></tr>
+              <tr><td class="p-3">「〇〇のサービスはありますか？」のような一般質問</td><td class="p-3">返金可否、例外対応、法律・医療・税務などの個別判断</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">最初に分けるのは「案内・確認・人に渡す」の3つ</h2>
+        <p class="mb-4">入力欄の設計は、難しく考えすぎなくて大丈夫です。最初は3つに分けます。「AIがその場で案内してよい質問」「追加で状況確認が必要な質問」「最初から人に渡す質問」です。</p>
+        <p class="mb-4">この3分類は、公的資料に書かれた法律上の区分ではありません。現場で迷いを減らすための整理です。山田さんという仮のお客様が「前回の契約内容を見て、今回も同じ割引になりますか？」と書いたら、AIだけで答えず人へ渡す。そう決めておくためのメモです。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">相談前メモの3分類</p><ul class="space-y-2 text-sm text-gray-700"><li>・<strong class="text-gray-900">案内で足りる：</strong>営業時間、場所、資料、公開FAQの範囲</li><li>・<strong class="text-gray-900">状況確認が必要：</strong>業種、利用人数、希望時期、資料請求の目的</li><li>・<strong class="text-gray-900">人に渡す：</strong>個人情報、契約判断、クレーム、専門判断、社内確認が必要な金額</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">入力欄の上に置く一文は、どこまで具体的に書くか</h2>
+        <p class="mb-4">GoogleのGeminiアプリのプライバシーハブでは、機密データやレビュアーに見られたくない情報を入力しないよう案内しています。Anthropicのヘルプにも、データ利用はサービスや設定によって異なることが説明されています。</p>
+        <p class="mb-4">つまり、「AIだから大丈夫」とまとめず、使うサービスの規約やプライバシーポリシーを確認する必要があります。お客様向けの入力欄でも、同じ考え方を小さく出しておくと安心です。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">edit_note</span>入力欄の注意書き例</p><div class="space-y-3 text-sm text-gray-700 leading-[1.8]"><p><strong class="text-gray-900">短い版：</strong>氏名・電話番号・契約番号など、個人が特定できる情報は入力しないでください。</p><p><strong class="text-gray-900">少し丁寧な版：</strong>このチャットでは一般的なご案内を行います。個別の契約・料金・個人情報を含む内容は、担当者へおつなぎします。</p><p><strong class="text-gray-900">問い合わせ前メモ版：</strong>ご相談内容は、サービス名・困っていること・希望時期の3点だけで構いません。詳しい個人情報は入力しないでください。</p></div></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">初期質問は「自由入力」だけにしていませんか？</h2>
+        <p class="mb-4">最初から自由入力だけにすると、お客様は何を書けばよいか迷います。結果として、長い事情説明や個人情報が入りやすくなります。</p>
+        <p class="mb-4">先に選択肢を置くと、入力内容を絞れます。たとえば「料金を知りたい」「導入できる業種を知りたい」「資料がほしい」「担当者に相談したい」の4つです。その後で、自由入力は1行だけにします。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">先に聞くこと</th><th class="p-3 font-semibold">まだ聞かないこと</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">相談の種類、業種、希望時期</td><td class="p-3">氏名、電話番号、契約番号、細かい事情</td></tr><tr><td class="p-3">公開情報で答えられる質問</td><td class="p-3">担当者判断が必要な例外条件</td></tr></tbody></table></div>
+        <p class="mb-6">現場では、入力欄の文言を1行変えるだけで、届く相談の種類が変わります。「何でも」ではなく「サービス名・困りごと・希望時期」と書く。これだけでも、担当者が読めるメモに近づきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIが答える前に、人へ戻す合図を決めていますか？</h2>
+        <p class="mb-4">AI事業者ガイドラインには、関連する人からの問い合わせに対応する窓口を、合理的な範囲で設ける考え方も示されています。小さな会社なら、これは「AIで答えきれない時の連絡先をチャット内に置く」と考えると実装しやすくなります。</p>
+        <p class="mb-4">たとえば、返金、契約、クレーム、個人情報を含む照会は、人に渡す合図です。チャット内では「担当者が確認します」と伝え、問い合わせフォームや担当者連絡へつなぎます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">人へ戻す合図</p><ul class="space-y-2 text-sm text-gray-700"><li>・名前、電話番号、住所、契約番号が出てきた</li><li>・「返金できますか」「例外対応できますか」と聞かれた</li><li>・クレーム、苦情、緊急性のある内容が含まれる</li><li>・法律、医療、税務などの専門判断に近い</li><li>・公開情報だけでは答えられない金額や納期を聞かれた</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIを試してみる前に、何を整理するか</h2>
+        <p class="mb-4">PromnyAIでチャットボットを使う時も、回答内容だけを作るより、最初の質問と注意書きから整理したほうが運用しやすくなります。</p>
+        <p class="mb-4">AI学習データには公開してよい情報を入れる。ハブには社内の運用ルールをまとめる。人へ渡す条件は、担当者確認用のメモに分ける。この3つを分けると、あとから見直しやすくなります。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">整理する場所</th><th class="p-3 font-semibold">入れる内容</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3 font-semibold text-gray-900">AI学習データ</td><td class="p-3">公開FAQ、サービス説明、営業時間、資料案内</td></tr><tr><td class="p-3 font-semibold text-gray-900">ハブ</td><td class="p-3">入力欄の注意書き、初期質問、人に戻す条件</td></tr><tr><td class="p-3 font-semibold text-gray-900">人の確認</td><td class="p-3">契約、返金、クレーム、個人情報を含む相談</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：入力欄は、AIの前に置く小さなガードレール</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>チャットボットは「何でも聞いてください」だけで始めないほうが運用しやすくなります。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>入力欄には、個人情報や機密情報を書かない注意を短く置きます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初の分類は「案内・確認・人に渡す」の3つで十分です。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>自由入力だけでなく、選択肢と1行メモを組み合わせると相談内容を絞れます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AIで答えない条件を決めておくと、人への引き継ぎも落ち着きます。</span></li></ul>
+        <p class="mb-10">AIに答えさせる内容を増やす前に、最初の入力欄を整える。小さな会社のチャットボット運用は、そこから静かに始められます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIチャットボットの回答内容だけでなく、最初の質問、注意書き、人への引き継ぎ条件まで整理したい方は、PromnyAIにご相談ください。自社情報と運用ルールを分けながら、現場で使えるチャットボット設計から始められます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.soumu.go.jp/main_content/000943079.pdf" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">総務省・経済産業省：AI事業者ガイドライン 第1.0版</a></li><li><a href="https://www.ppc.go.jp/news/careful_information/230602_AI_utilize_alert/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：生成AIサービスの利用に関する注意喚起等について</a></li><li><a href="https://support.google.com/gemini/answer/13594961?hl=ja" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Google：Gemini アプリのプライバシー ハブ</a></li><li><a href="https://privacy.anthropic.com/en/articles/10023580-how-do-you-use-personal-data-in-model-training" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Is my data used for model training?</a></li><li><a href="/blog/chatbot-answer-ban-list.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットに答えさせない質問リスト</a></li><li><a href="/blog/chatbot-human-handoff-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社のAIチャットボット運用 — 人に戻す5つのルール</a></li></ul></div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
