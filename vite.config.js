@@ -61,6 +61,7 @@ export default defineConfig({
         'blog-chatbot-answer-ban-list': resolve(__dirname, 'blog/chatbot-answer-ban-list.html'),
         'blog-chatbot-input-field-design': resolve(__dirname, 'blog/chatbot-input-field-design.html'),
         'blog-chatbot-inquiry-routing-design': resolve(__dirname, 'blog/chatbot-inquiry-routing-design.html'),
+        'blog-chatbot-handoff-memo-3-points': resolve(__dirname, 'blog/chatbot-handoff-memo-3-points.html'),
       },
     },
   },

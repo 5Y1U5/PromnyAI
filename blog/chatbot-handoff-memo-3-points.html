@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/chatbot-handoff-memo-3-points.html" />
+  <meta property="og:title" content="AIチャットボットの会話を担当者に渡せているか — 小さな会社の“引き継ぎメモ”3点セット — PromnyAI" />
+  <meta property="og:description" content="AIチャットボットの会話を、人の担当者がすぐ動ける引き継ぎメモに変えるための3点セットを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/chatbot-handoff-memo-3-points.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIチャットボットの会話を担当者に渡せているか — 小さな会社の“引き継ぎメモ”3点セット — PromnyAI</title>
+  <meta name="description" content="AIチャットボットの会話を、人の担当者がすぐ動ける引き継ぎメモに変えるための3点セットを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー"><span class="material-icons-outlined text-[28px]">menu</span></button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a><a href="/#services">サービス</a><a href="/#pricing">料金プラン</a><a href="/blog/">ブログ</a><a href="/contact.html">お問い合わせ</a><hr class="border-gray-100" /><a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a><a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-10">
+        <span class="section-label">Blog / AIチャットボット運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIチャットボットの会話を担当者に渡せているか<br class="hidden sm:block" /><span class="text-2xl sm:text-3xl text-gray-700">— 小さな会社の“引き継ぎメモ”3点セット</span></h1>
+        <p class="mt-6 text-xs text-gray-400">2026-07-14</p>
+      </div>
+
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">チャットでは相談が始まったのに、フォームや電話でまた同じ説明をお願いしている——AIチャットボット導入後に起きやすい場面です。</p>
+        <p class="mb-6">お客様は「さっき書いたのに」と感じます。担当者も、履歴を全部読むまで前提がつかめません。</p>
+        <p class="mb-6">では、AIチャットボットの会話を、人がすぐ動けるメモとして渡すには何を残せばよいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「回答できたか」だけを見ていないか？</h2>
+        <p class="mb-4">AIチャットボットの評価は、つい「正しく回答できたか」に寄りがちです。もちろん大切です。ただ、小さな会社の問い合わせ対応では、その後に人が動く場面も多くあります。</p>
+        <p class="mb-4">ZendeskのCXトレンドレポート2026年版では、76%の消費者がチャネルをまたいでも会話を最初からやり直さない体験を求める、という趣旨の調査結果が示されています。83%の消費者が現状のCXに改善余地がある、という数字も掲載されています。</p>
+        <p class="mb-6">この数字はZendesk調査の結果です。日本の中小企業すべてにそのまま当てはめるものではありません。それでも、「同じ説明を二度させない」ことが体験の差になる、という見方は実務に使えます。</p>
+
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">NG</th><th class="p-3 font-semibold">OK</th></tr></thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3">チャット履歴を丸ごと担当者へ送る</td><td class="p-3">担当者が読むべき3点だけに整える</td></tr>
+              <tr><td class="p-3">AIが答えたかどうかだけを見る</td><td class="p-3">次の担当者が動けたかも見る</td></tr>
+              <tr><td class="p-3">お客様にフォームで同じ説明を頼む</td><td class="p-3">チャットで聞いた前提をメモに引き継ぐ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">引き継ぎメモに残す3点は何か？</h2>
+        <p class="mb-4">担当者に渡すメモは、長いほど親切とは限りません。履歴全文を渡されると、担当者は結局最初から読み直します。</p>
+        <p class="mb-4">おすすめは「要件・温度感・次の一手」の3点です。これは公式制度ではなく、問い合わせを人へ渡すときの実務上の型です。</p>
+        <p class="mb-6">たとえば「料金を知りたい」だけでは足りません。「見積前で、急ぎ。担当者から今日中に概算を返す」まであると、次の人が動きやすくなります。</p>
+
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+          <p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">assignment</span>引き継ぎメモ3点セット</p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>・要件：何を相談しているか</li>
+            <li>・温度感：急ぎか、比較中か、不安が強いか</li>
+            <li>・次の一手：誰が、何を、いつ返すか</li>
+          </ul>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">チャットに書かせない情報も一緒に決めているか？</h2>
+        <p class="mb-4">引き継ぎメモを作るとき、情報をたくさん集めればよいわけではありません。個人情報、契約番号、住所、健康情報、クレームの細部などは、チャットで気軽に集めない方がよい場面もあります。</p>
+        <p class="mb-4">PromnyAIにはセキュリティへの取り組みページがあります。ただし、ツール側の対策だけでなく、会社側で「何をチャットに書かせないか」を決めることも必要です。</p>
+        <p class="mb-6">ここは、既存記事の「入力欄に何を書かせないか」「回答禁止リスト」と合わせて見ると整理しやすくなります。</p>
+
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">チャットで聞く</th><th class="p-3 font-semibold">書かせない</th><th class="p-3 font-semibold">担当者に回す</th></tr></thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3">相談の種類、希望の連絡方法</td><td class="p-3">不要な個人情報、機微情報</td><td class="p-3">契約判断、返金、例外対応</td></tr>
+              <tr><td class="p-3">公開FAQで答えられる前提</td><td class="p-3">社外に出せない資料名や内部事情</td><td class="p-3">怒りや不満が強い相談</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIなら型をどこに置くか？</h2>
+        <p class="mb-4">PromnyAIのハブは、テーマごとに資料をまとめ、AIに質問できるワークスペースです。公式マニュアルでは、登録資料とAI学習データを合わせて参照できることも案内されています。</p>
+        <p class="mb-4">引き継ぎメモの型は、チャットボットの裏側だけに置くより、社内の問い合わせ運用ルールとして見える場所に置く方が使いやすくなります。</p>
+        <p class="mb-6">まずは「要件・温度感・次の一手」のテンプレートをハブに置き、AI学習データにはFAQや回答範囲を入れる。ここまで分けておくと、担当者が会話履歴を全部読み直す前に、次の確認へ進みやすくなります。</p>
+
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+          <p class="text-sm font-semibold text-gray-900 mb-3">運用の置き場所</p>
+          <ol class="space-y-2 text-sm text-gray-700 list-decimal list-inside">
+            <li>FAQと回答範囲をAI学習データに整理する</li>
+            <li>引き継ぎメモの型をハブに置く</li>
+            <li>チャット後、人が見るメモは3点に要約する</li>
+            <li>月1回、聞き直しが多い会話を見直す</li>
+          </ol>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まず1週間だけ見るサインは何か？</h2>
+        <p class="mb-4">IPAの「DX動向2024」は、DXの成果評価や推進体制、AI・生成AIの利活用、人材課題を扱っています。AIを置いた後は、導入したかどうかではなく、運用として回っているかを見る必要があります。</p>
+        <p class="mb-4">最初から厳密なKPIを作らなくてもかまいません。まず1週間だけ、同じ説明を聞き直した会話がないかを見ます。</p>
+        <p class="mb-6">「田中さん、前に書いた内容をもう一度お願いします」と言ってしまった場面が1つでもあれば、そこが引き継ぎメモを直す場所です。</p>
+
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+          <p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">monitoring</span>1週間だけ見る3つのサイン</p>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>・担当者がチャット履歴を最初から読み直している</li>
+            <li>・お客様に同じ説明をもう一度お願いしている</li>
+            <li>・「次に誰が返すか」が会話ごとに曖昧になっている</li>
+          </ul>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：会話履歴ではなく、次の行動を渡す</h2>
+        <ul class="space-y-3 mb-6">
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AIチャットボットは、回答だけでなく引き継ぎまで見て設計します。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>担当者に渡すメモは「要件・温度感・次の一手」の3点に絞ります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>個人情報や例外判断は、チャットで集めすぎないルールも必要です。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>PromnyAIでは、FAQや回答範囲をAI学習データに、運用ルールをハブに分けて置くと整理しやすくなります。</span></li>
+          <li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初は1週間だけ、聞き直しが起きた会話を見れば十分です。</span></li>
+        </ul>
+        <p class="mb-10">AIに答えさせる前に、人へ渡す形を決める。小さな会社のチャットボット運用は、そこでかなり落ち着きます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl">
+          <p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p>
+          <p class="text-sm text-gray-700 leading-relaxed mb-4">AIチャットボットの会話を、担当者に渡しやすい形へ整理したい方は、PromnyAIの資料をご確認ください。ハブやAI学習データを使い、FAQ・社内ルール・問い合わせ導線をまとめて整えられます。</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a>
+            <a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-100">
+          <p class="text-sm font-bold text-gray-900 mb-3">参考にした情報・関連ページ</p>
+          <ul class="space-y-2 text-base text-gray-600">
+            <li><a href="https://www.zendesk.co.jp/customer-experience-trends/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Zendesk CXトレンドレポート 2026年版</a></li>
+            <li><a href="https://www.ipa.go.jp/digital/chousa/dx-trend/dx-trend-2024.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA「DX動向2024」</a></li>
+            <li><a href="/docs/hub.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAIマニュアル：ハブの使い方</a></li>
+            <li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAIマニュアル：AI学習データの使い方</a></li>
+            <li><a href="/security.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：セキュリティへの取り組み</a></li>
+            <li><a href="/blog/chatbot-input-field-design.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの入力欄に何を書かせないか</a></li>
+            <li><a href="/blog/chatbot-answer-ban-list.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットに答えさせない質問リスト</a></li>
+            <li><a href="/blog/chatbot-log-review-monthly.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：月1回ログで見る3つのサイン</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4"><a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a><a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></div>
+        <div class="flex items-center gap-3"><a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a><a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a><a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a></div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6"><a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a><a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a><a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a><a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a><a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a></nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
