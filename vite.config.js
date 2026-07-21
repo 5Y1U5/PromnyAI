@@ -63,6 +63,7 @@ export default defineConfig({
         'blog-chatbot-inquiry-routing-design': resolve(__dirname, 'blog/chatbot-inquiry-routing-design.html'),
         'blog-ai-knowledge-update-calendar': resolve(__dirname, 'blog/ai-knowledge-update-calendar.html'),
         'blog-chatbot-handoff-memo-3-points': resolve(__dirname, 'blog/chatbot-handoff-memo-3-points.html'),
+        'blog-chatbot-answer-source-links': resolve(__dirname, 'blog/chatbot-answer-source-links.html'),
       },
     },
   },
