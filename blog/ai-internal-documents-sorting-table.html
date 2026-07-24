@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-internal-documents-sorting-table.html" />
+  <meta property="og:title" content="AIに社内資料を読ませる前に分けているか — 小さな会社の“資料仕分け表” — PromnyAI" />
+  <meta property="og:description" content="AIに社内資料を読ませる前に、公開OK・社内限定・登録しない・要更新の4区分で資料を仕分ける実務表を整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-internal-documents-sorting-table.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIに社内資料を読ませる前に分けているか — 小さな会社の“資料仕分け表” — PromnyAI</title>
+  <meta name="description" content="AIに社内資料を読ませる前に、公開OK・社内限定・登録しない・要更新の4区分で資料を仕分ける実務表を整理します。" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AIに社内資料を読ませる前に分けているか — 小さな会社の“資料仕分け表”","description":"AIに社内資料を読ませる前に、公開OK・社内限定・登録しない・要更新の4区分で資料を仕分ける実務表を整理します。","datePublished":"2026-07-24","dateModified":"2026-07-24","mainEntityOfPage":"https://promnyai.com/blog/ai-internal-documents-sorting-table.html","inLanguage":"ja-JP","articleSection":"AIチャットボット運用","author":{"@type":"Organization","name":"PromnyAI"},"publisher":{"@type":"Organization","name":"PromnyAI","logo":{"@type":"ImageObject","url":"https://promnyai.com/promnyai-logo.png"}}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16"><a href="/" class="flex items-center gap-1.5 sm:gap-2"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" /><span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span></a><nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600"><a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a><a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a><a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a><a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a><a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a></nav><div class="hidden lg:flex items-center gap-3"><a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a><a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a></div><button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー"><span class="material-icons-outlined text-[28px]">menu</span></button></div><div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100"><nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600"><a href="/#features">機能紹介</a><a href="/#services">サービス</a><a href="/#pricing">料金プラン</a><a href="/blog/">ブログ</a><a href="/contact.html">お問い合わせ</a><hr class="border-gray-100" /><a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a><a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a></nav></div></div></header>
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28"><div class="max-w-3xl mx-auto px-4 sm:px-6"><div class="fade-in visible mb-10"><span class="section-label">Blog / AIチャットボット運用</span><h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIに社内資料を読ませる前に分けているか — 小さな会社の“資料仕分け表”</h1><p class="mt-6 text-xs text-gray-400">2026-07-24</p></div><article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+    <p class="mb-6">「このPDFも、あの料金表も、とりあえずAIに入れておきますか？」——小さな会社でAIチャットボットを準備すると、最初にここで手が止まります。</p>
+    <p class="mb-6">便利にしたいだけなのに、古い資料、社外秘、顧客メモまで同じフォルダに混ざる。あとで確認する人が増え、AIの前に資料探しで疲れてしまいます。</p>
+    <p class="mb-6">では、AIに社内資料を読ませる前に、何を入れて、何を外し、何を更新待ちにすればよいのでしょうか。</p>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「全部入れる」が危ないのは、どこか？</h2>
+    <p class="mb-4">AIに読ませる資料は、多ければよいわけではありません。古いキャンペーンPDFと最新の料金表が同じ場所にあると、担当者は「どちらが正しいのか」を毎回確認することになります。</p>
+    <p class="mb-4">PromnyAIの「PDF・WordをAI学習データに登録する前に」でも、個人情報、顧客名簿、契約書原本、社外公開できない社内資料は、登録前に確認する流れを案内しています。</p>
+    <p class="mb-6">OWASP Top 10 for LLM Applicationsでも、LLMアプリケーションにおける機密情報の開示リスクが扱われています。資料を分けてもリスクがゼロになるわけではありません。けれど、入れる前に止まる場所は作れます。</p>
+
+    <div class="grid sm:grid-cols-3 gap-4 my-8"><div class="bg-gray-50 rounded-2xl p-4"><p class="text-xs font-bold text-gray-400 mb-2">NG 01</p><p>古い料金表を、最新版と同じ名前で残す。</p></div><div class="bg-gray-50 rounded-2xl p-4"><p class="text-xs font-bold text-gray-400 mb-2">NG 02</p><p>顧客名入りの提案書を、そのままアップロードする。</p></div><div class="bg-gray-50 rounded-2xl p-4"><p class="text-xs font-bold text-gray-400 mb-2">NG 03</p><p>社内メモと公開FAQを、同じ扱いで登録する。</p></div></div>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まず、4つに分けられているか？</h2>
+    <p class="mb-4">技術の話に入る前に、紙の表でもよいので4区分を作ります。公開OK、社内限定、登録しない、要更新。この4つです。</p>
+    <p class="mb-4">これはPromnyAIの公式標準というより、小さな会社で迷わないための運用の型です。社長、広報、店舗スタッフ、外注先が同じ表を見られるだけで、確認の会話が短くなります。</p>
+    <p class="mb-6">実際の導入前確認では、「これはお客様に見せている資料ですか？」という一言で、半分くらいの資料が別箱に移ることがあります。まずはそのくらい粗くて大丈夫です。</p>
+
+    <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">区分</th><th class="p-3 font-semibold">入るもの</th><th class="p-3 font-semibold">扱い方</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">公開OK</td><td class="p-3">会社案内、公開FAQ、サービス説明</td><td class="p-3">AI学習データ候補にする</td></tr><tr><td class="p-3">社内限定</td><td class="p-3">社内マニュアル、担当者メモ</td><td class="p-3">用途と権限を決めてから判断</td></tr><tr><td class="p-3">登録しない</td><td class="p-3">顧客名簿、契約書原本、他社権利物</td><td class="p-3">AIに読ませる候補から外す</td></tr><tr><td class="p-3">要更新</td><td class="p-3">古い料金表、終了キャンペーン</td><td class="p-3">差し替え後に再判断</td></tr></tbody></table></div>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「公開OK」に入れてよい資料はどれか？</h2>
+    <p class="mb-4">最初にAIへ読ませやすいのは、すでに社外へ見せている資料です。サービス説明、料金の考え方、よくある質問、店舗情報、担当者プロフィールなどです。</p>
+    <p class="mb-4">PromnyAIのAI学習データ管理では、サービス、ブログ、コンセプト、メンバー、その他の5カテゴリで自社情報を登録する設計です。いきなり全部ではなく、まず公開OKの資料をカテゴリごとに小さく入れる方が見直しやすくなります。</p>
+    <p class="mb-6">OpenAI File Searchのように、独自資料を検索して回答に使う仕組みは広がっています。だからこそ、検索される前の資料そのものを整える必要があります。</p>
+
+    <div class="bg-emerald-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">fact_check</span>公開OKの初回候補</p><ul class="space-y-2 text-sm text-gray-700"><li>・Webサイトに載せているサービス説明</li><li>・公開しているFAQ 10〜30件</li><li>・会社概要、スタッフ紹介、アクセス情報</li><li>・現在有効なキャンペーンの説明</li><li>・問い合わせ前に読んでほしい注意事項</li></ul></div>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「社内限定」は、どう扱えばよいか？</h2>
+    <p class="mb-4">社内限定の資料は、すぐに悪い資料ではありません。ただし、AIに読ませる前に「誰向けの情報か」を決める必要があります。</p>
+    <p class="mb-4">たとえば、店舗スタッフ向けの接客マニュアルと、お客様向けFAQでは言葉の温度が違います。原価、個別値引き、担当者のメモが入っている資料も、そのまま社外向け回答に使うには向きません。</p>
+    <p class="mb-6">NIST AI Risk Management Frameworkは、AIリスクを管理対象として扱う枠組みを示しています。小さな会社でも、まずは「社内限定は別箱にする」という小さな管理から始められます。</p>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「要更新」を残したまま使っていないか？</h2>
+    <p class="mb-4">AIに読ませる資料で意外に怖いのは、古い情報です。情報漏えいより目立たないぶん、気づくのが遅れます。</p>
+    <p class="mb-4">古い料金表、終了したキャンペーン、以前の営業時間、旧メニュー。これらは「登録しない」ではなく「要更新」に分けます。消す前に、最新版があるかを確認するためです。</p>
+    <p class="mb-6">既存記事の「学習データ更新カレンダー」でも触れたように、AIに読ませる資料は入れた後の更新もセットです。登録前の仕分け表に、最終更新日と担当者を書いておくと、月1回の確認がかなり楽になります。</p>
+
+    <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">資料</th><th class="p-3 font-semibold">確認日</th><th class="p-3 font-semibold">担当</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">料金表PDF</td><td class="p-3">毎月1日</td><td class="p-3">店舗責任者</td></tr><tr><td class="p-3">キャンペーン</td><td class="p-3">終了日の翌日</td><td class="p-3">広報担当</td></tr><tr><td class="p-3">FAQ</td><td class="p-3">月末</td><td class="p-3">問い合わせ担当</td></tr></tbody></table></div>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIでは、どこから始めるか？</h2>
+    <p class="mb-4">PromnyAIで始めるなら、まず公開OKの資料からAI学習データに登録します。マニュアルでは、テキスト直接貼り付けは最大10MB、ファイル登録はPDF、TXT、Markdown、HTML、Wordに対応し最大32MBと案内しています。</p>
+    <p class="mb-4">ただし、容量いっぱい入れる必要はありません。最初はFAQ 10件、サービス説明1ページ、会社概要1ページ。そのくらいから始める方が、回答を確認しやすくなります。</p>
+    <p class="mb-6">Claude Citationsのように、回答を文書内の該当箇所へ結び付ける機能も出ています。ただ、この記事ではベンダー各社の引用機能をPromnyAIの標準機能として扱いません。大事なのは、AIに読ませる前に、人が確認できる資料にしておくことです。</p>
+
+    <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">最後に、登録前の1枚を作る</h2>
+    <p class="mb-4">資料仕分け表は、難しい台帳でなくてかまいません。Googleスプレッドシートでも、紙でも、Notionでも十分です。</p>
+    <p class="mb-4">列は、資料名、区分、更新日、担当者、AI登録可否の5つ。まずはこの5列だけで、AIに入れる前の会話ができます。</p>
+    <p class="mb-10">AIに資料を読ませる前に、人が資料を読める状態にする。小さな会社のAI運用は、ここからかなり変わります。</p>
+
+    <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIに読ませる資料を、公開OK・社内限定・登録しない・要更新に分けたい方はPromnyAIにご相談ください。AI学習データとハブを使い、自社情報を小さく整理できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/docs/ai-knowledge.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">AI学習データの使い方を見る<span class="material-icons-outlined text-[18px] ml-1">menu_book</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+
+    <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAIマニュアル：AI学習データの使い方</a></li><li><a href="/docs/file-upload-tips.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAIマニュアル：PDF・WordをAI学習データに登録する前に</a></li><li><a href="https://developers.openai.com/api/docs/assistants/tools/file-search" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Assistants File Search</a></li><li><a href="https://platform.claude.com/docs/en/build-with-claude/citations" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Citations</a></li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">NIST：AI Risk Management Framework</a></li><li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP：Top 10 for LLM Applications</a></li><li><a href="/blog/ai-knowledge-update-calendar.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：学習データ更新カレンダー</a></li></ul></div>
+    <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+  </article></div></main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10"><div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="flex flex-col sm:flex-row items-center justify-between gap-6"><div class="flex items-center gap-4"><a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a><a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></div><div class="flex items-center gap-3"><a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a><a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a><a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a></div></div><nav class="flex flex-wrap justify-center gap-6 text-sm mt-6"><a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a><a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a><a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a><a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a><a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a></nav><div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div></div></footer><script type="module" src="/src/main.js"></script><script src="https://chatta-bot.com/widget.js" data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04" data-color="#e8f1fc" data-position="bottom-right" data-greeting="こんにちは！何かお困りですか？" data-title="プロムくん" data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png" async></script>
+</body></html>
