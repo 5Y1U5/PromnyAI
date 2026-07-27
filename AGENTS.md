@@ -43,6 +43,16 @@ PromnyAI/
 
 新しいHTMLページを追加する際は **必ず `vite.config.js` の `rollupOptions.input` に登録すること**。登録しないと `dist/` に出力されず、Cloudflare Pages にデプロイされない。
 
+## 取扱いAIラインナップ更新時の注意
+
+掲載対象は promnyai.jp 上で **グレーアウト（非表示・メンテナンス中）と組織限定を除いたbot**。変更時は以下すべてを揃える（1箇所でも漏れると点数が食い違う）。
+
+- `index.html` — LLM/画像生成グリッド、業界特化AIカード、カウンター、時点表記、FAQ「どのAIが使えますか？」、スマホ用トグルの「他N種類も見る」
+- `download.html` — スライド4（画像生成AI補足）/ スライド5（業界特化AI）/ スライド9（サービス一覧）、`stat-value`
+- `docs/ai-guide.html` / `docs/getting-started.html` — モデル名リスト
+
+点数は `全23種類` のような文字列だけでなく `data-count="23"` にも埋まっているため、**文字列 grep だけでは漏れる**。
+
 ## ブログ執筆ルール
 
 `/blog/` 配下の新規記事および既存記事の改修時は **必ず `docs/blog-writing-style.md` を通すこと**。

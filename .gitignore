@@ -11,3 +11,7 @@ screenshots/
 
 # Playwright MCP のデバッグログ・スナップショット
 .playwright-mcp/
+.playwright-cli/
+
+# wrangler のローカル一時ファイル
+.wrangler/
