@@ -43,6 +43,10 @@ PromnyAI/
 
 新しいHTMLページを追加する際は **必ず `vite.config.js` の `rollupOptions.input` に登録すること**。登録しないと `dist/` に出力されず、Cloudflare Pages にデプロイされない。
 
+## 料金表を変更するときの注意
+
+`index.html` の料金表（トークン数・ユーザー数・金額）は、Stripe の商品／価格と、PromnyAI 側のプラン設定・サブスクの metadata の元になっている。**LP だけ変えると課金額と付与枠が食い違う**。変更時は `docs/runbooks/plan-change.md` の対応表も合わせて更新すること。
+
 ## 取扱いAIラインナップ更新時の注意
 
 掲載対象は promnyai.jp 上で **グレーアウト（非表示・メンテナンス中）と組織限定を除いたbot**。変更時は以下すべてを揃える（1箇所でも漏れると点数が食い違う）。
