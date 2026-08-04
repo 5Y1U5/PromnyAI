@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-chatbot-data-retention-deletion-rule.html" />
+  <meta property="og:title" content="AIチャットボットのデータを残しっぱなしにしていないか — 小さな会社の“保存・削除ルール” — PromnyAI" />
+  <meta property="og:description" content="AIチャットボットに入れたFAQ、料金表、会話ログ、フィードバックを残しっぱなしにしないために、小さな会社が決めておきたい保存・削除・見直しルールを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-chatbot-data-retention-deletion-rule.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIチャットボットのデータを残しっぱなしにしていないか — 小さな会社の“保存・削除ルール” — PromnyAI</title>
+  <meta name="description" content="AIチャットボットに入れたFAQ、料金表、会話ログ、フィードバックを残しっぱなしにしないために、小さな会社が決めておきたい保存・削除・見直しルールを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AIチャットボット運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIチャットボットのデータを残しっぱなしにしていないか — 小さな会社の“保存・削除ルール”</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-08-04</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「FAQを入れたのは覚えているけど、どれが今の資料でしたっけ」——AIチャットボットを使い始めた会社で、あとから起きやすい会話です。</p>
+        <p class="mb-6">登録した資料、会話ログ、フィードバックが増えると、古い情報を誰が消すのか分からなくなります。</p>
+        <p class="mb-6">小さな会社は、AIに入れたデータを何日残し、何を消し、いつ見直せばよいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「入れてよいか」だけで止まっていませんか？</h2>
+        <p class="mb-4">AI活用の話では、まず「個人情報を入れない」「機密資料を入れない」が大事です。ただ、実務ではその先も残ります。</p>
+        <p class="mb-4">FAQ、料金表、サービス資料、社内マニュアル。入れた時点では正しくても、半年後には古くなるものがあります。</p>
+        <p class="mb-6">PromnyAIのAI学習データでは、テキスト最大10MB、ファイル最大32MBを登録でき、サービス、ブログ、コンセプト、メンバー、その他の5カテゴリで整理できます。だからこそ、登録後の残し方も決めておくと安心です。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">入れる前</th><th class="p-3 font-semibold">入れた後</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">入れてよい資料かを確認する</td><td class="p-3">いつ見直す資料かを決める</td></tr><tr><td class="p-3">個人情報を外す</td><td class="p-3">古い資料を外す日を決める</td></tr><tr><td class="p-3">カテゴリを選ぶ</td><td class="p-3">担当者と更新日をメモする</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">保存する資料と消す資料を、どう分けますか？</h2>
+        <p class="mb-4">最初から難しい社内規程を作る必要はありません。まずは4つに分けます。</p>
+        <p class="mb-4">残す。更新する。消す。保留する。この4つだけでも、AIに読ませる資料の判断がしやすくなります。</p>
+        <p class="mb-6">たとえば、2026年8月版の料金表は残す。2025年のキャンペーンPDFは消す。よく聞かれる質問は更新する。契約書や個人名入りメモは保留にする。こういう小さな分け方です。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">inventory_2</span>小さな保存・削除表</p><div class="space-y-3 text-sm text-gray-700 leading-[1.8]"><p><strong class="text-gray-900">残す：</strong>現行FAQ、現行料金表、今使っているサービス説明。</p><p><strong class="text-gray-900">更新する：</strong>古い表現があるPDF、URLが変わった案内文。</p><p><strong class="text-gray-900">消す：</strong>終了済みキャンペーン、旧プラン、重複ファイル。</p><p><strong class="text-gray-900">保留する：</strong>顧客名、契約内容、社外に見せにくい判断メモ。</p></div></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">会話ログとフィードバックは誰が見ますか？</h2>
+        <p class="mb-4">AIチャットボットは、資料だけでなく会話ログやフィードバックも運用に関わります。ここを曖昧にすると、「誰が見てよいのか」があとで問題になります。</p>
+        <p class="mb-4">OpenAI Platformにはデータ制御や監視ログの説明があります。Claudeの商用製品では、デフォルトで入力や出力をモデル訓練に使わないこと、フィードバック時に関連会話が最大5年保存され得ることが説明されています。</p>
+        <p class="mb-6">Microsoft 365 Copilotでも、管理者がMicrosoft Purviewなどで保持ポリシーを扱う話が出てきます。どのサービスを使う場合でも、自社側で「誰が見るか」を決める必要があります。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">ログを見る前の4項目</p><ul class="space-y-2 text-sm text-gray-700"><li>・見る人は、管理者と改善担当だけにする。</li><li>・顧客名、電話番号、メールアドレスは扱いを分ける。</li><li>・フィードバックボタンを押す前に、送る内容を確認する。</li><li>・改善メモには、必要以上の個人情報を書かない。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">月1回の“AIデータ棚卸し”で何を見ますか？</h2>
+        <p class="mb-4">OWASP Top 10 for LLM Applications 2025は、LLMアプリ特有のセキュリティ課題を整理しています。NIST AI RMFも、AIのリスクを継続的に扱う考え方を示しています。</p>
+        <p class="mb-4">小さな会社では、難しい監査表よりも月1回15〜30分の棚卸しに落とす方が続きます。</p>
+        <p class="mb-6">現場でよくあるのは、「先月差し替えたはずの料金表が、AI側だけ古いまま残っていた」というズレです。大きな事故ではなくても、お客様対応では地味に困ります。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">見る項目</th><th class="p-3 font-semibold">確認すること</th><th class="p-3 font-semibold">判断</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">FAQ</td><td class="p-3">古い答えが残っていないか</td><td class="p-3">更新</td></tr><tr><td class="p-3">PDF</td><td class="p-3">旧版と新版が重複していないか</td><td class="p-3">旧版を削除</td></tr><tr><td class="p-3">会話ログ</td><td class="p-3">同じ質問で詰まっていないか</td><td class="p-3">FAQ追加</td></tr><tr><td class="p-3">フィードバック</td><td class="p-3">外部に送ってよい内容か</td><td class="p-3">送信前確認</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">最初のルール表は、どれくらい小さくてよいですか？</h2>
+        <p class="mb-4">最初から全社ルールを作ろうとすると止まります。まずは1枚の表で十分です。</p>
+        <p class="mb-4">「資料名」「カテゴリ」「担当者」「見直し日」「削除候補」の5列だけを作ります。ExcelでもNotionでも、紙のチェック表でも構いません。</p>
+        <p class="mb-6">PromnyAIでAI学習データを登録するなら、この表とセットで運用すると、どの情報をAIに読ませているかを説明しやすくなります。</p>
+        <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rule</span>5列だけの運用表</p><ul class="space-y-2 text-sm text-gray-700"><li>1. 資料名：料金表2026年8月版。</li><li>2. カテゴリ：サービス。</li><li>3. 担当者：営業担当。</li><li>4. 見直し日：毎月第1月曜。</li><li>5. 削除候補：旧料金表、終了キャンペーン。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：AIデータは「残す理由」と「消す日」をセットにする</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>AIに入れた資料は、入れた後に古くなります。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>保存、更新、削除、保留の4区分で分けます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>会話ログとフィードバックは、見る人を決めます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>月1回15〜30分だけ、資料とログを棚卸しします。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初の表は、資料名、カテゴリ、担当者、見直し日、削除候補の5列で足ります。</span></li></ul>
+        <p class="mb-10">AIチャットボットのデータは、たくさん残すほど安心なのではありません。残す理由と消す日が分かる状態にしておくことが、次の更新を楽にします。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AI学習データを整理しながら、FAQや社内資料をチームで安全に使いたい方はPromnyAIにご相談ください。登録する資料と、見直すタイミングを一緒に設計できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：AI学習データの使い方</a></li><li><a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Data controls in the OpenAI platform</a></li><li><a href="https://support.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Claude Help Center：Is my data used for model training?</a></li><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft Learn：Data, Privacy, and Security for Microsoft 365 Copilot</a></li><li><a href="https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP：Top 10 for LLM Applications 2025</a></li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">NIST：AI Risk Management Framework</a></li><li><a href="/blog/ai-knowledge-update-calendar.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの回答を古くしない</a></li><li><a href="/blog/ai-internal-documents-sorting-table.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに社内資料を読ませる前に分けているか</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
