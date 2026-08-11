@@ -66,6 +66,7 @@ export default defineConfig({
         'blog-chatbot-answer-source-links': resolve(__dirname, 'blog/chatbot-answer-source-links.html'),
         'blog-ai-internal-documents-sorting-table': resolve(__dirname, 'blog/ai-internal-documents-sorting-table.html'),
         'blog-chatbot-prelaunch-test-questions': resolve(__dirname, 'blog/chatbot-prelaunch-test-questions.html'),
+        'blog-chatbot-admin-permission-audit-table': resolve(__dirname, 'blog/chatbot-admin-permission-audit-table.html'),
         'blog-ai-chatbot-data-retention-deletion-rule': resolve(__dirname, 'blog/ai-chatbot-data-retention-deletion-rule.html'),
       },
     },
