@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/chatbot-change-history-memo.html" />
+  <meta property="og:title" content="AIチャットボットの設定を変えっぱなしにしていないか — 小さな会社の“変更履歴メモ” — PromnyAI" />
+  <meta property="og:description" content="AIチャットボットのFAQ・料金表・プロンプト・回答ルールを変更したあと、誰が・何を・なぜ変えたかを残すための小さな会社向け変更履歴メモを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/chatbot-change-history-memo.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIチャットボットの設定を変えっぱなしにしていないか — 小さな会社の“変更履歴メモ” — PromnyAI</title>
+  <meta name="description" content="AIチャットボットのFAQ・料金表・プロンプト・回答ルールを変更したあと、誰が・何を・なぜ変えたかを残すための小さな会社向け変更履歴メモを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AIチャットボット運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIチャットボットの設定を変えっぱなしにしていないか — 小さな会社の“変更履歴メモ”</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-08-14</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">FAQを1つ直した。料金表PDFを差し替えた。回答禁止の文言を少し強くした。</p>
+        <p class="mb-6">その変更が増えるほど、あとから「誰が、何を、なぜ変えたのか」が分からなくなります。</p>
+        <p class="mb-6">小さな会社のAIチャットボットでは、どこまで変更履歴を残せばよいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">なぜ、更新しただけでは足りないのか</h2>
+        <p class="mb-4">AIチャットボットは、公開して終わりではありません。FAQ、料金表、キャンペーン、回答ルール、社内資料。どれも日々少しずつ変わります。</p>
+        <p class="mb-4">NIST AI Risk Management Frameworkは、AIリスクを継続的に見て、測り、管理する考え方を示しています。小さな会社が同じ表をそのまま作る必要はありません。それでも「変えたあとに見直せる状態」を残す考え方は役に立ちます。</p>
+        <p class="mb-6">現場でよくあるのは、「先週、山田さんが料金表を直したはず」「でも、旧料金で答えている」という会話です。ここで変更履歴が1行でもあれば、原因の候補を絞れます。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">更新だけ</th><th class="p-3 font-semibold">変更履歴あり</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">新しいFAQを入れたことだけ覚えている</td><td class="p-3">いつ、誰が、どのFAQを変えたか見られる</td></tr><tr><td class="p-3">誤回答の原因を会話で探す</td><td class="p-3">直近の変更から確認できる</td></tr><tr><td class="p-3">戻す判断が人の記憶頼みになる</td><td class="p-3">戻す条件を先に書いておける</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">どの変更をメモに残すか</h2>
+        <p class="mb-4">すべての小さな修正を重い監査表にする必要はありません。まずは、お客様への回答が変わるものだけ残します。</p>
+        <p class="mb-4">OWASPのLLM01 Prompt Injectionは、外部入力がLLMの挙動や出力を意図しない方向へ変えるリスクを説明しています。LLM04 Data and Model Poisoningは、操作されたデータが性能や安全性に影響し得る点を扱っています。</p>
+        <p class="mb-6">つまり、AIが読む情報や回答ルールを変えるときは、「ちょっと直した」だけで終わらせない方が安全です。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">edit_note</span>メモに残したい変更</p><ul class="space-y-2 text-sm text-gray-700"><li>・FAQ、料金表、キャンペーン情報を変えた。</li><li>・AIに読ませるPDFや社内資料を差し替えた。</li><li>・プロンプト、回答禁止ルール、人に戻す条件を変えた。</li><li>・管理者、編集者、確認者を変えた。</li><li>・誤回答のあとに一時的な修正を入れた。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">1行で残すなら、5列だけでいい</h2>
+        <p class="mb-4">最初から専用ツールを用意しなくても、スプレッドシートや共有ドキュメントで十分です。列は5つに絞ります。</p>
+        <p class="mb-4">日付、変更者、変更箇所、理由、戻す条件。この5列です。</p>
+        <p class="mb-6">OpenAIのAdmin APIsは、組織管理、監査ログレビュー、APIキー管理、データ保持などの管理ワークフローに触れています。小さな会社では、まずこの考え方を1枚の変更メモへ翻訳します。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">日付</th><th class="p-3 font-semibold">変更者</th><th class="p-3 font-semibold">変更箇所</th><th class="p-3 font-semibold">理由</th><th class="p-3 font-semibold">戻す条件</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">8/14</td><td class="p-3">広報</td><td class="p-3">料金FAQ</td><td class="p-3">新プラン反映</td><td class="p-3">旧料金で回答したら確認</td></tr><tr><td class="p-3">8/15</td><td class="p-3">店長</td><td class="p-3">営業時間PDF</td><td class="p-3">お盆明けの時刻変更</td><td class="p-3">9月に通常版へ戻す</td></tr><tr><td class="p-3">8/16</td><td class="p-3">管理者</td><td class="p-3">回答禁止ルール</td><td class="p-3">個別見積もりを人へ戻す</td><td class="p-3">問い合わせ増なら文言調整</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">誤回答が出た時、どこから見るか</h2>
+        <p class="mb-4">変更履歴メモは、責任者探しのためではありません。原因を戻って見やすくするための足場です。</p>
+        <p class="mb-4">OpenAIのSafety best practicesでは、moderation、人の監視、adversarial testing、red-teaming、問題報告窓口を人が監視することが挙げられています。小さな会社でも、問題が起きた時に見る順番を決めておくと動きやすくなります。</p>
+        <p class="mb-6">たとえば「旧料金で答えた」なら、直近で料金表を変えたか。AIに読ませた資料が古いか。回答禁止ルールが弱いか。外部入力で意図しない答えに寄ったか。この順番で見ます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">トラブル時の4点確認</p><ul class="space-y-2 text-sm text-gray-700"><li>1. 直近7日で変えたFAQ、資料、プロンプトはあるか。</li><li>2. AIが参照した資料は現行版か。</li><li>3. 人に戻す条件や回答禁止ルールは入っているか。</li><li>4. 同じ質問をテストして、再現するか。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIで始めるなら、まず“変更前メモ”から</h2>
+        <p class="mb-4">PromnyAIでは、自社情報をAIに読ませ、問い合わせ対応や社内文章の下書きに使えます。だからこそ、入れる前と変える前のメモが効きます。</p>
+        <p class="mb-4">たとえば、FAQを登録する前に「このFAQは誰が確認したか」を書く。料金表を差し替える前に「戻す条件」を書く。回答禁止ルールを変える前に「なぜ変えるか」を書く。</p>
+        <p class="mb-6">専用の履歴機能を大きく作る前に、1行の変更履歴で十分です。続けられる形にすることが、小さな会社ではいちばん大事です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：変更履歴は、AIを責めるためではなく戻るために残す</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>FAQ、料金表、資料、プロンプト、回答禁止ルールの変更は残します。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初は日付、変更者、変更箇所、理由、戻す条件の5列で足ります。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>誤回答が起きたら、直近変更と参照資料から見ます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>NISTやOWASPの考え方は、小さな会社では1枚メモに翻訳して使えます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>PromnyAIを使う前に、変更前メモを用意すると運用が楽になります。</span></li></ul>
+        <p class="mb-10">AIチャットボットの変更履歴は、立派な監査のためだけにあるものではありません。来週の担当者が、今日の変更に戻れるようにするための小さな道しるべです。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIチャットボットのFAQ、社内資料、回答ルールをどこから整理するか相談したい方はPromnyAIにご相談ください。自社情報の登録と、更新しやすい運用の始め方を一緒に設計できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">NIST：AI Risk Management Framework</a></li><li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">NIST：Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</a></li><li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP：Top 10 for Large Language Model Applications</a></li><li><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP：LLM01 Prompt Injection</a></li><li><a href="https://genai.owasp.org/llmrisk/llm04-data-and-model-poisoning/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP：LLM04 Data and Model Poisoning</a></li><li><a href="https://developers.openai.com/api/docs/guides/safety-best-practices" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Safety best practices</a></li><li><a href="https://developers.openai.com/api/docs/guides/admin-apis" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Admin APIs</a></li><li><a href="https://platform.claude.com/docs/en/manage-claude/admin-api" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Admin API</a></li><li><a href="/blog/chatbot-admin-permission-audit-table.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の“権限棚卸し表”</a></li><li><a href="/blog/ai-chatbot-data-retention-deletion-rule.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の“保存・削除ルール”</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
