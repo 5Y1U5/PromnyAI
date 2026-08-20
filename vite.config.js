@@ -69,6 +69,7 @@ export default defineConfig({
         'blog-chatbot-admin-permission-audit-table': resolve(__dirname, 'blog/chatbot-admin-permission-audit-table.html'),
         'blog-ai-chatbot-data-retention-deletion-rule': resolve(__dirname, 'blog/ai-chatbot-data-retention-deletion-rule.html'),
         'blog-chatbot-change-history-memo': resolve(__dirname, 'blog/chatbot-change-history-memo.html'),
+        'blog-chatbot-answer-improvement-request-memo': resolve(__dirname, 'blog/chatbot-answer-improvement-request-memo.html'),
       },
     },
   },

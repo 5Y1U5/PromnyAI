@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/chatbot-answer-improvement-request-memo.html" />
+  <meta property="og:title" content="AIチャットボットの回答修正を放置していないか — 小さな会社の“改善受付メモ” — PromnyAI" />
+  <meta property="og:description" content="AIチャットボットの誤回答や使いにくい回答を、現場の一言で終わらせず、改善につなげるための小さな会社向け改善受付メモを整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/chatbot-answer-improvement-request-memo.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIチャットボットの回答修正を放置していないか — 小さな会社の“改善受付メモ” — PromnyAI</title>
+  <meta name="description" content="AIチャットボットの誤回答や使いにくい回答を、現場の一言で終わらせず、改善につなげるための小さな会社向け改善受付メモを整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AIチャットボット運用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIチャットボットの回答修正を放置していないか — 小さな会社の“改善受付メモ”</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-08-18</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「この回答、少し違う気がする」。現場でそう気づいたのに、そのまま流れてしまうことがあります。</p>
+        <p class="mb-6">AIチャットボットは、公開前にテストして終わりではありません。公開後に出てきた違和感を、次の改善へつなげる仕組みが必要です。</p>
+        <p class="mb-6">では、小さな会社では、どのくらいのメモを残せば続けやすいのでしょうか。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">回答修正は「気づいた人の記憶」に残していませんか？</h2>
+        <p class="mb-4">チャットボットの回答がずれていた時、よくあるのは「あとで直しておきます」で終わることです。担当者が覚えていれば直せますが、忙しい日が続くと、どの質問で何がずれたのか分からなくなります。</p>
+        <p class="mb-4">NIST AI Risk Management Frameworkは、AIリスクを一度だけではなく、継続的に見て、測り、管理する考え方を示しています。小さな会社で大きな評価システムを作る必要はありませんが、「気づいたことを残す」仕組みは必要です。</p>
+        <p class="mb-6">改善受付メモは、クレーム管理表ではありません。AIの回答を責めるためではなく、次に同じ質問が来た時に、会社として少し良い返し方ができるようにするためのメモです。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">よくある状態</th><th class="p-3 font-semibold">改善受付メモがある状態</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">違和感を口頭で共有して終わる</td><td class="p-3">質問文、問題点、直す方向が残る</td></tr><tr><td class="p-3">誰かが時間のある時に直す</td><td class="p-3">優先度と担当が見える</td></tr><tr><td class="p-3">修正後に確認しない</td><td class="p-3">同じ質問で再テストできる</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">公開前テストと公開後改善は、役割が違います</h2>
+        <p class="mb-4">既存記事で整理した「公開前のテスト質問表」は、出す前に大きな事故を減らすための準備です。一方、今回の改善受付メモは、公開後に見つかった小さなズレを拾うためのものです。</p>
+        <p class="mb-4">OpenAIのWorking with evalsでは、モデル出力が指定した内容やスタイルの基準を満たすかをテストする考え方が説明されています。Anthropicも、成功基準を定義して評価を作る流れを示しています。これを現場向けに言い換えると、「何を良い回答とするか」を先に言葉にして、あとから比べられるようにすることです。</p>
+        <p class="mb-6">小さな会社では、難しい評価基盤より先に、1件ずつの改善受付メモで十分です。受付、分類、修正、再テストの4段階に分けるだけで、回答改善はかなり進めやすくなります。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">公開後改善の4ステップ</p><ol class="space-y-2 text-sm text-gray-700 list-decimal pl-5"><li>気づいた回答をその場でメモする。</li><li>問題の種類を、情報不足・古い情報・言い方・人に戻すべき質問に分ける。</li><li>FAQ、資料、回答ルールのどこを直すか決める。</li><li>同じ質問で再テストし、直ったか確認する。</li></ol></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">改善受付メモは、まず7列で始める</h2>
+        <p class="mb-4">改善を続けるには、メモを細かくしすぎないことが大切です。最初は、スプレッドシートや共有ドキュメントでかまいません。</p>
+        <p class="mb-4">おすすめは、日付、質問文、問題点、原因候補、直す場所、担当、再テスト日の7列です。これだけあれば、「何となく変だった」が「どこを直すか」に変わります。</p>
+        <p class="mb-6">Google Cloudの生成AI評価ドキュメントでも、評価タスクや基準を使ってモデル応答を確認する考え方が扱われています。現場では、その考え方を小さな表に翻訳するのが現実的です。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">列</th><th class="p-3 font-semibold">書くこと</th><th class="p-3 font-semibold">例</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3 font-semibold text-gray-900">質問文</td><td class="p-3">実際に聞かれた言葉</td><td class="p-3">「土曜も予約できますか」</td></tr><tr><td class="p-3 font-semibold text-gray-900">問題点</td><td class="p-3">何が困ったか</td><td class="p-3">旧営業時間で答えた</td></tr><tr><td class="p-3 font-semibold text-gray-900">直す場所</td><td class="p-3">FAQ・資料・ルール</td><td class="p-3">営業時間FAQとPDF</td></tr><tr><td class="p-3 font-semibold text-gray-900">再テスト日</td><td class="p-3">直ったか見る日</td><td class="p-3">8/22 午前</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「直す」より先に、問題の種類を分けていますか？</h2>
+        <p class="mb-4">AIチャットボットの回答修正で危ないのは、全部を文章の言い換えで直そうとすることです。実際には、回答文ではなく、元資料、FAQ、禁止ルール、有人切替の条件に原因があることもあります。</p>
+        <p class="mb-4">OWASP Top 10 for LLM Applicationsは、LLMアプリケーションのリスクを整理しています。小さな会社では、難しい攻撃名を覚えるより、「AIに読ませる情報が間違っていないか」「外部からの入力で変な答えに寄っていないか」「人に戻すべき場面をAIだけで処理していないか」を見る方が役に立ちます。</p>
+        <p class="mb-6">修正依頼が来たら、まず問題の種類を4つに分けます。分類できると、担当者も直し方も決めやすくなります。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-emerald-800 mb-3 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">edit_note</span>改善依頼の4分類</p><ul class="space-y-2 text-sm text-gray-700"><li>・<strong class="text-gray-900">情報不足：</strong>FAQや資料にそもそも答えがない。</li><li>・<strong class="text-gray-900">情報の古さ：</strong>料金、営業時間、キャンペーンが前のまま。</li><li>・<strong class="text-gray-900">言い方：</strong>内容は合っているが、冷たい、長い、分かりにくい。</li><li>・<strong class="text-gray-900">人に戻す条件：</strong>AIが答えず、担当者へ渡すべき内容だった。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">現場からの一言を、改善依頼に変える書き方</h2>
+        <p class="mb-4">現場の人は、AIの評価担当者ではありません。忙しい中で「ちょっと変でした」と言ってくれるだけでも十分です。大事なのは、その一言を責めずに受け取れる形にしておくことです。</p>
+        <p class="mb-4">OpenAIのSafety best practicesでは、人による監視、テスト、問題報告の受付などが紹介されています。小さな会社では、これを「変だった回答を送ってよい場所」として用意します。</p>
+        <p class="mb-6">たとえば、社内チャットに「チャットボット改善」チャンネルを作る。フォームを1つ作る。担当者にスクリーンショットを送る。形式は何でも構いません。大切なのは、気づいた人が短く送れることです。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6"><p class="text-sm font-semibold text-gray-900 mb-3">現場にお願いするなら、この3点だけ</p><ul class="space-y-2 text-sm text-gray-700"><li>1. 実際に聞いた質問をそのまま貼る。</li><li>2. 何が違うと思ったかを一言で書く。</li><li>3. できれば正しい資料やページを添える。</li></ul></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">改善したあとに、同じ質問で再テストしていますか？</h2>
+        <p class="mb-4">回答を直したつもりでも、AIチャットボットが次に同じように答えるとは限りません。FAQだけ直したのか、元資料も直したのか、回答ルールも変えたのかで結果は変わります。</p>
+        <p class="mb-4">Anthropicの評価ドキュメントが示すように、成功基準とテストケースを持つと、変更前後の比較がしやすくなります。小さな会社でも、修正した質問をもう一度聞く、言い方を変えて2回聞く、人に戻すべき質問を混ぜる。このくらいなら続けられます。</p>
+        <p class="mb-6">改善受付メモの最後に「再テスト日」と「結果」を入れておくと、直したつもりで止まりにくくなります。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">再テストで聞くこと</th><th class="p-3 font-semibold">見たい結果</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">同じ質問をもう一度聞く</td><td class="p-3">正しい情報で答える</td></tr><tr><td class="p-3">言い方を変えて聞く</td><td class="p-3">同じ意味として扱える</td></tr><tr><td class="p-3">個別判断を求める</td><td class="p-3">人に戻す案内が出る</td></tr></tbody></table></div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIで始めるなら、月1回の改善会で十分です</h2>
+        <p class="mb-4">改善受付メモは、毎日大きな会議を開くためのものではありません。まずは月1回、15分だけでも十分です。</p>
+        <p class="mb-4">PromnyAIで自社情報、FAQ、社内資料を使う場合も、いきなり完璧な評価フローを作る必要はありません。1か月分の改善メモを見て、よく出るズレを3つ選び、FAQや資料を直す。これだけでも、チャットボットの回答は少しずつ会社らしくなります。</p>
+        <p class="mb-6">現場では「また同じ質問で迷った」が一番もったいない時間です。改善受付メモは、その迷いを来月に残さないための小さな仕組みです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">まとめ：回答修正は、受付・分類・再テストまでを1セットにする</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>公開後に見つかった違和感は、口頭ではなく改善受付メモに残します。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>最初は、日付、質問文、問題点、原因候補、直す場所、担当、再テスト日の7列で十分です。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>問題は、情報不足、情報の古さ、言い方、人に戻す条件に分けます。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>修正後は、同じ質問と言い換え質問で再テストします。</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>PromnyAIでは、月1回の改善会から始めると続けやすくなります。</span></li></ul>
+        <p class="mb-10">AIチャットボットの回答改善は、一度で完成させる作業ではありません。現場の小さな違和感を拾い、会社の言葉に直し、もう一度試す。その流れを持つことが、安心して使い続けるための近道です。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIチャットボットのFAQ、社内資料、回答ルールをどこから改善すればよいか相談したい方は、PromnyAIにご相談ください。現場の改善メモを、自社情報の更新や問い合わせ対応の見直しにつなげる形で設計できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">NIST：AI Risk Management Framework</a></li><li><a href="https://platform.openai.com/docs/guides/evals.md" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Working with evals</a></li><li><a href="https://platform.openai.com/docs/guides/safety-best-practices" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：Safety best practices</a></li><li><a href="https://docs.anthropic.com/en/docs/test-and-evaluate/define-success" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Define success criteria</a></li><li><a href="https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Build evaluations</a></li><li><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OWASP GenAI Security Project：LLM Top 10</a></li><li><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/models/evaluation-overview" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Google Cloud：Gen AI evaluation service overview</a></li><li><a href="/blog/chatbot-prelaunch-test-questions.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットを公開する前に何を試すか</a></li><li><a href="/blog/chatbot-change-history-memo.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの設定を変えっぱなしにしていないか</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
