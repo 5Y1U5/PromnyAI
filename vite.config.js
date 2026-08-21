@@ -70,6 +70,7 @@ export default defineConfig({
         'blog-ai-chatbot-data-retention-deletion-rule': resolve(__dirname, 'blog/ai-chatbot-data-retention-deletion-rule.html'),
         'blog-chatbot-change-history-memo': resolve(__dirname, 'blog/chatbot-change-history-memo.html'),
         'blog-chatbot-answer-improvement-request-memo': resolve(__dirname, 'blog/chatbot-answer-improvement-request-memo.html'),
+        'blog-chatbot-conversation-log-redaction-memo': resolve(__dirname, 'blog/chatbot-conversation-log-redaction-memo.html'),
       },
     },
   },
