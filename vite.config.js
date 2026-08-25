@@ -71,6 +71,7 @@ export default defineConfig({
         'blog-chatbot-change-history-memo': resolve(__dirname, 'blog/chatbot-change-history-memo.html'),
         'blog-chatbot-answer-improvement-request-memo': resolve(__dirname, 'blog/chatbot-answer-improvement-request-memo.html'),
         'blog-chatbot-conversation-log-redaction-memo': resolve(__dirname, 'blog/chatbot-conversation-log-redaction-memo.html'),
+        'blog-chatbot-faq-answer-card': resolve(__dirname, 'blog/chatbot-faq-answer-card.html'),
       },
     },
   },
