@@ -73,6 +73,7 @@ export default defineConfig({
         'blog-chatbot-conversation-log-redaction-memo': resolve(__dirname, 'blog/chatbot-conversation-log-redaction-memo.html'),
         'blog-chatbot-faq-answer-card': resolve(__dirname, 'blog/chatbot-faq-answer-card.html'),
         'blog-chatbot-knowledge-reflection-memo': resolve(__dirname, 'blog/chatbot-knowledge-reflection-memo.html'),
+        'blog-chatbot-answer-approval-memo': resolve(__dirname, 'blog/chatbot-answer-approval-memo.html'),
       },
     },
   },
