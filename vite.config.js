@@ -74,6 +74,7 @@ export default defineConfig({
         'blog-chatbot-faq-answer-card': resolve(__dirname, 'blog/chatbot-faq-answer-card.html'),
         'blog-chatbot-knowledge-reflection-memo': resolve(__dirname, 'blog/chatbot-knowledge-reflection-memo.html'),
         'blog-chatbot-answer-approval-memo': resolve(__dirname, 'blog/chatbot-answer-approval-memo.html'),
+        'blog-ai-model-update-portable-instructions': resolve(__dirname, 'blog/ai-model-update-portable-instructions.html'),
       },
     },
   },
