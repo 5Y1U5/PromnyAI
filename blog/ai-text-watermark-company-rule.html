@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-text-watermark-company-rule.html" />
+  <meta property="og:title" content="AIで書いた文章に見えない印が入る — 小さな会社が公開前に決めておく3つ — PromnyAI" />
+  <meta property="og:description" content="AIが書いた文章に透かしが入ると発表されました。見た目も質も変わらず、分かるのは「AIが関わった可能性」まで。印を避ける方法ではなく、最終確認者・AIに書かせる範囲・聞かれたときの答えの3つを、公開前に決めておく進め方を整理します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-text-watermark-company-rule.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIで書いた文章に見えない印が入る — 小さな会社が公開前に決めておく3つ — PromnyAI</title>
+  <meta name="description" content="AIが書いた文章に透かしが入ると発表されました。見た目も質も変わらず、分かるのは「AIが関わった可能性」まで。印を避ける方法ではなく、最終確認者・AIに書かせる範囲・聞かれたときの答えの3つを、公開前に決めておく進め方を整理します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIで書いた文章に見えない印が入る — 小さな会社が公開前に決めておく3つ</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-09-11</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">ブログの下書きも、お客様へのメール返信も、AIに任せている会社があります。すると、公開したあとで「これはAIで書いたのですか」と聞かれたとき、何と答えるかを決めていないことに気づきます。</p>
+        <p class="mb-6">AIが書いた文章には、これから見えない印が入ります。Anthropic が 2026年8月14日に、今後の Claude が書く文章に透かし（ウォーターマーク）を入れると発表しました。自社が公開する文章に印が入る前提で、公開前に何を決めておくか。それがこの記事の問いです。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">会社が決めるのは、最終確認者・AIに書かせる範囲・聞かれたときの答えの3つです。発表では、印が入っても文章の見た目と質は変わらないとされています。印で分かるのは「AIが関わった可能性」までで、誰が書いたか・責任が誰にあるかは分かりません。だから、印を避ける方法ではなくこの3つを決めます。決めた3つをどう使ったかの記録は、印には残らないので自社で持ちます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">見た目は同じなのに「AIが書いた」と分かる</h2>
+        <p class="mb-6">8月14日の発表では、今後の Claude が書く文章に透かしが入ります。読んでも見分けは付きません。隠し文字が足されることもなく、生成の速さへの影響はごくわずかで、料金は変わらないと書かれています。</p>
+        <p class="mb-6">印は、言葉の選び方に入ります。AIは文章を一語ずつ選びながら書きます。「今日の空は」の次が「曇り」でも「灰色」でも、意味は変わらない。そういう場面が、1本の文章に何度もあります。</p>
+        <p class="mb-6">透かしは、そこでの選び方を、提供元だけが持つ合言葉（鍵）に沿った並びにしておく仕組みです。後から鍵を持つ側が見れば、並びが鍵どおりかどうかで「AIが関わった可能性」を数字で出せる、というわけです。</p>
+        <p class="mb-6">Claude だけの話ではありません。EUが、域内向けにAIを提供する事業者に印を求めており、発表によると他の提供元も自社の方式で印を付ける予定です。ただ、どの文章に入りやすいかは発表で線引きされているので、先にそこを見ます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">印が付きやすい文章、付きにくい文章</h2>
+        <p class="mb-6">印は「どちらを選んでも意味が変わらない場面」に入ります。裏を返すと、選びようのない文章には入りにくい。発表では、その線引きを具体的に挙げています。</p>
+        <div class="my-6 overflow-hidden rounded-2xl border border-gray-100"><table class="w-full text-sm text-left"><thead class="bg-emerald-50 text-emerald-800"><tr><th class="p-3 font-semibold">文章の種類</th><th class="p-3 font-semibold">印の入り方</th><th class="p-3 font-semibold">自社での例</th></tr></thead><tbody class="divide-y divide-gray-100 bg-white"><tr><td class="p-3">AIが一から書いた長めの文章</td><td class="p-3">入りやすい。長いほど確度が上がる</td><td class="p-3">ブログ記事1本、SNSの投稿文をまとめて生成</td></tr><tr><td class="p-3">AIによる翻訳</td><td class="p-3">入る。すべての語をAIが選ぶため</td><td class="p-3">海外のお客様向けの案内文</td></tr><tr><td class="p-3">短い文章</td><td class="p-3">入りにくい。選ぶ場面が少ない</td><td class="p-3">一言の返信、見出しだけの依頼</td></tr><tr><td class="p-3">事実・数字だけの文章</td><td class="p-3">入りにくい。正しい語が1つしかない</td><td class="p-3">営業時間、料金、住所の案内</td></tr><tr><td class="p-3">人が書いた文の校正だけ</td><td class="p-3">ほとんど入らない。直した数語にしか入る余地が無い</td><td class="p-3">自分の下書きの誤字と敬語を整えてもらう</td></tr></tbody></table></div>
+        <p class="mb-6">自社に置き換えるなら、線を引く場所は「AIに一から書かせたか、自分の下書きを整えてもらったか」です。どちらが良い悪いではなく、どの文章がどちら側かを社内で把握しているかが、「公開前に決めておく3つ」の2つ目で効いてきます。</p>
+        <p class="mb-6">なお、印を消す方法や避ける書き方は扱いません。発表でも、軽い編集では消えにくいとされています。消せない前提で先に押さえておきたいのは、印から何が分かって、何が分からないかです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">印で分かること、分からないこと</h2>
+        <p class="mb-6">印で分かるのは「この文章に Claude が関わった可能性」までです。Anthropic 自身も発表で、分からないことを並べています。誰が書いたか、どの会社か、どのチャットから出たかは分かりません。印にも鍵にも、利用者や会社を特定する情報が入っていないためです。</p>
+        <p class="mb-6">人が書いた証明にもなりません。別のAIが書いたかどうかは、方式と鍵が別なので判定の外です。文章の権利が誰のものか、責任が誰にあるかも、印からは読み取れない。「AIが書いた」のか「AIが大きく手を入れた」のかの区別も、印だけでは付かないのです。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「うちの記事がAIで書いたものだと、取引先に分かってしまうのか」</p>
+<p class="mt-2">確かめられるのは鍵を持つ側だけで、2026年9月11日時点の確認窓口は規制当局・報道機関・研究機関など限られた組織向けです。一般の会社が自由に確かめられる状態ではありません。だから問いは「分かるか」ではなく「聞かれたら何と答えるか」に変わります。印があってもなくても、公開した内容の責任は自社にあります。</p>
+</div>
+        <p class="mb-6">画像は逆で、Claude が作った画像にはファイルの記録欄に「Claude が関わった」という署名が入り、対応した道具なら誰でも読めます。AIで作ったバナーをSNSに載せている会社は、文章と同じく次の章の手順を画像にも当てておきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">公開前に決めておく3つ</h2>
+        <p class="mb-6">印が入るかどうかは提供元側の話で、私たちの側では動かせません。動かせるのは、公開前の手順です。決めておくのは3つで足ります。</p>
+        <p class="mb-6">1つ目は、最終確認者を1人決めることです。AIが下書きを出し、人が読んで公開する。その「人」が誰かを名前で決めます。困るのは、下書きが良くできているほど、誰も通して読まないまま公開されることです。ブログなら広報担当、お客様へのメールならその案件の担当者、というように、文章の種類ごとに1人ずつで構いません。</p>
+        <p class="mb-6">2つ目は、AIに書かせる範囲を決めることです。印が付くかどうかより、数字と固有名詞の誤りのほうが自社の信用に直結します。骨子は人が作る、料金・日付・お客様の名前は人が入れる、AIに一から書かせるのは下書きまで。この線を文章の種類ごとに引いておくと、「印が付きやすい文章、付きにくい文章」の表で「入りやすい側」の文章がどれかも同時に決まります。</p>
+        <p class="mb-6">3つ目は、「AIで書いたのですか」と聞かれたときの答えを用意しておくことです。隠す必要はありません。「下書きはAIで作り、内容の確認と責任は当社が持っています」の一文を、社内の誰が聞かれても同じように答えられる形にしておきます。取引先から聞かれた場面で、担当者ごとに答えが違うことのほうが、AIを使ったことより信用に響きます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>・ブログの最終確認者: ＿＿＿＿（名前）／お客様へのメールの最終確認者: ＿＿＿＿</li>
+<li>・人が必ず入れるもの: 料金・日付・お客様の名前・そのほか＿＿＿＿</li>
+<li>・聞かれたときの一文: 「下書きはAIで作り、内容の確認と責任は当社が持っています」</li>
+</ul>
+</div>
+        <p class="mb-6">AIで作った画像・バナーも、この3つと同じ扱いにします。すでに利用ルールを持っている会社は、一から作り直さなくて済みます。「公開する文章の扱い」の1項目を足すだけです。まだルールが無い会社は、この欄を最初の1枚にしても成り立ちます。ただ、決めた3つが守られたかは、あとから見返せる形で残しておかないと確かめられません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">印が入る前提で、社内の記録は自分で持つ</h2>
+        <p class="mb-6">AIで作った文章の記録は、自社側で残さないとどこにも残りません。印はAIの提供元が付けるもので、使ったのがどの会社かまでは印に残らないからです。他の提供元もそれぞれ自社の方式で印を付けることは、最初の章で触れたとおりです。複数のAIを使い分けている会社ほど、印の方式も鍵も提供元ごとに違い、外からまとめて一覧にはできません。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01</p><p class="text-sm text-gray-700">どの文章をAIで作ったか。公開日と文章の種類（記事・メール・SNS・画像）を1行で</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02</p><p class="text-sm text-gray-700">どのAIを使ったか。Claude・ChatGPT などAIの名前と版、一から書かせたか校正だけかの区別</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03</p><p class="text-sm text-gray-700">誰が確認して公開したか。前の章で決めた最終確認者の名前</p></div>
+</div>
+        <p class="mb-6">この3列が1か所にあれば、聞かれたときに答えられ、あとから「あの記事はどうだったか」を確かめられます。書くのは、最終確認者が公開したその場で1行だけです。記録は表計算ソフトの1枚で足ります。担当者ごとのチャット履歴に散らばっている状態では、あとから探せません。</p>
+        <p class="mb-6">PromnyAI では、主要なAIを1か所で使えます。誰がどのAIをどれだけ使ったかは、管理者が利用の記録で見られます。利用の記録で分かるのはそこまでなので、どの文章に使い、誰が確認したかは自社の1枚に書き足します。記録の1枚を自社で持つことと、使う場所を1か所にまとめることは、別々の話ではありません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">明日やる4つ</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>文章の種類ごとに、最終確認者の名前を書き出す</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>人が必ず入れるもの（料金・日付・固有名詞）を1行で決める</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>「AIで書いたのですか」への一文を、社内に配る</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>どの文章をどのAIで作り、誰が確認したかの表を1枚作る</span></li></ul>
+        <p class="mb-6">印が入るかどうかより、その文章に責任を持つ人が社内にいるかどうかが、読み手に伝わります。</p>
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">記事・メール・SNS文をAIで書く回数が増え、どの文章をどのAIで作ったかが担当者ごとのチャット履歴に散らばっている段階でご相談ください。PromnyAI は主要なAIと業界特化のプロンプトを1か所にまとめ、誰がどのAIをどれだけ使ったかを管理者が利用の記録で見られるプラットフォームです。自社情報を事前に登録し、チームで同じ指示文を共有する形から始められます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.anthropic.com/news/claude-text-watermark" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：How Claude’s text watermark works（2026年8月14日）</a></li><li><a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：News（発表の一覧）</a></li><li><a href="/security.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：セキュリティ</a></li><li><a href="/docs/ai-knowledge.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：AI学習データの使い方</a></li><li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール — 最初に決める5つの約束</a></li><li><a href="/blog/chatbot-answer-approval-memo.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの回答を公開前に誰が見るか — 小さな会社の“承認メモ”</a></li><li><a href="/blog/ai-content-3-steps-to-authenticity.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AI生成記事を「自社の声」に近づける3ステップ</a></li><li><a href="/blog/why-ai-content-feels-generic.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：なぜAI文章は「他人事」に聞こえるのか</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
