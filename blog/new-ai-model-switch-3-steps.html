@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/new-ai-model-switch-3-steps.html" />
+  <meta property="og:title" content="新しいAIが自社の道具に並んだ日にやること — 切り替えを担当者まかせにしない3手順 — PromnyAI" />
+  <meta property="og:description" content="使っているAIサービスの一覧に新しいモデルが並んだ日、担当者がばらばらに切り替えると、同じ指示文でも文章の長さと書式が変わります。提供元が公式ドキュメントに書いている変化を根拠に、試す・比べる・決めるの3手順で、切り替え日と戻し方を会社として決める進め方をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/new-ai-model-switch-3-steps.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新しいAIが自社の道具に並んだ日にやること — 切り替えを担当者まかせにしない3手順 — PromnyAI</title>
+  <meta name="description" content="使っているAIサービスの一覧に新しいモデルが並んだ日、担当者がばらばらに切り替えると、同じ指示文でも文章の長さと書式が変わります。提供元が公式ドキュメントに書いている変化を根拠に、試す・比べる・決めるの3手順で、切り替え日と戻し方を会社として決める進め方をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">新しいAIが自社の道具に並んだ日にやること — 切り替えを担当者まかせにしない3手順</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-09-18</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">使っているAIサービスを開いたら、一覧に見たことのない名前が増えています。いちばん早い人はその日から新しいほうを使い、別の人はこれまでどおりです。すると翌週、同じ返信テンプレで作ったメールの長さと書式が、人によって違ってきます。</p>
+        <p class="mb-6">新しいAIが自社の道具に並んだ日に、担当者まかせにせず何をするか。それがこの記事の問いです。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">やることは、試す・比べる・決める、の3手順で、1週間で回せます。同じ指示文でも結果が変わることは、提供元が公式ドキュメントに書いています。だから、切り替えを止めるのではなく、変わる前提で手順にします。要る道具は、先週の依頼3本と表計算ソフトの1枚です。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">一覧に新しい名前が増えた日、社内で起きること</h2>
+        <p class="mb-6">PromnyAI の公式サイトには、2026年9月18日の時点で対応AIが全27種類と載っています。その一覧に、Claude Fable 5.1 が並んでいます。Anthropic が2026年9月1日に提供を始めたモデルです。一覧から切り替えて使えるので、使う側は名前を選ぶだけで新しいほうに移れます。</p>
+        <p class="mb-6">問題は、移るかどうかを誰も決めていないときに起きます。同じ共有テンプレから出た文章なのに、片方は箇条書きで、片方は地の文で一段落。読み比べた上司に「前と違う」と言われたとき、どちらがどのモデルで作ったかを誰も答えられません。</p>
+        <p class="mb-6">切り替えること自体は悪くありません。決めないまま切り替わることが、あとから説明できない文章を増やします。手順に入る前に、なぜ同じ指示文で結果が変わるのかを、提供元の言葉で押さえておきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">同じ指示文で結果が変わるのは、提供元が明記している</h2>
+        <p class="mb-6">「モデルが変わっても、指示文が同じなら同じような結果が出るはず」と思いたくなります。ここは提供元の側が、はっきり否定しています。Anthropic の公式ドキュメントには、Claude Fable 5.1 が前の Fable 5 と違う点が並んでいます。2026年9月18日の時点で、その違いは「指示文を変えなくても現れる」と書かれています。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「同じモデル名なら、どのサービスで使っても同じ結果になりますか」</p>
+<p class="mt-2">なりません。提供元の発表には、AIがどれだけ深く考えてから答えを作るかの設定が、製品ごとに既定で違うと書かれています。Claude Code では深く考える設定、Cowork と Claude.ai では中くらいの設定が既定です。名前が同じだから同じ結果、とは提供元自身が言っていません。この記事で比べるのは、同じサービスの中に並ぶ、今まで使っていたモデルと新しいモデルの差に絞ります。</p>
+</div>
+        <p class="mb-6">では、指示文を変えなくても現れる違いとは何か。私たちが公式ドキュメントから拾った3点を、文章仕事の場面に置き換えると次のようになります。</p>
+        <div class="overflow-x-auto my-6"><table class="w-full text-sm text-left text-gray-700 border border-gray-100"><thead class="bg-gray-50 text-gray-900"><tr><th class="px-4 py-3 border-b border-gray-100">公式ドキュメントに書かれた変化</th><th class="px-4 py-3 border-b border-gray-100">文章仕事での見え方</th></tr></thead><tbody><tr><td class="px-4 py-3 border-b border-gray-100 align-top">場合によって文が長くなり、段落の区切りが少なくなる</td><td class="px-4 py-3 border-b border-gray-100 align-top">3段落だった返信メールが、1段落に固まって届く</td></tr><tr><td class="px-4 py-3 border-b border-gray-100 align-top">以前のモデルより太字・見出し・箇条書きを使う頻度が下がる</td><td class="px-4 py-3 border-b border-gray-100 align-top">手順の案内が箇条書きから地の文になり、見出しが消える</td></tr><tr><td class="px-4 py-3 align-top">資料を要約するとき、引用と明示せずに原文の一節を再現しやすい</td><td class="px-4 py-3 align-top">会議メモの要約に、元資料の文がそのまま混じる</td></tr></tbody></table></div>
+        <p class="mb-6">表の3つの変化はどれも、良い悪いの話ではなく「変わる」という話です。変わり方が分かっていれば、比べるときに見る場所も決まります。提供元は、前のモデルで設定の試験を済ませていても、新しいモデルで自社の評価をもう一度回すよう勧めています。小さな会社の「自社の評価」は、先週の依頼3本で足ります。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01 試す（1日目）</p><p class="text-sm text-gray-700">材料は新しく作らない。結果がもう手元にある依頼を使う</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02 比べる（2〜3日目）</p><p class="text-sm text-gray-700">1本につき4行。良い悪いはまだ書かない</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03 決める（週末まで）</p><p class="text-sm text-gray-700">全員が同じ日に移る。指示文を直すのはその後</p></div>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">手順1 試す — 先週の依頼3本を、条件をそろえて投げる</h2>
+        <p class="mb-6">材料は、先週実際に使った依頼を3種類、1本ずつ選びます。お客様宛の返信メールの依頼文、ブログ下書きの指示、会議メモの要約。新しく作らず、結果がもう手元にあるものを使うのがこつです。今まで使っていたモデルの結果と、人がどこを直したかが残っているからです。</p>
+        <p class="mb-6">そろえる条件は3つです。同じ指示文（共有テンプレをそのまま）、同じ添付、同じ人が同じ日に投げること。PromnyAI では一覧から切り替えて使えます。2026年9月18日の時点で、一覧には Fable 5.1 の横に Opus 5・Sonnet 5・4.5 Haiku も並んでいます。今まで使っていたモデルと新しいモデルに、同じ画面で続けて投げられます。</p>
+        <p class="mb-6">この段でやらないことが1つあります。新しいモデルに合わせて指示文を直しながら試すことです。直してしまうと、出た違いが指示文の差なのかモデルの差なのか、あとで分けられません。指示文には手を付けず、そろえた条件のまま、次は結果の違いを見ていきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">手順2 比べる — 4つの違いを、点数ではなく事実で残す</h2>
+        <p class="mb-6">見るのは、提供元が「変わる」と書いた点に絞ります。長さ（字数）、段落（いくつに分かれたか）、書式（太字や箇条書きが使われたか）、引用（元の資料の文がそのまま入っていないか）の4つです。評価の点数は付けません。「新しいほうが約200字長い」「箇条書きが地の文になった」のように、事実を1行で書きます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「どちらが良いかを決めなくていいのですか」</p>
+<p class="mt-2">この段では決めません。仕事によって答えが分かれるからです。お客様宛のメールは短く分かれているほうが読みやすく、社内向けの要約は密なほうが助かります。ここで残すのは「違いがある」という記録だけで、どちらを使うかは次の手順で会社として決めます。</p>
+</div>
+        <p class="mb-6">4つのうち、引用だけは扱いが別です。要約に元資料の文がそのまま混じったとき、その要約を社外へ出すなら、原文をそのまま載せてよいかを人が見る必要があります。新しいモデルでこの傾向が強まると提供元が書いている以上、要約の仕事では記録の欄に「原文がそのまま入ったか」を必ず立てます。3本ぶんの記録がそろったら、決める段に進みます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">手順3 決める — 切り替え日と戻し方を決めてから、指示文を直す</h2>
+        <p class="mb-6">決めるのは3つです。切り替え日（全員が同じ日に移る）、決めた人の名前、戻し方。今まで使っていたモデルが一覧に残っている間は、選び直せば戻せます。いつまで残るかはサービスごとに違い、PromnyAI の公式サイトにも期限の記載はありません（2026年9月18日時点）。戻せる期限は、管理者が確かめて書いておきます。</p>
+        <p class="mb-6">手順1で取っておいた指示文の直しは、ここでやります。提供元の推奨が2つ公開されています。1つ目は、以前のモデル向けに入れていた「箇条書きを使うな」「太字を使うな」のような抑える文の扱いです。消すか、「手順を並べるときは箇条書きにする」のように使う場面を書いた文に置き換えます。新しいモデルはもともと書式を使う頻度が下がっているので、抑える文が残っていると必要な構造まで消えます。</p>
+        <p class="mb-6">2つ目は、文が密になるときに「飾った言い回しをやめて、まっすぐ書く」という趣旨の1行を指示文に足すことです。公式ドキュメントは英語の短い1行を示していますが、日本語で同じ意味の1行で構いません。</p>
+        <p class="mb-6">ここまでの記録を1枚の表にまとめると、欄は次の5つです。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>試した日と、使った指示文の名前（共有テンプレの名前）</li>
+<li>前のモデル名と、新しいモデル名</li>
+<li>長さ・段落・書式・引用の4つの違い（1行ずつ）</li>
+<li>切り替え日と、決めた人の名前</li>
+<li>戻せる期限（今まで使っていたモデルが一覧に残る期限。管理者が確認する）</li>
+</ul>
+</div>
+        <p class="mb-6">PromnyAI では、管理者が誰がどのAIをどれだけ使ったかを利用の記録で見られます。切り替え日の前後でその記録を見ると、まだ移っていない人が分かります。直した指示文は、指示文を保存して社内で使い回す機能（プロンプトライブラリ）のチーム共有に戻し、直したことをチームに一言伝えておきます。指示文そのものを、モデルが変わっても作り直さずに済む形にしておく話は、<a href="/blog/ai-model-update-portable-instructions.html" class="text-emerald-600 hover:text-emerald-700 underline">別の記事（モデルが変わっても使い回せる指示文の作り方）</a>に書いています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">明日やる3つ</h2>
+        <ul class="space-y-3 mb-6"><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>先週使った依頼を3種類選び、同じ指示文で新旧に投げる人と日を決める</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>手順3の5つの欄（試した日と指示文の名前・新旧のモデル名・4つの違い・切り替え日と決めた人・戻せる期限）で、記録の表を1枚作る</span></li><li class="flex items-start gap-2"><span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check_circle</span><span>切り替え日を決める場を、試す日の翌週に入れておく。共有テンプレの「箇条書きを使うな」の類いの文は印だけ付け、直すのは比べたあとにする</span></li></ul>
+        <p class="mb-6">一覧に新しい名前が増える日は、これからも来ます。そのたびに慌てないための道具は、高い評価の仕組みではなく、先週の依頼3本と記録の1枚です。</p>
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">新しいモデルが出るたびに、誰がどれに切り替えたかが分からなくなっている段階でご覧ください。PromnyAI は主要なAIを1か所に並べ、一覧から切り替えて使え、誰がどのAIをどれだけ使ったかを管理者が利用の記録で見られるプラットフォームです。テンプレをチームで共有し、同じ指示文から始められます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Introducing Claude Fable 5.1 and Claude Mythos 5.1（2026年9月1日）</a></li><li><a href="https://platform.claude.com/docs/ja/models/fable-5-1/whats-new-fable-5-1" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Claude Platform Docs：Claude Fable 5.1の新機能（動作の違い）</a></li><li><a href="https://platform.claude.com/docs/ja/build-with-claude/prompt-engineering/prompting-claude-fable-5-1" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Claude Platform Docs：Claude Fable 5.1 のプロンプティング（文章の密度・チャットでのフォーマット）</a></li><li><a href="/docs/ai-guide.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：AI選び方ガイド</a></li><li><a href="/blog/ai-model-update-portable-instructions.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：新しいモデルが出るたびに一から作り直していないか — 小さな会社の“引っ越せる指示書”</a></li><li><a href="/blog/ai-text-watermark-company-rule.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIで書いた文章に見えない印が入る — 小さな会社が公開前に決めておく3つ</a></li><li><a href="/blog/ai-team-meeting-15min.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AI担当を孤立させない小さな会社の運用会議 — 週1回15分で回す3つの確認</a></li><li><a href="/blog/ai-usage-shared-memo-small-business.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIを使える人だけが使っていないか — 小さな会社のAI活用メモ3点セット</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
