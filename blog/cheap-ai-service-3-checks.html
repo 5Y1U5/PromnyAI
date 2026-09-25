@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/cheap-ai-service-3-checks.html" />
+  <meta property="og:title" content="ChatGPT・Claudeを安く使えるサービスの見分け方 — 申し込む前に確かめる3つ — PromnyAI" />
+  <meta property="og:description" content="ChatGPT や Claude を公式より安く使えるとうたうサービスに、会社で申し込む前に確かめる3つ。Anthropic が2026年9月10日に公表した報告には、格安の中継サービスがソフトでログイン情報を抜き、盗んだアカウントを転売していた手口が載っています。見分け方と、入れてしまったときの初動をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/cheap-ai-service-3-checks.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT・Claudeを安く使えるサービスの見分け方 — 申し込む前に確かめる3つ — PromnyAI</title>
+  <meta name="description" content="ChatGPT や Claude を公式より安く使えるとうたうサービスに、会社で申し込む前に確かめる3つ。Anthropic が2026年9月10日に公表した報告には、格安の中継サービスがソフトでログイン情報を抜き、盗んだアカウントを転売していた手口が載っています。見分け方と、入れてしまったときの初動をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">ChatGPT・Claudeを安く使えるサービスの見分け方 — 申し込む前に確かめる3つ</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-09-25</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「ChatGPT も Claude も、1つの契約で公式より安く使えます」。AIの費用を抑えたくて調べていると、こうした案内のサイトに行き当たります。</p>
+        <p class="mb-6">その安さの理由が、盗んだアカウントの転売だった例があります。案内に従って入れたソフトが、PCからログイン情報を抜き続けていました。会社として申し込む前に、どこを見れば見分けられるか。それがこの記事の問いです。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">見分ける目安は3つあり、どれもサービスのサイトを数ページ開けば確かめられます。欠けている目安があれば申し込む前に問い合わせ、答えが無ければ止めます。3つは、Anthropic が2026年9月10日に公表した悪用対策の報告に載った手口をもとに、この記事で組み立てた目安です。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">公式より安く使えるのはなぜか — 報告に載った格安サービスの中身</h2>
+        <p class="mb-6">Anthropic は2026年9月10日、自社のAIが悪用された事例をまとめた報告を公開しました。対象は、2025年12月から2026年8月までに止めた活動です。その中に、AIを安く使いたい人を狙う手口が1節あります。</p>
+        <p class="mb-6">手口の1つは、複数のAIをまとめて中継するサービスを名乗るサイトでした。最先端のAIを割引価格で使えると案内します。被害の入口はいくつかあり、中でも長く続いたのが専用ソフトを入れさせる方法でした。ソフトは Claude Code など人気の道具に見せかけてありました。実際には、PCに保存されたログイン情報と、ログインしたままの状態を丸ごと送る仕組みでした。</p>
+        <p class="mb-6">もう1つは、安い Claude を売っていた業者の例です。報告はこれを「安くもなく、Claude でもなかった」と書いています。利用者の依頼は、黙って別のAIに回されていました。その裏でソフトが入り、利用者の Anthropic のアカウントが盗まれ、別の転売業者へ売られていました。</p>
+        <p class="mb-6">この記事で扱うのは、こうした外部の格安サービスです。アプリ経由の課金や割引のように、公式の契約そのものを安くする方法の話ではありません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">盗まれたアカウントは、売り物・攻撃の費用・隠れ蓑になる</h2>
+        <p class="mb-6">なぜAIのアカウントが狙われるのか。報告は、AIのログイン情報を手に入れた側が、3つを一度に得ると書いています。</p>
+        <p class="mb-6">1つ目は売り物で、盗んだアカウントには転売する市場ができています。2つ目は攻撃の費用で、攻撃に使うAIの利用料を、アカウントの持ち主の負担にできます。3つ目は隠れ蓑です。記録の上では、その利用は持ち主のものとして残ります。会社のアカウントなら、会社の名前で残ります。</p>
+        <p class="mb-6">この節の締めくくりは、はっきりしています。AIは正規の経路で買うこと。知らない中継役に通信とログイン情報を預ける割引は、大きな危険を持ち込むこと。では、知らない中継役をどう見分けるか。私たちは、報告の手口と締めくくりの警告を裏返して、次の3つの目安にしました。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01 運営会社</p><p class="text-sm text-gray-700">報告は、知らない中継役に通信とログイン情報を預ける割引を危険だとした</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02 求められるもの</p><p class="text-sm text-gray-700">報告のソフトは、人気の道具に見せかけてあった</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03 お金とデータの行き先</p><p class="text-sm text-gray-700">報告の業者は、Claude と称して別のAIに回していた</p></div>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">確かめる1 運営会社が名乗っているか</h2>
+        <p class="mb-6">報告が危険だとしたのは、通信とログイン情報を、知らない中継役に預ける割引でした。知らない相手かどうかを見る最初の手がかりは、運営会社を名乗っているかです。社名、代表者、問い合わせ先の3つがそろっているかを見ます。トップページに無ければ、プライバシーポリシーや利用規約のページも開きます。</p>
+        <p class="mb-6">会社として申し込めば、何かあったときに連絡を取るのも会社です。その相手と連絡がつくかどうかを、申し込む前に確かめておきます。社名が無く、連絡の手段がSNSのアカウントだけなら、ここで止めます。</p>
+        <p class="mb-6">名乗っていることは、安全の証明ではありません。それでも、名乗っていない相手には、あとから何も確かめられません。3つのうちで、いちばん早く見分けられる目安です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">確かめる2 自分のAIアカウントやソフトのインストールを求めないか</h2>
+        <p class="mb-6">2つ目は、申し込みや利用の手順の中で、何を求められるかです。報告の手口で被害が長く続いたのは、専用ソフトのインストールでした。ソフトを入れたPCからは、AIに限らず、保存されたログイン情報がまとめて送られていました。</p>
+        <p class="mb-6">見るのは2つです。1つは、手持ちの ChatGPT や Claude のログイン情報や、開発者向けの鍵（APIキー）を入力させる手順が無いか。もう1つは、ブラウザで使えるはずのものに、専用ソフトや拡張機能の追加を求めないかです。どちらかがあれば、業務PCで進める前に、社内でPCを管理している人に見せます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「公式のアプリと見た目が同じなら、見分けようがないのでは」</p>
+<p class="mt-2">見た目では見分けません。報告のソフトも、人気の道具に見せかけてありました。判断の材料は、どこから入手したかです。提供元の公式サイトからたどれない入手先のソフトは、業務PCに入れない。これを社内の約束にしておきます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">確かめる3 お金とデータの行き先が書いてあるか</h2>
+        <p class="mb-6">3つ目は、払ったお金と入力したデータがどこへ行くかです。支払いは、誰がどう処理するのか。入力した文章はどこに保管され、AIの学習に使われるのか。依頼を、どの会社のAIにつないでいるのか。</p>
+        <p class="mb-6">中継型のサービスで依頼がどのAIに届いているかは、使う側は運営の説明で知るしかありません。報告の業者の利用者は、Claude を買ったつもりのまま、依頼を黙って別のAIに回されていました。つなぎ先が書かれていないAIには、問い合わせて答えを得るまで、社内の資料を入れないでおきます。</p>
+        <p class="mb-6">書いてあれば、あとで食い違ったときに問い合わせる根拠になります。書いていない相手には、その糸口もありません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">3つを実際のサービスに当てると — PromnyAI の公開情報で試す</h2>
+        <p class="mb-6">例として、私たちの PromnyAI に3つを当ててみます。複数のAIを1か所で使うサービスで、形の上では報告の中継型と同じ側にいます。2026年9月25日時点の公式サイトで確かめた内容です。</p>
+        <ul class="space-y-3 mb-6">
+<li><span class="font-bold text-gray-900">運営会社：</span>株式会社i-Style（石川県金沢市）。代表者名と問い合わせフォームも、プライバシーポリシーのページに載っています。</li>
+<li><span class="font-bold text-gray-900">求められるもの：</span>PC・タブレット・スマートフォンのブラウザで使います。各AIを個別に契約せず、1つのアカウントで使う形です（トップページ）。</li>
+<li><span class="font-bold text-gray-900">お金とデータの行き先：</span>決済は Stripe で、カード情報は PromnyAI のサーバーを通りません。保管先は Google Cloud 東京リージョンで、入力したデータはAIの学習に使いません。AIの提供元として、セキュリティのページに OpenAI・Anthropic・Google の3社が載っています。</li>
+</ul>
+        <p class="mb-6">ただ、トップページに並ぶAIのうち、Grok と Perplexity の提供元の会社名は、セキュリティのページにありません。業界特化のAI8種がどの会社のAIで動くかも、書かれていません（いずれも2026年9月25日時点）。3つ目の目安に照らすと、これらは申し込む前に問い合わせて確かめる項目として残ります。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「3つがそろっていれば、安全なサービスと言えますか」</p>
+<p class="mt-2">言えません。3つは、知らない中継役を避けるための入口の目安です。PromnyAI のセキュリティのページにも、注意書きがあります。SOC 2 などの認証は基盤の各社が取得・準拠しているもので、PromnyAI が直接取ったものではない、という内容です。認証を誰が持っているのかまで読んでおくと、ほかのサービスと並べる場面でも同じ物差しが使えます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">入れてしまったら、パスワードより先にやること</h2>
+        <p class="mb-6">ここまでは、申し込む前の話です。すでにソフトを入れてしまったときは、順番が変わります。報告では、乗っ取られたと分かってアカウントがリセットされても、ソフトはそのPCで新しく始まったログインを見つけて送り続けていました。ソフトが残ったPCでログインし直せば、そのログインも同じように送られる形です。</p>
+        <p class="mb-6">やることは、順に3つです。1つ目に、そのPCでのログインを止めます。社内でPCを管理している人に伝え、そのPCの扱いを任せます。2つ目に、別の端末からパスワードを変え、ログイン中の端末をすべてログアウトさせます。3つ目に、開発者向けの鍵（APIキー）を使っていたら作り直します。</p>
+        <p class="mb-6">報告で抜かれていたのは、パスワードだけでなく、ログインしたままの状態と鍵でした。判断に迷うときは、情報処理推進機構（IPA）の企業組織向けサイバーセキュリティ相談窓口に、初動の対応を相談できます。</p>
+        <p class="mb-6">入れる前に止めるほうが、ずっと手間は少なく済みます。社内でAIを使うときの約束に、次の確認を足しておきます。約束そのものの作り方は、<a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">別の記事（小さな会社の生成AI利用ルール）</a>に書いています。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>運営会社の社名・代表者・問い合わせ先が、サイトに載っている</li>
+<li>手持ちのAIのログイン情報や、開発者向けの鍵の入力を求めない</li>
+<li>ブラウザで使えるはずのものに、専用ソフトや拡張機能の追加を求めない</li>
+<li>支払いの仕組み、データの保管先、つないでいるAIの会社が書いてある</li>
+</ul>
+</div>
+        <p class="mb-6">AIの費用を抑えたいという考えは、まっとうです。ただ、安さの理由が書かれていない相手に、会社のログイン情報を預ける理由にはなりません。「公式より安い」のページを見つけたら、上司に許可を取りに行く前が確かめどきです。運営会社、求められるもの、お金とデータの行き先の3つを、先に開いておきます。</p>
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIの契約を1つにまとめたいけれど、任せる先は運営会社とデータの行き先を見て決めたい。そんな段階でご覧ください。PromnyAI は主要なAIを1か所で使えるプラットフォームです。運営会社・データの保管先・決済の仕組み・使えるAIの一覧を、公式サイトで公開しています。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：AIの悪用の検知と対処に関する報告（2026年9月版・2026年9月10日公開）</a></li><li><a href="https://www.ipa.go.jp/security/support/soudan.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">情報処理推進機構（IPA）：サイバーセキュリティ 相談・届出窓口一覧（企業組織向け）</a></li><li><a href="/security.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：セキュリティへの取り組み</a></li><li><a href="/privacy.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：プライバシーポリシー</a></li><li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール — 最初に決める5つの約束</a></li><li><a href="/blog/company-info-ai-boundaries.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに会社情報を入れる前に決める3つの境界線</a></li><li><a href="/blog/ai-privacy-checklist.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに貼る前の個人情報チェックリスト</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
