@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ai-token-pricing-usage-check.html" />
+  <meta property="og:title" content="生成AIのトークンとは — 料金が決まる仕組みと、社内で毎月確かめる利用量 — PromnyAI" />
+  <meta property="og:description" content="生成AIのトークンとは、AIに送った文章と返した文章の量を数える単位です。料金は「1トークンの値段 × 使った量」で決まり、2026年9月下旬の Claude の新モデルでは、使うトークンの数が減ったことも費用が下がる理由でした。社内で毎月確かめる3つ（使った人・使ったAI・使った量）と、契約で使える量との並べ方をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ai-token-pricing-usage-check.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生成AIのトークンとは — 料金が決まる仕組みと、社内で毎月確かめる利用量 — PromnyAI</title>
+  <meta name="description" content="生成AIのトークンとは、AIに送った文章と返した文章の量を数える単位です。料金は「1トークンの値段 × 使った量」で決まり、2026年9月下旬の Claude の新モデルでは、使うトークンの数が減ったことも費用が下がる理由でした。社内で毎月確かめる3つ（使った人・使ったAI・使った量）と、契約で使える量との並べ方をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / 生成AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">生成AIのトークンとは — 料金が決まる仕組みと、社内で毎月確かめる利用量</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-10-02</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">Anthropic は9月末、新しい Claude Sonnet 5.5 で、作業1回あたりの費用が最大30%下がると発表しました。社内のAIの契約を任されていると、うちの請求も下がるのかが気になります。</p>
+        <p class="mb-6">確かめるには、トークンとは何かと、自社が毎月どれだけ使っているかの2つが要ります。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">トークンは、AIに送った文章と、AIが返した文章の量を数える単位です。使った分だけ払う契約の料金は、「1トークンの値段 × 使った量」で決まります。9月下旬の Claude の新モデルでは、使うトークンの数が減ったことも、費用が下がる理由でした。自社で毎月見るのは、使った人・使ったAI・使った量の3つです。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">トークンは、AIが読んだ量と書いた量を数える単位</h2>
+        <p class="mb-6">私たちの PromnyAI では、公式サイトでトークンを「AIの利用量を表す単位」と説明しています。送った指示の中身と、AIの回答の長さで、使う量が変わります。長い資料を貼って長い回答を頼めば、そのぶん多く使います。</p>
+        <p class="mb-6">文字数とは一致しません。PromnyAI のマニュアルにも、消費量はAIの種類と生成する文章の長さで変わる、とあります。同じ長さの文章でも、どのAIに頼むかで使う量が変わるということです。</p>
+        <p class="mb-6">開発者向けの料金表では、AIに送る側の「入力」と、AIが返す側の「出力」が分けて書かれています。Anthropic の料金表も、入力と出力で1トークンの値段が違います。読んだ量と書いた量の両方が、数に入る仕組みです。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「サービスごとのトークンの数字は、そのまま比べていいのか」</p>
+<p class="mt-2">そのままは比べません。同じトークン量でも、どのAIに何を頼むかで、こなせる仕事の量が変わるからです。契約のトークン量は、そのサービスで自社が実際に使った量と並べて読みます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">料金は「1トークンの値段 × 使った量」— Claude Sonnet 5.5 は値段そのままで、使う数が減った</h2>
+        <p class="mb-6">では、使った量は料金にどう関わるのか。使った分だけ払う契約では、料金は1トークンの値段と、使った量の掛け算で決まります。Anthropic の開発者向けの料金は、100万トークンあたりの値段で示されています。</p>
+        <p class="mb-6">2026年9月28日に発表された Claude Sonnet 5.5 は、この掛け算のうち、使うトークンの数が減った例です。1トークンの値段は Sonnet 5 と同じで、入力が100万トークンあたり2ドル、出力が10ドルです。それでも同じ作業に使うトークンの数がずっと少なく、Anthropic の社内テストでは、作業1回あたり最大30%安くなったとしています。</p>
+        <p class="mb-6">9月22日の Claude Opus 5.5 は、1トークンの値段も Opus 5 より20%下がりました。既定の設定で典型的な作業をした場合、費用は40%下がるとしています。数字はいずれも、2026年10月2日に Anthropic の発表ページで確かめたものです。</p>
+        <p class="mb-6">Anthropic の発表にある「最大30%」には、「多くの作業で」「作業1回あたり」という条件が付いています。どの作業がどれだけ安くなるかは、頼む中身で変わります。自社の請求に効くかは、どのAIに何をどれだけ頼んでいるかを知らないと決められません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">月額が決まったプランにも、使える量の上限がある</h2>
+        <p class="mb-6">月額が決まっているプランなら、トークンは気にしなくていいのか。量が関わる場所が、請求額から使える量の上限に変わるだけです。</p>
+        <p class="mb-6">Anthropic は Opus 5.5 の発表で、月額プランの利用上限を引き上げると書いています。対象は Pro・Max・Team などで、上限は5時間ごとに決まっています。月額のプランにも、使える量に天井があるということです。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>使った分だけ払う契約: 使った量に応じて、請求額が増える</li>
+<li>月額が決まった契約: 使った量の分だけ、使える量の上限に近づく</li>
+</ul>
+</div>
+        <p class="mb-6">月額のプランで量が問題になるのは、上限に近づいたときです。締め切り前の提案書づくりの最中に上限に届けば、追加で手配するか待つかを、その場で決めることになります。どちらの払い方の契約でも、使った量は数えておく意味があります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社内で毎月見るのは、使った人・使ったAI・使った量の3つ</h2>
+        <p class="mb-6">量だけを見ると、増えた理由が分かりません。誰が、どのAIで使ったのかを並べると、どこで増えたかに見当が付きます。月に1回、次の3つを1行ずつ書き出します。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01 使った人</p><p class="text-sm text-gray-700">アカウントごとに、その月に使ったかどうか。使っていない人も行に残す</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02 使ったAI</p><p class="text-sm text-gray-700">主に使ったAIの名前。同じ量の仕事でも、AIの種類で消費量が変わる</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03 使った量</p><p class="text-sm text-gray-700">その月のトークン数と、前の月との差</p></div>
+</div>
+        <p class="mb-6">記録の元は、契約しているサービスの管理画面や請求の明細で探します。人ごと・月ごとの記録が見つからなければ、使った人とAIの名前を書き出すところから始めます。私たちの PromnyAI なら、管理者が利用ログで、誰が・いつ・どのAIをどれだけ使ったかを見られます。トークン管理の画面では、今月の残量と消費量、使用履歴も見られます。前の月との差は、書き出した表で出します。</p>
+        <p class="mb-6">書き出すと、特定の人やAIに量が集まっていないかが分かります。1人だけ量が大きく増えた月は、その人に何に使ったかを聞きます。新しい仕事にAIを使い始めたのなら、その頼み方がほかの人の手本になります。</p>
+        <p class="mb-6">量がゼロの人がいる場合は、使い方で困っているのか、仕事にAIが要らないのかを確かめるきっかけになります。使い方を社内で共有する方法は、別の記事<a href="/blog/ai-usage-shared-memo-small-business.html" class="text-emerald-600 hover:text-emerald-700 underline">「AIを使える人だけが使っていないか」</a>に書いています。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「社員の利用量を見るのは、見張っているようで気が引ける」</p>
+<p class="mt-2">この表に書くのは、人・AI・量の3つだけです。何を頼んだかの中身までは書きません。声をかけるのは、量が少ない人の困りごとを拾うためと、量が増えた人の使い方を共有してもらうためです。表の目的を、社内に先に伝えておきます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">契約で使える量と並べると、足りない月と余る月が分かる — PromnyAI の場合</h2>
+        <p class="mb-6">書き出した量は、契約で使える量と並べて読みます。例として、私たちの PromnyAI で並べ方を示します。PromnyAI では、プランごとに1か月に使えるトークンの量が決まっています（2026年10月2日時点の公式サイト）。</p>
+        <ul class="space-y-3 mb-6">
+<li><span class="font-bold text-gray-900">Lite：</span>月額4,500円（税別。税込4,950円）、80万トークン、1名</li>
+<li><span class="font-bold text-gray-900">Standard：</span>月額9,800円（税別。税込10,780円）、255万トークン、5名</li>
+<li><span class="font-bold text-gray-900">Professional：</span>月額19,800円（税別。税込21,780円）、620万トークン、10名</li>
+</ul>
+        <p class="mb-6">マニュアルによると、プランのトークンは月初にリセットされ、翌月への繰り越しはありません。足りない月は、トークン管理の画面から追加パックを買えます。追加パックは3種類で、いちばん小さいものは3,000円（税別。税込3,300円）で72万トークン、購入分は6か月有効です。</p>
+        <p class="mb-6">前の月に使った量を、契約で使える量で割ります。足りない月が続くなら、追加パックで足すか、プランを考え直す場面です。大きく余る月が続くなら、繰り越せない分が毎月消えています。前の章で見た、量がゼロの人への声かけが先です。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">来月の1日に、前の月の3つを書き出す</h2>
+        <p class="mb-6">料金のニュースは、これからも続きます。手元に毎月の3つがあれば、どのAIの値下げが自社に関わるかに、その場で見当を付けられます。</p>
+        <p class="mb-6">「費用が最大30%下がる」という発表を見たとき、うちはどのAIをどれだけ使っているかと考えられる。そこまで来れば、トークンはもう料金表の謎の単位ではありません。来月の1日に、前の月の3つを書き出すところから始めます。</p>
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">社内のAIの利用量を、人・AI・量で月ごとに確かめたい。その仕組みを検討するときに、サービス資料をご覧ください。PromnyAI は主要なAIを1か所で使えるプラットフォームで、管理者が利用ログとトークンの消費量を確認できます。申し込むと、1万トークン分のお試しパックが付きます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.anthropic.com/claude-sonnet-5-5" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Claude Sonnet 5.5 の発表（2026年9月28日）</a></li><li><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Claude Opus 5.5 の発表（2026年9月22日）</a></li><li><a href="/#pricing" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：料金プラン</a></li><li><a href="/docs/token-management.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI マニュアル：トークン管理</a></li><li><a href="/blog/ai-usage-shared-memo-small-business.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIを使える人だけが使っていないか — 小さな会社のAI活用メモ3点セット</a></li><li><a href="/blog/new-ai-model-switch-3-steps.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIの新モデルへの切り替え手順</a></li><li><a href="/blog/chatbot-admin-permission-audit-table.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの管理者を増やしっぱなしにしていないか</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
