@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/claude-model-choice-by-task.html" />
+  <meta property="og:title" content="Claude Haiku 5.5 と Sonnet・Opus の使い分け — 仕事ごとに決める「使うモデル」と「人の確認」の表 — PromnyAI" />
+  <meta property="og:description" content="Claude Haiku 5.5 は、Anthropic が数の多い仕事向けと説明する小さなモデルです。Sonnet・Opus との使い分けを、仕事ごとに「使うモデル」と「人の確認」の2列で決める表の作り方と、PromnyAI で同じ仕事を2つのモデルに頼んだ結果をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/claude-model-choice-by-task.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Haiku 5.5 と Sonnet・Opus の使い分け — 仕事ごとに決める「使うモデル」と「人の確認」の表 — PromnyAI</title>
+  <meta name="description" content="Claude Haiku 5.5 は、Anthropic が数の多い仕事向けと説明する小さなモデルです。Sonnet・Opus との使い分けを、仕事ごとに「使うモデル」と「人の確認」の2列で決める表の作り方と、PromnyAI で同じ仕事を2つのモデルに頼んだ結果をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / 生成AI活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">Claude Haiku 5.5 と Sonnet・Opus の使い分け — 仕事ごとに決める「使うモデル」と「人の確認」の表</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-10-09</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「口コミ返信の下書きも提案書も、Claude の同じモデルで書いている」。そこへ10月7日、小さなモデルの Claude Haiku 5.5 が発表されました。</p>
+        <p class="mb-6">発表のたびに「どれが一番か」を決め直すと、社外に出す文章を誰が見るかまで揺れます。何を決めておけば迷わないのか。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">Anthropic の説明では、要約や分類のような数の多い仕事に向くのが Haiku 5.5 です。日々の文書づくりは Sonnet 5.5、慎重な判断が要る複雑な仕事は Opus 5.5 とされています。この「使うモデル」とは別の列で、「人の確認」を仕事ごとに決めます。</p>
+<p class="text-gray-700 leading-[1.9] mt-2">10月9日、まだ 5.5 を選べない PromnyAI で、4.5 Haiku と sonnet 5 に同じ短い仕事3本を頼みました。差はトークンより仕上がりに出ました。口コミへの返信は、どちらのモデルの文にも人が直す箇所がありました。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">9月下旬からの3つの発表 — Haiku 5.5 は「数が多く、費用を気にする仕事」向け</h2>
+        <p class="mb-6">Anthropic は9月22日から10月7日にかけて、Claude の新しいモデルを3つ続けて発表しました。どのモデルがどんな仕事に向くかは、発表の中に書かれています。</p>
+        <ul class="space-y-3 mb-6">
+<li><span class="font-bold text-gray-900">Claude Opus 5.5（9月22日）：</span>慎重な判断が要る、複雑な仕事向け（Sonnet 5.5 の発表での説明）</li>
+<li><span class="font-bold text-gray-900">Claude Sonnet 5.5（9月28日）：</span>範囲がはっきりした日々の仕事や、整った文書・スライドづくり向け</li>
+<li><span class="font-bold text-gray-900">Claude Haiku 5.5（10月7日）：</span>数が多く、費用を気にする仕事向け。例は要約や分類。最も速いモデルなので、問い合わせへのその場の対応にも向くとしています</li>
+</ul>
+        <p class="mb-6">Haiku 5.5 の発表は、範囲の狭い仕事に最も向く、とも書いています。込み入ったプログラミングの仕事には、引き続き Sonnet 5.5 と Opus 5.5 のほうが向くという説明です。</p>
+        <p class="mb-6">値段も大きく違います。開発者向けの料金では、Haiku 5.5 は入力・出力とも Sonnet 5.5 の20分の1です（10万トークンまでの依頼。2026年10月9日に Anthropic の発表ページで確認）。ただし、月の利用量をトークン数で数えるサービスでは、安いモデルに替えても、画面で減るトークン数が少なくなるとは限りません。</p>
+        <p class="mb-6">この説明を、自社の仕事の振り分けに当てはめます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">振り分け表は「使うモデル」と「人の確認」を別の列にする</h2>
+        <p class="mb-6">発表の説明を借りると、仕事ごとにどのモデルから試すかの見当が付きます。ここでは、人の確認を同じ列にまとめず、別の列に分けます。小さいモデルで足りるかと、社外に出す前に人が見るかは、別の問いだからです。</p>
+        <p class="mb-6">たとえば口コミへの返信は短い文章なので、小さいモデルでも書けます。それでも、お店の名前で外に出る文章です。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「大きいモデルに任せれば、人の確認は減らせるのでは」</p>
+<p class="mt-2">確認が要るかどうかは、モデルの大きさではなく、その文章を誰が読むかで決めます。社外の人が読む文章なら、どのモデルで書いても出す前に人が読みます。PromnyAI で 4.5 Haiku と sonnet 5 が実際に書いた口コミへの返信文は、次の章で見比べます。</p>
+</div>
+        <p class="mb-6">仕事ごとに2つの列を並べると、次のような形になります。</p>
+        <div class="my-6 overflow-x-auto rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">仕事</th><th class="p-3 font-semibold">使うモデル（まず試すもの）</th><th class="p-3 font-semibold">人の確認</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">打ち合わせメモの社内向け要約</td><td class="p-3">Haiku</td><td class="p-3">日付と担当だけ、元のメモと見比べる</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">問い合わせの振り分け</td><td class="p-3">Haiku</td><td class="p-3">受け取った担当が、中身を読むときに見る</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">口コミ・問い合わせへの返信の下書き</td><td class="p-3">Haiku と Sonnet で試して決める</td><td class="p-3">出す前に必ず人が読む</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">提案書・企画書の下書き</td><td class="p-3">Sonnet。Sonnet の下書きに直す箇所が多ければ Opus でも試す</td><td class="p-3">出す前に必ず人が読む</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">使うモデルの列は、Anthropic の説明を出発点にした仮置きです。自社の文面で試してから書き換えます。人の確認の列は、その文章を社外の人が読むか、お金や約束に触れるかで決めます。モデルの説明からは決まりません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAI で同じ仕事を2つのモデルに頼むと、差はトークンより仕上がりに出た</h2>
+        <p class="mb-6">仮置きにした使うモデルの列を、試験用に作った文面で確かめてみます。私たちの PromnyAI の一覧には、2026年10月9日時点で 5.5 の3つはまだありません。画面の表示名で書くと、選べる Claude は Opus 5・sonnet 5・4.5 Haiku・Fable 5.1 の4つです。新しいモデルが並んだ日にすぐ試せるよう、先に表を作っておきます。今回は、いま選べる 4.5 Haiku と sonnet 5 で試しました。</p>
+        <p class="mb-6">10月9日に、Professional プランで、試験用に作った短い仕事3本を、2つのモデルに1回ずつ頼みました。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01 要約</p><p class="text-sm text-gray-700">打ち合わせメモ（223字）を3行にまとめるよう頼みました。sonnet 5 は3行で、4.5 Haiku は4文の1段落で返しました。</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02 振り分け</p><p class="text-sm text-gray-700">問い合わせ5件を4つの分類に分けるよう頼みました。5件とも、2つのモデルで同じ分類でした。</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03 口コミ返信</p><p class="text-sm text-gray-700">星3つの口コミへの返信を200字程度で頼みました。sonnet 5 は来店のお礼から書き始めました。4.5 Haiku の書き出しは「お返事ありがとうございます」でした。口コミはお店への返事ではないので、この書き出しは場面に合っていません。</p></div>
+</div>
+        <p class="mb-6">2つのモデルの仕上がりの差は、指示の守り方と書き出しに出ました。口コミ返信では、もう1つ気づいたことがあります。sonnet 5 は「提供時間の短縮とお待たせする際の声かけ徹底に努めてまいります」と書きました。4.5 Haiku も「スタッフの意識向上と業務改善に取り組んでまいります」と書いています。どちらも店がまだ決めていない約束で、出す前に人が直す箇所です。</p>
+        <p class="mb-6">消費したトークンは、トークン管理の画面で1本ずつ読みました。どの仕事も1本あたり約2,250〜2,420トークンで、2つのモデルの差は10〜27トークンでした。この3本の短い仕事では、モデルを替えてもトークンの減り方はほとんど変わりませんでした。長い資料や何往復ものやり取りは、まだ測っていません。Haiku の安さを理由にモデルを替えるかどうかは、使っているサービスの利用量の画面で、1本あたりの数字を見てから決めます。</p>
+        <p class="mb-6">結果を表に戻すと、振り分けの行は Haiku のままにします。要約と口コミ返信の行は、4.5 Haiku が形や書き出しを外したので、使うモデルをいったん Sonnet に書き換えます。新しい Haiku が使えるようになったら、同じ文面で確かめ直します。提案書の行は今回試していないので、仮置きのままです。人の確認の列は、どの行も変えません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">新しいモデルが出た日に見直すのは「使うモデル」の列だけ</h2>
+        <p class="mb-6">表ができたら、新しいモデルの発表は、使うモデルの列を見直す合図にします。自社で使っているサービスの一覧に新しいモデルが並んだときに、次の順で確かめます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>表の仕事から、数の多いものを1〜2本選ぶ</li>
+<li>いまのモデルと新しいモデルに、同じ文面で1回ずつ頼む</li>
+<li>指示どおりの形になっているか、書き出しの言葉が相手と場面に合っているか、日付や担当に抜けや誤りがないかを見比べる</li>
+<li>トークン管理など利用量の画面で、1本あたりの消費量を書き留める</li>
+<li>使うモデルの列を書き換える。人の確認の列はそのまま残す</li>
+</ul>
+</div>
+        <p class="mb-6">人の確認の列を見直すのは、その文章を読む相手が変わったときです。社内向けだった要約を、お客様へのお知らせに使い始めたときに、その行の確認を足します。新しいモデルに切り替える日程や戻し方まで決める手順は、別の記事<a href="/blog/new-ai-model-switch-3-steps.html" class="text-emerald-600 hover:text-emerald-700 underline">「AIの新モデルへの切り替え手順」</a>に書いています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">モデルの振り分け表は、数の多い仕事5つから作り始める</h2>
+        <p class="mb-6">ここまでの表も見直しの手順も、最初から全部の仕事でそろえる必要はありません。社内で数の多い仕事を5つ書き出し、2つの列を埋めるところから始めます。</p>
+        <p class="mb-6">表が1枚あれば、新しいモデルが使えるようになった日に見直すのは、使うモデルの列だけです。人の確認の列はモデルの発表では動かさない、と決めておけば、発表のたびに迷わずに済みます。</p>
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">仕事ごとにAIを選び分けながら、誰がどのAIをどれだけ使ったかも確かめたい。その仕組みを検討するときに、サービス資料をご覧ください。PromnyAI は ChatGPT・Claude・Gemini などのAIを1か所で切り替えて使えるプラットフォームで、管理者が利用ログとトークンの消費量を確認できます。申し込むと、1万トークン分のお試しパックが付きます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Claude Haiku 5.5 の発表（2026年10月7日）</a></li><li><a href="https://www.anthropic.com/claude-sonnet-5-5" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Claude Sonnet 5.5 の発表（2026年9月28日）</a></li><li><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Anthropic：Claude Opus 5.5 の発表（2026年9月22日）</a></li><li><a href="/docs/token-management.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI マニュアル：トークン管理</a></li><li><a href="/blog/new-ai-model-switch-3-steps.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIの新モデルへの切り替え手順</a></li><li><a href="/blog/ai-token-pricing-usage-check.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：生成AIのトークンとは — 料金が決まる仕組みと、社内で毎月確かめる利用量</a></li><li><a href="/blog/chatbot-answer-approval-memo.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの回答を公開前に誰が見るか</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

@@ -76,6 +76,7 @@ export default defineConfig({
         'blog-chatbot-answer-approval-memo': resolve(__dirname, 'blog/chatbot-answer-approval-memo.html'),
         'blog-new-ai-model-switch-3-steps': resolve(__dirname, 'blog/new-ai-model-switch-3-steps.html'),
         'blog-cheap-ai-service-3-checks': resolve(__dirname, 'blog/cheap-ai-service-3-checks.html'),
+        'blog-claude-model-choice-by-task': resolve(__dirname, 'blog/claude-model-choice-by-task.html'),
         'blog-ai-token-pricing-usage-check': resolve(__dirname, 'blog/ai-token-pricing-usage-check.html'),
         'blog-ai-text-watermark-company-rule': resolve(__dirname, 'blog/ai-text-watermark-company-rule.html'),
         'blog-ai-model-update-portable-instructions': resolve(__dirname, 'blog/ai-model-update-portable-instructions.html'),
