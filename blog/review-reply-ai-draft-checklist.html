@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/review-reply-ai-draft-checklist.html" />
+  <meta property="og:title" content="口コミ返信をAIで下書きする手順 — 公開前に消す5つと、店主が自分で書く口コミ — PromnyAI" />
+  <meta property="og:description" content="口コミへの返信をAIで下書きするときに、AIに渡すもの、公開前に下書きから消す5つ（来店日・利用内容・名前・まだ決めていない約束・確かめていない原因）、AIの下書きを使わず店主が書く口コミをまとめます。スマホで返信を貼るまでの3手順つき。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/review-reply-ai-draft-checklist.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>口コミ返信をAIで下書きする手順 — 公開前に消す5つと、店主が自分で書く口コミ — PromnyAI</title>
+  <meta name="description" content="口コミへの返信をAIで下書きするときに、AIに渡すもの、公開前に下書きから消す5つ（来店日・利用内容・名前・まだ決めていない約束・確かめていない原因）、AIの下書きを使わず店主が書く口コミをまとめます。スマホで返信を貼るまでの3手順つき。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / 業種別活用</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">口コミ返信をAIで下書きする手順 — 公開前に消す5つと、店主が自分で書く口コミ</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-10-23</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">閉店後にレジを締めてから、スマホで口コミを開きます。星2つで、料理が出るまでの待ち時間への不満が書かれています。返信欄を開いたまま「なんて返せば、言い訳に聞こえないんだろう」と手が止まります。</p>
+        <p class="mb-6">AIに頼めば返信の下書きは作れますが、返信は店の名前で公開されます。下書きは、公開する前にどこまで直せばよいのか。答えは、口コミに書かれていないことを下書きから消し、店で決めたことだけを足すところまでです。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">AIに任せるのは返信の下書きまでです。AIに渡すのは口コミの本文と星の数・投稿日までにし、投稿者の表示名と予約台帳の記録は渡しません。公開前に、口コミに書かれていない来店日・利用内容・名前・まだ決めていない約束・確かめていない原因の5つを、下書きから消します。</p>
+<p class="text-gray-700 leading-[1.9] mt-2">体のこと・お金のこと・スタッフ個人への苦情は、AIの下書きを使わず店主が書きます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">口コミへの返信を読むのは、投稿した本人と、これから店を選ぶ人</h2>
+        <p class="mb-6">メールの返信は、相手1人に届きます。口コミへの返信は、口コミのすぐ下に並んで載ります。読むのは投稿した本人だけではありません。店を探して口コミを見比べている人も、同じ返信を読みます。</p>
+        <p class="mb-6">そのため、返信に書いたことは、店が人前で言ったことになります。次回の割引を書けば、読んだ人は誰でもその約束を目にします。来店した日や頼んだ料理を書けば、投稿した人がいつ何を頼んだかを、ほかの人にも知らせることになります。</p>
+        <p class="mb-6">1対1のメールでも、送る前に数字・約束・言い方の温度を確かめます。口コミの返信では、それに加えて、口コミに書かれていないことを返信に足していないかも見ます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIに渡すのは、口コミの本文と星の数・投稿日だけ</h2>
+        <p class="mb-6">下書きを頼むとき、AIに渡すのは、口コミの本文と星の数・投稿日までにします。投稿者の表示名は口コミと一緒に公開されていますが、これも渡しません。予約台帳の記録も渡しません。</p>
+        <p class="mb-6">予約台帳には、来店日や頼んだメニューが残っています。投稿した人が誰か、店の側で見当がつく場面もあるでしょう。台帳や表示名を渡さなければ、そこにある日付・メニュー・名前がそのまま下書きに写ることはありません。それでも口コミに無い言葉が入ることはあるので、次の章の5つで確かめます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「口コミをAIに貼ったら、そのお客様の文章がAIの学習に使われてしまわない？」</p>
+<p class="mt-2">PromnyAI の公式サイトには「お客様のデータがAIモデルの学習に使用されることはありません」とあります。2026年10月23日に確かめた記載です。ただ、学習に使われないことと、返信に何を書いてよいかは別の話です。返信に何を残すかは、次の章の5つで店が決めます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">公開前に下書きから消す5つ — 来店日・利用内容・名前・決めていない約束・確かめていない原因</h2>
+        <p class="mb-6">AIの下書きができたら、公開前に5つを探して消します。目安は、口コミに書かれていないのに返信に入っていることです。店で決めて自分で足した文だけは残します。台帳を渡していなくても、下書きを直す人が台帳を見ながら書き足す場面はあります。誰が書いた文かを問わず、公開前の最後に確かめます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. 来店日・時間帯：口コミに無い日付や「夜のご来店」のような時間帯が入っていないか</li>
+<li>2. 利用内容：頼んだ料理、受けた施術、買った商品など、投稿した人が書いていないものが入っていないか</li>
+<li>3. 名前：お客様の名前や、担当したスタッフの名前が入っていないか</li>
+<li>4. まだ決めていない約束：値引き、次回の特典、改善の宣言など、店で決めていないことが入っていないか</li>
+<li>5. 確かめていない原因：「当日は人手が足りず」のような理由や、相手の勘違いを指摘する文が入っていないか</li>
+</ul>
+</div>
+        <p class="mb-6">1〜3は文として自然に読めるので、見落としやすい項目です。口コミと返信を横に並べ、口コミに無い言葉に印を付けます。</p>
+        <p class="mb-6">4つ目の約束は、私たちが試したときにも入りました。2026年10月9日、PromnyAI（Professional プラン）のチャットで、Claude の2つのモデルに返信を頼みました。画面の表記は 4.5 Haiku と sonnet 5 で、1回ずつです。渡したのは、料理が出るまでに30分以上かかり、声かけも無かったという、試験用に作った星3つの口コミです。AIへの指示にも、改善策は書いていません。</p>
+        <p class="mb-6">それでも、2つの下書きのどちらにも改善の約束が入っていました。sonnet 5 の下書きには「提供時間の短縮とお待たせする際の声かけ徹底に努めてまいります」とあります。店でまだ決めていなければ、この一文は「お待たせしてしまい、申し訳ありませんでした」に置き換えます。このとき使ったのはチャットで、レビュージェネレーターではありません。</p>
+        <p class="mb-6">約束を消すと、返信がそっけなく見えることがあります。そのときは、店で決めたことだけを足します。待ち時間の目安を店内に貼り出すと決めたなら、その1文を書きます。何も決めていなければ、お詫びと、来てくれたことへのお礼にとどめます。</p>
+        <p class="mb-6">5つ目の原因も同じ考え方です。下書きに「当日は人手が足りず」とあっても、その日に何があったかを店で確かめていなければ、書ける原因はありません。確かめていない原因を公開すると、言い訳に読まれます。相手の勘違いを指摘する文は、事実でも読んだ人には反論に見えます。原因に触れるのは、店で確かめてからにします。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">体のこと・お金のこと・スタッフ個人への苦情は、店主が自分で書く</h2>
+        <p class="mb-6">ここまでは、AIの下書きを使う口コミの話でした。口コミの中には、下書きから始めないほうがよいものもあります。食事のあとに体調を崩した、施術のあとに肌が荒れた、という口コミがその例です。何が起きたかは、口コミの文面だけでは分かりません。店主が事情を聞く前に返信の文を整えても、店として何をするかは決まりません。</p>
+        <p class="mb-6">お金の口コミも同じです。料金が違った、返金してほしい、と書かれていたら、返信の前に店の記録を確かめます。返金するかどうかは、公開の返信で決める話ではありません。スタッフ個人への苦情には、名前を出さずに、店主の言葉で応えます。</p>
+        <p class="mb-6">前の章のとおり、10月9日の試しでは、頼んでいない改善の約束が下書きに入りました。体調や返金の口コミでは試していませんが、同じように約束の文が入れば、店が決めていない補償や返金を人前で約束することになります。</p>
+        <div class="my-6 overflow-x-auto rounded-2xl border border-gray-100">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-emerald-50 text-emerald-800">
+              <tr><th class="p-3 font-semibold">口コミの種類</th><th class="p-3 font-semibold">AIの下書き</th><th class="p-3 font-semibold">公開前に読む人</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+              <tr><td class="p-3 font-semibold text-gray-900">お礼・好意的な感想</td><td class="p-3">使う。5つを消してから出す</td><td class="p-3">返信を担当する人</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">待ち時間・混雑など店への不満</td><td class="p-3">使う。5つを消してから出す</td><td class="p-3">店主か店長</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">体調・肌のトラブル</td><td class="p-3">使わない。事情を聞いてから店主が書く</td><td class="p-3">店主</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">料金の違い・返金の求め</td><td class="p-3">使わない。記録を確かめてから店主が書く</td><td class="p-3">店主</td></tr>
+              <tr><td class="p-3 font-semibold text-gray-900">スタッフ個人への苦情</td><td class="p-3">使わない。名前を出さずに店主が書く</td><td class="p-3">店主</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-6">表の下の3行は、体調・料金・スタッフ個人への苦情です。この3つの返信に書くのは、不快な思いをさせたことへのお詫びと、直接話を聞かせてほしいという案内までです。原因や店の落ち度を認める書き方は、事情を確かめるまでしません。案内には、店がサイトに出している電話番号や窓口を、店で決めた文のまま書きます。この分け方を決めておけば、あとは閉店後に同じ手順で回せます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">スマホで口コミを読んでから、返信を貼るまでの3手順</h2>
+        <p class="mb-6">手順は、閉店後にスマホ1台で回せる形にします。PromnyAI はスマートフォンのブラウザでも使え、業界特化ボットに「レビュージェネレーター」があります。公式サイトの説明は「口コミの返信文を深く分析し、適切な返信文を生成」です。マニュアルは、星の数や投稿日も一緒に貼るよう案内しています（どちらも2026年10月23日に確認）。ほかのAIで下書きする場合も、手順は同じです。</p>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01 分けて渡す</p><p class="text-sm text-gray-700">店主が書く3種類を先に外す。残りは口コミの本文と星の数・投稿日だけを貼る。</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02 消す</p><p class="text-sm text-gray-700">口コミと下書きを並べ、口コミに無い言葉を5つの項目で消す。</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03 読んで貼る</p><p class="text-sm text-gray-700">声に出して読み、店の名前で出せる文か確かめてから、口コミの返信欄に貼る。</p></div>
+</div>
+        <p class="mb-6">返信をスタッフに任せている店なら、01で外す3種類を先に伝えておきます。外した口コミは、店主の手元に回してもらいます。</p>
+        <p class="mb-6">返信する人が2人以上いるなら、AIへの頼み方もそろえます。PromnyAI のプロンプトライブラリでは、よく使う指示文をテンプレートとして保存し、チーム全員で共有できます。たとえば、次の2行をチームで同じ文として保存しておき、口コミを貼るときに、その前へ書き写して送ります。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">指示文の例（口コミの前に付ける2行）</p>
+<p class="text-gray-700 leading-[1.8]">口コミに書かれていないこと（来店日・利用内容・名前・原因）は書かないでください。</p>
+<p class="text-gray-700 leading-[1.8]">店で決めていない約束（値引き・特典・改善策）は書かないでください。</p>
+</div>
+        <p class="mb-6">この2行を入れても、下書きの見直しは省きません。冒頭の星2つの口コミなら、お詫びと来てくれたことへのお礼を書き、当日の原因は店で確かめるまで書きません。言い訳に読まれやすいのは、確かめていない原因の一文です。最後に、5つの項目と店主が書く3種類を紙1枚に書いて、店に置いておきます。誰が返しても、公開前に見る場所が同じになります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">口コミ返信の下書きを、店のスタッフみんなで同じ頼み方で作りたい。その検討には、サービス資料をご覧ください。PromnyAI は ChatGPT・Claude・Gemini などのAIと、口コミ返信やメール返信の業界特化ボットを1か所で使えるプラットフォームで、指示文のテンプレートをチームで共有できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://promnyai.com/" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI 公式サイト（できること・業界特化ボット・セキュリティ。2026年10月23日に確認）</a></li><li><a href="/docs/review-reply.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI マニュアル：レビュージェネレーターの使い方（2026年10月23日に確認）</a></li><li><a href="https://www.ppc.go.jp/personalinfo/pipldial/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：個人情報保護法相談ダイヤル（ガイドラインやQ&amp;Aに沿って質問に答える窓口。適法かどうかの判断は受け付けていない。2026年10月23日に確認）</a></li><li><a href="/blog/ai-privacy-checklist.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに貼る前の個人情報チェックリスト</a></li><li><a href="/blog/ai-email-reply-template-checklist.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIメール返信を「早いけど失礼じゃない」にする</a></li><li><a href="/blog/claude-model-choice-by-task.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：Claude Haiku 5.5 と Sonnet・Opus の使い分け（10月9日の試し方）</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
