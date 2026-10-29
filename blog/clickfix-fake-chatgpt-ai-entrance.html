@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/clickfix-fake-chatgpt-ai-entrance.html" />
+  <meta property="og:title" content="ClickFix対策 — ChatGPTの偽物の画面から「コマンドを貼り付けて」と誘導される手口と、社内で決める3つの約束 — PromnyAI" />
+  <meta property="og:description" content="ClickFix（クリックフィックス）は、偽の確認画面から文字列を貼り付けて実行させる手口です。IPAが紹介した ChatGPT の偽GPT「Plus 5.6」の流れ、アドレスが本物でも見分けられない理由、社内で決める3つ（AIを開く入口・会社のアカウント・貼る前に止まる）、貼ってしまったときの最初の対応と相談先をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/clickfix-fake-chatgpt-ai-entrance.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClickFix対策 — ChatGPTの偽物の画面から「コマンドを貼り付けて」と誘導される手口と、社内で決める3つの約束 — PromnyAI</title>
+  <meta name="description" content="ClickFix（クリックフィックス）は、偽の確認画面から文字列を貼り付けて実行させる手口です。IPAが紹介した ChatGPT の偽GPT「Plus 5.6」の流れ、アドレスが本物でも見分けられない理由、社内で決める3つ（AIを開く入口・会社のアカウント・貼る前に止まる）、貼ってしまったときの最初の対応と相談先をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">ClickFix対策 — ChatGPTの偽物の画面から「コマンドを貼り付けて」と誘導される手口と、社内で決める3つの約束</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-10-30</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">会社のパソコンで「chatgpt」と検索し、開いた ChatGPT の画面に従って進みます。すると確認画面が、文字列を貼り付けて実行するよう求めてきます。ClickFix（クリックフィックス）と呼ばれる手口で、従うとパソコンを外から操作されるウイルスが入ります。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">AIの画面でも確認画面でも、文字列を貼り付けて実行するよう求められたら、従わずに閉じます。アドレスが chatgpt.com や claude.ai のままでも、中身を書いたのが攻撃者のことがあります。</p>
+<p class="text-gray-700 leading-[1.9] mt-2">社内では、AIを開く入口、業務で使うアカウント、貼る前に止まる約束の3つを先に決めます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ChatGPTの画面に「予備のアドレスで続けて」と出た — IPAが紹介した偽GPTの流れ</h2>
+        <p class="mb-6">利用者の画面に出たものを、順に並べます。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">段階</th><th class="p-3 border-b border-gray-200">画面に出たもの</th><th class="p-3 border-b border-gray-200">本物に見えた理由</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">1 検索</td><td class="p-3 border-b border-gray-100">Google で「chatgpt」と検索すると、広告枠の結果が出る</td><td class="p-3 border-b border-gray-100">検索結果のいちばん上にある</td></tr>
+<tr><td class="p-3 border-b border-gray-100">2 偽のGPT</td><td class="p-3 border-b border-gray-100">chatgpt.com の上で「Plus 5.6」という名前のカスタムGPT（利用者が作って公開できる ChatGPT）が開く</td><td class="p-3 border-b border-gray-100">アドレスも画面の作りも ChatGPT のまま。有料版を思わせる名前</td></tr>
+<tr><td class="p-3 border-b border-gray-100">3 お知らせ</td><td class="p-3 border-b border-gray-100">主なアドレスの利用が限られている。有料版に上げるか、予備のアドレスで続けてほしい</td><td class="p-3 border-b border-gray-100">サービス側からの案内の形をとる</td></tr>
+<tr><td class="p-3 border-b border-gray-100">4 確認画面</td><td class="p-3 border-b border-gray-100">予備のアドレスとして、Cloudflare の確認画面に似せたページが開く</td><td class="p-3 border-b border-gray-100">人間かどうかの確認は、ふだんのサイトでも見る画面</td></tr>
+<tr><td class="p-3">5 貼り付け</td><td class="p-3">表示された文字列をコピーし、ターミナル（命令を文字で打ち込む画面）に貼り付けて実行するよう求める</td><td class="p-3">確認の手順の続きに見える</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">この流れは、セキュリティ会社 Huntress が9月下旬に報告したものです。情報処理推進機構（IPA）も、10月16日の「AIセキュリティ短信 2026年10月号」で紹介しました。実行すると、画面を外から操作したり、カメラやマイクを勝手に使ったりできるウイルスが入ります。Huntress は、誘導先のページに関わる事案に少なくとも40件対応し、うち2件がカスタムGPTを経由していたと確かめました。</p>
+        <p class="mb-6">Huntress の連絡を受けて、最初のGPTは9月25日までに削除されました。ところが9月27日には、同じ攻撃につながる新しいGPTが見つかっています。削除を待つだけでは追いつかないので、社内の約束で止めます。</p>
+        <p class="mb-6">ClickFix そのものは、AIに限らず使われてきた手口です。大阪府警は、Windows キーとRキー、Ctrl キーとVキー、Enter キーの3つの操作で実行まで進むと説明しています。今回の新しい点は、その手前の入口がAIのチャット画面だったことです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">アドレスが chatgpt.com のままなら、なぜ見分けられないのか</h2>
+        <p class="mb-6">怪しいサイトの見分け方として、アドレスを確かめる方法があります。今回は、それが効きません。偽のGPTは chatgpt.com の上にあり、画面の作りも本物の ChatGPT と同じです。作成者の欄も、Huntress の報告では「community builder（利用者の作り手）」と出ていただけでした。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「本物のアドレスなら、書いてあることも本物なのでは」</p>
+<p class="mt-2">アドレスで分かるのは、どの会社の場所に置かれているかまでです。カスタムGPTは、利用者が作って公開できる ChatGPT なので、中身を誰が書いたかまでは分かりません。見分ける手がかりにするのは、アドレスではなく、求められている操作のほうです。</p>
+</div>
+        <p class="mb-6">Claude でも、似た手口が報告されています。トレンドマイクロは2026年6月に、検索広告から claude.ai の共有チャットへ誘導する手口を確認しました。共有チャットは会話をリンクで人に見せる機能で、その中にターミナルを開いて文字列を貼り付ける手順が並んでいました。被害はアジア太平洋に集中し、日本も上位に入っていたとしています。通報を受けた Anthropic は、該当のアカウントを止めています。</p>
+        <p class="mb-6">チャットの答えが「ターミナルを開いて」「この文字列を貼り付けて」と言ってきたら、それは文章の相談ではなく、パソコンを操作させる指示です。メール返信やブログの下書きをAIに頼む仕事で、パソコンに命令の文字列を入れる手順はふつう要りません。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社内で決める3つ — 開く入口・会社のアカウント・貼る前に止まる</h2>
+        <p class="mb-6">誘導は検索から始まり、貼り付けで終わります。社内で決めることも、この入口と出口に1つずつ置きます。もう1つは、誰がどのAIを使っているかを、会社から見える状態にしておくためのアカウントです。</p>
+        <p class="mb-6">1つ目は、AIを社内で決めたブックマークから開くことです。社内の案内に正しいアドレスを1つだけ載せ、各自のブラウザのブックマークに入れてもらいます。スマホで使う人には、ホーム画面に置く形で案内します。</p>
+        <p class="mb-6">2つ目は、業務のAIを会社が発行したアカウントで使うことです。個人のアカウントで起きたことは、会社からは見えません。会社のアカウントにしておけば、何かあったときに、どのAIがいつ使われたかを管理者が確かめる道が残ります。IPAの短信も、AIが社内の画像を公開してしまった事例で、個人アカウントの分には会社が気づけなかったと紹介しています。</p>
+        <p class="mb-6">3つ目は、画面がキー操作や貼り付けを求めたら、従わずに閉じて、パソコンを管理している人に知らせることです。大阪府警も、ネットを見ているときにキーボード操作を求められても従わないよう呼びかけています。管理する人に向けては、PowerShell（Windows で命令を文字で動かす機能）を使えなくする設定の検討も挙げています。社員に頼むのは「従わずに知らせる」の1つです。</p>
+
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">社内の案内に載せる文の例</p>
+<p>「業務でAIを使うときは、このブックマークから開いてください（アドレスは社内で決めたもの）。ログインは、会社が発行したアカウントで行います。検索結果や広告から開いた画面は使いません。」</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">入口を1つにすると何が変わるか — PromnyAI の場合</h2>
+        <p class="mb-6">入口が1つなら、社内の案内に載せるアドレスも1つで済みます。例として、私たちの PromnyAI に、ブックマークで開く入口と、会社が発行するアカウントの2つを当てはめます。PromnyAI では、ChatGPT・Claude・Gemini など27種類のAIを1つのアカウントで使えます。種類の数は10月30日に公式サイトで確かめました。管理者がメンバーのアカウントの発行と削除をまとめて行い、誰が・いつ・どのAIを使ったかを利用の記録（ログ）で確かめられます。</p>
+        <p class="mb-6">ただ、入口を1つにしても、画面が貼り付けを求めたときに従えば、パソコンにウイルスが入ります。PromnyAI でそろえられるのは、入口とアカウントまでです。3つ目の「貼る前に止まる」は、どのAIを使っていても社内の約束として残ります。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">貼ってしまったら、まず何をするか</h2>
+        <p class="mb-6">貼り付けて実行してしまったときに、そのパソコンで作業を続けないでください。すぐにパソコンを管理している人へ知らせ、扱いを任せます。Huntress の報告では、このウイルスは起動時に自分を動かす仕組みを2つ置いていました。動いている間に片方を消しても、数分で元に戻されています。管理を兼ねているのが自分でも、手作業で消そうとせず、専門の窓口に相談します。</p>
+        <p class="mb-6">相談先は、IPAが目的別に設けています。どこに連絡するか迷ったときは、下の2つ目の窓口へ、とIPAは案内しています。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">相談先</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. 外から入られたおそれがあるとき：IPA「不正アクセス特別相談窓口（事業者向け）」。電話（平日）とメールで受付。2026年10月16日公開のIPAの特設サイトで案内</li>
+<li>2. どこに連絡するか迷うとき：IPA「企業組織向けサイバーセキュリティ相談窓口」。メールで受付</li>
+</ul>
+</div>
+        <p class="mb-6">パスワードは、そのパソコンではなく別の端末から変えます。ログイン中の端末も、すべてログアウトさせます。手順は、別の記事<a href="/blog/cheap-ai-service-3-checks.html" class="text-emerald-600 hover:text-emerald-700 underline">「ChatGPT・Claudeを安く使えるサービスの見分け方」</a>の「入れてしまったら」の章にまとめています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社員に配る4行 — 社内の約束にそのまま足せる形</h2>
+        <p class="mb-6">上の案内の文例に、貼り付けのときの行動を足して、社員に配る4行にします。3つ目の約束は、その場で閉じることと、貼ってしまった後に知らせることの2行に分けました。1と2は会社が入口とアカウントを用意して守ってもらうもの、3と4は社員一人ひとりがその場で守るものです。新しく入った人にAIのアカウントを渡すときに、この4行も一緒に渡します。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">社員に配る4行</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. AIは社内で決めたブックマークから開く。検索結果や広告からは開かない</li>
+<li>2. 業務のAIは、会社が発行したアカウントで使う</li>
+<li>3. AIの画面でも確認画面でも、キー操作や貼り付けを求められたら閉じて知らせる</li>
+<li>4. 貼ってしまったら、そのパソコンで作業を続けず、すぐに知らせる</li>
+</ul>
+</div>
+        <p class="mb-6">冒頭の場面なら、検索せずにブックマークから開いた時点で、偽のGPTには行き着きません。行き着いてしまっても、この手口でウイルスを動かすのは貼り付けて実行する操作です。そこで閉じれば、実行までは進みません。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">社内のAIを、会社が発行したアカウントと1つの入口にそろえたい。その検討には、サービス資料をご覧ください。PromnyAI は ChatGPT・Claude・Gemini などのAIを1か所で使えるプラットフォームで、管理者がメンバーのアカウントと利用ログをまとめて確かめられます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.ipa.go.jp/digital/ai/security/ai-security-bulletin.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">情報処理推進機構（IPA）：AIセキュリティ短信（2026年10月号の3.15「ChatGPT のカスタム GPT 悪用、ClickFix で RAT 配布」と⑤。2026年10月30日に確認）</a></li><li><a href="https://www.huntress.com/blog/chatgpt-custom-gpts-clickfix-rat" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Huntress：Attackers Abuse ChatGPT Custom GPTs to Deliver RAT via ClickFix（英語。2026年10月30日に確認）</a></li><li><a href="https://www.trendmicro.com/ja_jp/jp-security/25/i/securitytrend-20250905-01.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">トレンドマイクロ：ClickFix（クリックフィックス）とは？（claude.ai の共有チャットを悪用した手口。2026年10月30日に確認）</a></li><li><a href="https://www.police.pref.osaka.lg.jp/seikatsu/saiba/cyber_shiryou/cybersecurity_tsushin/8/24567.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">大阪府警察：ClickFix（クリックフィックス）とは（2026年10月30日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/support/soudan.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：サイバーセキュリティ 相談・届出窓口一覧（企業組織向けサイバーセキュリティ相談窓口。2026年10月30日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/support/incident-support.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：不正アクセス対策特設サイト（不正アクセス特別相談窓口。2026年10月30日に確認）</a></li><li><a href="https://promnyai.com/" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI 公式サイト（使えるAI・アカウント管理・利用ログ・対応端末。2026年10月30日に確認）</a></li><li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール — 最初に決める5つの約束</a></li><li><a href="/blog/cheap-ai-service-3-checks.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：ChatGPT・Claudeを安く使えるサービスの見分け方</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
