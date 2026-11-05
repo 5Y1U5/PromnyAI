@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/copilot-claude-data-location.html" />
+  <meta property="og:title" content="Microsoft CopilotのClaude設定とデータの保存先 — 処理の場所と委託先の確かめ方 — PromnyAI" />
+  <meta property="og:description" content="Microsoft Copilot の Claude は、EU・英国などを除く商用クラウドのほとんどの顧客で既定で有効です。データの保存と処理の場所は別の話で、関わる会社も増えます。保存先・処理の場所・関わる会社の3つを、管理センターと公式ページで確かめる順番、問い合わせ文、社内に渡す1枚の形をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/copilot-claude-data-location.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microsoft CopilotのClaude設定とデータの保存先 — 処理の場所と委託先の確かめ方 — PromnyAI</title>
+  <meta name="description" content="Microsoft Copilot の Claude は、EU・英国などを除く商用クラウドのほとんどの顧客で既定で有効です。データの保存と処理の場所は別の話で、関わる会社も増えます。保存先・処理の場所・関わる会社の3つを、管理センターと公式ページで確かめる順番、問い合わせ文、社内に渡す1枚の形をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">Microsoft CopilotのClaude設定とデータの保存先 — 処理の場所と委託先の確かめ方</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-11-06</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">「Copilot に入れたデータは、日本にあるんだよね」。社長にこう聞かれて、そのまま「はい」と答えそうになったときは、一度止まってください。Microsoft の公式文書は、データの保存と処理の場所を別々に説明しています。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">「保管は日本」だけでは、社内の質問に答えきれません。確かめるのは、保存先・処理の場所・関わる会社（委託先）の3つです。</p>
+<p class="text-gray-700 leading-[1.9] mt-2">Copilot なら、Microsoft 365 管理センターの「Microsoft のサブプロセッサとして動作する AI プロバイダー」で、Claude と OpenAI のモデルを誰が使えるかを見ます。保存先は同じ管理センターの「データの場所」のカード、処理の場所は Microsoft Learn の説明で確かめます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">11月5日の発表のあと、日本のCopilotのClaudeはどう扱われるのか</h2>
+        <p class="mb-6">今回の発表で、日本の会社の扱いが変わるとは書かれていません。Microsoft は2026年11月5日、Copilot の Claude を年末までに EU データ境界の中で処理すると発表しました。EU データ境界は、データの保存と処理を EU と EFTA（欧州自由貿易連合）の中で行う Microsoft の約束です。発表の対象は、EU と EFTA の組織です。</p>
+        <p class="mb-6">日本の担当者が読むべきは、発表の前提です。今の Claude は、EU データ境界の約束の外にあります。Claude の提供元である Anthropic は、Microsoft の委託先（サブプロセッサー）という扱いです。</p>
+        <p class="mb-6">日本の中で処理する約束はどうなっているのか。Microsoft の国内処理の発表に2026年4月3日に足された追記では、日本国内で処理する対応は2028年の見込みです。当初は2025年末までの予定でした。さらに Microsoft Learn（2026年11月4日更新）は、国内処理の約束がある場合も Claude は対象外と書いています。</p>
+        <p class="mb-6">設定の初期値も地域で違います。同じ Learn のページによると、商用クラウドのほとんどの顧客で Claude は既定で有効です。除外として名前があるのは EU、EFTA、英国で、日本の名前はありません。導入の手続きをした覚えがなくても、管理者が制限していなければ、社員が Claude を選べる状態かもしれません。</p>
+        <p class="mb-6">OpenAI のモデルにも、Claude と同じく Microsoft の委託先として動くものがあります。OpenAI が自ら動かすモデルは、2026年7月24日から、管理者が「ユーザーなし」にしていなければ、対象の商用顧客の全員で有効です。国内処理の約束の対象外という点も Claude と同じです。Microsoft が自社で動かす OpenAI のモデルは別の扱いで、委託先の設定を切っても使えます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「Copilot は全部 Microsoft の中で動いているのでは」</p>
+<p class="mt-2">Microsoft が自ら運用するモデルについては、データが Microsoft の外に出ないと公式文書で説明されています。Claude と、OpenAI が自ら動かすモデルは別です。提供元の会社が委託先として処理に関わり、Microsoft が契約で監督すると説明されています。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">「保管は日本」で答えられない2つ — 処理の場所と関わる会社</h2>
+        <p class="mb-6">ここまで読むと、社長の質問に「はい」の一言では返せないと分かります。データの行き先を聞かれたときは、問いを3つに分けます。Copilot の記載を並べると、次のようになります。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">確かめること</th><th class="p-3 border-b border-gray-200">何を聞いているか</th><th class="p-3 border-b border-gray-200">Copilot の公式の記載（2026年11月6日確認）</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">保存先</td><td class="p-3 border-b border-gray-100">入れた文章とやり取りが、どこに残るか</td><td class="p-3 border-b border-gray-100">組織ごとの場所は、管理センターの「データの場所」のカードで見る。Microsoft 365 Copilot は載るが、Copilot Chat は載らない</td></tr>
+<tr><td class="p-3 border-b border-gray-100">処理の場所</td><td class="p-3 border-b border-gray-100">AIが答えを作るとき、どこで動くか</td><td class="p-3 border-b border-gray-100">EU の外の顧客の問い合わせは、米国、EU、その他の地域で処理される場合がある。混み合うと他の地域も使う</td></tr>
+<tr><td class="p-3 border-b border-gray-100">関わる会社</td><td class="p-3 border-b border-gray-100">Microsoft のほかに誰が扱うか</td><td class="p-3 border-b border-gray-100">Learn に委託先として説明があるAIモデルの提供元は Anthropic と OpenAI。誰が使えるかは管理者が決める。委託先の全体は Service Trust Portal の一覧で見る</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">保存先だけを見て「日本です」と答えると、下の2行が抜けます。取引先との契約に「国外に出さない」とある会社は、ここで止まってください。その約束が処理の場所まで含むのかは、契約書を読まないと分かりません。当てはまるかの判断は、契約の担当者や顧問の専門家に任せます。</p>
+        <p class="mb-6">保存先の欄にも、未確認が残ります。既定の設定で Claude を使ったときに限った保存先の説明は、確かめたページには見当たりませんでした。メモに「Claude 利用時は未確認」と書き、後の問い合わせ文で Microsoft の窓口に聞きます。</p>
+        <p class="mb-6">学習に使うかどうかは、この3つとは別の問いです。Microsoft は、プロンプトと回答を基盤モデルの学習に使わないと書いています。それでも、処理の場所の答えにはなりません。次は3つを順に確かめます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">Copilotを契約している会社が開く画面はどれか</h2>
+        <p class="mb-6">ここからは、法人で Copilot を使っている会社の手順です。個人向けの Copilot は別の話になります。委託先の設定を操作できるのは、AI 管理者かグローバル管理者です。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">3つを確かめる7つの手順</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. 保存先: Microsoft 365 管理センターの「設定」から「組織の設定」「組織プロファイル」「データの場所」と進み、カードを見る</li>
+<li>2. 処理の場所: Microsoft Learn の「Microsoft Copilot のデータ、プライバシー、セキュリティ」を読み、書かれている地域と URL を控える</li>
+<li>3. 関わる会社: 管理センターの「Copilot」から「設定」を開き、「すべて表示」または「ユーザー アクセス」に進む</li>
+<li>4. 「Microsoft のサブプロセッサとして動作する AI プロバイダー」を選ぶ（英語の画面は AI providers operating as Microsoft subprocessors）</li>
+<li>5. Anthropic と OpenAI について、全員・一部の人・誰も使えない、のどれかを見る</li>
+<li>6. 「データ保持付き Anthropic モデル」の設定が、オフのままかを見る</li>
+<li>7. 見た日と画面の状態を、メモに書く</li>
+</ul>
+</div>
+        <p class="mb-6">画面の名前は Microsoft Learn の日本語版（機械翻訳）から取ったもので、私たちが実際の管理画面で確かめたものではありません。言葉が違う場合は、英語の名前で探してください。</p>
+        <p class="mb-6">手順1のカードには「現在の地理」と「コミットされた地理」の列があります。前者は今データがある場所、後者は Microsoft が保存を約束する場所です。約束が無ければ「コミットメントなし」と出ます。Copilot Chat だけの会社は、カードに載らないので Learn と窓口で確かめます。</p>
+        <p class="mb-6">手順6の「データ保持付き Anthropic モデル」は既定でオフです。オンにすると、Anthropic がほとんどの入力と出力を最長30日保存します。この保存は Microsoft の契約の対象外です。違反の可能性があると判定された内容は、最長2年保持される場合もあります。オンにするなら、Anthropic の条件も読みます。</p>
+        <p class="mb-6">見た後は、切る以外に、使う人をグループで絞る方法もあります。Microsoft は、Anthropic を切ると使えなくなる機能があると書いています。切っても絞っても、処理が国内に収まるとは公式文書に書かれていません。</p>
+        <p class="mb-6">取引先との契約に国外処理の制限がありそうなら、確認が済むまで、その取引先の資料を Copilot に入れないと決めます。制限が無いと確かめて全員のままにするなら、Anthropic と OpenAI が関わると承知したうえで、理由と一緒にメモに残します。個人情報を入力する場合の扱いは別に確かめ、顧問の専門家に任せます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">公式ページに処理の場所が書かれていないAIサービスには、何を聞くか</h2>
+        <p class="mb-6">Copilot で未確認が残った欄も、社内で使う ChatGPT や Gemini も、問いは同じです。先に公式のセキュリティのページで「保管」「リージョン」を探し、次に委託先の一覧を探します。</p>
+        <p class="mb-6">書かれていないことを「無い」とも「国内だけ」とも読まないでください。読めるのは「このページからは分からない」までです。メモ（6行の中身は最後の章で示します）に「未確認」と書き、提供元に聞きます。次の文面は、そのまま問い合わせフォームに貼れます。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">問い合わせ文の例</p>
+<p>御社のサービスを社内で使うにあたり、3点を教えてください。</p>
+<p class="mt-2">1 入力した文章と回答を保存する国・地域<br />2 AIが回答を作るときに処理を行う国・地域<br />3 処理に関わる外部の会社の一覧</p>
+<p class="mt-2">公開のページがあれば、URL をいただければ十分です。</p>
+</div>
+        <p class="mb-6">返事が来たら、日付と一緒にメモへ写します。返事が来ない、または答えられないと言われたときも、そのまま「未確認」として残します。空欄にしないことで、次に見る人が調べ直す手間を減らせます。同じ問いを、私たちのページにも向けます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">PromnyAIの処理の国は、公式ページで分かるか</h2>
+        <p class="mb-6">PromnyAI の公式ページで言えるのは「Google Cloud 上の保管は東京」までです。「処理も国内」とは言えません。私たちも、自社のセキュリティのページを同じ3項目で読み直しました（2026年11月6日）。私たちのページにも、書いてあることと書いていないことがあります。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">確かめること</th><th class="p-3 border-b border-gray-200">書いてあること</th><th class="p-3 border-b border-gray-200">書いていないこと</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">保存先</td><td class="p-3 border-b border-gray-100">Google Cloud 東京リージョン（asia-northeast1）に保管</td><td class="p-3 border-b border-gray-100">Dify（AIアプリケーション基盤）の側で記録が残る場合の場所</td></tr>
+<tr><td class="p-3 border-b border-gray-100">処理の場所</td><td class="p-3 border-b border-gray-100">AIへの送信は応答を作る目的に限る</td><td class="p-3 border-b border-gray-100">AIの提供元と Dify が処理する国・地域</td></tr>
+<tr><td class="p-3 border-b border-gray-100">関わる会社</td><td class="p-3 border-b border-gray-100">Google Cloud、Dify、Stripe、AIの提供元として OpenAI・Anthropic・Google</td><td class="p-3 border-b border-gray-100">Grok と Perplexity の提供元（どちらも使えるAIの一覧にあるが、このページに名前が無い）</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">学習については、公式ページに「お客様のデータはAIモデルの学習用に利用されることはありません」とあります。提供元ごとの記載があるのは OpenAI・Anthropic・Google です。社内の決まりで処理の場所や委託先まで確かめる必要があれば、上の問い合わせ文をお問い合わせフォームに送ってください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社内で聞かれたときに渡す1枚には何を書くか</h2>
+        <p class="mb-6">ここまでメモに書いてきたことは、聞かれた人の頭の中に置かず、1枚にまとめます。次に社長や取引先に聞かれたときに、調べ直さずに渡せるからです。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">1枚に書く6行</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>サービス名と契約の種類</li>
+<li>保存先（出典の URL）</li>
+<li>処理の場所（出典の URL）</li>
+<li>関わる会社（出典の URL）、社内で使える人、そう決めた理由</li>
+<li>確認した日と、確認した人</li>
+<li>未確認の項目と、聞いた先</li>
+</ul>
+</div>
+        <p class="mb-6">確認した日を外さないでください。Microsoft Learn の Claude のページは2026年11月4日に更新され、EU の扱いは年末までに変わる予定です。日本の国内処理の見込みも、2026年4月の追記で2028年に変わりました。自社のメモも、見直す月を決めておきます。</p>
+        <p class="mb-6">「未確認」が残ったサービスに何を入れるかは、次の判断です。資料の仕分けは、別の記事<a href="/blog/ai-internal-documents-sorting-table.html" class="text-emerald-600 hover:text-emerald-700 underline">「AIに社内資料を読ませる前に分けているか」</a>にまとめています。処理の場所が分からないサービスには、取引先との約束がある資料を入れない、という分け方があります。</p>
+        <p class="mb-6">冒頭の質問に戻ります。「日本にあるんだよね」には、保存先、処理の場所、関わる会社の順に答え、最後に Claude を社内で使える人を添えます。分からない欄は「未確認で、提供元に聞いています」と言えば足ります。どこまで分かっていて、どこを聞いているかが、社長にも伝わります。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">AIサービスを社内で比べるときは、同じ3つの欄で並べると抜けが見えます。PromnyAI の検討には、サービス資料をご覧ください。ページに載っていない項目は、お問い合わせからお聞きください。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.microsoft.com/en-us/copilot/blog/2026/11/05/bringing-claude-models-in-microsoft-copilot-into-the-eu-data-boundary/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft：Bringing Claude models in Microsoft Copilot into the EU Data Boundary（英語。2026年11月5日公開。2026年11月6日に確認）</a></li><li><a href="https://learn.microsoft.com/ja-jp/copilot/implement/connect-to-ai-subprocessor" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft Learn：Microsoft Online Services の Anthropic の Claude モデル（2026年11月4日更新。2026年11月6日に確認）</a></li><li><a href="https://learn.microsoft.com/ja-jp/copilot/implement/openai-subprocessor" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft Learn：Microsoft Online Services のサブプロセッサとしての OpenAI（2026年11月6日に確認）</a></li><li><a href="https://learn.microsoft.com/ja-jp/copilot/plan/microsoft-365-copilot-privacy" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft Learn：Microsoft Copilot のデータ、プライバシー、セキュリティ（処理の場所と学習の扱い。2026年11月6日に確認）</a></li><li><a href="https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/m365-dr-data-location-card" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft Learn：データ ロケーション カード（開き方と列の意味。2026年11月6日に確認）</a></li><li><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/04/microsoft-offers-in-country-data-processing-to-15-countries-to-strengthen-sovereign-controls-for-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Microsoft：in-country data processing の発表（英語。日本の2028年は2026年4月3日の追記。2026年11月6日に確認）</a></li><li><a href="/security.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI セキュリティ（保管先と提供元の一覧。2026年11月6日に確認）</a></li><li><a href="/blog/ai-chatbot-data-retention-deletion-rule.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットのデータを残しっぱなしにしていないか — 小さな会社の“保存・削除ルール”</a></li><li><a href="/blog/company-info-ai-boundaries.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに会社情報を入れる前に決める3つの境界線</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

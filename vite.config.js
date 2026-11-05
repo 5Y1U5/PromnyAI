@@ -79,6 +79,7 @@ export default defineConfig({
         'blog-claude-usage-policy-chatbot-disclosure': resolve(__dirname, 'blog/claude-usage-policy-chatbot-disclosure.html'),
         'blog-review-reply-ai-draft-checklist': resolve(__dirname, 'blog/review-reply-ai-draft-checklist.html'),
         'blog-clickfix-fake-chatgpt-ai-entrance': resolve(__dirname, 'blog/clickfix-fake-chatgpt-ai-entrance.html'),
+        'blog-copilot-claude-data-location': resolve(__dirname, 'blog/copilot-claude-data-location.html'),
         'blog-claude-model-choice-by-task': resolve(__dirname, 'blog/claude-model-choice-by-task.html'),
         'blog-ai-token-pricing-usage-check': resolve(__dirname, 'blog/ai-token-pricing-usage-check.html'),
         'blog-ai-text-watermark-company-rule': resolve(__dirname, 'blog/ai-text-watermark-company-rule.html'),
