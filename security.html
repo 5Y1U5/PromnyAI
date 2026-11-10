@@ -114,7 +114,7 @@
             <span class="material-icons-outlined text-emerald-500">visibility_off</span>
           </div>
           <h3 class="font-bold text-gray-900 mb-2">AI処理のプライバシー</h3>
-          <p class="text-sm text-gray-500 leading-relaxed">お客様のデータはAIモデルの学習用に利用されることはありません。AIへの送信は応答生成の目的のみに限定されており、処理後のデータはモデル側に保持されません。</p>
+          <p class="text-sm text-gray-500 leading-relaxed">お客様のデータはAIモデルの学習用に利用されることはありません。AIへの送信は応答生成の目的のみに限定しています。なお、AIの提供元は不正利用の監視などのため、受け取った入力と出力を一定期間保存する場合があります（期間は提供元の規約によります）。</p>
         </div>
 
         <!-- 5. データ削除 -->
@@ -206,6 +206,10 @@
                 <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
                 全アクセス履歴のログ記録・自動バックアップ
               </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-gray-400 text-[16px] mt-0.5">info</span>
+                業界特化AIと Perplexity は Dify（運営: 米国 LangGenius, Inc.）を経由して処理
+              </li>
             </ul>
           </div>
 
@@ -252,25 +256,33 @@
               </div>
               <div>
                 <h3 class="font-bold text-gray-900 text-sm">LLMプロバイダー</h3>
-                <p class="text-[10px] text-gray-400">OpenAI / Anthropic / Google</p>
+                <p class="text-[10px] text-gray-400">OpenAI / Anthropic / Google / xAI / Perplexity</p>
               </div>
             </div>
             <ul class="space-y-2 text-sm text-gray-500">
               <li class="flex items-start gap-2">
                 <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
-                全プロバイダーがSOC 2 Type II認証取得
+                Grok は xAI、Perplexity は Perplexity の提供（Perplexity は Dify 経由で接続）
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
-                API経由のデータはモデル学習に不使用
+                ChatGPT・Claude・Gemini・Grok との文章のやり取りは、Dify を経由せず各提供元へ直接送信
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                OpenAI・Anthropic・Google：SOC 2 Type II認証取得
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
+                API経由のデータはモデル学習に不使用（各提供元の API 規約）
               </li>
               <li class="flex items-start gap-2">
                 <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
                 OpenAI・Anthropic：ISO 27001認証取得
               </li>
               <li class="flex items-start gap-2">
-                <span class="material-icons-outlined text-emerald-500 text-[16px] mt-0.5">check</span>
-                処理後のデータはプロバイダー側に保持されません
+                <span class="material-icons-outlined text-gray-400 text-[16px] mt-0.5">info</span>
+                不正利用の監視などのため、提供元が入力と出力を一定期間保存する場合があります（OpenAI・Anthropic・xAI は最長30日など。Claude Fable 5.1 は提供元の決まりで30日以上保存）
               </li>
             </ul>
           </div>
