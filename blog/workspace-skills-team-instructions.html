@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/workspace-skills-team-instructions.html" />
+  <meta property="og:title" content="AIへの指示をチームで配る前に確かめること — Google Workspace の skills と、自社側に残す指示文 — PromnyAI" />
+  <meta property="og:description" content="Google Workspace skills の利用条件と共有の注意点を整理。英語のみ、対応アプリ、独立コピー、Drive の参照権限、自動同期の有無を確認し、社内で指示文を管理する方法を提案します。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/workspace-skills-team-instructions.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIへの指示をチームで配る前に確かめること — Google Workspace の skills と、自社側に残す指示文 — PromnyAI</title>
+  <meta name="description" content="Google Workspace skills の利用条件と共有の注意点を整理。英語のみ、対応アプリ、独立コピー、Drive の参照権限、自動同期の有無を確認し、社内で指示文を管理する方法を提案します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-7" />
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">AIへの指示をチームで配る前に確かめること — Google Workspace の skills と、自社側に残す指示文</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-11-13</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">使いたい指示文が、担当者のチャット履歴にしかない。そんな状態では、担当者が不在のときに最新版を確かめにくくなります。チームで使う指示文は、どこに置き、どう配ればよいのでしょうか。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">2026年11月、Google Workspace の skills の展開が始まりました。利用条件と共有の仕組みを確認してから、社内で使う範囲を決めましょう。</p>
+<p class="text-gray-700 leading-[1.9] mt-2">以下は、公式仕様を踏まえた運用の提案です。配る前に言語・対応アプリ・コピーの扱い・参照権限・同期を確認し、社内で原本の置き場所を決めます。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">指示文と一緒に何を共有するか</h2>
+        <p class="mb-6">指示文だけでなく、入力しない情報と人が確認する範囲も共有する案です。履歴から抜き出す際は、顧客名や社内情報が残っていないか確かめてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">2026年11月に始まった Workspace の skills とは何か</h2>
+        <p class="mb-6">2026年11月10日の Google Workspace Updates によると、skills は再利用できるカスタム指示です。チームのルール、テンプレート、参考ファイルを Gemini が使うように指示します。</p>
+        <p class="mb-6">Workspace Studio と Google Docs で作成・テスト・共有できます。Studio では Markdown 形式の SKILL.md を直接編集できます。</p>
+        <p class="mb-6">対応するのは Gmail / Docs / Slides / Drive / Chat です。有効にした skill は、関連すると判断された場面で使われ、@mention で指定することもできます。</p>
+        <p class="mb-6">Rapid Release は2026年11月9日から最大15日かけて展開され、Scheduled Release は11月30日からです。対象は Business Starter / Standard / Plus などで、18歳以上の利用者向けです。</p>
+        <p class="mb-6">対象エディションでは既定でオンですが、管理者が無効化できます。対象であっても、展開状況と自社の管理設定を確認してから案内しましょう。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">共有前に確かめる言語・アプリ・権限</h2>
+        <p class="mb-6">以下は2026年11月12日に確認済みの公式情報です。右の列は、それに対応する社内運用の提案です。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">確かめること</th><th class="p-3 border-b border-gray-200">公式の記載（2026年11月12日確認）</th><th class="p-3 border-b border-gray-200">配る側がすること</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">言語</td><td class="p-3 border-b border-gray-100">現在、英語のプロンプトと指示のみ</td><td class="p-3 border-b border-gray-100">日本語の指示文をそのまま載せる前提で計画を立てない</td></tr>
+<tr><td class="p-3 border-b border-gray-100">使えるアプリ</td><td class="p-3 border-b border-gray-100">Google Sheets と Google Meet ではまだ使えない</td><td class="p-3 border-b border-gray-100">Sheets・Meet 内で使う前提にしない</td></tr>
+<tr><td class="p-3 border-b border-gray-100">共有の形</td><td class="p-3 border-b border-gray-100">Studio からの共有は相手の独立したコピーになり、あとから元を直しても既に保存したコピーは上書きされない</td><td class="p-3 border-b border-gray-100">直したときに配り直す段取りを決める</td></tr>
+<tr><td class="p-3 border-b border-gray-100">参照ファイル</td><td class="p-3 border-b border-gray-100">skill が Drive ファイルを参照するなら、そのファイルの共有も必要</td><td class="p-3 border-b border-gray-100">指示と一緒に、参照先の共有範囲も確認する</td></tr>
+<tr><td class="p-3 border-b border-gray-100">Gemini アプリとの同期</td><td class="p-3 border-b border-gray-100">Workspace で作った skills は Gemini アプリの skills / Gems と自動同期しない</td><td class="p-3 border-b border-gray-100">両方で使う場合は、それぞれの設定と更新方法を確認する</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">共有先は独立したコピーなので、原本を直すだけでは更新が届きません。変更点と原本の場所を伝え、受け取った側で差し替えを確認する運用を提案します。</p>
+        <p class="mb-6">Gems の移行は Gemini アプリ側の話です。Workspace の skills と自動同期する説明ではないため、社内案内でも区別してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">原本に何を残すか</h2>
+        <p class="mb-6">社内で管理する原本には、指示と利用条件を一緒に残す案です。サービスを変える場合にも、必要な内容を取り出して確認できます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-gray-900 mb-2">原本に残す内容の例</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>指示文そのもの。そのまま貼り付けられるテキストの形で残す</li>
+<li>その指示文で何の仕事をするのか。対象の仕事と、使う人</li>
+<li>使ってはいけない情報。入力しない項目と、最後に人が見る範囲</li>
+</ul>
+</div>
+        <p class="mb-6">置き場所は、担当者以外も開ける社内文書などを選びます。考え方は<a href="/blog/ai-model-update-portable-instructions.html" class="text-emerald-600 hover:text-emerald-700 underline">引っ越せる指示書の記事</a>でも紹介しています。</p>
+        <p class="mb-6">PromnyAI の公式トップには、指示テンプレートを保存してチームで共有するプロンプトライブラリが紹介されています。共通の指示を置く候補として検討できます。</p>
+        <p class="mb-6">Workspace skills 連携や SKILL.md 取り込みは公式トップに記載されていません。これらを使える前提にはせず、必要なら利用可否を問い合わせてください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">原本は誰が持ち、コピーはどう直すか</h2>
+        <p class="mb-6">原本の管理担当と、変更を知らせる方法も決めておきます。以下は人数や組織の形を固定しない、運用のたたき台です。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">社内で決める順番</p>
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>原本の管理担当と置き場所を決める</li>
+<li>対象の仕事と配る範囲を決める</li>
+<li>配る前に利用条件と共有設定を確認する</li>
+<li>更新時の連絡方法と差し替えの確認方法を決める</li>
+</ul>
+</div>
+        <p class="mb-6">更新時は、指示文の変更箇所と適用する仕事を伝えます。受け取った側が手元で加えた内容も確認してから差し替えると、残す変更を判断できます。</p>
+        <p class="mb-6">PromnyAI では、管理者によるアカウント発行・削除が公式に案内されています。利用者の管理と指示文の管理は別の仕事として、担当間の連絡方法も決めましょう。</p>
+        <p class="mb-6">指示の参照元を整理する際は、<a href="/blog/company-info-5-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">自社情報の整理記事</a>も参考にできます。参照先を変えたときは、利用者が開けるかも確認してください。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">共有前後の確認事項</h2>
+        <ul class="space-y-2 mb-6">
+<li>・指示文と社内ルールを、担当者以外も確認できる場所に置く</li>
+<li>・Workspace skills は対象・展開状況・管理設定を確認する</li>
+<li>・利用条件は、英語のみ／Sheets と Meet は未対応／共有はコピー／Drive の参照権限／Gemini アプリと非同期</li>
+<li>・原本には指示文・対象の仕事・入れない情報を残す案</li>
+<li>・原本を持つ人と、直したときの伝え方を先に決める</li>
+</ul>
+        <p class="mb-6">原本の置き場所と更新の伝え方を、指示文と一緒に共有しましょう。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">指示文をチームで共有する方法の検討に、サービス資料をご覧ください。必要な機能はお問い合わせでも確認できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">Google Workspace Updates：skills の公式発表（2026年11月10日）</a></li><li><a href="https://promnyai.com/" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI 公式トップ（2026年11月12日確認）</a></li><li><a href="/blog/ai-model-update-portable-instructions.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：引っ越せる指示書</a></li><li><a href="/blog/company-info-5-categories.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：自社情報の整理</a></li><li><a href="/blog/new-ai-model-switch-3-steps.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：新モデルへの切り替え手順</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

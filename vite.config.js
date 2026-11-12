@@ -84,6 +84,7 @@ export default defineConfig({
         'blog-ai-token-pricing-usage-check': resolve(__dirname, 'blog/ai-token-pricing-usage-check.html'),
         'blog-ai-text-watermark-company-rule': resolve(__dirname, 'blog/ai-text-watermark-company-rule.html'),
         'blog-ai-model-update-portable-instructions': resolve(__dirname, 'blog/ai-model-update-portable-instructions.html'),
+        'blog-workspace-skills-team-instructions': resolve(__dirname, 'blog/workspace-skills-team-instructions.html'),
       },
     },
   },
