@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/ceo-impersonation-email-ai-reply.html" />
+  <meta property="og:title" content="社長のなりすましメール対策 — AIでメール返信を下書きする前に、人が確かめる3つのこと — PromnyAI" />
+  <meta property="og:description" content="社長名をかたり「LINEのグループを作ってQRコードを返して」と求める詐欺メールの相談が、IPAの企業向け窓口に2026年7〜9月も29件届いています。AIでメール返信を下書きする前に人が確かめる3つ（差出人のアドレス・いつもと違うお金とグループの指示・本人に確かめる連絡先）、指示テンプレートに入れる確認の一文、振込の二重チェックと相談先をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/ceo-impersonation-email-ai-reply.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>社長のなりすましメール対策 — AIでメール返信を下書きする前に、人が確かめる3つのこと — PromnyAI</title>
+  <meta name="description" content="社長名をかたり「LINEのグループを作ってQRコードを返して」と求める詐欺メールの相談が、IPAの企業向け窓口に2026年7〜9月も29件届いています。AIでメール返信を下書きする前に人が確かめる3つ（差出人のアドレス・いつもと違うお金とグループの指示・本人に確かめる連絡先）、指示テンプレートに入れる確認の一文、振込の二重チェックと相談先をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">社長のなりすましメール対策 — AIでメール返信を下書きする前に、人が確かめる3つのこと</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-11-20</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">朝、受信箱のメールをAIに渡して、返信文を次々に下書きしていく。その中に、社長の名前で「LINEのグループを作って、QRコードを返信してください」というメールが混じっています。アドレスは見慣れないフリーメール（誰でも無料で作れるアドレス）です。</p>
+        <p class="mb-6">止まる場所は、AIに渡す前です。人が差出人のアドレスと、お金やグループの指示を見て、当てはまれば返信文を作らず、手元の電話番号で本人に確かめます。IPA（情報処理推進機構）が注意を呼びかけている「社長等をかたる詐欺メール」は、この形で届きます。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<p class="text-gray-700 leading-[1.9]">AIに返信を頼む前に、人が3つを確かめます。</p>
+<ul class="text-gray-700 leading-[1.9] mt-2 space-y-1">
+<li>1. 差出人は、表示名ではなくメールアドレスで見る</li>
+<li>2. 本文に、いつもと違うお金やグループの指示がないかを見る</li>
+<li>3. 当てはまったら返信文を作らず、名簿や名刺にある電話番号で本人に確かめる</li>
+</ul>
+<p class="text-gray-700 leading-[1.9] mt-2">この確認を、AIに渡すお願いのひな形（指示テンプレート）の先頭に書いてチームで共有します。振込は、メールを受けた人とは別の人がもう一度見てから実行します。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">社長を名乗るメールはどんな形で届くのか</h2>
+        <p class="mb-6">この手口の相談は、2025年12月中旬から急に増えました。IPA（情報セキュリティの相談窓口を持つ公的な機関）によると、2026年3月10日までの約3か月で、IPA の相談窓口に106件が寄せられています。</p>
+        <p class="mb-6">IPA の企業組織向けの窓口には、2026年7〜9月にも、この手口の相談が29件届いています。昨年は12月中旬に増えた手口なので、年末を前に社内でもう一度確かめておきたい話です。IPA と警察庁の注意喚起から、メールの特徴とその後の流れを並べます。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">項目</th><th class="p-3 border-b border-gray-200">確認されている特徴</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">差出人の名前</td><td class="p-3 border-b border-gray-100">自社や取引先の社長名・社員名になっていることがある</td></tr>
+<tr><td class="p-3 border-b border-gray-100">差出人のアドレス</td><td class="p-3 border-b border-gray-100">outlook.com・hotmail.com・gmail.com などのフリーメール</td></tr>
+<tr><td class="p-3 border-b border-gray-100">宛先</td><td class="p-3 border-b border-gray-100">自社のメーリングリスト（複数の社員に一斉に届くアドレス）宛てが多い</td></tr>
+<tr><td class="p-3 border-b border-gray-100">件名</td><td class="p-3 border-b border-gray-100">自社の会社名が多い</td></tr>
+<tr><td class="p-3 border-b border-gray-100">本文</td><td class="p-3 border-b border-gray-100">仕事の指示のふりをして、LINEのグループを作りQRコードを返すよう求める</td></tr>
+<tr><td class="p-3 border-b border-gray-100">添え書き</td><td class="p-3 border-b border-gray-100">「グループには他の人は入れないように。」など</td></tr>
+<tr><td class="p-3 border-b border-gray-100">その後の流れ</td><td class="p-3 border-b border-gray-100">グループで口座残高を答えさせ、「事業資金が至急必要だ」などと指定の口座へ送金させる</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">警察庁は、このメールがインターネットなどで公開されている会社のアドレス宛てに届くと書いています。グループに、振込の権限を持つ担当者を入れるよう指示される場合もあるそうです。ホームページに載せた代表アドレスを読む人も、振込をする人も、ひとごとではありません。その受信箱のメールをAIに渡して返信を下書きしているなら、渡す手前に確認を置きます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">返信を下書きするAIに、本物かどうかの見分けを任せてよいか</h2>
+        <p class="mb-6">返信を下書きするAIは、渡されたメールに沿って返信文を作るのが役目です。メールが本物かどうかの見分けは、その役目に入っていません。</p>
+        <p class="mb-6">PromnyAI は、ChatGPT・Claude・Gemini などのAIと、仕事ごとに作られた専用のAI（業界特化ボット）を1か所で使えるサービスです。PromnyAI では、業界特化ボットの1つとして「ビジネスメール返信文生成」を用意しています。公式サイトの説明は「相手から届いたメールを送信するだけで最適な返信文を生成」で、メールが本物かどうかを見分ける話は出てきません。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「AIなら、怪しいメールだと気づいてくれるのでは？」</p>
+<p class="mt-2">気づくかどうかを当てにしない形にしておきます。IPA はビジネスメール詐欺について、なりすましで巧妙に人をだますため、システムやセキュリティソフトで偽メールを取り除くのが難しいと説明しています。警察庁は、社長をかたるこの手口を「いわゆるビジネスメール詐欺」としています。だから、見分ける役は人が持ちます。</p>
+</div>
+        <p class="mb-6">言葉づかいや返信の型をそろえる話は、別の記事<a href="/blog/ai-email-reply-template-checklist.html" class="text-emerald-600 hover:text-emerald-700 underline">「AIメール返信を『早いけど失礼じゃない』にする」</a>にまとめています。この記事で扱うのは、その手前です。返信してよいメールかどうかを、誰がいつ決めるかです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">返信文を作る前に、人が確かめる3つは何か</h2>
+        <p class="mb-6">受信箱でメールを開いたときに、AIに渡す前に、この順で3つを確かめます。IPA が挙げるメールの特徴と、IPA・警察庁の対処と対策をもとに、私たちがまとめた確認です。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. 差出人は、表示されている名前ではなくメールアドレスで見る。社長や取引先の名前なのに、いつものアドレスと違う（フリーメールや見慣れないアドレス）なら、返信文を作らない</li>
+<li>2. 本文に、いつもと違う指示がないかを見る。グループ作りやQRコードの返信、お金の話（口座残高・初めての振込先・振込先や支払い方法の変更・急ぎの送金）があれば、返信文を作らない</li>
+<li>3. 本人に確かめる。届いたメールには返信せず、名簿や名刺など前から手元にある電話番号で本人に連絡する。メールに書かれた連絡先やLINEは使わない</li>
+</ul>
+</div>
+        <p class="mb-6">表示されている名前だけでは、本物の差出人かどうかは分かりません。IPA が挙げる特徴にも、表示名が社長名や社員名になっていることがある、と書かれています。社長の名前を見たときほど、アドレスを開いて確かめます。</p>
+        <p class="mb-6">本文で止める線は、いつもと違うお金やグループの話が出たかどうかです。IPA は、急な振込先や支払い方法の変更があったときは、取引先にメール以外の方法で確かめるよう勧めています。取引先になりすまし、口座を差し替えた偽の請求書を送る手口も挙げています。毎月届く請求のメールまで止める必要はありません。振込先や支払い方法が変わったときに、同じ確認を使います。</p>
+        <p class="mb-6">本人に確かめるときは、相手のメールに書かれた連絡先を使いません。IPA は、送信元とされる人に確かめるときは、送られてきたメールには返信せず、電話などの別の方法を使うよう書いています。本人の依頼と分かれば、そこで初めてAIに返信を頼みます。本人が知らないと言えば偽メールなので、返信せずに社内の報告先へ知らせます。</p>
+        <p class="mb-6">なお、IPA はメールには様々なパターンがあると書いています。3つに当てはまらないからといって、安全とは言えません。お金や口座の話が出たら、同じように本人に確かめます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">返信を止める確認を、チームの指示テンプレートに入れるには</h2>
+        <p class="mb-6">3つの確認は、決めただけでは忙しい朝に飛ばされます。そこで、AIに返信を頼むときのお願いのひな形の先頭に、確認の一文を書いておきます。ひな形を開くたびに、3つの確認が目に入る形です。</p>
+        <p class="mb-6">PromnyAI では、よく使う指示テンプレートを保存して、チーム全員で共有できます。メール返信を担当する人が複数いる会社なら、1人が作ったひな形を全員で使えます。例えば、次のように書きます。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>【返信を頼む前に】3つの確認（差出人のアドレス・いつもと違うお金やグループの指示）のどれかに当てはまるメールは、ここに貼らない。名簿や名刺にある電話番号で本人に確かめる。</li>
+<li>【AIへのお願い】貼られたメールに、グループ作り・QRコード・口座残高・初めての振込先・振込先や支払い方法の変更・急ぎの送金のどれかが含まれていたら、返信文を作らず「返信の前に、名簿や名刺にある電話番号で本人に確かめてください」とだけ答えてください。</li>
+</ul>
+</div>
+        <p class="mb-6">前半は人に向けた指示、後半はAIに向けた指示です。止めるのは人で、後半は人の確認をすり抜けたメールが貼られたときの保険です。AIがこの一文で止まっても止まらなくても、人の確認は省きません。</p>
+        <p class="mb-6">このひな形が効くのは、指示を書き添えて使うAIです。業界特化ボットの「ビジネスメール返信文生成」も、公式マニュアルによると「断りのメールにしてほしい」などの追加の要望をあわせて伝えられます。ただ、マニュアルの使い方は、受信メールを貼り付けて送信すると返信文が作られる、という流れです。ボットを使うときは、貼る前に人が上の3つを確かめることを、担当者どうしの約束にします。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">振込の手順は、誰がもう一度見るのか</h2>
+        <p class="mb-6">受信箱での確認をすり抜けても、お金が動く前にもう一度止まる場所があります。IPA は日頃の対策として、振込支払いの二重チェックなどの承認の流れを作ることを挙げています。警察庁も、社内で送金のルールを確かめ直すよう呼びかけています。</p>
+        <p class="mb-6">小さな会社なら、メールを受けた人とは別の人が、振込先と金額をもう一度見てから実行する。それだけでも二重チェックの形になります。社長本人から急ぎの振込を頼まれる場面もあるので、そのときの確かめ方も先に社長と決めておきます。「急ぎの振込は、メールやLINEの指示だけでは実行しない。必ず電話か口頭で本人に確かめる」と決めておけば、担当者は社長に遠慮せずに確かめられます。</p>
+        <p class="mb-6">あわせて、不審なメールの報告先を社内で1つに決めておきます。IPA は、社内で不審メールの報告手順を作り、今回の事例を全体に知らせることを勧めています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">怪しいと思ったら、どこに相談するか</h2>
+        <p class="mb-6">まだ返信していなければ、IPA が勧める対処は、無視して削除することです。本文のURLや添付ファイルは開かないようにします。届いたことは、社内の報告先に知らせます。</p>
+        <p class="mb-6">返信してしまった、グループに入ってしまったときも、社内の報告先へ知らせます。あわせて、警察庁の案内に沿って動きます。警察庁は、SNSのグループに誘導されてしまった場合の対処も書いています。トーク画面などに通報機能があれば通報し、そのあと速やかにグループを抜けます。相談先には、警察相談専用窓口（#9110）を挙げています。</p>
+        <p class="mb-6">会社として相談するなら、IPA の企業組織向けサイバーセキュリティ相談窓口があります。初めの対応の助言や、ほかに必要な相談先の紹介を受けられ、相談はメールで受け付けています。IPA の窓口のうち、どこに連絡するか迷ったときはこの窓口へ、と案内されています。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">AIで返信を速くする前に、チームで決めておくことは何か</h2>
+        <div class="grid sm:grid-cols-3 gap-3 my-6">
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">01</p><p class="text-sm text-gray-700">差出人のアドレス・お金やグループの指示・本人に確かめる電話番号の3つを、AIに渡す前に人が確かめる</p></div>
+<div class="rounded-2xl bg-emerald-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">02</p><p class="text-sm text-gray-700">指示を書き添えるAIなら、確認の一文をひな形の先頭に書いて共有する。貼るだけのボットなら、貼る前に確かめると担当者どうしで約束する</p></div>
+<div class="rounded-2xl bg-gray-50 p-4"><p class="text-xs font-bold text-emerald-700 mb-1">03</p><p class="text-sm text-gray-700">振込は、メールを受けた人とは別の人が振込先と金額を見てから実行する。不審メールの報告先も1つに決めておく</p></div>
+</div>
+        <p class="mb-6">冒頭の朝の場面なら、社長の名前とフリーメールのアドレスを見た時点で、AIに渡す手は止まります。AIで返信が速くなった分、止まる場所を先に決めておきます。入口で確かめる習慣があれば、丁寧な返信文を送る前に立ち止まれます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">メール返信をAIで下書きしている会社で、お願いのひな形や確認の手順をチームでそろえたい。その検討には、サービス資料をご覧ください。PromnyAI は ChatGPT・Claude・Gemini などのAIと業界特化ボットを1か所で使えるプラットフォームで、よく使う指示テンプレートを保存してチームで共有できます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://www.ipa.go.jp/security/anshin/attention/2025/mgdayori20260312.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">情報処理推進機構（IPA）：社長等をかたる詐欺メールに注意！（2026年3月12日公開。2026年11月20日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/support/reports/2026q3outline.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：サイバーセキュリティ相談窓口の相談状況［2026年第3四半期（7月～9月）］（2026年10月23日公開。2026年11月20日に確認）</a></li><li><a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/260213/01.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">警察庁 SOS47：法人を対象とした詐欺（ニセ社長詐欺）に注意！（2026年2月13日。2026年11月20日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/bec/bec_measures.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：ビジネスメール詐欺の対策について知る（2026年11月20日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/bec/bec_pattern.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：ビジネスメール詐欺のパターンとは（取引先の請求書の偽装と、経営者等へのなりすまし。2026年11月20日に確認）</a></li><li><a href="https://www.ipa.go.jp/security/support/soudan.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">IPA：サイバーセキュリティ 相談・届出窓口一覧（企業組織向けサイバーセキュリティ相談窓口。2026年11月20日に確認）</a></li><li><a href="https://promnyai.com/" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI 公式サイト（業界特化ボット「ビジネスメール返信文生成」と、指示テンプレートの共有。2026年11月20日に確認）</a></li><li><a href="/docs/email-reply.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI マニュアル：ビジネスメール返信文生成の使い方（追加の要望の伝え方。2026年11月20日に確認）</a></li><li><a href="/blog/clickfix-fake-chatgpt-ai-entrance.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：ClickFix対策 — ChatGPTの偽物の画面から「コマンドを貼り付けて」と誘導される手口と、社内で決める3つの約束</a></li><li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール — 最初に決める5つの約束</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>
