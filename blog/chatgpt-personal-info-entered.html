@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://promnyai.com/blog/chatgpt-personal-info-entered.html" />
+  <meta property="og:title" content="ChatGPTに個人情報を入れてしまったら — 会話を消す前に書き留める5つと、会社で確かめる先 — PromnyAI" />
+  <meta property="og:description" content="ChatGPTにお客様の氏名や電話番号を入れてしまったとき、慌てて会話を消すと何を入れたか説明できなくなります。削除は元に戻せないため、消す前に書き留める5つの項目、ChatGPTで見直す4つ（会話の削除・学習の設定・メモリ・共有リンク）、報告が要るかを確かめる個人情報保護委員会とIPAの窓口をまとめます。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://promnyai.com/blog/chatgpt-personal-info-entered.html" />
+  <meta property="og:image" content="https://promnyai.com/promnyai-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@promnyai" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPTに個人情報を入れてしまったら — 会話を消す前に書き留める5つと、会社で確かめる先 — PromnyAI</title>
+  <meta name="description" content="ChatGPTにお客様の氏名や電話番号を入れてしまったとき、慌てて会話を消すと何を入れたか説明できなくなります。削除は元に戻せないため、消す前に書き留める5つの項目、ChatGPTで見直す4つ（会話の削除・学習の設定・メモリ・共有リンク）、報告が要るかを確かめる個人情報保護委員会とIPAの窓口をまとめます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <style>body{opacity:0}body.loaded{opacity:1;transition:opacity .15s ease-in}</style>
+</head>
+<body class="bg-white text-gray-700 antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2">
+          <img src="/promnyai-logo.png" alt="PromnyAI" class="h-8 sm:h-9" />
+          <span class="text-[10px] sm:text-xs text-gray-400 tracking-wide">プロムニーエーアイ</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
+          <a href="/#features" class="hover:text-emerald-600 transition-colors">機能紹介</a>
+          <a href="/#services" class="hover:text-emerald-600 transition-colors">サービス</a>
+          <a href="/#pricing" class="hover:text-emerald-600 transition-colors">料金プラン</a>
+          <a href="/blog/" class="hover:text-emerald-600 transition-colors">ブログ</a>
+          <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お申し込みはこちら</a>
+        </div>
+        <button id="menu-toggle" class="lg:hidden p-2 text-gray-600" aria-label="メニュー">
+          <span class="material-icons-outlined text-[28px]">menu</span>
+        </button>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-b border-gray-100">
+        <nav class="flex flex-col gap-4 py-6 text-sm font-medium text-gray-600">
+          <a href="/#features">機能紹介</a>
+          <a href="/#services">サービス</a>
+          <a href="/#pricing">料金プラン</a>
+          <a href="/blog/">ブログ</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <hr class="border-gray-100" />
+          <a href="https://promnyai.jp/" target="_blank" rel="noopener noreferrer" class="text-center">ログイン</a>
+          <a href="https://promnyai.jp/apply" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold">お申し込みはこちら</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="fade-in visible mb-10">
+        <span class="section-label">Blog / AI活用の注意点</span>
+        <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">ChatGPTに個人情報を入れてしまったら — 会話を消す前に書き留める5つと、会社で確かめる先</h1>
+        <p class="mt-6 text-xs text-gray-400">2026-11-27</p>
+      </div>
+      <article class="fade-in visible text-base text-gray-600 leading-[1.8]">
+        <p class="mb-6">お客様からの問い合わせメールを丸ごと ChatGPT に貼り、返信の下書きを頼む。送ったあとで、署名にお客様の氏名と電話番号が入っていたと気づく。</p>
+        <p class="mb-6">慌てて会話を消す前に、入れたものを5つの項目で書き留めます。ChatGPT を提供する OpenAI のヘルプに、削除した会話は元に戻せないとあるからです。書き留めてから会話を消し、学習の設定やメモリを見直します。</p>
+        <div class="bg-emerald-50 rounded-2xl p-5 my-6">
+<p class="font-bold text-emerald-900 mb-2">この記事の結論</p>
+<ul class="text-gray-700 leading-[1.9] space-y-1">
+<li>1. 消す前に、入れた中身を5つの項目で書き留める</li>
+<li>2. ChatGPT で、共有リンク・会話・学習の設定・メモリの4つを見直す</li>
+<li>3. 国への報告が要るかは社内の推測で決めず、個人情報保護委員会のページで調べる</li>
+</ul>
+</div>
+        <p class="mb-6">入れた本人でも、報告を受けた上司でも、やることは同じです。社員から「入れてしまいました」と言われたら、上司は消すのを止めて、先に一緒に書き留めます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">慌てて消すと、何が分からなくなるのか</h2>
+        <p class="mb-6">先に消してしまうと、何を何人分入れたのかを、あとから説明できなくなります。上司に経緯を説明する場面でも、国の機関への報告が要るかを調べるときにも、この中身が要ります。個人情報保護委員会（個人情報の扱いを見る国の機関）のページにある報告の条件にも、情報の種類や人数に関わるものがあります。</p>
+        <p class="mb-6">一方で、消したものは戻りません。2026年11月27日時点の OpenAI のヘルプによると、削除した会話はすぐに画面から消えます。30日以内に、OpenAI のシステムからも削除される予定です。安全や法令のために長く残す場合などの例外はあります。サポートに頼んでも、削除した会話は戻せません。</p>
+        <p class="mb-6">会話を消したあとは、入れた本人の記憶が頼りになります。もう消してしまったときも、覚えている範囲で同じ5つを書き留めます。思い出せない欄は「不明」と書いておきます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">入れた個人情報は、どの5つの項目で書き留めるか</h2>
+        <p class="mb-6">記録は紙でも社内のメモでもかまいません。気をつけたいのは、記録に個人情報そのものを写さないことです。氏名や電話番号を書き写すと、同じ情報が社内にもう1か所増えます。書くのは「どの種類の情報を、何人分」までにします。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-2 text-gray-700 leading-[1.8]">
+<li>1. いつ入れたか（日付と時刻）</li>
+<li>2. 誰が入れたか（入れた人の名前）</li>
+<li>3. どのアカウントか（個人で登録した ChatGPT か、会社で契約したプランか。学習の設定がオンだったか）</li>
+<li>4. 入れた情報の種類と人数（例：氏名・電話番号・注文内容を、お客様1人分）</li>
+<li>5. その会話をどうしたか（共有リンクを作ったか、まだ消していないか）</li>
+</ul>
+</div>
+        <p class="mb-6">アカウントの種類は、次の章で設定を見直すときにも使います。OpenAI の説明では、個人向けの無料版・有料版と、会社向けの契約とで、学習の扱いが違うためです。</p>
+        <p class="mb-6">共有リンクの欄は、会話を人に見せるためのリンクを作っていないかを確かめる欄です。リンクがあれば、会話を見られる人がほかにもいることになります。この欄は、会話を消す前に埋めておきます。記録が済んだら、ChatGPT の側を片づけます。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">ChatGPT では、どの画面で何を直すのか</h2>
+        <p class="mb-6">見直す場所は4つで、上から順に進めます。画面の項目名は、私たちが OpenAI の日本語版ヘルプで確かめた表記です。日本語版ヘルプは機械翻訳なので、画面の表示と少し違うことがあります。</p>
+        <div class="bg-gray-50 rounded-2xl p-5 my-6">
+<ul class="space-y-3 text-gray-700 leading-[1.8]">
+<li><span class="font-bold text-gray-900">1. 共有リンクを見る：</span>「設定」→「データコントロール」→「共有リンク」の「管理」。作ったリンクがあれば「共有リンクを削除」を選ぶ</li>
+<li><span class="font-bold text-gray-900">2. 会話を削除する：</span>チャットの履歴で、その会話の「•••」から「削除」を選び、確認の画面で削除を確定する。「アーカイブ」は一覧から隠すだけで、削除にならない</li>
+<li><span class="font-bold text-gray-900">3. 学習の設定を見直す：</span>「設定」→「データコントロール」→「すべての人のためにモデルを改善する」。オンならオフにする</li>
+<li><span class="font-bold text-gray-900">4. メモリを見る：</span>「設定」→「パーソナライズ」→「メモリ」。入れた情報が覚えられていたら、その項目を消す</li>
+</ul>
+</div>
+        <p class="mb-6">学習の設定は、入れた内容をAIの改善（学習）に使うかどうかを決める設定です。個人向けの ChatGPT（無料版・Plus・Pro）では最初からオンです。会社や学校向けのプラン（ChatGPT Business・Enterprise・Edu）は、最初から学習に使わない扱いです。記録に書いたアカウントの種類で、どちらに当たるかが分かります。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「学習の設定をオフにすれば、入れた会話も学習に使われなくなるのか」</p>
+<p class="mt-2">オフにして変わるのは、そのあとの新しい会話です。OpenAI の説明では、オフにしたあとの新しい会話を学習に使いません。すでに送った会話は設定を変えても消えないので、会話の削除と組み合わせます。回答に「いいね」「よくないね」の評価を付けた会話は、オフでも学習に使われることがある、と同じヘルプにあります。入れてしまった会話には評価を付けないでおきます。</p>
+</div>
+        <p class="mb-6">メモリは、ChatGPT が好みや前の話を覚えておく機能です。会話を消しても、その会話から作られたメモリが消えるとは限りません。OpenAI のヘルプは、メモリの項目を消すことと、もとの会話を消すことの両方を挙げています。片方だけで済ませないようにします。ChatGPT の側の手当ては、ここまでです。</p>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">個人情報を入れたことの報告が要るかは、どこで確かめるか</h2>
+        <p class="mb-6">ChatGPT の側を片づけても、国への報告が要るかどうかはまだ決まっていません。「たぶん大丈夫」で終わらせると、あとから説明がつかなくなります。</p>
+        <p class="mb-6">個人情報保護委員会の「漏えい等の対応」のページには、報告が求められる場合と報告の期限、報告のフォームが載っています。業種によっては、報告先が委員会ではなく、その業種を受け持つ省庁になります。このページに、AIに入力した場面の記載はありませんでした。読み方で分からない点は、同じ委員会の相談ダイヤルに質問できます。</p>
+        <div class="overflow-x-auto my-6">
+<table class="w-full text-sm text-left border border-gray-200">
+<thead class="bg-gray-50 text-gray-900"><tr><th class="p-3 border-b border-gray-200">知りたいこと</th><th class="p-3 border-b border-gray-200">開く先と、そこに書かれていること</th></tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-gray-100">報告が要る場合の条件と報告先</td><td class="p-3 border-b border-gray-100">個人情報保護委員会「漏えい等の対応」。報告が求められる場合の一覧、業種ごとの報告先、報告のフォーム</td></tr>
+<tr><td class="p-3 border-b border-gray-100">ガイドラインやQ&amp;Aの読み方で分からない点</td><td class="p-3 border-b border-gray-100">個人情報保護委員会「個人情報保護法相談ダイヤル」。電話のみで、9:30〜17:30（土日祝日と年末年始を除く）</td></tr>
+<tr><td class="p-3 border-b border-gray-100">アカウントに身に覚えのないログインがあるなど、不正アクセスを疑うとき</td><td class="p-3 border-b border-gray-100">IPA（情報処理推進機構）「企業組織向けサイバーセキュリティ相談窓口」。会社が最初に取る対応の相談をメールで受け付ける。個人のパソコンやスマートフォンの相談は別の窓口</td></tr>
+</tbody>
+</table>
+</div>
+        <p class="mb-6">お客様にお知らせするかどうかも、社内の推測で決めません。「漏えい等の対応」のページには、お客様への知らせ方の記載は見当たりませんでした。同じ委員会のガイドラインやQ&amp;Aを読み、それでも判断が難しいときは、弁護士などの専門家に相談します。</p>
+        <div class="my-6 p-5 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 leading-[1.8]">
+<p class="font-bold text-gray-900 mb-2">読者の疑問</p>
+<p>「うちのような小さな会社が、委員会に電話してもいいのか」</p>
+<p class="mt-2">電話で相談できます。相談ダイヤルのページに、事業者からの個人情報の扱いの相談も受けると書かれています。名前を言わずに相談することもできます。一方で、ガイドラインやQ&amp;Aに載っていない相談や、自社の件が適法か違法かの判断を求める相談には応じない、とも書かれています。電話の前に、5つの項目を書き留めたメモを手元に置いておくと、状況を説明しやすくなります。</p>
+</div>
+
+        <h2 class="text-lg font-bold text-gray-900 mt-12 mb-4">次に貼らないために、会社で何を決めておくか</h2>
+        <p class="mb-6">手当てが終わったら、同じことが起きにくい形にします。決めておきたいのは3つです。</p>
+        <p class="mb-6">1つ目は、仕事で使うAIのアカウントを決めることです。社員が個人で登録した ChatGPT に仕事のメールを貼ると、学習の設定は本人まかせになります。会社で契約したプランやサービスにそろえると、設定を会社の側で決められます。どこまで決められるかはプランで違うので、契約の前に確かめます。</p>
+        <p class="mb-6">選ぶときの一例として、私たちのサービスも挙げておきます。PromnyAI は、ChatGPT・Claude・Gemini などのAIを、会社で1か所にまとめて使うためのサービスです。PromnyAI は、入力したデータをAIの学習に使いません。管理者がメンバーのアカウントの発行と削除をまとめて管理でき、誰がどのAIをどれだけ使ったかを利用ログで確かめられます。</p>
+        <p class="mb-6">2つ目は、貼る前に伏せる項目を決めることです。返信の下書きを頼むだけなら、お客様の氏名や電話番号が無くても書いてもらえます。要るのは問い合わせの中身です。氏名・電話番号・住所は「A様」「（電話番号）」に置き換えてから貼る、と決めておきます。会話のログを社内や社外に共有する前の伏せ方は、別の記事<a href="/blog/chatbot-conversation-log-redaction-memo.html" class="text-emerald-600 hover:text-emerald-700 underline">「AIチャットボットの会話ログをそのまま共有していないか」</a>にまとめています。</p>
+        <p class="mb-6">伏せるのは、設定を変えても残るものがあるからです。ChatGPT でも PromnyAI でも、AIの提供元は不正利用の見張りなどのため、入力と回答を一定の期間保存することがあります。PromnyAI の公式サイトも、個人情報やパスワードのような機密性の高い情報は、どのAIツールでも直接入れないよう勧めています。</p>
+        <p class="mb-6">3つ目は、言い出した社員を責めないと決めておくことです。責めると、次に気づいた人が黙ってしまい、手当てが遅れます。「入れてしまいました」と言われたとき、まず一緒に5つを書き留めるところから始めます。</p>
+
+        <div class="mt-12 p-6 bg-emerald-50 border border-emerald-100 rounded-2xl"><p class="text-sm font-semibold text-emerald-700 mb-2 flex items-center gap-2"><span class="material-icons-outlined text-[18px]">rocket_launch</span>PromnyAIを試してみる</p><p class="text-sm text-gray-700 leading-relaxed mb-4">仕事で使うAIのアカウントと設定を、個人まかせにせず会社でそろえたい。その検討には、サービス資料をご覧ください。PromnyAI は ChatGPT・Claude・Gemini などのAIを1か所で使えるプラットフォームで、管理者がメンバーのアカウントと利用状況をまとめて見られます。</p><div class="flex flex-col sm:flex-row gap-3"><a href="/download.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-white text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors">サービス資料をダウンロード<span class="material-icons-outlined text-[18px] ml-1">download</span></a><a href="/contact.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition-colors shadow-sm">お問い合わせ<span class="material-icons-outlined text-[18px] ml-1">arrow_forward</span></a></div></div>
+        <div class="mt-12 pt-8 border-t border-gray-100"><p class="text-sm font-bold text-gray-900 mb-3">参考にした公式情報・関連ページ（どれも2026年11月27日に確認）</p><ul class="space-y-2 text-base text-gray-600"><li><a href="https://help.openai.com/ja-jp/articles/8809935-how-to-delete-and-archive-chats-in-chatgpt" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI ヘルプ：ChatGPT でのチャットの削除とアーカイブ</a></li><li><a href="https://help.openai.com/ja-jp/articles/7925741-chatgpt-shared-links-faq" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI ヘルプ：ChatGPT での会話とスケジュール済みタスクの共有（共有リンクの管理と削除）</a></li><li><a href="https://help.openai.com/ja-jp/articles/7730893-data-controls-faq" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI ヘルプ：ChatGPT のデータコントロール（学習の設定・評価の扱い）</a></li><li><a href="https://help.openai.com/ja-jp/articles/8590148-memory-faq" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI ヘルプ：ChatGPT のメモリ</a></li><li><a href="https://openai.com/policies/how-your-data-is-used-to-improve-model-performance/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">OpenAI：How your data is used to improve model performance（2026年3月13日更新）</a></li><li><a href="https://www.ppc.go.jp/personalinfo/legal/leakAction/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：漏えい等の対応</a></li><li><a href="https://www.ppc.go.jp/personalinfo/pipldial/" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">個人情報保護委員会：個人情報保護法相談ダイヤル</a></li><li><a href="https://www.ipa.go.jp/security/support/soudan.html" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 underline">情報処理推進機構（IPA）：サイバーセキュリティ 相談・届出窓口一覧</a></li><li><a href="/" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：トップページ（よくある質問・管理機能）</a></li><li><a href="/security.html" class="text-emerald-600 hover:text-emerald-700 underline">PromnyAI：セキュリティ</a></li><li><a href="/blog/ai-privacy-checklist.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIに貼る前の個人情報チェックリスト</a></li><li><a href="/blog/chatbot-conversation-log-redaction-memo.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：AIチャットボットの会話ログをそのまま共有していないか</a></li><li><a href="/blog/company-ai-usage-rules.html" class="text-emerald-600 hover:text-emerald-700 underline">関連記事：小さな会社の生成AI利用ルール — 最初に決める5つの約束</a></li></ul></div>
+        <div class="mt-16 pt-8 border-t border-gray-100"><a href="/blog/" class="inline-flex items-center text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"><span class="material-icons-outlined text-[18px] mr-1">arrow_back</span>ブログ一覧に戻る</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="bg-gray-50 border-t border-gray-200 text-gray-500 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <a href="/"><img src="/promnyai-logo.png" alt="PromnyAI" class="h-6" /></a>
+          <a href="https://x.com/promnyai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="/docs/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">menu_book</span>マニュアル</a>
+          <a href="/blog/" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">article</span>ブログ</a>
+          <a href="/download.html" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-200 hover:bg-emerald-100 transition-colors"><span class="material-icons-outlined text-[16px]">download</span>サービス資料</a>
+        </div>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6 text-sm mt-6">
+        <a href="https://i-styleinc.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">運営会社</a>
+        <a href="/security.html" class="hover:text-emerald-600 transition-colors">セキュリティ</a>
+        <a href="/terms.html" class="hover:text-emerald-600 transition-colors">利用規約</a>
+        <a href="/privacy.html" class="hover:text-emerald-600 transition-colors">プライバシーポリシー</a>
+        <a href="/contact.html" class="hover:text-emerald-600 transition-colors">お問い合わせ</a>
+      </nav>
+      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-xs text-gray-400">&copy; PromnyAI</div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+<script
+  src="https://chatta-bot.com/widget.js"
+  data-api-key="f5dc9053-b3b2-4552-af7a-96e426f8af04"
+  data-color="#e8f1fc"
+  data-position="bottom-right"
+  data-greeting="こんにちは！何かお困りですか？"
+  data-title="プロムくん"
+  data-icon-url="https://gieezyptwfdvenvmcdnh.supabase.co/storage/v1/object/public/avatars/a9250168-be89-4a1f-814d-825ad36b765f/de1b2276-aed7-4d2b-915a-7d2b1347684b/1775025625854.png"
+  async
+></script>
+</body>
+</html>

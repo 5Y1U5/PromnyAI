@@ -86,6 +86,7 @@ export default defineConfig({
         'blog-ai-model-update-portable-instructions': resolve(__dirname, 'blog/ai-model-update-portable-instructions.html'),
         'blog-workspace-skills-team-instructions': resolve(__dirname, 'blog/workspace-skills-team-instructions.html'),
         'blog-ceo-impersonation-email-ai-reply': resolve(__dirname, 'blog/ceo-impersonation-email-ai-reply.html'),
+        'blog-chatgpt-personal-info-entered': resolve(__dirname, 'blog/chatgpt-personal-info-entered.html'),
       },
     },
   },
